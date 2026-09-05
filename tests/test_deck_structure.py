@@ -78,6 +78,16 @@ def test_official_brand_identity():
     assert "#D4A836" in html, "Calibrated Mariam gold (#D4A836) must be configured in index.html"
     assert "#091410" in html, "Calibrated obsidian-olive background (#091410) must be present in index.html"
 
+def test_mariam_deck_preserved():
+    assert os.path.exists("mariam.html"), "mariam.html must exist as a preserved copy of the Mariam deck"
+    with open("mariam.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert "Mariam Food Industries" in html, "mariam.html must contain Mariam Food Industries branding"
+
+def test_khaeer_alwadi_logo_assets():
+    assert os.path.exists("khaeer-alwadi-logo.png"), "khaeer-alwadi-logo.png must exist"
+    assert os.path.exists("khaeer-alwadi-logo-gold.png"), "khaeer-alwadi-logo-gold.png must exist"
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -102,6 +112,12 @@ class TestDeckStructure(unittest.TestCase):
 
     def test_official_brand_identity(self):
         test_official_brand_identity()
+
+    def test_mariam_deck_preserved(self):
+        test_mariam_deck_preserved()
+
+    def test_khaeer_alwadi_logo_assets(self):
+        test_khaeer_alwadi_logo_assets()
 
 if __name__ == '__main__':
     unittest.main()
