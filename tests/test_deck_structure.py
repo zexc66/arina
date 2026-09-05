@@ -106,6 +106,22 @@ def test_bilingual_slides_1_to_3():
     assert "Damietta" in html and "دمياط" in html
     assert "WhatsApp Image 2026-09-05 at 12.52.18 PM.jpeg" in html
 
+def test_bilingual_slides_4_and_5():
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    # Arabic and English product portfolio assertions
+    assert "تشكيلة زيتون المائدة" in html or "زيتون المائدة" in html, "Slide 4 Arabic title required"
+    assert "المخللات التخصصية" in html, "Slide 5 Arabic title required"
+    assert "بيكوال" in html or "مانزانيلا" in html, "Arabic cultivar names required"
+    assert "بيبرونشيني" in html or "فلفل أصفر" in html, "Arabic pepperoncini required"
+    assert "طرشي بلدي" in html or "طرشي" in html, "Arabic turshi required"
+    assert "خيار مقرمش" in html or "مخلل خيار" in html, "Arabic pickled cucumber required"
+    assert "WhatsApp Image 2026-09-05 at 12.52.20 PM.jpeg" in html
+    assert "WhatsApp Image 2026-09-05 at 12.52.17 PM (5).jpeg" in html
+    assert "WhatsApp Image 2026-09-05 at 12.52.16 PM (2).jpeg" in html
+    assert "WhatsApp Image 2026-09-05 at 12.52.18 PM (2).jpeg" in html
+    assert "WhatsApp Image 2026-09-05 at 12.52.19 PM.jpeg" in html
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -142,6 +158,9 @@ class TestDeckStructure(unittest.TestCase):
 
     def test_bilingual_slides_1_to_3(self):
         test_bilingual_slides_1_to_3()
+
+    def test_bilingual_slides_4_and_5(self):
+        test_bilingual_slides_4_and_5()
 
 if __name__ == '__main__':
     unittest.main()
