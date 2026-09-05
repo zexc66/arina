@@ -232,6 +232,59 @@ class TestDeckStructure(unittest.TestCase):
     def test_bilingual_slides_4_and_5(self):
         test_bilingual_slides_4_and_5()
 
+def test_mobile_deck_and_pdf_export():
+    assert os.path.exists("Khaeer-Alwadi-Mobile-Deck.pdf"), "Mobile PDF must exist"
+    assert os.path.exists("Khaeer-Alwadi-Presentation-Deck.pdf"), "Presentation PDF must exist"
+    assert os.path.exists("Khaeer-Alwadi-B2B-Deck.pdf"), "B2B Deck PDF must exist"
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert 'id="pdf-modal"' in html, "PDF export modal required in index.html"
+    assert 'orientation: portrait' in html, "Mobile portrait print media query required"
+    assert 'id="mobile-rotate-banner"' in html, "Mobile rotation suggestion banner required"
+    assert 'touchstart' in html and 'touchend' in html, "Mobile touch swipe support required"
+    assert 'Khaeer-Alwadi-Mobile-Deck.pdf' in html, "Link to mobile deck PDF required in index.html"
+    assert 'Khaeer-Alwadi-Presentation-Deck.pdf' in html, "Link to presentation deck PDF required in index.html"
+
+class TestDeckStructure(unittest.TestCase):
+    def test_index_file_exists(self):
+        test_index_file_exists()
+
+    def test_deck_contains_9_slides_and_nav(self):
+        test_deck_contains_9_slides_and_nav()
+
+    def test_slides_1_to_3_content(self):
+        test_slides_1_to_3_content()
+
+    def test_slides_4_and_5_products(self):
+        test_slides_4_and_5_products()
+
+    def test_slides_6_and_7_packaging_and_oem(self):
+        test_slides_6_and_7_packaging_and_oem()
+
+    def test_slides_8_and_9_specs_and_contact(self):
+        test_slides_8_and_9_specs_and_contact()
+
+    def test_lightbox_modal_and_print_rules(self):
+        test_lightbox_modal_and_print_rules()
+
+    def test_official_brand_identity(self):
+        test_official_brand_identity()
+
+    def test_mariam_deck_preserved(self):
+        test_mariam_deck_preserved()
+
+    def test_khaeer_alwadi_logo_assets(self):
+        test_khaeer_alwadi_logo_assets()
+
+    def test_bilingual_shell_and_branding(self):
+        test_bilingual_shell_and_branding()
+
+    def test_bilingual_slides_1_to_3(self):
+        test_bilingual_slides_1_to_3()
+
+    def test_bilingual_slides_4_and_5(self):
+        test_bilingual_slides_4_and_5()
+
     def test_bilingual_slides_6_and_7(self):
         test_bilingual_slides_6_and_7()
 
@@ -240,6 +293,9 @@ class TestDeckStructure(unittest.TestCase):
 
     def test_bilingual_modals_and_print(self):
         test_bilingual_modals_and_print()
+
+    def test_mobile_deck_and_pdf_export(self):
+        test_mobile_deck_and_pdf_export()
 
 if __name__ == '__main__':
     unittest.main()

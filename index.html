@@ -248,20 +248,89 @@
       cursor: pointer;
     }
 
-    /* Dedicated Print-to-PDF Engine (Agency Standard 9-Page Landscape Architecture) */
-    @media print {
-      @page {
-        size: landscape;
-        margin: 0;
+    /* Mobile Portrait Responsive Presentation Architecture */
+    @media (max-width: 768px) and (orientation: portrait) {
+      body {
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        align-items: flex-start !important;
       }
+      #presentation-viewport {
+        width: 100vw !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        display: block !important;
+      }
+      #deck-container {
+        width: 100vw !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        border: none !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+      }
+      .slide {
+        position: relative !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        padding: 14px 14px 105px 14px !important;
+        display: none !important;
+      }
+      .slide.active {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        gap: 14px !important;
+      }
+      .slide .grid-cols-12 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+      }
+      .slide .col-span-12,
+      .slide .col-span-7,
+      .slide .col-span-5,
+      .slide .col-span-8,
+      .slide .col-span-4 {
+        width: 100% !important;
+      }
+      .slide .grid-cols-4,
+      .slide .grid-cols-5,
+      .slide .grid-cols-6 {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+      }
+      .slide .grid-cols-3 {
+        display: grid !important;
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+      }
+      #nav-dock {
+        width: calc(100vw - 20px) !important;
+        max-width: 480px !important;
+        justify-content: space-between !important;
+        padding: 6px 10px !important;
+        bottom: 10px !important;
+        gap: 1.5px !important;
+      }
+    }
+
+    /* Dedicated Print-to-PDF Engine (Agency Standard 9-Page Landscape Architecture) */
+    @page {
+      size: landscape;
+      margin: 0;
+    }
+    @media print {
       html, body {
         background: #091410 !important;
         color: #F8FAFC !important;
         margin: 0 !important;
         padding: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        overflow: visible !important;
+        width: 297mm !important;
+        height: 210mm !important;
+        overflow: hidden !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -275,7 +344,7 @@
       #presentation-viewport,
       #deck-container {
         display: block !important;
-        width: 100% !important;
+        width: 297mm !important;
         height: auto !important;
         min-height: 0 !important;
         max-width: none !important;
@@ -289,7 +358,7 @@
         background: transparent !important;
         transform: none !important;
       }
-      /* All 9 slides display sequentially in print with full flexbox preservation */
+      /* All 9 slides display sequentially in print with exact physical page bounds */
       .slide,
       .slide.hidden,
       .slide.active {
@@ -301,11 +370,11 @@
         left: auto !important;
         right: auto !important;
         bottom: auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 100vh !important;
-        max-height: 100vh !important;
-        min-height: 100vh !important;
+        width: 297mm !important;
+        max-width: 297mm !important;
+        height: 210mm !important;
+        max-height: 210mm !important;
+        min-height: 210mm !important;
         page-break-before: auto !important;
         break-before: auto !important;
         page-break-after: always !important;
@@ -320,26 +389,26 @@
         background-image: linear-gradient(to bottom right, #091410, #0E1F17, #050907) !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
-        padding: 14px 22px !important;
+        padding: 8mm 14mm !important;
       }
       .slide:last-child {
         page-break-after: auto !important;
         break-after: auto !important;
       }
-      /* Hide heavy decorative blur orbs during print to prevent raster bloat and render clean gradients */
+      /* Hide heavy decorative blur orbs during print to prevent raster bloat */
       .slide > .blur-3xl {
         display: none !important;
       }
       /* Ensure headers maintain calibrated density for A4 landscape print */
       .slide header {
-        padding-bottom: 6px !important;
+        padding-bottom: 4px !important;
       }
       .slide header h1, .slide header h2 {
-        font-size: 1.15rem !important;
+        font-size: 1.12rem !important;
         line-height: 1.2 !important;
       }
       .slide header p {
-        font-size: 10px !important;
+        font-size: 9.5px !important;
         line-height: 1.2 !important;
       }
       /* Slide 4 & 5 Product Cards Image Optimization in Print */
@@ -349,15 +418,71 @@
       }
       /* Slide 8 Table Density in Print */
       #slide-8 table {
-        font-size: 10px !important;
+        font-size: 9.5px !important;
       }
       #slide-8 table th,
       #slide-8 table td {
-        padding: 2.5px 6px !important;
+        padding: 2px 5px !important;
       }
       /* Suppression of interactive elements during printing */
-      #nav-dock, #image-modal, #overview-modal, #shortcuts-modal, .no-print {
+      #nav-dock, #image-modal, #overview-modal, #shortcuts-modal, #pdf-modal, #mobile-rotate-banner, .no-print {
         display: none !important;
+      }
+    }
+
+    /* Mobile Portrait Printing Fallback Engine */
+    @media print and (orientation: portrait) {
+      @page {
+        size: portrait;
+        margin: 6mm;
+      }
+      html, body {
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+      .slide,
+      .slide.hidden,
+      .slide.active {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        padding: 12px 10px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+      }
+      .slide .grid-cols-12 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+      .slide .col-span-12,
+      .slide .col-span-7,
+      .slide .col-span-5,
+      .slide .col-span-8,
+      .slide .col-span-4 {
+        width: 100% !important;
+      }
+      .slide .grid-cols-4,
+      .slide .grid-cols-5,
+      .slide .grid-cols-6 {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+      }
+      .slide .grid-cols-3 {
+        display: grid !important;
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+        gap: 8px !important;
       }
     }
   </style>
@@ -366,6 +491,13 @@
 
   <!-- Subtle Tactile Film Grain Overlay (Agency Standard) -->
   <div class="fixed inset-0 pointer-events-none z-50 opacity-[0.025]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
+
+  <!-- Mobile Rotation Hint Banner (visible only on mobile portrait) -->
+  <aside id="mobile-rotate-banner" class="hidden fixed top-3 left-1/2 -translate-x-1/2 z-40 items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#10221A]/95 border border-amber-400/40 text-amber-300 text-[11px] font-medium shadow-lg backdrop-blur-md no-print pointer-events-none" aria-label="Mobile Orientation Hint">
+    <svg class="w-4 h-4 text-amber-400 shrink-0 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0 0l-5-5m-6 16H4m0 0v-4m0 4l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+    <span class="lang-ar font-cairo">💡 اقلب الهاتف أفقيًا (Landscape) لعرض سينمائي متكامل</span>
+    <span class="lang-en font-sans">💡 Rotate phone horizontally for full 16:9 presentation</span>
+  </aside>
 
   <div id="presentation-viewport">
     <!-- 16:9 Presentation Canvas -->
@@ -3426,6 +3558,24 @@
                 </a>
               </div>
 
+              <!-- Direct PDF Download Buttons for Mobile & Desktop -->
+              <div class="grid grid-cols-2 gap-2 my-2 no-print">
+                <a href="Khaeer-Alwadi-Mobile-Deck.pdf" download="Khaeer-Alwadi-Mobile-Deck.pdf" class="tactile-btn flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 text-[10px] font-bold transition-all text-center shadow-md">
+                  <span>📱</span>
+                  <span>
+                    <span class="lang-en">Mobile PDF</span>
+                    <span class="lang-ar font-cairo">PDF للموبايل</span>
+                  </span>
+                </a>
+                <a href="Khaeer-Alwadi-Presentation-Deck.pdf" download="Khaeer-Alwadi-Presentation-Deck.pdf" class="tactile-btn flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-amber-950/50 hover:bg-amber-900/70 border border-amber-400/40 hover:border-amber-400 text-amber-300 text-[10px] font-bold transition-all text-center shadow-md">
+                  <span>💻</span>
+                  <span>
+                    <span class="lang-en">Deck (16:9)</span>
+                    <span class="lang-ar font-cairo">عرض (16:9)</span>
+                  </span>
+                </a>
+              </div>
+
               <!-- Fast Inquiry Checklist Box -->
               <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 text-[10px] text-slate-300">
                 <div class="font-bold text-amber-300 mb-1 flex items-center gap-1.5 text-[11px]">
@@ -3685,6 +3835,103 @@
     </div>
   </div>
 
+  <!-- PDF Export & Download Modal (#pdf-modal) -->
+  <div id="pdf-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md transition-all duration-300 no-print" onclick="closePdfModal(event)">
+    <div class="relative max-w-lg w-full bg-[#0A1612]/95 border border-amber-400/30 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden p-5 sm:p-6 flex flex-col gap-4" onclick="event.stopPropagation()">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <div class="flex items-center gap-3">
+          <img src="khaeer-alwadi-logo-gold.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain">
+          <div class="h-5 w-px bg-white/15"></div>
+          <div>
+            <h3 class="text-base font-bold text-white tracking-tight">
+              <span class="lang-en">Download Presentation Deck (PDF)</span>
+              <span class="lang-ar font-cairo">تحميل ملف العرض التجاري (PDF)</span>
+            </h3>
+            <p class="text-[11px] text-amber-300/80">
+              <span class="lang-en">Khaeer Alwadi Food Industries • Cairo, Egypt</span>
+              <span class="lang-ar font-cairo">خير الوادي للصناعات الغذائية • القاهرة، مصر</span>
+            </p>
+          </div>
+        </div>
+        <button onclick="closePdfModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-all focus:outline-none tactile-btn" title="Close (Esc) / إغلاق" aria-label="Close / إغلاق">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Download Options List -->
+      <div class="flex flex-col gap-2.5">
+        <!-- Option 1: Mobile-Optimized PDF (Portrait) -->
+        <a href="Khaeer-Alwadi-Mobile-Deck.pdf" download="Khaeer-Alwadi-Mobile-Deck.pdf" class="group flex items-center justify-between p-3.5 rounded-2xl bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-500/40 hover:border-emerald-400 transition-all shadow-md">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+              📱
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs sm:text-sm text-emerald-300 flex items-center gap-2">
+                <span class="lang-ar font-cairo">تحميل نسخة الهواتف الذكية والواتساب</span>
+                <span class="lang-en font-sans">Download Mobile-Ready PDF</span>
+                <span class="px-1.5 py-0.5 rounded text-[9px] bg-emerald-500/20 text-emerald-300 font-mono">1.3 MB • 9:16</span>
+              </span>
+              <span class="text-[11px] text-slate-300 mt-0.5">
+                <span class="lang-ar font-cairo">ملف رأسي مخصص لشاشات الموبايل — خطوط كبيرة وواضحة بدون تكبير</span>
+                <span class="lang-en font-sans">Full vertical smartphone presentation, clear large fonts &amp; high-res cards</span>
+              </span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-emerald-400 group-hover:translate-y-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        </a>
+
+        <!-- Option 2: Widescreen Presentation PDF (16:9 Landscape) -->
+        <a href="Khaeer-Alwadi-Presentation-Deck.pdf" download="Khaeer-Alwadi-Presentation-Deck.pdf" class="group flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/60 hover:bg-slate-800/80 border border-amber-400/30 hover:border-amber-400 transition-all shadow-md">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-400/15 border border-amber-400/30 text-amber-300 flex items-center justify-center text-xl shrink-0">
+              💻
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs sm:text-sm text-amber-300 flex items-center gap-2">
+                <span class="lang-ar font-cairo">تحميل نسخة العرض الكامل (16:9)</span>
+                <span class="lang-en font-sans">Download Widescreen Presentation (16:9)</span>
+                <span class="px-1.5 py-0.5 rounded text-[9px] bg-amber-400/20 text-amber-300 font-mono">1.5 MB • 16:9</span>
+              </span>
+              <span class="text-[11px] text-slate-300 mt-0.5">
+                <span class="lang-ar font-cairo">ملف عريض مخصص للشاشات وأجهزة الكمبيوتر والأجهزة اللوحية</span>
+                <span class="lang-en font-sans">Executive landscape format for projectors, laptops, tablets &amp; printing</span>
+              </span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-amber-400 group-hover:translate-y-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        </a>
+
+        <!-- Option 3: Browser Print to PDF -->
+        <button onclick="closePdfModal(); window.print();" class="group flex items-center justify-between p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/15 transition-all text-start">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white/10 text-slate-300 flex items-center justify-center text-xl shrink-0">
+              🖨️
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs sm:text-sm text-white flex items-center gap-2">
+                <span class="lang-ar font-cairo">طباعة مباشرة عبر المتصفح (Print to PDF)</span>
+                <span class="lang-en font-sans">Print to PDF via Browser Dialog</span>
+                <kbd class="px-1.5 py-0.5 rounded text-[9px] bg-white/10 text-amber-300 font-mono">Ctrl+P</kbd>
+              </span>
+              <span class="text-[10px] text-slate-400 mt-0.5">
+                <span class="lang-ar font-cairo">مقاسات A4 Landscape معايرة بدقة لتجنب الهوامش المقصوصة</span>
+                <span class="lang-en font-sans">Calibrated A4 landscape layout with zero margin spillover</span>
+              </span>
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+
+      <div class="text-[10px] sm:text-[11px] text-slate-400 border-t border-white/10 pt-2.5 text-center">
+        <span class="lang-ar font-cairo">💡 لفتح الملف على الواتساب والموبايل، نوصي بتحميل "نسخة الهواتف الذكية" لقراءة مثالية وسلسة.</span>
+        <span class="lang-en font-sans">💡 For WhatsApp &amp; smartphones, download the "Mobile-Ready PDF" for an optimal vertical viewing experience.</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating Navigation Dock (#nav-dock) with Agency Island Architecture -->
   <nav id="nav-dock" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-5 py-2 rounded-full bg-[#0B1612]/92 backdrop-blur-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.15)] transition-all duration-300 hover:border-amber-400/35 text-slate-200 no-print">
     <!-- Khaeer Alwadi Brand Mark -->
@@ -3724,8 +3971,8 @@
     </button>
 
     <!-- Print / Export to PDF Button -->
-    <button id="print-btn" onclick="window.print()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-white focus:outline-none tactile-btn" title="Print to PDF / Save Deck (Ctrl+P)">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+    <button id="print-btn" onclick="togglePdfModal()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-amber-300 hover:text-amber-200 focus:outline-none tactile-btn" title="Download PDF / Print Deck (P / Ctrl+P)">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
     </button>
 
     <!-- Fullscreen Toggle Button -->
@@ -4102,6 +4349,62 @@
       }
     }
 
+    function openPdfModal() {
+      const modal = document.getElementById('pdf-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closePdfModal(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#pdf-modal > div') && !e.target.closest('button') && !e.target.closest('a')) {
+        return;
+      }
+      const modal = document.getElementById('pdf-modal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
+    }
+
+    function togglePdfModal() {
+      const modal = document.getElementById('pdf-modal');
+      if (modal && modal.classList.contains('flex')) {
+        closePdfModal();
+      } else {
+        openPdfModal();
+      }
+    }
+
+    // Touch swipe navigation for mobile touchscreens
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const deckEl = document.getElementById('deck-container');
+    if (deckEl) {
+      deckEl.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+        }
+      }, { passive: true });
+
+      deckEl.addEventListener('touchend', (e) => {
+        if (e.changedTouches && e.changedTouches.length === 1) {
+          touchEndX = e.changedTouches[0].clientX;
+          const diffX = touchEndX - touchStartX;
+          const threshold = 45;
+          const isRtl = document.documentElement.dir === 'rtl';
+          if (Math.abs(diffX) > threshold) {
+            if (diffX < 0) {
+              if (isRtl) prevSlide(); else nextSlide();
+            } else {
+              if (isRtl) nextSlide(); else prevSlide();
+            }
+          }
+        }
+      }, { passive: true });
+    }
+
     // Reactive window.currentSlide implementation (getter & setter)
     Object.defineProperty(window, 'currentSlide', {
       get() { return currentSlide; },
@@ -4112,7 +4415,7 @@
     // Global Image Click Delegation for Lightbox Zoom
     document.addEventListener('click', (e) => {
       const img = e.target.closest('img');
-      if (img && !img.closest('#image-modal') && !img.closest('#overview-modal') && !img.closest('#shortcuts-modal') && !img.closest('#nav-dock')) {
+      if (img && !img.closest('#image-modal') && !img.closest('#overview-modal') && !img.closest('#shortcuts-modal') && !img.closest('#pdf-modal') && !img.closest('#nav-dock')) {
         const src = img.getAttribute('src');
         if (src && !src.startsWith('data:image/svg') && !src.includes('logo')) {
           let titleEn = img.getAttribute('data-title-en') || '';
@@ -4160,6 +4463,7 @@
         closeImageModal();
         closeOverviewModal();
         closeShortcutsModal();
+        closePdfModal();
         return;
       }
 
@@ -4180,7 +4484,7 @@
         case 'p':
         case 'P':
           e.preventDefault();
-          window.print();
+          togglePdfModal();
           break;
         case 'f':
         case 'F':
@@ -4247,6 +4551,9 @@
     window.toggleShortcutsModal = toggleShortcutsModal;
     window.updateModalText = updateModalText;
     window.currentModalData = currentModalData;
+    window.openPdfModal = openPdfModal;
+    window.closePdfModal = closePdfModal;
+    window.togglePdfModal = togglePdfModal;
 
     // Initialize state
     document.addEventListener('DOMContentLoaded', () => {
