@@ -146,6 +146,32 @@ def test_bilingual_slides_6_and_7():
     assert "المطابقة التنظيمية" in html, "Slide 7 workflow stage 4 Arabic required"
     assert "WhatsApp Image 2026-09-05 at 12.52.19 PM (1).jpeg" in html, "Slide 7 packaging floor photo required"
 
+def test_bilingual_slides_8_and_9():
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    # Slide 8 bilingual assertions
+    assert "مصفوفة المواصفات الفنية" in html or "المواصفات الفنية" in html, "Slide 8 Arabic title required"
+    assert "Technical Specifications" in html or "Technical Specification Matrix" in html, "Slide 8 English title required"
+    assert "الوزن المصفى" in html or "نسبة الوزن المصفى" in html, "Slide 8 Arabic drained weight required"
+    assert "درجة الحموضة" in html or "الرقم الهيدروجيني" in html, "Slide 8 Arabic pH required"
+    assert "نسبة الملوحة" in html or "الملوحة" in html, "Slide 8 Arabic salinity required"
+    assert "FCL" in html, "Container loading specs required"
+    assert "ISPM-15" in html or "ISPM 15" in html, "Pallet specs required"
+    
+    # Slide 9 bilingual assertions
+    assert "مكتب الشراكات التجارية" in html or "التواصل المباشر" in html, "Slide 9 Arabic title required"
+    assert "Commercial Partnership" in html, "Slide 9 English title required"
+    assert "خير الوادي للصناعات الغذائية" in html or "خير الوادي" in html, "Arabic Khaeer Alwadi brand required"
+    assert "Khaeer Alwadi Food Industries" in html or "Khaeer Alwadi" in html, "English Khaeer Alwadi brand required"
+    assert "+20 10 08716714" in html, "Phone number required"
+    assert "wa.me/201008716714" in html, "WhatsApp link required"
+    assert "tel:+201008716714" in html, "Telephone link required"
+    assert "Cairo, Egypt" in html, "Cairo Egypt English required"
+    assert "القاهرة" in html, "Cairo Egypt Arabic required"
+    assert "DHL" in html or "FedEx" in html, "Express courier required"
+    assert "Letter of Credit" in html or "L/C" in html, "Payment terms required"
+    assert "ISO 9001" in html, "ISO 9001 compliance badge required"
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -188,6 +214,9 @@ class TestDeckStructure(unittest.TestCase):
 
     def test_bilingual_slides_6_and_7(self):
         test_bilingual_slides_6_and_7()
+
+    def test_bilingual_slides_8_and_9(self):
+        test_bilingual_slides_8_and_9()
 
 if __name__ == '__main__':
     unittest.main()
