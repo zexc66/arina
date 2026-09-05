@@ -67,6 +67,7 @@ def test_lightbox_modal_and_print_rules():
     assert 'id="shortcuts-modal"' in html, "Keyboard shortcuts modal required"
     assert '-webkit-print-color-adjust: exact' in html, "Print color adjustment required"
     assert "Object.defineProperty(window, 'currentSlide'" in html or 'Object.defineProperty(window, "currentSlide"' in html, "Reactive window.currentSlide required"
+    assert 'showSlide(${idx})' in html, "renderOverviewGrid must call showSlide(${idx}) directly"
 
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
