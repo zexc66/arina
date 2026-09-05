@@ -14,12 +14,22 @@ def test_deck_contains_9_slides_and_nav():
     assert '+20 10 08716714' in html, "Contact number must be present"
     assert 'Mariam Food Industries' in html, "Company name must be present"
 
+def test_slides_1_to_3_content():
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert "ISO 22000" in html and "HACCP" in html and "FDA" in html
+    assert "WhatsApp Image 2026-09-05 at 12.52.18 PM.jpeg" in html, "Autoclave photo must be in slide 3"
+    assert "Alexandria" in html and "Damietta" in html, "Ports must be referenced in slide 2"
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
 
     def test_deck_contains_9_slides_and_nav(self):
         test_deck_contains_9_slides_and_nav()
+
+    def test_slides_1_to_3_content(self):
+        test_slides_1_to_3_content()
 
 if __name__ == '__main__':
     unittest.main()

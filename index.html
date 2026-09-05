@@ -152,79 +152,548 @@
     <main id="deck-container" class="relative bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15] border border-white/5 shadow-2xl flex flex-col">
 
       <!-- Slide 1: Cover & Executive Introduction -->
-      <section id="slide-1" class="slide active w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
+      <section id="slide-1" class="slide active w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+        <!-- Background Subtle Gradient Accents -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
         <!-- Header / Identity -->
-        <div class="flex items-center justify-between border-b border-white/10 pb-6">
-          <div class="flex items-center space-x-4">
-            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center font-black text-xl text-amber-400">
-              MFI
+        <header class="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 p-[1px] shadow-lg shadow-amber-500/10">
+              <div class="w-full h-full bg-[#142720] rounded-[11px] flex items-center justify-center font-black text-lg text-amber-400">
+                MFI
+              </div>
             </div>
             <div>
-              <h1 class="text-2xl font-bold tracking-tight text-white">Mariam Food Industries</h1>
-              <p class="text-sm font-medium text-amber-300/80">Cairo, Egypt • Global Agro-Processing & Export</p>
+              <div class="flex items-center gap-2">
+                <h1 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Mariam Food Industries</h1>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Official B2B Portfolio</span>
+              </div>
+              <p class="text-xs font-medium text-amber-300/80">Cairo, Egypt • Global Agro-Processing, Private Label & Bulk Export</p>
             </div>
           </div>
-          <div class="text-right">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-emerald-400">
+          <div class="flex items-center gap-3">
+            <div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-semibold text-emerald-400">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              Export Ready & ISO Certified
-            </span>
+              Export Ready • ISO 22000 & HACCP Certified
+            </div>
           </div>
-        </div>
+        </header>
 
-        <!-- Hero Content Placeholder -->
-        <div class="my-auto max-w-4xl">
-          <div class="inline-block px-3 py-1 rounded-md bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold tracking-wider uppercase mb-4">
-            B2B Commercial Portfolio
+        <!-- Main Hero Grid -->
+        <div class="grid grid-cols-12 gap-6 lg:gap-8 items-center flex-1 min-h-0 py-4 relative z-10">
+          <!-- Left Column: Executive Summary & Value Pillars (Col 7) -->
+          <div class="col-span-12 lg:col-span-7 flex flex-col justify-between h-full py-1">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold tracking-wider uppercase mb-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                Direct Agro Processor & Global Exporter // Cairo, Egypt
+              </div>
+              <h2 class="text-3xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.15]">
+                Mediterranean Table Olives & <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200">Pickled Specialties</span>
+              </h2>
+              <p class="mt-3 text-sm lg:text-base text-slate-300 max-w-2xl leading-relaxed font-normal">
+                Industrial processing, direct grove contract sourcing, and turnkey private label solutions for international commodity importers, foodservice distributors, pizza chains, and retail supermarkets.
+              </p>
+            </div>
+
+            <!-- 4 Trust Pillars (2x2 Mini Cards) -->
+            <div class="grid grid-cols-2 gap-3 my-3">
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  Direct Agro Terroir
+                </div>
+                <p class="text-xs text-slate-300 leading-snug">Farm-gate contract sourcing across Nile Delta & Mediterranean groves; 15–25% cost edge over Southern Europe.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                  Industrial Scale
+                </div>
+                <p class="text-xs text-slate-300 leading-snug">Automated mechanical stone pitting, rotary ring slicing lines, and high-pressure autoclave retort pasteurization.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  Rapid Port Logistics
+                </div>
+                <p class="text-xs text-slate-300 leading-snug">3–5 days transit to Southern Europe; 4–7 days to GCC markets via Alexandria, Damietta, and Port Said ports.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                  Global Compliance
+                </div>
+                <p class="text-xs text-slate-300 leading-snug">Certified ISO 22000, HACCP, FDA Registered (US FSMA), Halal, and ISO 9001 with end-to-end lot traceability.</p>
+              </div>
+            </div>
+
+            <!-- Direct Contact Strip -->
+            <div class="flex flex-wrap items-center justify-between gap-4 p-3 rounded-xl bg-slate-900/60 border border-amber-500/20">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.09c-1.52 0-3-.41-4.3-1.18l-.31-.18-3.19.84.85-3.11-.2-.32c-.85-1.35-1.3-2.92-1.3-4.52 0-4.47 3.64-8.11 8.11-8.11 2.17 0 4.21.84 5.74 2.38s2.38 3.57 2.38 5.74c0 4.47-3.64 8.12-8.11 8.12zm4.44-6.07c-.24-.12-1.44-.71-1.66-.79-.23-.08-.39-.12-.56.12-.17.24-.64.79-.79.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.21-1.44-1.35-1.68-.14-.24-.01-.37.11-.49.11-.11.24-.29.37-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.42 1.02 2.59.12.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Direct Export Desk / WhatsApp</div>
+                  <a href="https://wa.me/201008716714" target="_blank" class="text-sm font-bold text-amber-300 hover:text-amber-200 transition-colors font-mono">+20 10 08716714</a>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Fast-Track Turnaround</div>
+                <div class="text-xs text-emerald-400 font-medium">24-Hr Quotations • DHL Sample Kits</div>
+              </div>
+            </div>
           </div>
-          <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Mediterranean Table Olives & <span class="text-amber-400">Pickled Specialties</span>
-          </h2>
-          <p class="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
-            Industrial processing, direct grove sourcing, and turnkey private label manufacturing for international food importers, foodservice distributors, and supermarket retailers.
-          </p>
-          <div class="mt-8 flex items-center gap-6 text-sm text-slate-400 font-mono">
-            <span>Direct Line / WhatsApp: <strong class="text-amber-300 font-semibold">+20 10 08716714</strong></span>
+
+          <!-- Right Column: Hero Product Composition (Col 5) -->
+          <div class="col-span-12 lg:col-span-5 flex flex-col justify-center items-center h-full">
+            <div class="relative w-full max-w-sm lg:max-w-none group">
+              <!-- Glow Effect -->
+              <div class="absolute -inset-1 bg-gradient-to-tr from-amber-500/20 via-emerald-500/20 to-amber-500/10 rounded-2xl blur-lg group-hover:opacity-100 transition-opacity"></div>
+              
+              <!-- Main Composition Card -->
+              <div class="relative rounded-2xl overflow-hidden bg-slate-900/80 border border-amber-400/30 shadow-2xl p-2.5">
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
+                  <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM (2).jpeg" alt="Mariam Food Industries - Mediterranean Pickled Specialties and Table Olives" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20 pointer-events-none"></div>
+                  
+                  <!-- Top Badge -->
+                  <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-white/20 text-[11px] font-semibold text-amber-300">
+                    Premium Caliber Selection
+                  </div>
+
+                  <!-- Bottom Caption Overlay -->
+                  <div class="absolute bottom-2.5 left-2.5 right-2.5 p-2 rounded-lg bg-slate-950/85 backdrop-blur-md border border-white/10">
+                    <div class="text-xs font-bold text-white">Artisan Pickled Specialties & Table Olives</div>
+                    <div class="text-[10px] text-amber-300/90 flex items-center justify-between mt-0.5 font-mono">
+                      <span>Pickled Peppers • Cucumbers • Olives</span>
+                      <span>Glass Jars & A10 Tins</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Secondary Highlights Strip -->
+                <div class="grid grid-cols-3 gap-2 mt-2 pt-2 border-t border-white/10 text-center">
+                  <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
+                    <div class="text-[10px] text-slate-400 uppercase">Packaging</div>
+                    <div class="text-xs font-bold text-amber-300">A10, Jars, Drums</div>
+                  </div>
+                  <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
+                    <div class="text-[10px] text-slate-400 uppercase">Shelf Life</div>
+                    <div class="text-xs font-bold text-emerald-400">24–36 Months</div>
+                  </div>
+                  <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
+                    <div class="text-[10px] text-slate-400 uppercase">Customization</div>
+                    <div class="text-xs font-bold text-amber-300">Turnkey OEM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Footer / Metadata -->
-        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
-          <span>Mariam Food Industries • Cairo, Egypt</span>
-          <span>Slide 1 of 9</span>
-        </div>
+        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-3 relative z-10">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-slate-300">Mariam Food Industries</span>
+            <span>•</span>
+            <span>Cairo Industrial Zone, Egypt</span>
+            <span>•</span>
+            <span class="text-amber-300/80 font-mono">Export & Wholesale Commercial Deck</span>
+          </div>
+          <div class="flex items-center gap-4 font-mono text-xs">
+            <span>Confidential B2B Presentation</span>
+            <span class="text-amber-400 font-bold">Slide 1 of 9</span>
+          </div>
+        </footer>
       </section>
 
       <!-- Slide 2: The Egyptian Strategic Supply Advantage -->
-      <section id="slide-2" class="slide w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
-        <div class="flex items-center justify-between border-b border-white/10 pb-6">
-          <h2 class="text-xl font-bold tracking-tight text-white">The Egyptian Strategic Supply Advantage</h2>
-          <span class="text-xs text-amber-400 font-mono">Section 01 // Supply Chain</span>
+      <section id="slide-2" class="slide w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+        <!-- Background Subtle Gradient Accents -->
+        <div class="absolute -top-32 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Header -->
+        <header class="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">The Egyptian Strategic Supply Advantage</h2>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Strategic Arbitrage</span>
+            </div>
+            <p class="text-xs font-medium text-amber-300/80">Section 01 // Geographic Terroir, Maritime Feeder Corridors & Zero-Tariff Treaties</p>
+          </div>
+          <div class="text-right">
+            <span class="text-xs font-mono text-slate-400">Cairo Processing Plant • Tri-Port Proximity</span>
+          </div>
+        </header>
+
+        <!-- Executive Banner -->
+        <div class="my-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
+          <div class="flex items-center gap-3">
+            <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+            <p class="text-xs lg:text-sm text-slate-200">
+              <strong class="text-amber-300">Core Commercial Value Thesis:</strong> Direct Nile-fed agronomy, rapid 3-to-7 day maritime transit, and 0% customs duties generate an insurmountable <strong class="text-emerald-400">15%–25% landed margin advantage</strong> for global food distributors over Southern European processors.
+            </p>
+          </div>
+          <div class="hidden md:flex items-center gap-2 text-xs font-mono text-amber-300/90 whitespace-nowrap pl-4 border-l border-white/10">
+            <span>Arbitrage: 15%–25% Net Margin</span>
+          </div>
         </div>
-        <div class="my-auto flex flex-col items-center justify-center text-center">
-          <h3 class="text-3xl font-bold text-white mb-2">Geographic & Agro Terroir Superiority</h3>
-          <p class="text-slate-300 max-w-xl text-sm">Mariam Food Industries leverages fertile Mediterranean agro terroir, zero-tariff trade accords, and maritime ports in Alexandria, Damietta, and Port Said.</p>
+
+        <!-- 3-Column Interactive Advantage Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 flex-1 min-h-0 py-1 relative z-10">
+          <!-- Column 1: Mediterranean Agro Terroir & Direct Sourcing -->
+          <div class="flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 font-semibold uppercase">Agronomy</span>
+              </div>
+              <h3 class="text-base lg:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Agro Terroir & Direct Sourcing</h3>
+              <p class="text-xs text-amber-300/70 font-mono mb-3">Nile-Fed Delta & Mediterranean Silt</p>
+              
+              <ul class="space-y-2.5 text-xs text-slate-300 leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
+                  <span><strong class="text-white">300+ Sun Days / Year:</strong> Arid sun & alluvial soil produce firm, high-flesh-to-stone ratio table olives (Picual, Manzanilla) and vibrant crisp peppers.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
+                  <span><strong class="text-white">Grove-Direct Integration:</strong> Contract farming direct with premier growers in Fayoum and Ismailia eliminates intermediary brokerage fees.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
+                  <span><strong class="text-white">Crisp Cellular Structure:</strong> Dense plant tissue withstands industrial retort pasteurization without softening or shredding.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Col 1 Bottom Stat Card -->
+            <div class="mt-3 pt-3 border-t border-white/10 bg-white/[0.02] -mx-1 px-3 py-2 rounded-xl">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Cost Efficiency Edge</div>
+                  <div class="text-base font-extrabold text-emerald-400 font-mono">15%–25% Lower Cost</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Baseline Comp</div>
+                  <div class="text-xs font-semibold text-slate-300">vs. Spain, Greece, Italy</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Strategic Maritime Hubs & Transit Speeds -->
+          <div class="flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-300 font-semibold uppercase">Logistics</span>
+              </div>
+              <h3 class="text-base lg:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Strategic Maritime Ports</h3>
+              <p class="text-xs text-amber-300/70 font-mono mb-3">Alexandria • Damietta • Port Said</p>
+              
+              <ul class="space-y-2.5 text-xs text-slate-300 leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0"></span>
+                  <span><strong class="text-white">Alexandria Port:</strong> Immediate access to Mediterranean container vessels with daily European departures.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0"></span>
+                  <span><strong class="text-white">Damietta & Port Said:</strong> Major deepwater container transshipment hubs on the Suez Canal connecting Asia, Red Sea, and the Gulf.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0"></span>
+                  <span><strong class="text-white">Short Transit Cycles:</strong> Fast sea-freight turnaround safeguards cash flows and avoids costly multi-week ocean pipelines.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Col 2 Bottom Stat Card -->
+            <div class="mt-3 pt-3 border-t border-white/10 bg-white/[0.02] -mx-1 px-3 py-2 rounded-xl space-y-1.5">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-slate-400">Southern & Western Europe:</span>
+                <strong class="text-amber-300 font-bold">3–5 Days Transit</strong>
+              </div>
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-slate-400">Gulf / GCC & Levant:</span>
+                <strong class="text-emerald-400 font-bold">4–7 Days Transit</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3: Duty-Free Trade Accords -->
+          <div class="flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 font-semibold uppercase">Tariffs</span>
+              </div>
+              <h3 class="text-base lg:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Duty-Free Trade Pacts</h3>
+              <p class="text-xs text-amber-300/70 font-mono mb-3">GAFTA • COMESA • Agadir • EU</p>
+              
+              <ul class="space-y-2.5 text-xs text-slate-300 leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
+                  <span><strong class="text-white">GAFTA (Arab Free Trade):</strong> <span class="text-emerald-300 font-semibold">0% customs duty</span> across 17 Arab nations (Saudi Arabia, UAE, Kuwait, Qatar, Jordan, etc.).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
+                  <span><strong class="text-white">COMESA Treaty:</strong> Preferential zero-tariff entry to 21 African member states (580M+ consumers).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
+                  <span><strong class="text-white">Agadir & EU Association:</strong> Duty-free access to EU single market and North Africa via Pan-Euro-Med origin rules.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Col 3 Bottom Stat Card -->
+            <div class="mt-3 pt-3 border-t border-white/10 bg-white/[0.02] -mx-1 px-3 py-2 rounded-xl">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Tariff Impact</div>
+                  <div class="text-base font-extrabold text-amber-300 font-mono">0% Import Duty</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Preferential Reach</div>
+                  <div class="text-xs font-semibold text-slate-300">580M+ Consumers</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
-          <span>Mariam Food Industries • Cairo, Egypt</span>
-          <span>Slide 2 of 9</span>
-        </div>
+
+        <!-- Footer / Metadata -->
+        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-3 relative z-10">
+          <div>Mariam Food Industries • Supply Chain Economics & Logistics Desk</div>
+          <div class="font-mono text-amber-400 font-bold">Slide 2 of 9</div>
+        </footer>
       </section>
 
       <!-- Slide 3: Industrial Infrastructure, Technology & Compliance -->
-      <section id="slide-3" class="slide w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
-        <div class="flex items-center justify-between border-b border-white/10 pb-6">
-          <h2 class="text-xl font-bold tracking-tight text-white">Industrial Infrastructure & Certifications</h2>
-          <span class="text-xs text-amber-400 font-mono">Section 02 // Operations</span>
+      <section id="slide-3" class="slide w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+        <!-- Background Accents -->
+        <div class="absolute -top-32 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Header -->
+        <header class="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Industrial Infrastructure, Technology & Compliance</h2>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Plant & QA</span>
+            </div>
+            <p class="text-xs font-medium text-amber-300/80">Section 02 // High-Volume Processing Lines, Thermal Retort Sterilization & Certified Standards</p>
+          </div>
+          <div class="text-right">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              Capacity: Hundreds of MT / Month
+            </span>
+          </div>
+        </header>
+
+        <!-- Main Middle Grid: 7 Cols Machinery & Laboratory + 5 Cols Visual Proof -->
+        <div class="grid grid-cols-12 gap-5 lg:gap-6 flex-1 min-h-0 py-2 relative z-10 items-stretch">
+          
+          <!-- Left: Automated Processing Technology & QC Lab (Col 7) -->
+          <div class="col-span-12 lg:col-span-7 flex flex-col justify-between h-full space-y-3">
+            <!-- 4 Core Processing Line Pillars (2x2 Grid) -->
+            <div class="grid grid-cols-2 gap-3">
+              <!-- Pillar 1: Stone Pitting -->
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                  Mechanical Stone Pitting
+                </div>
+                <p class="text-xs text-slate-300 leading-snug">
+                  High-speed continuous needle pitter cleanly excising olive stones with <strong class="text-amber-300">&lt;0.1% pit fragment tolerance</strong>, preserving plump flesh geometry.
+                </p>
+              </div>
+
+              <!-- Pillar 2: Rotary Slicing -->
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879a3 3 0 11-4.242-4.242L11.879 7.88a3 3 0 114.242 4.242z"></path></svg>
+                  Precision Rotary Slicing
+                </div>
+                <p class="text-xs text-slate-300 leading-snug">
+                  Multi-blade calibrated slicers producing uniform <strong class="text-amber-300">3.0mm–3.5mm rings</strong> with zero shredding or torn ring walls, ideal for pizza chains.
+                </p>
+              </div>
+
+              <!-- Pillar 3: Seaming & Capping -->
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                  Automatic Seaming & Capping
+                </div>
+                <p class="text-xs text-slate-300 leading-snug">
+                  Heavy-gauge double-seaming for institutional A10 cans and steam-vacuum twist-off capping with safety pop buttons for retail jars.
+                </p>
+              </div>
+
+              <!-- Pillar 4: Autoclave Pasteurization -->
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  Pressurized Retort Autoclave
+                </div>
+                <p class="text-xs text-slate-300 leading-snug">
+                  Industrial steam retorts providing verified Fo commercial sterility, achieving <strong class="text-emerald-400">24–36 month ambient shelf life</strong> with zero chemical preservatives.
+                </p>
+              </div>
+            </div>
+
+            <!-- In-House Laboratory Monitoring Strip -->
+            <div class="p-3.5 rounded-xl bg-white/[0.03] border border-amber-400/20">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                  In-House QC Analytical Laboratory • Continuous Batch Auditing
+                </span>
+                <span class="text-[10px] text-slate-400 font-mono">Sampling: Every 30 Mins</span>
+              </div>
+              <div class="grid grid-cols-4 gap-2 text-center text-xs">
+                <div class="p-2 rounded-lg bg-slate-900/60 border border-white/5">
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">pH Control</div>
+                  <div class="font-extrabold text-amber-300 font-mono">&lt; 4.0</div>
+                  <div class="text-[9px] text-slate-400">Target: 3.4–3.8</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-900/60 border border-white/5">
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Salinity (NaCl)</div>
+                  <div class="font-extrabold text-amber-300 font-mono">3.0% – 7.0%</div>
+                  <div class="text-[9px] text-slate-400">Brix & Salinity Titration</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-900/60 border border-white/5">
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Drained Weight</div>
+                  <div class="font-extrabold text-emerald-400 font-mono">≥ 50%–55%</div>
+                  <div class="text-[9px] text-slate-400">CODEX STAN Verified</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-900/60 border border-white/5">
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Defect Sorting</div>
+                  <div class="font-extrabold text-emerald-400 font-mono">&lt; 1.0%</div>
+                  <div class="text-[9px] text-slate-400">Optical & Manual Audit</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Visual Facility Photography (Col 5) -->
+          <div class="col-span-12 lg:col-span-5 flex flex-col justify-between h-full space-y-3">
+            <!-- Autoclave Retort Crate Image -->
+            <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-amber-400/30 group shadow-lg">
+              <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM.jpeg" alt="Autoclave retort sterilization crate loaded with gold-lid jars - Mariam Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    Industrial Autoclave Retort Crate
+                  </div>
+                  <div class="text-[10px] text-amber-300 font-mono">Pressurized Steam Sterilization • Gold-Lid Jars</div>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 text-[10px] text-emerald-300 font-semibold uppercase">24-36 Mo Ambient</span>
+              </div>
+            </div>
+
+            <!-- Palletized Canning / Packaging Floor Image -->
+            <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-white/10 group shadow-lg">
+              <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM.jpeg" alt="Palletized canning floor and packaging lines - Mariam Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    Packaging Floor & Canned Inventory
+                  </div>
+                  <div class="text-[10px] text-slate-300 font-mono">Institutional A10 Can Seaming & Pallet Staging</div>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-white/10 border border-white/20 text-[10px] text-slate-300 font-semibold uppercase">Cairo Plant</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="my-auto flex flex-col items-center justify-center text-center">
-          <h3 class="text-3xl font-bold text-white mb-2">High-Capacity Industrial Facility</h3>
-          <p class="text-slate-300 max-w-xl text-sm">Automated mechanical stone pitting, rotary slicing lines, autoclave retort pasteurization, and ISO 22000, HACCP, FDA Registered, Halal, ISO 9001 compliance.</p>
+
+        <!-- Bottom Strip: 5 Certified Compliance Badges -->
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
+          <div class="flex items-center justify-between gap-2 overflow-x-auto">
+            <!-- Badge 1: ISO 22000 -->
+            <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 shrink-0">
+              <div class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-xs">
+                ISO
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">ISO 22000</div>
+                <div class="text-[9px] text-slate-400">Food Safety Management</div>
+              </div>
+            </div>
+
+            <!-- Badge 2: HACCP -->
+            <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 shrink-0">
+              <div class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xs">
+                CCP
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">HACCP</div>
+                <div class="text-[9px] text-slate-400">Codex Alimentarius Hazard Control</div>
+              </div>
+            </div>
+
+            <!-- Badge 3: FDA -->
+            <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 shrink-0">
+              <div class="w-7 h-7 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-xs">
+                FDA
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">FDA Registered</div>
+                <div class="text-[9px] text-slate-400">US FSMA / FSVP Compliant</div>
+              </div>
+            </div>
+
+            <!-- Badge 4: Halal -->
+            <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 shrink-0">
+              <div class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xs">
+                حلال
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">Halal Certified</div>
+                <div class="text-[9px] text-slate-400">100% Islamic Standards</div>
+              </div>
+            </div>
+
+            <!-- Badge 5: ISO 9001 -->
+            <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 shrink-0">
+              <div class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-xs">
+                9001
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">ISO 9001</div>
+                <div class="text-[9px] text-slate-400">Quality & Traceability System</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
-          <span>Mariam Food Industries • Cairo, Egypt</span>
-          <span>Slide 3 of 9</span>
-        </div>
+
+        <!-- Footer / Metadata -->
+        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-3 relative z-10">
+          <div>Mariam Food Industries • Quality Assurance, Processing & Compliance Division</div>
+          <div class="font-mono text-amber-400 font-bold">Slide 3 of 9</div>
+        </footer>
       </section>
 
       <!-- Slide 4: Core Line I — Premium Mediterranean Olives -->
