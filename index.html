@@ -103,6 +103,10 @@
       opacity: 1;
     }
 
+    #deck-container img {
+      cursor: pointer;
+    }
+
     /* Print styles for clean 9-page landscape PDF export */
     @media print {
       @page {
@@ -110,23 +114,31 @@
         margin: 0;
       }
       html, body {
-        background: #FFFFFF !important;
-        color: #0F172A !important;
+        background: #0B1310 !important;
+        color: #F8FAFC !important;
         overflow: visible !important;
         width: 100% !important;
         height: auto !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
       #presentation-viewport {
         display: block !important;
         width: 100% !important;
         height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
       }
       #deck-container {
         width: 100% !important;
         height: auto !important;
+        max-width: none !important;
+        max-height: none !important;
         box-shadow: none !important;
+        border: none !important;
         position: static !important;
         overflow: visible !important;
+        background: transparent !important;
       }
       .slide {
         display: flex !important;
@@ -134,12 +146,20 @@
         position: relative !important;
         page-break-after: always !important;
         break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
         width: 100vw !important;
         height: 100vh !important;
+        min-height: 100vh !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+        box-sizing: border-box !important;
       }
-      #nav-dock, .no-print {
+      .slide:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+      #nav-dock, #image-modal, #overview-modal, #shortcuts-modal, .no-print {
         display: none !important;
       }
     }
@@ -746,7 +766,7 @@
                 </div>
                 <!-- Dual Macro Inset -->
                 <div class="absolute bottom-1 right-1 w-7 h-7 rounded border border-amber-400/40 overflow-hidden shadow-md" title="Calibrated ring cross-section">
-                  <img src="WhatsApp Image 2026-09-05 at 12.52.15 PM (2).jpeg" alt="Sliced Black Olives Macro" class="w-full h-full object-cover">
+                  <img src="WhatsApp Image 2026-09-05 at 12.52.15 PM (2).jpeg" alt="Sliced Black Olives Macro" class="w-full h-full object-cover cursor-pointer" data-zoomable="true">
                 </div>
               </div>
               <h3 class="text-xs lg:text-[13px] font-bold text-white group-hover:text-amber-300 transition-colors leading-tight">Sliced Black Olives</h3>
@@ -808,7 +828,7 @@
                 </div>
                 <!-- Dual Macro Inset -->
                 <div class="absolute bottom-1 right-1 w-7 h-7 rounded border border-amber-400/40 overflow-hidden shadow-md" title="Sliced Green Rings">
-                  <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM (1).jpeg" alt="Sliced Green Olives" class="w-full h-full object-cover">
+                  <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM (1).jpeg" alt="Sliced Green Olives" class="w-full h-full object-cover cursor-pointer" data-zoomable="true">
                 </div>
               </div>
               <h3 class="text-xs lg:text-[13px] font-bold text-white group-hover:text-amber-300 transition-colors leading-tight">Whole &amp; Sliced Green</h3>
@@ -1193,7 +1213,7 @@
                 </div>
                 <!-- Dual Macro Inset -->
                 <div class="absolute bottom-1 right-1 w-8 h-8 rounded border border-amber-400/40 overflow-hidden shadow-md" title="Autoclave retort sterilization basket with A10 cans">
-                  <img src="WhatsApp Image 2026-09-05 at 12.52.16 PM (3).jpeg" alt="A10 Cans in Autoclave" class="w-full h-full object-cover">
+                  <img src="WhatsApp Image 2026-09-05 at 12.52.16 PM (3).jpeg" alt="A10 Cans in Autoclave" class="w-full h-full object-cover cursor-pointer" data-zoomable="true">
                 </div>
               </div>
               <h3 class="text-xs lg:text-[13px] font-bold text-white group-hover:text-amber-300 transition-colors leading-tight">Institutional A10 Metal Cans</h3>
@@ -1223,14 +1243,14 @@
           <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-2">
-                <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM (4).jpeg" alt="Industrial Bulk Barrel with Sliced Green Olives in Brine - Mariam Food Industries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+                <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM (4).jpeg" alt="Industrial Bulk Barrel with Sliced Green Olives in Brine - Mariam Food Industries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none"></div>
                 <div class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-slate-950/85 backdrop-blur-sm border border-white/15 text-[9px] font-semibold text-amber-300 font-mono">
                   Industrial Bulk Tier
                 </div>
                 <!-- Dual Macro Inset -->
                 <div class="absolute bottom-1 right-1 w-8 h-8 rounded border border-amber-400/40 overflow-hidden shadow-md" title="Inspection bowl with sliced black olives on industrial drums">
-                  <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM (9).jpeg" alt="Drums Quality Sampling" class="w-full h-full object-cover">
+                  <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM (9).jpeg" alt="Drums Quality Sampling" class="w-full h-full object-cover cursor-pointer" data-zoomable="true">
                 </div>
               </div>
               <h3 class="text-xs lg:text-[13px] font-bold text-white group-hover:text-amber-300 transition-colors leading-tight">150kg–220kg Bulk Drums</h3>
@@ -1260,14 +1280,14 @@
           <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-2">
-                <img src="WhatsApp Image 2026-09-05 at 12.52.16 PM (4).jpeg" alt="High-Clarity Glass Jars with Safety Caps - Mariam Food Industries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+                <img src="WhatsApp Image 2026-09-05 at 12.52.16 PM (4).jpeg" alt="High-Clarity Glass Jars with Safety Caps - Mariam Food Industries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none"></div>
                 <div class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-slate-950/85 backdrop-blur-sm border border-white/15 text-[9px] font-semibold text-amber-300 font-mono">
                   Retail Supermarket Tier
                 </div>
                 <!-- Dual Macro Inset -->
                 <div class="absolute bottom-1 right-1 w-8 h-8 rounded border border-amber-400/40 overflow-hidden shadow-md" title="Handheld jar inspection for clarity and safety seal">
-                  <img src="WhatsApp Image 2026-09-05 at 12.52.16 PM (6).jpeg" alt="Jar Inspection" class="w-full h-full object-cover">
+                  <img src="WhatsApp Image 2026-09-05 at 12.52.16 PM (6).jpeg" alt="Jar Inspection" class="w-full h-full object-cover cursor-pointer" data-zoomable="true">
                 </div>
               </div>
               <h3 class="text-xs lg:text-[13px] font-bold text-white group-hover:text-amber-300 transition-colors leading-tight">High-Clarity Glass Jars</h3>
@@ -1297,14 +1317,14 @@
           <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-2">
-                <img src="WhatsApp Image 2026-09-05 at 12.52.15 PM (5).jpeg" alt="Full Stretch-Wrapped Master Pallet on Export Staging Floor - Mariam Food Industries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+                <img src="WhatsApp Image 2026-09-05 at 12.52.15 PM (5).jpeg" alt="Full Stretch-Wrapped Master Pallet on Export Staging Floor - Mariam Food Industries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none"></div>
                 <div class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-slate-950/85 backdrop-blur-sm border border-white/15 text-[9px] font-semibold text-amber-300 font-mono">
                   Export Logistics Tier
                 </div>
                 <!-- Dual Macro Inset -->
                 <div class="absolute bottom-1 right-1 w-8 h-8 rounded border border-amber-400/40 overflow-hidden shadow-md" title="Palletized packaging floor and inventory lines">
-                  <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM.jpeg" alt="Warehouse Pallets" class="w-full h-full object-cover">
+                  <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM.jpeg" alt="Warehouse Pallets" class="w-full h-full object-cover cursor-pointer" data-zoomable="true">
                 </div>
               </div>
               <h3 class="text-xs lg:text-[13px] font-bold text-white group-hover:text-amber-300 transition-colors leading-tight">Export Palletization &amp; FCL</h3>
@@ -2074,29 +2094,155 @@
     </main>
   </div>
 
+  <!-- High-Resolution Image Lightbox Modal (#image-modal) -->
+  <div id="image-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 lg:p-10 bg-black/90 backdrop-blur-md transition-all duration-300 no-print" onclick="closeImageModal(event)">
+    <div class="relative max-w-5xl w-full max-h-[92vh] flex flex-col items-center bg-slate-900/95 border border-white/20 rounded-2xl shadow-2xl overflow-hidden p-4 sm:p-6" onclick="event.stopPropagation()">
+      <!-- Close Button -->
+      <button id="modal-close-btn" onclick="closeImageModal()" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-all z-20 focus:outline-none" title="Close Preview (Esc)">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <!-- Modal Image Container -->
+      <div class="w-full flex-1 min-h-0 flex items-center justify-center overflow-hidden rounded-xl bg-black/50 p-2">
+        <img id="modal-img" src="" alt="" class="max-w-full max-h-[72vh] object-contain rounded-lg shadow-2xl transition-transform duration-300">
+      </div>
+
+      <!-- Modal Caption & Metadata -->
+      <div class="w-full text-center pt-3 px-4 border-t border-white/10 mt-3 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div class="text-left">
+          <h3 id="modal-title" class="text-sm sm:text-base font-bold text-white tracking-wide"></h3>
+          <p id="modal-caption" class="text-xs text-amber-300/90 font-medium"></p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="px-2.5 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-[11px] font-semibold">Mariam Food Industries • Export Grade</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide Jump Drawer / Overview Grid Modal (#overview-modal) -->
+  <div id="overview-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 lg:p-8 bg-black/90 backdrop-blur-md transition-all duration-300 no-print" onclick="closeOverviewModal(event)">
+    <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col bg-slate-900/95 border border-white/20 rounded-2xl shadow-2xl overflow-hidden p-5 sm:p-6" onclick="event.stopPropagation()">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-400/20 border border-amber-400/30 text-amber-300 flex items-center justify-center font-bold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+          </div>
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">Presentation Deck Overview</h2>
+            <p class="text-xs text-slate-400">Select any slide to jump directly (or press 1–9, G, or Esc)</p>
+          </div>
+        </div>
+        <button onclick="closeOverviewModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-all focus:outline-none" title="Close (Esc)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Slide Cards Grid -->
+      <div id="overview-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 overflow-y-auto max-h-[70vh] p-1">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Keyboard Shortcuts Modal (#shortcuts-modal) -->
+  <div id="shortcuts-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md transition-all duration-300 no-print" onclick="closeShortcutsModal(event)">
+    <div class="relative max-w-md w-full bg-slate-900/95 border border-white/20 rounded-2xl shadow-2xl overflow-hidden p-5 sm:p-6" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-amber-400/20 text-amber-300 flex items-center justify-center font-bold text-sm">?</div>
+          <div>
+            <h3 class="text-base font-bold text-white tracking-tight">Keyboard Navigation Shortcuts</h3>
+            <p class="text-[11px] text-slate-400">Master deck controls with your keyboard</p>
+          </div>
+        </div>
+        <button onclick="closeShortcutsModal()" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all focus:outline-none" title="Close (Esc)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <div class="space-y-2 text-xs">
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">Next Slide</span>
+          <div class="flex items-center gap-1.5"><kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">&rarr;</kbd> <span class="text-slate-500">or</span> <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Space</kbd></div>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">Previous Slide</span>
+          <div class="flex items-center gap-1.5"><kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">&larr;</kbd> <span class="text-slate-500">or</span> <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Backspace</kbd></div>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">Jump to Slide Directly</span>
+          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">1 – 9</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">First / Last Slide</span>
+          <div class="flex items-center gap-1.5"><kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Home</kbd> / <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">End</kbd></div>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">Slide Overview Grid</span>
+          <div class="flex items-center gap-1.5"><kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">G</kbd> <span class="text-slate-500">or</span> <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">M</kbd></div>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">Toggle Fullscreen</span>
+          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">F</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">Print to PDF (9-Page Landscape)</span>
+          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Ctrl + P</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">Keyboard Shortcuts Help</span>
+          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">?</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1.5">
+          <span class="text-slate-300">Close Open Modal / Lightbox</span>
+          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Esc</kbd>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating Navigation Dock (#nav-dock) -->
-  <nav id="nav-dock" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-5 py-2.5 rounded-full bg-slate-900/85 backdrop-blur-md border border-white/10 shadow-2xl transition-all duration-300 hover:bg-slate-900/95 text-slate-200">
+  <nav id="nav-dock" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2.5 px-4 sm:px-5 py-2 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/15 shadow-2xl transition-all duration-300 hover:bg-slate-900/95 text-slate-200 no-print">
     <!-- Prev Button -->
-    <button id="prev-btn" onclick="prevSlide()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-white focus:outline-none" title="Previous Slide (Left Arrow)">
+    <button id="prev-btn" onclick="prevSlide()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-white focus:outline-none" title="Previous Slide (Left Arrow / Backspace)">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
     </button>
 
-    <!-- Slide Indicator -->
-    <div class="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-amber-300 font-mono">
+    <!-- Slide Indicator / Overview Trigger -->
+    <button id="indicator-btn" onclick="toggleOverviewModal()" class="px-3 py-1 rounded-md bg-white/5 hover:bg-white/15 border border-white/10 text-xs font-semibold tracking-wider text-amber-300 font-mono transition-colors focus:outline-none cursor-pointer" title="Click to view all 9 slides (G / M)">
       <span id="slide-indicator">Slide 1 / 9</span>
-    </div>
+    </button>
 
     <!-- Next Button -->
     <button id="next-btn" onclick="nextSlide()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-white focus:outline-none" title="Next Slide (Right Arrow / Space)">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
     </button>
 
-    <div class="w-px h-5 bg-white/20 mx-1"></div>
+    <div class="w-px h-5 bg-white/20 mx-0.5"></div>
+
+    <!-- Overview Grid Button -->
+    <button id="overview-btn" onclick="toggleOverviewModal()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-white focus:outline-none" title="Slide Overview Grid (G / M)">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+    </button>
+
+    <!-- Shortcuts Help Button -->
+    <button id="shortcuts-btn" onclick="toggleShortcutsModal()" class="w-7 h-7 rounded-full hover:bg-white/10 active:scale-95 transition-all text-amber-300 font-mono font-bold text-xs flex items-center justify-center border border-white/20 focus:outline-none" title="Keyboard Shortcuts (?)">
+      ?
+    </button>
+
+    <!-- Print / Export to PDF Button -->
+    <button id="print-btn" onclick="window.print()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-white focus:outline-none" title="Print to PDF / Save Deck (Ctrl+P)">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+    </button>
 
     <!-- Fullscreen Toggle Button -->
     <button id="fullscreen-btn" onclick="toggleFullScreen()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-white focus:outline-none" title="Toggle Fullscreen (F)">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0 0l-5-5m-6 16H4m0 0v-4m0 4l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0 0l-5-5m-6 16H4m0 0v-4m0 4l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
     </button>
+
+    <div class="w-px h-5 bg-white/20 mx-0.5"></div>
 
     <!-- Direct WhatsApp Contact Link -->
     <a href="https://wa.me/201008716714" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500/40 text-emerald-300 text-xs font-medium transition-all" title="Direct WhatsApp: +20 10 08716714">
@@ -2104,10 +2250,43 @@
     </a>
   </nav>
 
-  <!-- Slide Navigation Script -->
+  <!-- Slide Navigation & Interactivity Script -->
   <script>
     let currentSlide = 0;
     const totalSlides = 9;
+
+    const slideTitles = [
+      { num: '01', category: 'Executive Overview', title: 'Mediterranean Table Olives & Pickled Specialties' },
+      { num: '02', category: 'Agro Sourcing & Logistics', title: 'Direct Farm-Gate Terroir & Strategic Port Access' },
+      { num: '03', category: 'Manufacturing & Compliance', title: 'Industrial Processing, Autoclave Retort & Certifications' },
+      { num: '04', category: 'Flagship Portfolio', title: 'Table Olives: Picual, Manzanilla, Kalamata & Stuffed' },
+      { num: '05', category: 'Specialty Pickled Vegetables', title: 'Pepperoncini, Turshi Pickles, Chilies & Cucumbers' },
+      { num: '06', category: 'Packaging Solutions', title: 'Foodservice A10 Cans, Bulk Drums, Jars & Pallets' },
+      { num: '07', category: 'Turnkey Private Label', title: 'OEM Contract Manufacturing, Custom Recipes & Export QC' },
+      { num: '08', category: 'Technical Specifications', title: 'Physicochemical Parameters, Salinity & FCL Loading' },
+      { num: '09', category: 'Commercial Terms & RFQ', title: 'Procurement Desk, Incoterms & Fast-Track Sampling' }
+    ];
+
+    function renderOverviewGrid() {
+      const grid = document.getElementById('overview-grid');
+      if (!grid) return;
+      grid.innerHTML = slideTitles.map((slide, idx) => {
+        const isActive = idx === currentSlide;
+        return `
+          <div onclick="goToSlide(${idx}); closeOverviewModal();" class="p-3 rounded-xl border transition-all cursor-pointer flex flex-col justify-between group ${isActive ? 'bg-amber-500/20 border-amber-400 shadow-lg shadow-amber-500/10 ring-1 ring-amber-400' : 'bg-white/[0.04] border-white/10 hover:border-amber-400/40 hover:bg-white/[0.08]'}">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold ${isActive ? 'bg-amber-400 text-slate-950 font-extrabold' : 'bg-white/10 text-amber-300'}">Slide ${slide.num}</span>
+              <span class="text-[10px] uppercase font-semibold tracking-wider text-slate-400">${slide.category}</span>
+            </div>
+            <h4 class="text-xs font-bold text-white group-hover:text-amber-300 transition-colors leading-snug line-clamp-2">${slide.title}</h4>
+            <div class="mt-2 pt-1.5 border-t border-white/5 flex items-center justify-between text-[10px] text-slate-400">
+              <span class="${isActive ? 'text-amber-300 font-semibold' : ''}">${isActive ? '● Active Slide' : 'Click to jump'}</span>
+              <span class="font-mono text-slate-500 group-hover:text-slate-300 transition-colors">&rarr;</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
 
     function updateNavDock() {
       const indicator = document.getElementById('slide-indicator');
@@ -2124,6 +2303,7 @@
         nextBtn.style.opacity = currentSlide === totalSlides - 1 ? '0.4' : '1';
         nextBtn.style.pointerEvents = currentSlide === totalSlides - 1 ? 'none' : 'auto';
       }
+      renderOverviewGrid();
     }
 
     function showSlide(index) {
@@ -2175,19 +2355,141 @@
       }
     }
 
+    // Modal Control Functions
+    function openImageModal(src, title, caption) {
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-img');
+      const modalTitle = document.getElementById('modal-title');
+      const modalCaption = document.getElementById('modal-caption');
+      if (!modal || !modalImg) return;
+      modalImg.src = src;
+      modalImg.alt = title || 'Mariam Food Industries Product Preview';
+      if (modalTitle) modalTitle.textContent = title || 'Product Inspection View';
+      if (modalCaption) modalCaption.textContent = caption || 'Mariam Food Industries • Export Division • High-Resolution View';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeImageModal(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#image-modal > div') && !e.target.closest('#modal-close-btn')) {
+        return;
+      }
+      const modal = document.getElementById('image-modal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
+    }
+
+    function openOverviewModal() {
+      renderOverviewGrid();
+      const modal = document.getElementById('overview-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeOverviewModal(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#overview-modal > div') && !e.target.closest('button')) {
+        return;
+      }
+      const modal = document.getElementById('overview-modal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
+    }
+
+    function toggleOverviewModal() {
+      const modal = document.getElementById('overview-modal');
+      if (modal && modal.classList.contains('flex')) {
+        closeOverviewModal();
+      } else {
+        openOverviewModal();
+      }
+    }
+
+    function openShortcutsModal() {
+      const modal = document.getElementById('shortcuts-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeShortcutsModal(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#shortcuts-modal > div') && !e.target.closest('button')) {
+        return;
+      }
+      const modal = document.getElementById('shortcuts-modal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
+    }
+
+    function toggleShortcutsModal() {
+      const modal = document.getElementById('shortcuts-modal');
+      if (modal && modal.classList.contains('flex')) {
+        closeShortcutsModal();
+      } else {
+        openShortcutsModal();
+      }
+    }
+
+    // Reactive window.currentSlide implementation (getter & setter)
+    Object.defineProperty(window, 'currentSlide', {
+      get() { return currentSlide; },
+      set(val) { goToSlide(val); },
+      configurable: true
+    });
+
+    // Global Image Click Delegation for Lightbox Zoom
+    document.addEventListener('click', (e) => {
+      const img = e.target.closest('img');
+      if (img && !img.closest('#image-modal') && !img.closest('#overview-modal') && !img.closest('#shortcuts-modal') && !img.closest('#nav-dock')) {
+        const src = img.getAttribute('src');
+        if (src && !src.startsWith('data:image/svg')) {
+          const alt = img.getAttribute('alt') || 'Mariam Food Industries Product Preview';
+          let title = alt;
+          let caption = 'Mariam Food Industries • Export Grade Inspection View';
+          const card = img.closest('.group') || img.closest('.rounded-xl') || img.closest('.rounded-2xl');
+          if (card) {
+            const heading = card.querySelector('h3') || card.querySelector('h4');
+            if (heading) title = heading.textContent.trim();
+            const desc = card.querySelector('p');
+            if (desc) caption = desc.textContent.trim();
+          }
+          openImageModal(src, title, caption);
+        }
+      }
+    });
+
     // Keyboard navigation listener
     window.addEventListener('keydown', (e) => {
       // Avoid intercepting input if user is in an input field
       if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
 
+      if (e.key === 'Escape') {
+        closeImageModal();
+        closeOverviewModal();
+        closeShortcutsModal();
+        return;
+      }
+
       switch (e.key) {
         case 'ArrowRight':
         case ' ': // Space bar
+        case 'n':
+        case 'N':
           e.preventDefault();
           nextSlide();
           break;
         case 'ArrowLeft':
         case 'Backspace':
+        case 'p':
+        case 'P':
           e.preventDefault();
           prevSlide();
           break;
@@ -2195,6 +2497,18 @@
         case 'F':
           e.preventDefault();
           toggleFullScreen();
+          break;
+        case 'g':
+        case 'G':
+        case 'm':
+        case 'M':
+          e.preventDefault();
+          toggleOverviewModal();
+          break;
+        case '?':
+        case '/':
+          e.preventDefault();
+          toggleShortcutsModal();
           break;
         case 'Home':
           e.preventDefault();
@@ -2204,21 +2518,41 @@
           e.preventDefault();
           showSlide(totalSlides - 1);
           break;
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+          e.preventDefault();
+          showSlide(parseInt(e.key) - 1);
+          break;
       }
     });
 
     // Expose functions globally for API / testing
-    window.currentSlide = currentSlide;
     window.totalSlides = totalSlides;
     window.showSlide = showSlide;
     window.goToSlide = goToSlide;
     window.nextSlide = nextSlide;
     window.prevSlide = prevSlide;
     window.toggleFullScreen = toggleFullScreen;
+    window.openImageModal = openImageModal;
+    window.closeImageModal = closeImageModal;
+    window.openOverviewModal = openOverviewModal;
+    window.closeOverviewModal = closeOverviewModal;
+    window.toggleOverviewModal = toggleOverviewModal;
+    window.openShortcutsModal = openShortcutsModal;
+    window.closeShortcutsModal = closeShortcutsModal;
+    window.toggleShortcutsModal = toggleShortcutsModal;
 
     // Initialize state
     document.addEventListener('DOMContentLoaded', () => {
       showSlide(0);
+      renderOverviewGrid();
     });
   </script>
 </body>

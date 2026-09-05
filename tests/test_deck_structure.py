@@ -57,6 +57,17 @@ def test_slides_8_and_9_specs_and_contact():
     assert "DHL" in html or "FedEx" in html, "Sample dispatch carrier required"
     assert "Letter of Credit" in html or "L/C" in html, "Payment terms required"
 
+def test_lightbox_modal_and_print_rules():
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert 'id="image-modal"' in html, "Image lightbox modal element required"
+    assert '@media print' in html, "Dedicated print media query required"
+    assert 'break-after: page' in html or 'page-break-after: always' in html, "Page break rules required"
+    assert 'id="overview-modal"' in html, "Overview modal drawer required"
+    assert 'id="shortcuts-modal"' in html, "Keyboard shortcuts modal required"
+    assert '-webkit-print-color-adjust: exact' in html, "Print color adjustment required"
+    assert "Object.defineProperty(window, 'currentSlide'" in html or 'Object.defineProperty(window, "currentSlide"' in html, "Reactive window.currentSlide required"
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -75,6 +86,9 @@ class TestDeckStructure(unittest.TestCase):
 
     def test_slides_8_and_9_specs_and_contact(self):
         test_slides_8_and_9_specs_and_contact()
+
+    def test_lightbox_modal_and_print_rules(self):
+        test_lightbox_modal_and_print_rules()
 
 if __name__ == '__main__':
     unittest.main()
