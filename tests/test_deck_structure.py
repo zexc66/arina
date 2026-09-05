@@ -42,6 +42,21 @@ def test_slides_6_and_7_packaging_and_oem():
     assert "WhatsApp Image 2026-09-05 at 12.52.17 PM (4).jpeg" in html, "Bulk barrel photo required"
     assert "WhatsApp Image 2026-09-05 at 12.52.15 PM (5).jpeg" in html, "Pallet photo required"
 
+def test_slides_8_and_9_specs_and_contact():
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert "FCL" in html, "Container loading specs required"
+    assert "Drained Weight" in html
+    assert "tel:+201008716714" in html or "wa.me/201008716714" in html, "Direct clickable link required"
+    assert "Cairo, Egypt" in html
+    # Technical specs matrix checks
+    assert "Salinity" in html, "Salinity specs required"
+    assert "Defect Tolerance" in html, "Defect tolerance required"
+    assert "ISPM-15" in html or "ISPM 15" in html, "Pallet specs required"
+    # Commercial onboarding checks
+    assert "DHL" in html or "FedEx" in html, "Sample dispatch carrier required"
+    assert "Letter of Credit" in html or "L/C" in html, "Payment terms required"
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -58,5 +73,9 @@ class TestDeckStructure(unittest.TestCase):
     def test_slides_6_and_7_packaging_and_oem(self):
         test_slides_6_and_7_packaging_and_oem()
 
+    def test_slides_8_and_9_specs_and_contact(self):
+        test_slides_8_and_9_specs_and_contact()
+
 if __name__ == '__main__':
     unittest.main()
+
