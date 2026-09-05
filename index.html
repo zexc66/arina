@@ -312,107 +312,150 @@
     <!-- 16:9 Presentation Canvas -->
     <main id="deck-container" class="relative bg-gradient-to-br from-[#0B1712] via-[#0E1F17] to-[#050907] border border-white/10 shadow-2xl flex flex-col">
 
-      <!-- Slide 1: Cover & Executive Introduction -->
-      <section id="slide-1" class="slide active w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
+      <!-- Slide 1: Cover & Executive Introduction / الغلاف والملخص التنفيذي -->
+      <section id="slide-1" class="slide active w-full h-full flex flex-col justify-between p-5 lg:p-8 xl:p-10 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Subtle Gradient Accents -->
         <div class="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header / Identity -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
-          <div class="flex items-center space-x-4">
+        <header class="flex items-center justify-between border-b border-white/10 pb-3 lg:pb-4 relative z-10">
+          <div class="flex items-center gap-3 lg:gap-4">
             <div class="h-12 lg:h-14 px-3 py-1 rounded-xl bg-white/[0.03] border border-amber-400/30 shadow-lg shadow-amber-500/10 flex items-center justify-center">
-              <img src="mariam-logo-gold.png" alt="Mariam - made with love" class="h-9 lg:h-10 w-auto object-contain">
+              <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi Food Industries - خير الوادي للصناعات الغذائية" class="h-9 lg:h-10 w-auto object-contain">
             </div>
             <div>
               <div class="flex items-center gap-2">
-                <h1 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Mariam Food Industries</h1>
-                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Official B2B Portfolio</span>
+                <h1 class="text-lg lg:text-2xl font-bold tracking-tight text-white">
+                  <span class="lang-en font-sans">Khaeer Alwadi Food Industries</span>
+                  <span class="lang-ar font-cairo">خير الوادي للصناعات الغذائية</span>
+                </h1>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">
+                  <span class="lang-en">Official B2B Portfolio</span>
+                  <span class="lang-ar font-cairo">الملف التجاري B2B الرسمي</span>
+                </span>
               </div>
-              <p class="text-xs font-medium text-amber-300/80">Cairo, Egypt • Global Agro-Processing, Private Label &amp; Bulk Export</p>
+              <p class="text-xs font-medium text-amber-300/80 mt-0.5">
+                <span class="lang-en">Cairo, Egypt • Global Agro-Processing, Private Label &amp; Bulk Export</span>
+                <span class="lang-ar font-cairo">القاهرة، مصر • تصنيع زراعي متقدم، تصنيع للغير (Private Label) وتصدير بالجملة</span>
+              </p>
             </div>
           </div>
           <div class="flex items-center gap-3">
             <div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-semibold text-emerald-400">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              Export Ready • ISO 22000 & HACCP Certified
+              <span class="lang-en">Export Ready • ISO 22000 &amp; HACCP Certified</span>
+              <span class="lang-ar font-cairo">جاهز للتصدير الدولي • اعتمادات ISO 22000 و HACCP</span>
             </div>
           </div>
         </header>
 
         <!-- Main Hero Grid -->
-        <div class="grid grid-cols-12 gap-6 lg:gap-8 items-center flex-1 min-h-0 py-4 relative z-10">
+        <div class="grid grid-cols-12 gap-5 lg:gap-8 items-center flex-1 min-h-0 py-3 lg:py-4 relative z-10">
           <!-- Left Column: Executive Summary & Value Pillars (Col 7) -->
           <div class="col-span-12 lg:col-span-7 flex flex-col justify-between h-full py-1">
             <div>
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold tracking-wider uppercase mb-3">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold tracking-wider uppercase mb-2 lg:mb-3">
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                Direct Agro Processor & Global Exporter // Cairo, Egypt
+                <span class="lang-en">Direct Agro Processor &amp; Global Exporter // Cairo, Egypt</span>
+                <span class="lang-ar font-cairo">معالجة زراعية مباشرة وتصدير دولي // القاهرة، مصر</span>
               </div>
-              <h2 class="text-3xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.15]">
-                Mediterranean Table Olives & <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200">Pickled Specialties</span>
+              <h2 class="text-2xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-white leading-[1.15]">
+                <span class="lang-en">Mediterranean Table Olives &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200">Pickled Specialties</span></span>
+                <span class="lang-ar font-cairo">زيتون مائدة متوسطي فاخر و<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200">مخللات تخصصية</span></span>
               </h2>
-              <p class="mt-3 text-sm lg:text-base text-slate-300 max-w-2xl leading-relaxed font-normal">
-                Industrial processing, direct grove contract sourcing, and turnkey private label solutions for international commodity importers, foodservice distributors, pizza chains, and retail supermarkets.
+              <p class="mt-2.5 text-xs lg:text-sm text-slate-300 max-w-2xl leading-relaxed font-normal">
+                <span class="lang-en">Mediterranean Table Olives &amp; Pickled Specialties — Industrial Processing, Direct Grove Sourcing &amp; Turnkey Private Label Solutions for international commodity importers, foodservice distributors, pizza chains, and retail supermarkets.</span>
+                <span class="lang-ar font-cairo">زيتون مائدة متوسطي فاخر ومخللات تخصصية — معالجة صناعية، توريد مباشر من المزارع، وحلول تصنيع للغير (Private Label) لمستوردي السلع الغذائية، موزعي الخدمات الغذائية، سلاسل مطاعم البيتزا، وشبكات السوبرماركت العالمية.</span>
               </p>
             </div>
 
-            <!-- 4 Trust Pillars (2x2 Mini Cards) -->
-            <div class="grid grid-cols-2 gap-3 my-3">
+            <!-- 4 Strategic Trust Pillars (2x2 Mini Cards) -->
+            <div class="grid grid-cols-2 gap-2.5 lg:gap-3 my-2.5">
+              <!-- Pillar 1: Direct Agro Terroir -->
               <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  Direct Agro Terroir
+                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <span class="lang-en">Direct Agro Terroir</span>
+                  <span class="lang-ar font-cairo">التوريد الزراعي المباشر</span>
                 </div>
-                <p class="text-xs text-slate-300 leading-snug">Farm-gate contract sourcing across Nile Delta & Mediterranean groves; 15–25% cost edge over Southern Europe.</p>
+                <p class="text-xs text-slate-300 leading-snug">
+                  <span class="lang-en">Farm-gate contract sourcing across Nile Delta &amp; Mediterranean groves; 15–25% landed cost advantage over Southern Europe.</span>
+                  <span class="lang-ar font-cairo">توريد تعاقدي مباشر من مزارع دلتا النيل ومحور المتوسط؛ وفر في تكلفة الوصول (Landed Cost) بنسبة 15–25% مقارنة بجنوب أوروبا.</span>
+                </p>
               </div>
 
+              <!-- Pillar 2: Industrial Scale -->
               <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                  Industrial Scale
+                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                  <span class="lang-en">Industrial Scale</span>
+                  <span class="lang-ar font-cairo">الطاقة الصناعية المؤتمتة</span>
                 </div>
-                <p class="text-xs text-slate-300 leading-snug">Automated mechanical stone pitting, rotary ring slicing lines, and high-pressure autoclave retort pasteurization.</p>
+                <p class="text-xs text-slate-300 leading-snug">
+                  <span class="lang-en">High-throughput automated mechanical olive pitting lines, rotary slicing, and overpressure autoclave retort sterilization.</span>
+                  <span class="lang-ar font-cairo">خطوط آلية عالية الطاقة لنزع نوى الزيتون، تقطيع دوراني متجانس، وتعقيم صناعي بأوتوكلاف الضغط العالي.</span>
+                </p>
               </div>
 
+              <!-- Pillar 3: Rapid Port Logistics -->
               <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                  Rapid Port Logistics
+                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  <span class="lang-en">Rapid Maritime Corridors</span>
+                  <span class="lang-ar font-cairo">لوجستيات موانئ سريعة</span>
                 </div>
-                <p class="text-xs text-slate-300 leading-snug">3–5 days transit to Southern Europe; 4–7 days to GCC markets via Alexandria, Damietta, and Port Said ports.</p>
+                <p class="text-xs text-slate-300 leading-snug">
+                  <span class="lang-en">3–5 days transit to Southern Europe; 4–7 days to GCC markets via Alexandria, Damietta, and Port Said ports.</span>
+                  <span class="lang-ar font-cairo">3–5 أيام عبور لموانئ جنوب أوروبا؛ 4–7 أيام لأسواق الخليج العربي عبر موانئ الإسكندرية، دمياط، وبورسعيد.</span>
+                </p>
               </div>
 
+              <!-- Pillar 4: Global Compliance -->
               <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                  Global Compliance
+                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                  <span class="lang-en">International Compliance</span>
+                  <span class="lang-ar font-cairo">اعتمادات ومطابقة دولية</span>
                 </div>
-                <p class="text-xs text-slate-300 leading-snug">Certified ISO 22000, HACCP, FDA Registered (US FSMA), Halal, and ISO 9001 with end-to-end lot traceability.</p>
+                <p class="text-xs text-slate-300 leading-snug">
+                  <span class="lang-en">Certified ISO 22000, HACCP, FDA Registered (US FSMA &amp; 21 CFR Part 117), Halal, and ISO 9001 with lot traceability.</span>
+                  <span class="lang-ar font-cairo">منشأة معتمدة دولياً بـ ISO 22000، HACCP، تسجيل هيئة الغذاء والدواء الأمريكية FDA، حلال، و ISO 9001.</span>
+                </p>
               </div>
             </div>
 
             <!-- Direct Contact Strip -->
-            <div class="flex flex-wrap items-center justify-between gap-4 p-3 rounded-2xl bg-gradient-to-r from-slate-900/80 via-[#10231b]/90 to-slate-900/80 border border-amber-500/25 shadow-lg">
+            <div class="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-gradient-to-r from-slate-900/80 via-[#10231b]/90 to-slate-900/80 border border-amber-500/25 shadow-lg">
               <div class="flex items-center gap-3">
                 <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shrink-0">
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.09c-1.52 0-3-.41-4.3-1.18l-.31-.18-3.19.84.85-3.11-.2-.32c-.85-1.35-1.3-2.92-1.3-4.52 0-4.47 3.64-8.11 8.11-8.11 2.17 0 4.21.84 5.74 2.38s2.38 3.57 2.38 5.74c0 4.47-3.64 8.12-8.11 8.12zm4.44-6.07c-.24-.12-1.44-.71-1.66-.79-.23-.08-.39-.12-.56.12-.17.24-.64.79-.79.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.21-1.44-1.35-1.68-.14-.24-.01-.37.11-.49.11-.11.24-.29.37-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.42 1.02 2.59.12.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
                 </div>
                 <div>
-                  <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold font-mono">Direct Export Desk / WhatsApp</div>
-                  <div class="text-sm font-extrabold text-amber-300 font-mono tracking-tight">+20 10 08716714</div>
+                  <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">
+                    <span class="lang-en font-mono">Direct Export Desk / WhatsApp</span>
+                    <span class="lang-ar font-cairo">مكتب المشتريات والتصدير / واتساب</span>
+                  </div>
+                  <div class="text-sm font-extrabold text-amber-300 font-mono tracking-tight dir-ltr inline-block">+20 10 08716714</div>
                 </div>
               </div>
               <div class="flex items-center gap-3">
-                <a href="https://wa.me/201008716714" target="_blank" rel="noopener noreferrer" class="group tactile-btn inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-600/30 hover:bg-emerald-600/45 border border-emerald-500/40 text-emerald-300 text-xs font-bold transition-all shadow-md">
-                  <span>Chat WhatsApp</span>
-                  <span class="w-6 h-6 rounded-full bg-emerald-500/25 border border-emerald-400/30 flex items-center justify-center group-hover:scale-105 group-hover:translate-x-0.5 transition-transform">
-                    <svg class="w-3 h-3 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <a href="https://wa.me/201008716714" target="_blank" rel="noopener noreferrer" class="group tactile-btn inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-600/30 hover:bg-emerald-600/45 border border-emerald-500/40 text-emerald-300 text-xs font-bold transition-all shadow-md">
+                  <span class="lang-en font-sans">Chat WhatsApp</span>
+                  <span class="lang-ar font-cairo">تواصل عبر واتساب</span>
+                  <span class="w-5 h-5 rounded-full bg-emerald-500/25 border border-emerald-400/30 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <svg class="w-3 h-3 text-emerald-300 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                   </span>
                 </a>
-                <div class="text-right hidden sm:block pl-3 border-l border-white/10">
-                  <div class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Fast-Track Turnaround</div>
-                  <div class="text-xs text-emerald-400 font-medium">24-Hr Quotations • Samples</div>
+                <div class="hidden sm:block border-s border-white/10 ps-3">
+                  <div class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">
+                    <span class="lang-en">Fast-Track Turnaround</span>
+                    <span class="lang-ar font-cairo">استجابة تجارية سريعة</span>
+                  </div>
+                  <div class="text-xs text-emerald-400 font-medium">
+                    <span class="lang-en font-mono">24-Hr Quotations • Samples</span>
+                    <span class="lang-ar font-cairo">عروض أسعار خلال 24 ساعة • عينات</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -427,20 +470,30 @@
               <!-- Main Composition Card -->
               <div class="relative rounded-2xl overflow-hidden bg-slate-900/80 border border-amber-400/30 shadow-2xl p-2.5">
                 <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
-                  <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM (2).jpeg" alt="Mariam Food Industries - Mediterranean Pickled Specialties and Table Olives" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+                  <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM (2).jpeg" alt="Khaeer Alwadi Food Industries - Mediterranean Pickled Specialties and Table Olives" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20 pointer-events-none"></div>
                   
                   <!-- Top Badge -->
-                  <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-white/20 text-[11px] font-semibold text-amber-300">
-                    Premium Caliber Selection
+                  <div class="absolute top-2.5 start-2.5 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-white/20 text-[11px] font-semibold text-amber-300">
+                    <span class="lang-en">Premium Caliber Selection</span>
+                    <span class="lang-ar font-cairo">انتقاء ممتاز للمواصفات والأحجام</span>
                   </div>
 
                   <!-- Bottom Caption Overlay -->
-                  <div class="absolute bottom-2.5 left-2.5 right-2.5 p-2 rounded-lg bg-slate-950/85 backdrop-blur-md border border-white/10">
-                    <div class="text-xs font-bold text-white">Artisan Pickled Specialties & Table Olives</div>
+                  <div class="absolute bottom-2.5 inset-x-2.5 p-2 rounded-lg bg-slate-950/85 backdrop-blur-md border border-white/10">
+                    <div class="text-xs font-bold text-white">
+                      <span class="lang-en font-sans">Artisan Pickled Specialties &amp; Table Olives</span>
+                      <span class="lang-ar font-cairo">مخللات تخصصية فاخرة وزيتون مائدة</span>
+                    </div>
                     <div class="text-[10px] text-amber-300/90 flex items-center justify-between mt-0.5 font-mono">
-                      <span>Pickled Peppers • Cucumbers • Olives</span>
-                      <span>Glass Jars & A10 Tins</span>
+                      <span>
+                        <span class="lang-en">Pickled Peppers • Cucumbers • Olives</span>
+                        <span class="lang-ar font-cairo">فلفل مخلل • خيار مقرمش • زيتون</span>
+                      </span>
+                      <span>
+                        <span class="lang-en">Glass Jars &amp; A10 Tins</span>
+                        <span class="lang-ar font-cairo">عبوات زجاجية و A10</span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -448,16 +501,34 @@
                 <!-- Secondary Highlights Strip -->
                 <div class="grid grid-cols-3 gap-2 mt-2 pt-2 border-t border-white/10 text-center">
                   <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
-                    <div class="text-[10px] text-slate-400 uppercase">Packaging</div>
-                    <div class="text-xs font-bold text-amber-300">A10, Jars, Drums</div>
+                    <div class="text-[10px] text-slate-400 uppercase">
+                      <span class="lang-en">Packaging</span>
+                      <span class="lang-ar font-cairo">التعبئة</span>
+                    </div>
+                    <div class="text-xs font-bold text-amber-300">
+                      <span class="lang-en">A10, Jars, Drums</span>
+                      <span class="lang-ar font-cairo">A10، برطمان، براميل</span>
+                    </div>
                   </div>
                   <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
-                    <div class="text-[10px] text-slate-400 uppercase">Shelf Life</div>
-                    <div class="text-xs font-bold text-emerald-400">24–36 Months</div>
+                    <div class="text-[10px] text-slate-400 uppercase">
+                      <span class="lang-en">Shelf Life</span>
+                      <span class="lang-ar font-cairo">الصلاحية</span>
+                    </div>
+                    <div class="text-xs font-bold text-emerald-400">
+                      <span class="lang-en font-mono">24–36 Months</span>
+                      <span class="lang-ar font-cairo">24–36 شهراً</span>
+                    </div>
                   </div>
                   <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
-                    <div class="text-[10px] text-slate-400 uppercase">Customization</div>
-                    <div class="text-xs font-bold text-amber-300">Turnkey OEM</div>
+                    <div class="text-[10px] text-slate-400 uppercase">
+                      <span class="lang-en">Customization</span>
+                      <span class="lang-ar font-cairo">التصنيع</span>
+                    </div>
+                    <div class="text-xs font-bold text-amber-300">
+                      <span class="lang-en">Turnkey OEM</span>
+                      <span class="lang-ar font-cairo">Private Label</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -466,84 +537,135 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-3 relative z-10">
+        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2.5 lg:pt-3 relative z-10">
           <div class="flex items-center gap-2">
-            <span class="font-semibold text-slate-300">Mariam Food Industries</span>
+            <span class="font-semibold text-slate-300">
+              <span class="lang-en">Khaeer Alwadi Food Industries</span>
+              <span class="lang-ar font-cairo">خير الوادي للصناعات الغذائية</span>
+            </span>
             <span>•</span>
-            <span>Cairo Industrial Zone, Egypt</span>
+            <span>
+              <span class="lang-en">Cairo Industrial Zone, Egypt</span>
+              <span class="lang-ar font-cairo">المنطقة الصناعية بالقاهرة، مصر</span>
+            </span>
             <span>•</span>
-            <span class="text-amber-300/80 font-mono">Export & Wholesale Commercial Deck</span>
+            <span class="text-amber-300/80">
+              <span class="lang-en font-mono">Export &amp; Wholesale Commercial Deck</span>
+              <span class="lang-ar font-cairo">العرض التجاري للتصدير والبيع بالجملة</span>
+            </span>
           </div>
           <div class="flex items-center gap-4 font-mono text-xs">
-            <span>Confidential B2B Presentation</span>
-            <span class="text-amber-400 font-bold">Slide 1 of 9</span>
+            <span>
+              <span class="lang-en">Confidential B2B Presentation</span>
+              <span class="lang-ar font-cairo">عرض تجاري مخصص للمستوردين</span>
+            </span>
+            <span class="text-amber-400 font-bold">
+              <span class="lang-en">Slide 1 of 9</span>
+              <span class="lang-ar font-cairo">شريحة 1 من 9</span>
+            </span>
           </div>
         </footer>
       </section>
 
-      <!-- Slide 2: The Egyptian Strategic Supply Advantage -->
-      <section id="slide-2" class="slide w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
+      <!-- Slide 2: The Egyptian Strategic Supply Advantage / الميزة التنافسية للزراعة والتصدير المصري -->
+      <section id="slide-2" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-8 xl:p-10 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Subtle Gradient Accents -->
         <div class="absolute -top-32 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
-          <div class="flex items-center gap-4">
-            <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain hidden sm:block opacity-90">
+        <header class="flex items-center justify-between border-b border-white/10 pb-3 lg:pb-4 relative z-10">
+          <div class="flex items-center gap-3 lg:gap-4">
+            <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain hidden sm:block opacity-90">
             <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
             <div>
               <div class="flex items-center gap-2">
-                <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">The Egyptian Strategic Supply Advantage</h2>
-                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Strategic Arbitrage</span>
+                <h2 class="text-lg lg:text-2xl font-bold tracking-tight text-white">
+                  <span class="lang-en font-sans">The Egyptian Strategic Supply Advantage</span>
+                  <span class="lang-ar font-cairo">الميزة الاستراتيجية للتوريد والتصدير المصري</span>
+                </h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">
+                  <span class="lang-en">Strategic Arbitrage</span>
+                  <span class="lang-ar font-cairo">ميزة تنافسية وسعرية</span>
+                </span>
               </div>
-              <p class="text-xs font-medium text-amber-300/80">Section 01 // Geographic Terroir, Maritime Feeder Corridors & Zero-Tariff Treaties</p>
+              <p class="text-xs font-medium text-amber-300/80 mt-0.5">
+                <span class="lang-en">Section 01 // Geographic Terroir, Maritime Feeder Corridors &amp; Zero-Tariff Treaties</span>
+                <span class="lang-ar font-cairo">القسم 01 // الموقع الزراعي الخصب، ممرات الشحن البحري والاتفاقيات الجمركية المعفاة</span>
+              </p>
             </div>
           </div>
           <div class="text-right">
-            <span class="text-xs font-mono text-slate-400">Cairo Processing Plant • Tri-Port Proximity</span>
+            <span class="text-xs text-slate-400">
+              <span class="lang-en font-mono">Cairo Processing Plant • Tri-Port Proximity</span>
+              <span class="lang-ar font-cairo">مجمع التصنيع بالقاهرة • قرب استراتيجي لثلاثة موانئ</span>
+            </span>
           </div>
         </header>
 
         <!-- Executive Banner -->
         <div class="my-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
           <div class="flex items-center gap-3">
-            <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+            <div class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></div>
             <p class="text-xs lg:text-sm text-slate-200">
-              <strong class="text-amber-300">Core Commercial Value Thesis:</strong> Direct Nile-fed agronomy, rapid 3-to-7 day maritime transit, and 0% customs duties generate an insurmountable <strong class="text-emerald-400">15%–25% landed margin advantage</strong> for global food distributors over Southern European processors.
+              <span class="lang-en">
+                <strong class="text-amber-300">Core Commercial Value Thesis:</strong> Direct Nile-fed agronomy, rapid 3-to-7 day maritime transit, and 0% customs duties generate an insurmountable <strong class="text-emerald-400">15%–25% landed margin advantage</strong> for global food distributors over Southern European processors.
+              </span>
+              <span class="lang-ar font-cairo">
+                <strong class="text-amber-300">الأطروحة التجارية الاستراتيجية:</strong> وفرة الإنتاج الزراعي بخصوبة دلتا النيل، وسرعة الشحن البحري خلال 3–7 أيام، والإعفاء الجمركي التام بنسبة 0% تمنح المستوردين والموزعين الدوليين <strong class="text-emerald-400">هامش وفر تنافسي في تكلفة التوريد الواصلة (Landed Cost) بنسبة 15%–25%</strong> مقارنة بمصانع جنوب أوروبا.
+              </span>
             </p>
           </div>
-          <div class="hidden md:flex items-center gap-2 text-xs font-mono text-amber-300/90 whitespace-nowrap pl-4 border-l border-white/10">
-            <span>Arbitrage: 15%–25% Net Margin</span>
+          <div class="hidden md:flex items-center gap-2 text-xs font-mono text-amber-300/90 whitespace-nowrap ps-4 border-s border-white/10">
+            <span class="lang-en">Arbitrage: 15%–25% Net Margin</span>
+            <span class="lang-ar font-cairo font-mono">فارق الربحية: 15%–25% وفر إجمالي</span>
           </div>
         </div>
 
         <!-- 3-Column Interactive Advantage Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 flex-1 min-h-0 py-1 relative z-10">
-          <!-- Column 1: Mediterranean Agro Terroir & Direct Sourcing -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 lg:gap-5 flex-1 min-h-0 py-1 relative z-10">
+          <!-- Column 1: Agro Terroir & Direct Sourcing -->
           <div class="flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
-              <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center justify-between mb-2.5">
                 <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                 </div>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 font-semibold uppercase">Agronomy</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 font-semibold uppercase">
+                  <span class="lang-en">Agronomy</span>
+                  <span class="lang-ar font-cairo">الإنتاج الزراعي</span>
+                </span>
               </div>
-              <h3 class="text-base lg:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Agro Terroir & Direct Sourcing</h3>
-              <p class="text-xs text-amber-300/70 font-mono mb-3">Nile-Fed Delta & Mediterranean Silt</p>
+              <h3 class="text-base lg:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
+                <span class="lang-en font-sans">Agro Terroir &amp; Direct Sourcing</span>
+                <span class="lang-ar font-cairo">البيئة الزراعية والتوريد المباشر</span>
+              </h3>
+              <p class="text-xs text-amber-300/70 mb-2.5">
+                <span class="lang-en font-mono">Nile-Fed Delta &amp; Mediterranean Silt</span>
+                <span class="lang-ar font-cairo">تربة الدلتا الرسوبية ومناخ حوض المتوسط</span>
+              </p>
               
-              <ul class="space-y-2.5 text-xs text-slate-300 leading-relaxed">
+              <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
-                  <span><strong class="text-white">300+ Sun Days / Year:</strong> Arid sun & alluvial soil produce firm, high-flesh-to-stone ratio table olives (Picual, Manzanilla) and vibrant crisp peppers.</span>
+                  <span>
+                    <span class="lang-en"><strong class="text-white">300+ Sun Days / Year:</strong> Arid sun &amp; alluvial soil produce firm, high-flesh-to-stone ratio table olives (Picual, Manzanilla) and vibrant crisp peppers.</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">300+ يوم مشمس سنوياً:</strong> إشعاع شمسي مستمر وتربة طمية غنية تنتج ثمار زيتون مائدة صلبة مرتفعة نسبة اللب إلى النواة (بيكوال، مانزانيللا) وفلفل مقرمش عالي الكثافة.</span>
+                  </span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
-                  <span><strong class="text-white">Grove-Direct Integration:</strong> Contract farming direct with premier growers in Fayoum and Ismailia eliminates intermediary brokerage fees.</span>
+                  <span>
+                    <span class="lang-en"><strong class="text-white">Grove-Direct Integration:</strong> Contract farming direct with premier growers in Fayoum and Ismailia eliminates intermediary brokerage fees.</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">تكامل زراعي تعاقدي مباشر:</strong> عقود توريد زراعي حصرية من كبار المزارعين في الفيوم والإسماعيلية تلغي هوامش الوسطاء.</span>
+                  </span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
-                  <span><strong class="text-white">Crisp Cellular Structure:</strong> Dense plant tissue withstands industrial retort pasteurization without softening or shredding.</span>
+                  <span>
+                    <span class="lang-en"><strong class="text-white">Crisp Cellular Structure:</strong> Dense plant tissue withstands industrial retort pasteurization without softening or shredding.</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">صلابة بنيوية مقاومة للحرارة:</strong> نسيج خلوي نباتي كثيف يتحمل عمليات التعقيم الصناعي دون اهتراء أو فقدان القرمشة.</span>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -552,54 +674,96 @@
             <div class="mt-3 pt-3 border-t border-white/10 bg-white/[0.02] -mx-1 px-3 py-2 rounded-xl">
               <div class="flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Cost Efficiency Edge</div>
-                  <div class="text-base font-extrabold text-emerald-400 font-mono">15%–25% Lower Cost</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">
+                    <span class="lang-en">Cost Efficiency Edge</span>
+                    <span class="lang-ar font-cairo">ميزة كفاءة التكلفة</span>
+                  </div>
+                  <div class="text-base font-extrabold text-emerald-400 font-mono">
+                    <span class="lang-en">15%–25% Lower Cost</span>
+                    <span class="lang-ar font-cairo">15%–25% وفر تكلفة</span>
+                  </div>
                 </div>
                 <div class="text-right">
-                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Baseline Comp</div>
-                  <div class="text-xs font-semibold text-slate-300">vs. Spain, Greece, Italy</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">
+                    <span class="lang-en">Baseline Comp</span>
+                    <span class="lang-ar font-cairo">المقارنة المرجعية</span>
+                  </div>
+                  <div class="text-xs font-semibold text-slate-300">
+                    <span class="lang-en">vs. Spain, Greece, Italy</span>
+                    <span class="lang-ar font-cairo">مقابل إسبانيا واليونان وإيطاليا</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Column 2: Strategic Maritime Hubs & Transit Speeds -->
+          <!-- Column 2: Strategic Maritime Ports (Tri-Port Corridor) -->
           <div class="flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
-              <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center justify-between mb-2.5">
                 <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
                 </div>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-300 font-semibold uppercase">Logistics</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-300 font-semibold uppercase">
+                  <span class="lang-en">Logistics</span>
+                  <span class="lang-ar font-cairo">اللوجستيات</span>
+                </span>
               </div>
-              <h3 class="text-base lg:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Strategic Maritime Ports</h3>
-              <p class="text-xs text-amber-300/70 font-mono mb-3">Alexandria • Damietta • Port Said</p>
+              <h3 class="text-base lg:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
+                <span class="lang-en font-sans">Strategic Maritime Ports</span>
+                <span class="lang-ar font-cairo">موانئ الشحن الاستراتيجية</span>
+              </h3>
+              <p class="text-xs text-amber-300/70 mb-2.5">
+                <span class="lang-en font-mono">Alexandria • Damietta • Port Said</span>
+                <span class="lang-ar font-cairo">الإسكندرية • دمياط • بورسعيد</span>
+              </p>
               
-              <ul class="space-y-2.5 text-xs text-slate-300 leading-relaxed">
+              <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0"></span>
-                  <span><strong class="text-white">Alexandria Port:</strong> Immediate access to Mediterranean container vessels with daily European departures.</span>
+                  <span>
+                    <span class="lang-en"><strong class="text-white">Alexandria Port (2.5h transit):</strong> Immediate access to Mediterranean container vessels with daily European departures.</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">ميناء الإسكندرية (2.5 ساعة):</strong> ربط فوري بسفن الحاويات المتجهة يومياً لكبرى الموانئ الأوروبية المتوسطية.</span>
+                  </span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0"></span>
-                  <span><strong class="text-white">Damietta & Port Said:</strong> Major deepwater container transshipment hubs on the Suez Canal connecting Asia, Red Sea, and the Gulf.</span>
+                  <span>
+                    <span class="lang-en"><strong class="text-white">Damietta (2.5h) &amp; Port Said (2.0h):</strong> Major deepwater container transshipment hubs on Suez Canal connecting Asia, Red Sea, and GCC.</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">ميناء دمياط (2.5 ساعة) وبورسعيد (ساعتان):</strong> محطات حاويات عميقة على قناة السويس لخدمة خطوط البحر الأحمر، والخليج العربي، وآسيا.</span>
+                  </span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0"></span>
-                  <span><strong class="text-white">Short Transit Cycles:</strong> Fast sea-freight turnaround safeguards cash flows and avoids costly multi-week ocean pipelines.</span>
+                  <span>
+                    <span class="lang-en"><strong class="text-white">Short Transit Cycles:</strong> Fast sea-freight turnaround safeguards cash flows and avoids costly multi-week ocean pipelines.</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">دورات شحن بحري قصيرة:</strong> سرعة وصول فائقة تحمي رأس المال العامل للمشتري وتلغي مخاطر الشحن الطويل.</span>
+                  </span>
                 </li>
               </ul>
             </div>
 
             <!-- Col 2 Bottom Stat Card -->
             <div class="mt-3 pt-3 border-t border-white/10 bg-white/[0.02] -mx-1 px-3 py-2 rounded-xl space-y-1.5">
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span class="text-slate-400">Southern & Western Europe:</span>
-                <strong class="text-amber-300 font-bold">3–5 Days Transit</strong>
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-slate-400">
+                  <span class="lang-en font-mono">Southern &amp; Western Europe:</span>
+                  <span class="lang-ar font-cairo">جنوب وغرب أوروبا:</span>
+                </span>
+                <strong class="text-amber-300 font-bold font-mono">
+                  <span class="lang-en">3–5 Days Transit</span>
+                  <span class="lang-ar font-cairo">3–5 أيام إبحار</span>
+                </strong>
               </div>
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span class="text-slate-400">Gulf / GCC & Levant:</span>
-                <strong class="text-emerald-400 font-bold">4–7 Days Transit</strong>
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-slate-400">
+                  <span class="lang-en font-mono">Gulf / GCC &amp; Levant:</span>
+                  <span class="lang-ar font-cairo">الخليج العربي والمشرق:</span>
+                </span>
+                <strong class="text-emerald-400 font-bold font-mono">
+                  <span class="lang-en">4–7 Days Transit</span>
+                  <span class="lang-ar font-cairo">4–7 أيام إبحار</span>
+                </strong>
               </div>
             </div>
           </div>
@@ -607,27 +771,45 @@
           <!-- Column 3: Duty-Free Trade Accords -->
           <div class="flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
-              <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center justify-between mb-2.5">
                 <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                 </div>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 font-semibold uppercase">Tariffs</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 font-semibold uppercase">
+                  <span class="lang-en">Tariffs</span>
+                  <span class="lang-ar font-cairo">الجمارك</span>
+                </span>
               </div>
-              <h3 class="text-base lg:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Duty-Free Trade Pacts</h3>
-              <p class="text-xs text-amber-300/70 font-mono mb-3">GAFTA • COMESA • Agadir • EU</p>
+              <h3 class="text-base lg:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
+                <span class="lang-en font-sans">Duty-Free Trade Pacts</span>
+                <span class="lang-ar font-cairo">اتفاقيات التجارة الحرة</span>
+              </h3>
+              <p class="text-xs text-amber-300/70 mb-2.5">
+                <span class="lang-en font-mono">GAFTA • COMESA • Agadir • EU</span>
+                <span class="lang-ar font-cairo">منطقة التجارة العربية • الكوميسا • أغادير • الشراكة الأوروبية</span>
+              </p>
               
-              <ul class="space-y-2.5 text-xs text-slate-300 leading-relaxed">
+              <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
-                  <span><strong class="text-white">GAFTA (Arab Free Trade):</strong> <span class="text-emerald-300 font-semibold">0% customs duty</span> across 17 Arab nations (Saudi Arabia, UAE, Kuwait, Qatar, Jordan, etc.).</span>
+                  <span>
+                    <span class="lang-en"><strong class="text-white">GAFTA (Arab Free Trade):</strong> <span class="text-emerald-300 font-semibold">0% customs duty</span> across 17 Arab nations (Saudi Arabia, UAE, Kuwait, Qatar, Jordan, etc.).</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">منطقة التجارة الحرة العربية (GAFTA):</strong> <span class="text-emerald-300 font-semibold">إعفاء جمركي 0%</span> في 17 دولة عربية (السعودية، الإمارات، الكويت، قطر، الأردن وغيرها).</span>
+                  </span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
-                  <span><strong class="text-white">COMESA Treaty:</strong> Preferential zero-tariff entry to 21 African member states (580M+ consumers).</span>
+                  <span>
+                    <span class="lang-en"><strong class="text-white">COMESA Treaty:</strong> Preferential zero-tariff entry to 21 African member states (580M+ consumers).</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">اتفاقية الكوميسا (COMESA):</strong> نفاذ جمركي حر معفى من الرسوم لـ 21 دولة أفريقية (580+ مليون مستهلك).</span>
+                  </span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
-                  <span><strong class="text-white">Agadir & EU Association:</strong> Duty-free access to EU single market and North Africa via Pan-Euro-Med origin rules.</span>
+                  <span>
+                    <span class="lang-en"><strong class="text-white">Agadir &amp; EU Association:</strong> Euro-Mediterranean accumulation of origin allowing duty-free access to EU single market.</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">أغادير والشراكة الأوروبية:</strong> تراكم المنشأ الأورومتوسطي يمنح نفاذاً تفضيلياً حراً لأسواق الاتحاد الأوروبي وشمال أفريقيا.</span>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -636,12 +818,24 @@
             <div class="mt-3 pt-3 border-t border-white/10 bg-white/[0.02] -mx-1 px-3 py-2 rounded-xl">
               <div class="flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Tariff Impact</div>
-                  <div class="text-base font-extrabold text-amber-300 font-mono">0% Import Duty</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">
+                    <span class="lang-en">Tariff Impact</span>
+                    <span class="lang-ar font-cairo">الأثر الجمركي</span>
+                  </div>
+                  <div class="text-base font-extrabold text-amber-300 font-mono">
+                    <span class="lang-en">0% Import Duty</span>
+                    <span class="lang-ar font-cairo">0% رسوم جمركية</span>
+                  </div>
                 </div>
                 <div class="text-right">
-                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Preferential Reach</div>
-                  <div class="text-xs font-semibold text-slate-300">580M+ Consumers</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">
+                    <span class="lang-en">Preferential Reach</span>
+                    <span class="lang-ar font-cairo">السوق التفضيلي</span>
+                  </div>
+                  <div class="text-xs font-semibold text-slate-300">
+                    <span class="lang-en font-mono">580M+ Consumers</span>
+                    <span class="lang-ar font-cairo">580+ مليون مستهلك</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -649,194 +843,263 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-3 relative z-10">
-          <div>Mariam Food Industries • Supply Chain Economics & Logistics Desk</div>
-          <div class="font-mono text-amber-400 font-bold">Slide 2 of 9</div>
+        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2.5 lg:pt-3 relative z-10">
+          <div>
+            <span class="lang-en">Khaeer Alwadi Food Industries • Supply Chain Economics &amp; Logistics Desk</span>
+            <span class="lang-ar font-cairo">خير الوادي للصناعات الغذائية • قطاع اقتصاديات سلاسل التوريد واللوجستيات</span>
+          </div>
+          <div class="font-mono text-amber-400 font-bold">
+            <span class="lang-en">Slide 2 of 9</span>
+            <span class="lang-ar font-cairo">شريحة 2 من 9</span>
+          </div>
         </footer>
       </section>
 
-      <!-- Slide 3: Industrial Infrastructure, Technology & Compliance -->
-      <section id="slide-3" class="slide w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
+      <!-- Slide 3: Industrial Infrastructure, Technology & Compliance / البنية الصناعية، التكنولوجيا والمطابقة الدولية -->
+      <section id="slide-3" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-8 xl:p-10 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Accents -->
         <div class="absolute -top-32 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
-          <div class="flex items-center gap-4">
-            <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain hidden sm:block opacity-90">
+        <header class="flex items-center justify-between border-b border-white/10 pb-3 lg:pb-4 relative z-10">
+          <div class="flex items-center gap-3 lg:gap-4">
+            <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain hidden sm:block opacity-90">
             <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
             <div>
               <div class="flex items-center gap-2">
-                <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Industrial Infrastructure, Technology & Compliance</h2>
-                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Plant & QA</span>
+                <h2 class="text-lg lg:text-2xl font-bold tracking-tight text-white">
+                  <span class="lang-en font-sans">Industrial Infrastructure, Processing Tech &amp; Global Compliance</span>
+                  <span class="lang-ar font-cairo">البنية الصناعية، التكنولوجيا والمطابقة الدولية</span>
+                </h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">
+                  <span class="lang-en">Plant &amp; QA</span>
+                  <span class="lang-ar font-cairo">المصنع وضبط الجودة</span>
+                </span>
               </div>
-              <p class="text-xs font-medium text-amber-300/80">Section 02 // High-Volume Processing Lines, Thermal Retort Sterilization & Certified Standards</p>
+              <p class="text-xs font-medium text-amber-300/80 mt-0.5">
+                <span class="lang-en">Section 02 // High-Volume Processing Lines, Thermal Retort Sterilization &amp; Certified Standards</span>
+                <span class="lang-ar font-cairo">القسم 02 // خطوط معالجة صناعية مؤتمتة، تعقيم حراري متطور ومطابقة للمواصفات العالمية</span>
+              </p>
             </div>
           </div>
           <div class="text-right">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-emerald-400">
               <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              Capacity: Hundreds of MT / Month
+              <span class="lang-en font-mono">Capacity: Hundreds of MT / Month</span>
+              <span class="lang-ar font-cairo">الطاقة الإنتاجية: مئات الأطنان المترية شهرياً</span>
             </span>
           </div>
         </header>
 
         <!-- Main Middle Grid: 7 Cols Machinery & Laboratory + 5 Cols Visual Proof -->
-        <div class="grid grid-cols-12 gap-5 lg:gap-6 flex-1 min-h-0 py-2 relative z-10 items-stretch">
+        <div class="grid grid-cols-12 gap-4 lg:gap-6 flex-1 min-h-0 py-2 relative z-10 items-stretch">
           
           <!-- Left: Automated Processing Technology & QC Lab (Col 7) -->
-          <div class="col-span-12 lg:col-span-7 flex flex-col justify-between h-full space-y-3">
+          <div class="col-span-12 lg:col-span-7 flex flex-col justify-between h-full space-y-2.5">
             <!-- 4 Core Processing Line Pillars (2x2 Grid) -->
-            <div class="grid grid-cols-2 gap-3">
+            <div class="grid grid-cols-2 gap-2.5">
               <!-- Pillar 1: Stone Pitting -->
               <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                  Mechanical Stone Pitting
+                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                  <span class="lang-en">Mechanical Stone Pitting</span>
+                  <span class="lang-ar font-cairo">نزع النوى الميكانيكي</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-snug">
-                  High-speed continuous needle pitter cleanly excising olive stones with <strong class="text-amber-300">&lt;0.1% pit fragment tolerance</strong>, preserving plump flesh geometry.
+                  <span class="lang-en">High-throughput automated mechanical olive pitting lines — precision stone extraction with <strong class="text-amber-300">&lt;1% fragment tolerance</strong> (&lt;0.1% target), preserving plump flesh geometry.</span>
+                  <span class="lang-ar font-cairo">خطوط آلية عالية الطاقة لنزع نوى الزيتون — استخراج دقيق للنوى مع نسبة شظايا نوى <strong class="text-amber-300">&lt;1% (المستهدف &lt;0.1%)</strong>، مع الحفاظ التام على هندسة واستدارة الثمرة.</span>
                 </p>
               </div>
 
               <!-- Pillar 2: Rotary Slicing -->
               <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879a3 3 0 11-4.242-4.242L11.879 7.88a3 3 0 114.242 4.242z"></path></svg>
-                  Precision Rotary Slicing
+                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879a3 3 0 11-4.242-4.242L11.879 7.88a3 3 0 114.242 4.242z"></path></svg>
+                  <span class="lang-en">Precision Rotary Slicing</span>
+                  <span class="lang-ar font-cairo">التقطيع الدوراني الدقيق</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-snug">
-                  Multi-blade calibrated slicers producing uniform <strong class="text-amber-300">3.0mm–3.5mm rings</strong> with zero shredding or torn ring walls, ideal for pizza chains.
+                  <span class="lang-en">Continuous rotary slicing drum producing calibrated <strong class="text-amber-300">3.2mm ±0.2mm rings</strong> with zero edge shredding or torn walls, engineered for pizza commissaries.</span>
+                  <span class="lang-ar font-cairo">أسطوانات تقطيع دوراني متواصل تنتج حلقات زيتون معايرة بدقة <strong class="text-amber-300">3.2 مم ±0.2 مم</strong> دون تمزق للجدران، مصممة خصيصاً لمطاعم ومصانع البيتزا.</span>
                 </p>
               </div>
 
               <!-- Pillar 3: Seaming & Capping -->
               <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
-                  Automatic Seaming & Capping
+                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                  <span class="lang-en">Automatic Seaming &amp; Capping</span>
+                  <span class="lang-ar font-cairo">القفل المزدوج والتغطية الآلية</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-snug">
-                  Heavy-gauge double-seaming for institutional A10 cans and steam-vacuum twist-off capping with safety pop buttons for retail jars.
+                  <span class="lang-en">Heavy-gauge double-seaming for institutional A10 cans and steam-vacuum twist-off capping with safety pop buttons for retail jars.</span>
+                  <span class="lang-ar font-cairo">خطوط غلق مزدوج محكم للعبوات المعدنية A10 وتفريغ الهواء بالبخار للبرطمانات الزجاجية بأغطية أمان معدنية (Twist-off).</span>
                 </p>
               </div>
 
               <!-- Pillar 4: Autoclave Pasteurization -->
               <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  Pressurized Retort Autoclave
+                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <span class="lang-en">Pressurized Retort Autoclave</span>
+                  <span class="lang-ar font-cairo">أوتوكلاف التعقيم بالضغط والبخار</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-snug">
-                  Industrial steam retorts providing verified Fo commercial sterility, achieving <strong class="text-emerald-400">24–36 month ambient shelf life</strong> with zero chemical preservatives.
+                  <span class="lang-en">Overpressure autoclave retort sterilization (<strong class="text-amber-300">F₀ ≥ 4.0</strong> microbiological sterility), achieving <strong class="text-emerald-400">24–36 month ambient shelf life</strong> with zero chemical preservatives.</span>
+                  <span class="lang-ar font-cairo">نظام تعقيم صناعي بأوتوكلاف الضغط العالي والبخار (<strong class="text-amber-300">قيمة F₀ ≥ 4.0</strong> لعقم تجاري تام) يضمن <strong class="text-emerald-400">صلاحية 24–36 شهراً</strong> بدرجة حرارة الغرفة دون مواد حافظة.</span>
                 </p>
               </div>
             </div>
 
             <!-- In-House Laboratory Monitoring Strip -->
-            <div class="p-3.5 rounded-xl bg-white/[0.03] border border-amber-400/20">
+            <div class="p-3 rounded-xl bg-white/[0.03] border border-amber-400/20">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                  In-House QC Analytical Laboratory • Continuous Batch Auditing
+                  <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                  <span class="lang-en">In-House QC Analytical Laboratory • Continuous Batch Auditing</span>
+                  <span class="lang-ar font-cairo">مختبر التحليل ومراقبة الجودة الداخلي • فحص مستمر للتشغيلات</span>
                 </span>
-                <span class="text-[10px] text-slate-400 font-mono">Sampling: Every 30 Mins</span>
+                <span class="text-[10px] text-slate-400 font-mono">
+                  <span class="lang-en">Sampling: Every 30 Mins</span>
+                  <span class="lang-ar font-cairo">سحب عينات: كل 30 دقيقة</span>
+                </span>
               </div>
               <div class="grid grid-cols-4 gap-2 text-center text-xs">
                 <div class="p-2 rounded-lg bg-slate-900/60 border border-white/5">
-                  <div class="text-[10px] text-slate-400 uppercase font-semibold">pH Control</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">
+                    <span class="lang-en">pH Control</span>
+                    <span class="lang-ar font-cairo">ضبط الحموضة</span>
+                  </div>
                   <div class="font-extrabold text-amber-300 font-mono">&lt; 4.0</div>
-                  <div class="text-[9px] text-slate-400">Target: 3.4–3.8</div>
+                  <div class="text-[9px] text-slate-400 font-mono">Target: 3.4–3.8</div>
                 </div>
                 <div class="p-2 rounded-lg bg-slate-900/60 border border-white/5">
-                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Salinity (NaCl)</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">
+                    <span class="lang-en">Salinity (NaCl)</span>
+                    <span class="lang-ar font-cairo">الملوحة (NaCl)</span>
+                  </div>
                   <div class="font-extrabold text-amber-300 font-mono">3.0% – 7.0%</div>
-                  <div class="text-[9px] text-slate-400">Brix & Salinity Titration</div>
+                  <div class="text-[9px] text-slate-400">
+                    <span class="lang-en">Titration</span>
+                    <span class="lang-ar font-cairo">معايرة دقيقة</span>
+                  </div>
                 </div>
                 <div class="p-2 rounded-lg bg-slate-900/60 border border-white/5">
-                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Drained Weight</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">
+                    <span class="lang-en">Drained Weight</span>
+                    <span class="lang-ar font-cairo">الوزن المصفى</span>
+                  </div>
                   <div class="font-extrabold text-emerald-400 font-mono">≥ 50%–55%</div>
-                  <div class="text-[9px] text-slate-400">CODEX STAN Verified</div>
+                  <div class="text-[9px] text-slate-400 font-mono">CODEX STAN</div>
                 </div>
                 <div class="p-2 rounded-lg bg-slate-900/60 border border-white/5">
-                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Defect Sorting</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">
+                    <span class="lang-en">Defect Sorting</span>
+                    <span class="lang-ar font-cairo">فرز العيوب</span>
+                  </div>
                   <div class="font-extrabold text-emerald-400 font-mono">&lt; 1.0%</div>
-                  <div class="text-[9px] text-slate-400">Optical & Manual Audit</div>
+                  <div class="text-[9px] text-slate-400">
+                    <span class="lang-en">Optical &amp; Manual</span>
+                    <span class="lang-ar font-cairo">بصري وتدقيق</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Right: Visual Facility Photography (Col 5) -->
-          <div class="col-span-12 lg:col-span-5 flex flex-col justify-between h-full space-y-3">
+          <div class="col-span-12 lg:col-span-5 flex flex-col justify-between h-full space-y-2.5">
             <!-- Autoclave Retort Crate Image -->
-            <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-amber-400/30 group shadow-lg">
-              <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM.jpeg" alt="Autoclave retort sterilization crate loaded with gold-lid jars - Mariam Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+            <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-amber-400/30 group shadow-lg min-h-[120px]">
+              <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM.jpeg" alt="Autoclave retort sterilization crate loaded with gold-lid jars - Khaeer Alwadi Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
-              <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+              <div class="absolute bottom-2.5 inset-x-3 flex items-center justify-between">
                 <div>
                   <div class="text-xs font-bold text-white flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                    Industrial Autoclave Retort Crate
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+                    <span class="lang-en font-sans">Industrial Autoclave Retort Crate</span>
+                    <span class="lang-ar font-cairo">أقفاص أوتوكلاف التعقيم الصناعي</span>
                   </div>
-                  <div class="text-[10px] text-amber-300 font-mono">Pressurized Steam Sterilization • Gold-Lid Jars</div>
+                  <div class="text-[10px] text-amber-300">
+                    <span class="lang-en font-mono">Pressurized Steam Sterilization • Gold-Lid Jars</span>
+                    <span class="lang-ar font-cairo">تعقيم حراري بضغط البخار • برطمانات الأغطية الذهبية</span>
+                  </div>
                 </div>
-                <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 text-[10px] text-emerald-300 font-semibold uppercase">24-36 Mo Ambient</span>
+                <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 text-[10px] text-emerald-300 font-semibold uppercase">
+                  <span class="lang-en font-mono">24-36 Mo Ambient</span>
+                  <span class="lang-ar font-cairo">24-36 شهراً</span>
+                </span>
               </div>
             </div>
 
             <!-- Palletized Canning / Packaging Floor Image -->
-            <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-white/10 group shadow-lg">
-              <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM.jpeg" alt="Palletized canning floor and packaging lines - Mariam Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+            <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-white/10 group shadow-lg min-h-[120px]">
+              <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM.jpeg" alt="Palletized canning floor and packaging lines - Khaeer Alwadi Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
-              <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+              <div class="absolute bottom-2.5 inset-x-3 flex items-center justify-between">
                 <div>
                   <div class="text-xs font-bold text-white flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-                    Packaging Floor & Canned Inventory
+                    <span class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></span>
+                    <span class="lang-en font-sans">Packaging Floor &amp; Canned Inventory</span>
+                    <span class="lang-ar font-cairo">صالة التعبئة والتغليف ومخزون العبوات</span>
                   </div>
-                  <div class="text-[10px] text-slate-300 font-mono">Institutional A10 Can Seaming & Pallet Staging</div>
+                  <div class="text-[10px] text-slate-300">
+                    <span class="lang-en font-mono">Institutional A10 Can Seaming &amp; Pallet Staging</span>
+                    <span class="lang-ar font-cairo">قفل عبوات A10 ورص المنصات للتصدير</span>
+                  </div>
                 </div>
-                <span class="px-2 py-0.5 rounded bg-white/10 border border-white/20 text-[10px] text-slate-300 font-semibold uppercase">Cairo Plant</span>
+                <span class="px-2 py-0.5 rounded bg-white/10 border border-white/20 text-[10px] text-slate-300 font-semibold uppercase">
+                  <span class="lang-en">Cairo Plant</span>
+                  <span class="lang-ar font-cairo">مصنع القاهرة</span>
+                </span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Bottom Strip: 5 Certified Compliance Badges -->
-        <div class="p-3 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
+        <div class="p-2.5 lg:p-3 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
           <div class="flex items-center justify-between gap-2 overflow-x-auto">
             <!-- Badge 1: ISO 22000 -->
             <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 shrink-0">
-              <div class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-xs">
+              <div class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-xs font-mono">
                 ISO
               </div>
               <div>
-                <div class="text-xs font-bold text-white">ISO 22000</div>
-                <div class="text-[9px] text-slate-400">Food Safety Management</div>
+                <div class="text-xs font-bold text-white font-mono">ISO 22000:2018</div>
+                <div class="text-[9px] text-slate-400">
+                  <span class="lang-en">Food Safety Management System</span>
+                  <span class="lang-ar font-cairo">نظام إدارة سلامة الغذاء</span>
+                </div>
               </div>
             </div>
 
             <!-- Badge 2: HACCP -->
             <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 shrink-0">
-              <div class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xs">
+              <div class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xs font-mono">
                 CCP
               </div>
               <div>
-                <div class="text-xs font-bold text-white">HACCP</div>
-                <div class="text-[9px] text-slate-400">Codex Alimentarius Hazard Control</div>
+                <div class="text-xs font-bold text-white font-mono">HACCP</div>
+                <div class="text-[9px] text-slate-400">
+                  <span class="lang-en">Hazard Analysis Critical Control</span>
+                  <span class="lang-ar font-cairo">تحليل المخاطر والتحكم الحرج</span>
+                </div>
               </div>
             </div>
 
             <!-- Badge 3: FDA -->
             <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 shrink-0">
-              <div class="w-7 h-7 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-xs">
+              <div class="w-7 h-7 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-xs font-mono">
                 FDA
               </div>
               <div>
-                <div class="text-xs font-bold text-white">FDA Registered</div>
-                <div class="text-[9px] text-slate-400">US FSMA / FSVP Compliant</div>
+                <div class="text-xs font-bold text-white font-mono">FDA Registered</div>
+                <div class="text-[9px] text-slate-400">
+                  <span class="lang-en">US FSMA &amp; 21 CFR Part 117</span>
+                  <span class="lang-ar font-cairo">مسجل لدى هيئة FDA الأمريكية</span>
+                </div>
               </div>
             </div>
 
@@ -846,28 +1109,43 @@
                 حلال
               </div>
               <div>
-                <div class="text-xs font-bold text-white">Halal Certified</div>
-                <div class="text-[9px] text-slate-400">100% Islamic Standards</div>
+                <div class="text-xs font-bold text-white">
+                  <span class="lang-en">Halal Certified</span>
+                  <span class="lang-ar font-cairo">شهادة حلال معتمدة</span>
+                </div>
+                <div class="text-[9px] text-slate-400">
+                  <span class="lang-en">100% Compliant Plant</span>
+                  <span class="lang-ar font-cairo">منشأة مطابقة للشريعة الإسلامية</span>
+                </div>
               </div>
             </div>
 
             <!-- Badge 5: ISO 9001 -->
             <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 shrink-0">
-              <div class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-xs">
+              <div class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-xs font-mono">
                 9001
               </div>
               <div>
-                <div class="text-xs font-bold text-white">ISO 9001</div>
-                <div class="text-[9px] text-slate-400">Quality & Traceability System</div>
+                <div class="text-xs font-bold text-white font-mono">ISO 9001:2015</div>
+                <div class="text-[9px] text-slate-400">
+                  <span class="lang-en">Quality Management &amp; Traceability</span>
+                  <span class="lang-ar font-cairo">نظام إدارة الجودة والتتبع</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-3 relative z-10">
-          <div>Mariam Food Industries • Quality Assurance, Processing & Compliance Division</div>
-          <div class="font-mono text-amber-400 font-bold">Slide 3 of 9</div>
+        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2.5 lg:pt-3 relative z-10">
+          <div>
+            <span class="lang-en">Khaeer Alwadi Food Industries • Quality Assurance, Processing &amp; Compliance Division</span>
+            <span class="lang-ar font-cairo">خير الوادي للصناعات الغذائية • قطاع توكيد الجودة، التصنيع والمعايير الدولية</span>
+          </div>
+          <div class="font-mono text-amber-400 font-bold">
+            <span class="lang-en">Slide 3 of 9</span>
+            <span class="lang-ar font-cairo">شريحة 3 من 9</span>
+          </div>
         </footer>
       </section>
 
@@ -2574,6 +2852,7 @@
     function setLanguage(lang) {
       if (lang !== 'ar' && lang !== 'en') lang = 'ar';
       currentLang = lang;
+      window.currentLang = lang;
       document.documentElement.lang = lang;
       document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
 
@@ -2591,6 +2870,9 @@
 
       // Preserve currently active slide across language changes
       showSlide(currentSlide);
+
+      // Re-render slide overview drawer if present
+      renderOverviewGrid();
 
       // Dispatch custom event for reactive listeners
       window.dispatchEvent(new CustomEvent('languageChanged', {

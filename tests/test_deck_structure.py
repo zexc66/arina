@@ -98,6 +98,14 @@ def test_bilingual_shell_and_branding():
     assert "toggleLanguage" in html, "toggleLanguage function must be defined in index.html"
     assert "lang-ar" in html and "lang-en" in html, "Bilingual CSS classes must exist"
 
+def test_bilingual_slides_1_to_3():
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert "ISO 22000" in html and "HACCP" in html and "FDA" in html
+    assert "Alexandria" in html and "الإسكندرية" in html
+    assert "Damietta" in html and "دمياط" in html
+    assert "WhatsApp Image 2026-09-05 at 12.52.18 PM.jpeg" in html
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -132,7 +140,11 @@ class TestDeckStructure(unittest.TestCase):
     def test_bilingual_shell_and_branding(self):
         test_bilingual_shell_and_branding()
 
+    def test_bilingual_slides_1_to_3(self):
+        test_bilingual_slides_1_to_3()
+
 if __name__ == '__main__':
     unittest.main()
+
 
 
