@@ -181,6 +181,32 @@
       overflow: hidden;
     }
 
+    :root {
+      --ease-agency: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes revealSlideIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.985);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes revealStaggerUp {
+      0% {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .slide {
       position: absolute;
       inset: 0;
@@ -189,15 +215,63 @@
       box-sizing: border-box;
       display: none;
       opacity: 0;
-      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.4s var(--ease-agency);
     }
 
     .slide.active {
       display: flex;
       opacity: 1;
+      animation: revealSlideIn 0.45s var(--ease-agency) forwards;
     }
 
-    /* High-End Agency Micro-Aesthetics & Double-Bezel */
+    /* Staggered Motion Reveals (Awwwards-Tier Micro-Physics) */
+    .reveal-1, .reveal-2, .reveal-3, .reveal-4, .reveal-5 {
+      opacity: 0;
+      transform: translateY(14px);
+      will-change: transform, opacity;
+    }
+    .slide.active .reveal-1 {
+      animation: revealStaggerUp 0.55s var(--ease-agency) 0.05s forwards;
+    }
+    .slide.active .reveal-2 {
+      animation: revealStaggerUp 0.55s var(--ease-agency) 0.12s forwards;
+    }
+    .slide.active .reveal-3 {
+      animation: revealStaggerUp 0.55s var(--ease-agency) 0.19s forwards;
+    }
+    .slide.active .reveal-4 {
+      animation: revealStaggerUp 0.55s var(--ease-agency) 0.26s forwards;
+    }
+    .slide.active .reveal-5 {
+      animation: revealStaggerUp 0.55s var(--ease-agency) 0.33s forwards;
+    }
+
+    /* High-End Agency Micro-Aesthetics & Double-Bezel (Doppelrand) Architecture */
+    .double-bezel {
+      position: relative;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.65), inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+      background: linear-gradient(145deg, rgba(16, 34, 26, 0.90), rgba(9, 18, 14, 0.96));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all 0.35s var(--ease-agency);
+    }
+    .double-bezel:hover {
+      border-color: rgba(212, 168, 54, 0.45);
+      box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.8), 0 0 25px -3px rgba(212, 168, 54, 0.22), inset 0 1px 1px 0 rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+    }
+    .double-bezel-emerald {
+      border-color: rgba(61, 107, 66, 0.35);
+      box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.65), inset 0 1px 1px 0 rgba(74, 222, 128, 0.15);
+    }
+    .double-bezel-emerald:hover {
+      border-color: rgba(74, 222, 128, 0.55);
+      box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.8), 0 0 25px -3px rgba(74, 222, 128, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
     .bezel-shell {
       border-radius: 1.25rem;
       padding: 0.375rem;
@@ -206,7 +280,7 @@
       box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.4s var(--ease-agency);
     }
     .bezel-shell:hover {
       border-color: rgba(212, 168, 54, 0.35);
@@ -226,7 +300,7 @@
 
     /* Tactile button micro-physics */
     .tactile-btn {
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.3s var(--ease-agency);
     }
     .tactile-btn:active {
       transform: scale(0.98);
@@ -244,13 +318,14 @@
     .slide .rounded-xl.bg-slate-900\/60,
     .slide .rounded-xl.bg-slate-900\/70,
     .slide .rounded-xl.bg-slate-900\/80,
-    .slide .rounded-2xl.bg-slate-900\/60 {
+    .slide .rounded-2xl.bg-slate-900\/60,
+    .slide .rounded-2xl.bg-slate-900\/80 {
       border: 1px solid rgba(255, 255, 255, 0.08) !important;
       box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1) !important;
       background: linear-gradient(145deg, rgba(16, 34, 26, 0.88), rgba(9, 18, 14, 0.95)) !important;
       backdrop-filter: blur(14px) !important;
       -webkit-backdrop-filter: blur(14px) !important;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      transition: all 0.4s var(--ease-agency) !important;
     }
     .slide .group.rounded-xl:hover,
     .slide .group.rounded-2xl:hover,
@@ -258,7 +333,8 @@
     .slide .rounded-xl.bg-slate-900\/60:hover,
     .slide .rounded-xl.bg-slate-900\/70:hover,
     .slide .rounded-xl.bg-slate-900\/80:hover,
-    .slide .rounded-2xl.bg-slate-900\/60:hover {
+    .slide .rounded-2xl.bg-slate-900\/60:hover,
+    .slide .rounded-2xl.bg-slate-900\/80:hover {
       border-color: rgba(212, 168, 54, 0.45) !important;
       box-shadow: 0 14px 40px -6px rgba(0, 0, 0, 0.75), 0 0 24px -2px rgba(212, 168, 54, 0.2), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18) !important;
       transform: translateY(-2px);
@@ -327,6 +403,11 @@
         grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
         gap: 10px !important;
       }
+      .reveal-1, .reveal-2, .reveal-3, .reveal-4, .reveal-5 {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
       #nav-dock {
         width: calc(100vw - 20px) !important;
         max-width: 480px !important;
@@ -343,6 +424,19 @@
       margin: 0;
     }
     @media print {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+      .slide,
+      .slide.hidden,
+      .slide.active,
+      .reveal-1, .reveal-2, .reveal-3, .reveal-4, .reveal-5 {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        visibility: visible !important;
+      }
       html, body {
         background: #091410 !important;
         color: #F8FAFC !important;
@@ -505,6 +599,15 @@
         gap: 8px !important;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, .reveal-1, .reveal-2, .reveal-3, .reveal-4, .reveal-5, .slide, .slide.active {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -530,7 +633,7 @@
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header / Identity -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-3 lg:pb-4 relative z-10">
+        <header class="reveal-1 flex items-center justify-between border-b border-white/10 pb-3 lg:pb-4 relative z-10">
           <div class="flex items-center gap-3 lg:gap-4">
             <div class="h-12 lg:h-14 px-3 py-1 rounded-xl bg-white/[0.03] border border-amber-400/30 shadow-lg shadow-amber-500/10 flex items-center justify-center">
               <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi Food Industries - خير الوادي للصناعات الغذائية" class="h-9 lg:h-10 w-auto object-contain">
@@ -565,7 +668,7 @@
         <div class="grid grid-cols-12 gap-5 lg:gap-8 items-center flex-1 min-h-0 py-3 lg:py-4 relative z-10">
           <!-- Left Column: Executive Summary & Value Pillars (Col 7) -->
           <div class="col-span-12 lg:col-span-7 flex flex-col justify-between h-full py-1">
-            <div>
+            <div class="reveal-2">
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold tracking-wider uppercase mb-2 lg:mb-3">
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                 <span class="lang-en">Direct Agro Processor &amp; Global Exporter // Cairo, Egypt</span>
@@ -582,22 +685,22 @@
             </div>
 
             <!-- 4 Strategic Trust Pillars (2x2 Mini Cards) -->
-            <div class="grid grid-cols-2 gap-2.5 lg:gap-3 my-2.5">
+            <div class="reveal-3 grid grid-cols-2 gap-2.5 lg:gap-3 my-2.5">
               <!-- Pillar 1: Direct Agro Terroir -->
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
+              <div class="double-bezel p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
                   <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   <span class="lang-en">Direct Agro Terroir</span>
                   <span class="lang-ar font-cairo">التوريد الزراعي المباشر</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-snug">
-                  <span class="lang-en">Farm-gate contract sourcing across Nile Delta &amp; Mediterranean groves; 15–25% landed cost advantage over Southern Europe.</span>
-                  <span class="lang-ar font-cairo">توريد تعاقدي مباشر من مزارع دلتا النيل ومحور المتوسط؛ وفر في تكلفة الوصول (Landed Cost) بنسبة 15–25% مقارنة بجنوب أوروبا.</span>
+                  <span class="lang-en">Farm-gate contract sourcing across Nile Delta &amp; Mediterranean groves; <strong class="text-amber-300"><span class="kpi-counter font-mono font-bold" data-target="25" data-prefix="15%–" data-suffix="%">15%–25%</span></strong> landed cost advantage over Southern Europe.</span>
+                  <span class="lang-ar font-cairo">توريد تعاقدي مباشر من مزارع دلتا النيل ومحور المتوسط؛ وفر في تكلفة الوصول (Landed Cost) بنسبة <strong class="text-amber-300"><span class="kpi-counter font-mono font-bold" data-target="25" data-prefix="15%–" data-suffix="%">15%–25%</span></strong> مقارنة بجنوب أوروبا.</span>
                 </p>
               </div>
 
               <!-- Pillar 2: Industrial Scale -->
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
+              <div class="double-bezel p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
                   <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                   <span class="lang-en">Industrial Scale</span>
@@ -610,7 +713,7 @@
               </div>
 
               <!-- Pillar 3: Rapid Port Logistics -->
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
+              <div class="double-bezel p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
                   <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                   <span class="lang-en">Rapid Maritime Corridors</span>
@@ -623,7 +726,7 @@
               </div>
 
               <!-- Pillar 4: Global Compliance -->
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
+              <div class="double-bezel p-3 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
                   <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                   <span class="lang-en">International Compliance</span>
@@ -637,7 +740,7 @@
             </div>
 
             <!-- Direct Contact Strip -->
-            <div class="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-gradient-to-r from-slate-900/80 via-[#10231b]/90 to-slate-900/80 border border-amber-500/25 shadow-lg">
+            <div class="reveal-4 double-bezel flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-gradient-to-r from-slate-900/80 via-[#10231b]/90 to-slate-900/80 border border-amber-500/25 shadow-lg">
               <div class="flex items-center gap-3">
                 <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shrink-0">
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.09c-1.52 0-3-.41-4.3-1.18l-.31-.18-3.19.84.85-3.11-.2-.32c-.85-1.35-1.3-2.92-1.3-4.52 0-4.47 3.64-8.11 8.11-8.11 2.17 0 4.21.84 5.74 2.38s2.38 3.57 2.38 5.74c0 4.47-3.64 8.12-8.11 8.12zm4.44-6.07c-.24-.12-1.44-.71-1.66-.79-.23-.08-.39-.12-.56.12-.17.24-.64.79-.79.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.21-1.44-1.35-1.68-.14-.24-.01-.37.11-.49.11-.11.24-.29.37-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.42 1.02 2.59.12.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
@@ -673,13 +776,13 @@
           </div>
 
           <!-- Right Column: Hero Product Composition (Col 5) -->
-          <div class="col-span-12 lg:col-span-5 flex flex-col justify-center items-center h-full">
+          <div class="reveal-3 col-span-12 lg:col-span-5 flex flex-col justify-center items-center h-full">
             <div class="relative w-full max-w-sm lg:max-w-none group">
               <!-- Glow Effect -->
               <div class="absolute -inset-1 bg-gradient-to-tr from-amber-500/20 via-emerald-500/20 to-amber-500/10 rounded-2xl blur-lg group-hover:opacity-100 transition-opacity"></div>
               
               <!-- Main Composition Card -->
-              <div class="relative rounded-2xl overflow-hidden bg-slate-900/80 border border-amber-400/30 shadow-2xl p-2.5">
+              <div class="double-bezel relative rounded-2xl overflow-hidden bg-slate-900/80 border border-amber-400/30 shadow-2xl p-2.5">
                 <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
                   <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM (2).jpeg" alt="Khaeer Alwadi Food Industries - Mediterranean Pickled Specialties and Table Olives" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20 pointer-events-none"></div>
@@ -727,8 +830,7 @@
                       <span class="lang-ar font-cairo">الصلاحية</span>
                     </div>
                     <div class="text-xs font-bold text-emerald-400">
-                      <span class="lang-en font-mono">24–36 Months</span>
-                      <span class="lang-ar font-cairo">24–36 شهراً</span>
+                      <span class="dir-ltr inline-block font-mono"><span class="kpi-counter" data-target="36" data-prefix="24–" data-suffix="">24–36</span></span> <span class="lang-en font-mono">Months</span><span class="lang-ar font-cairo">شهراً</span>
                     </div>
                   </div>
                   <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
@@ -748,7 +850,7 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2.5 lg:pt-3 relative z-10">
+        <footer class="reveal-5 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2.5 lg:pt-3 relative z-10">
           <div class="flex items-center gap-2">
             <span class="font-semibold text-slate-300">
               <span class="lang-en">Khaeer Alwadi Food Industries</span>
@@ -785,7 +887,7 @@
         <div class="absolute -bottom-32 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-3 lg:pb-4 relative z-10">
+        <header class="reveal-1 flex items-center justify-between border-b border-white/10 pb-3 lg:pb-4 relative z-10">
           <div class="flex items-center gap-3 lg:gap-4">
             <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain hidden sm:block opacity-90">
             <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
@@ -815,28 +917,28 @@
         </header>
 
         <!-- Executive Banner -->
-        <div class="my-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
+        <div class="reveal-2 double-bezel my-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
           <div class="flex items-center gap-3">
             <div class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></div>
             <p class="text-xs lg:text-sm text-slate-200">
               <span class="lang-en">
-                <strong class="text-amber-300">Core Commercial Value Thesis:</strong> Direct Nile-fed agronomy, rapid 3-to-7 day maritime transit, and 0% customs duties generate an insurmountable <strong class="text-emerald-400">15%–25% landed margin advantage</strong> for global food distributors over Southern European processors.
+                <strong class="text-amber-300">Core Commercial Value Thesis:</strong> Direct Nile-fed agronomy, rapid 3-to-7 day maritime transit, and 0% customs duties generate an insurmountable <strong class="text-emerald-400"><span class="kpi-counter font-mono font-bold" data-target="25" data-prefix="15%–" data-suffix="%">15%–25%</span> landed margin advantage</strong> for global food distributors over Southern European processors.
               </span>
               <span class="lang-ar font-cairo">
-                <strong class="text-amber-300">الأطروحة التجارية الاستراتيجية:</strong> وفرة الإنتاج الزراعي بخصوبة دلتا النيل، وسرعة الشحن البحري خلال 3–7 أيام، والإعفاء الجمركي التام بنسبة 0% تمنح المستوردين والموزعين الدوليين <strong class="text-emerald-400">هامش وفر تنافسي في تكلفة التوريد الواصلة (Landed Cost) بنسبة 15%–25%</strong> مقارنة بمصانع جنوب أوروبا.
+                <strong class="text-amber-300">الأطروحة التجارية الاستراتيجية:</strong> وفرة الإنتاج الزراعي بخصوبة دلتا النيل، وسرعة الشحن البحري خلال 3–7 أيام، والإعفاء الجمركي التام بنسبة 0% تمنح المستوردين والموزعين الدوليين <strong class="text-emerald-400">هامش وفر تنافسي في تكلفة التوريد الواصلة (Landed Cost) بنسبة <span class="kpi-counter font-mono font-bold" data-target="25" data-prefix="15%–" data-suffix="%">15%–25%</span></strong> مقارنة بمصانع جنوب أوروبا.
               </span>
             </p>
           </div>
           <div class="hidden md:flex items-center gap-2 text-xs font-mono text-amber-300/90 whitespace-nowrap ps-4 border-s border-white/10">
-            <span class="lang-en">Arbitrage: 15%–25% Net Margin</span>
-            <span class="lang-ar font-cairo font-mono">فارق الربحية: 15%–25% وفر إجمالي</span>
+            <span class="lang-en">Arbitrage: <span class="kpi-counter font-mono font-bold" data-target="25" data-prefix="15%–" data-suffix="%">15%–25%</span> Net Margin</span>
+            <span class="lang-ar font-cairo font-mono">فارق الربحية: <span class="kpi-counter font-mono font-bold" data-target="25" data-prefix="15%–" data-suffix="%">15%–25%</span> وفر إجمالي</span>
           </div>
         </div>
 
         <!-- 3-Column Interactive Advantage Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 lg:gap-5 flex-1 min-h-0 py-1 relative z-10">
           <!-- Column 1: Agro Terroir & Direct Sourcing -->
-          <div class="flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="flex items-center justify-between mb-2.5">
                 <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
@@ -860,8 +962,8 @@
                 <li class="flex items-start gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
                   <span>
-                    <span class="lang-en"><strong class="text-white">300+ Sun Days / Year:</strong> Arid sun &amp; alluvial soil produce firm, high-flesh-to-stone ratio table olives (Picual, Manzanilla) and vibrant crisp peppers.</span>
-                    <span class="lang-ar font-cairo"><strong class="text-white">300+ يوم مشمس سنوياً:</strong> إشعاع شمسي مستمر وتربة طمية غنية تنتج ثمار زيتون مائدة صلبة مرتفعة نسبة اللب إلى النواة (بيكوال، مانزانيللا) وفلفل مقرمش عالي الكثافة.</span>
+                    <span class="lang-en"><strong class="text-white"><span class="kpi-counter font-mono font-bold" data-target="300" data-suffix="+">300+</span> Sun Days / Year:</strong> Arid sun &amp; alluvial soil produce firm, high-flesh-to-stone ratio table olives (Picual, Manzanilla) and vibrant crisp peppers.</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white"><span class="kpi-counter font-mono font-bold" data-target="300" data-suffix="+">300+</span> يوم مشمس سنوياً:</strong> إشعاع شمسي مستمر وتربة طمية غنية تنتج ثمار زيتون مائدة صلبة مرتفعة نسبة اللب إلى النواة (بيكوال، مانزانيللا) وفلفل مقرمش عالي الكثافة.</span>
                   </span>
                 </li>
                 <li class="flex items-start gap-2">
@@ -890,8 +992,8 @@
                     <span class="lang-ar font-cairo">ميزة كفاءة التكلفة</span>
                   </div>
                   <div class="text-base font-extrabold text-emerald-400 font-mono">
-                    <span class="lang-en">15%–25% Lower Cost</span>
-                    <span class="lang-ar font-cairo">15%–25% وفر تكلفة</span>
+                    <span class="lang-en"><span class="kpi-counter" data-target="25" data-prefix="15%–" data-suffix="%">15%–25%</span> Lower Cost</span>
+                    <span class="lang-ar font-cairo"><span class="kpi-counter" data-target="25" data-prefix="15%–" data-suffix="%">15%–25%</span> وفر تكلفة</span>
                   </div>
                 </div>
                 <div class="text-end">
@@ -909,7 +1011,7 @@
           </div>
 
           <!-- Column 2: Strategic Maritime Ports (Tri-Port Corridor) -->
-          <div class="flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-4 double-bezel flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="flex items-center justify-between mb-2.5">
                 <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
@@ -962,8 +1064,7 @@
                   <span class="lang-ar font-cairo">جنوب وغرب أوروبا:</span>
                 </span>
                 <strong class="text-amber-300 font-bold font-mono">
-                  <span class="lang-en">3–5 Days Transit</span>
-                  <span class="lang-ar font-cairo">3–5 أيام إبحار</span>
+                  <span class="dir-ltr inline-block"><span class="kpi-counter" data-target="5" data-prefix="3–" data-suffix="">3–5</span></span> <span class="lang-en font-mono">Days Transit</span><span class="lang-ar font-cairo">أيام إبحار</span>
                 </strong>
               </div>
               <div class="flex items-center justify-between text-xs">
@@ -972,15 +1073,14 @@
                   <span class="lang-ar font-cairo">الخليج العربي والمشرق:</span>
                 </span>
                 <strong class="text-emerald-400 font-bold font-mono">
-                  <span class="lang-en">4–7 Days Transit</span>
-                  <span class="lang-ar font-cairo">4–7 أيام إبحار</span>
+                  <span class="dir-ltr inline-block"><span class="kpi-counter" data-target="7" data-prefix="4–" data-suffix="">4–7</span></span> <span class="lang-en font-mono">Days Transit</span><span class="lang-ar font-cairo">أيام إبحار</span>
                 </strong>
               </div>
             </div>
           </div>
 
           <!-- Column 3: Duty-Free Trade Accords -->
-          <div class="flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-5 double-bezel flex flex-col justify-between p-4 lg:p-5 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="flex items-center justify-between mb-2.5">
                 <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
@@ -1044,8 +1144,8 @@
                     <span class="lang-ar font-cairo">السوق التفضيلي</span>
                   </div>
                   <div class="text-xs font-semibold text-slate-300">
-                    <span class="lang-en font-mono">580M+ Consumers</span>
-                    <span class="lang-ar font-cairo">580+ مليون مستهلك</span>
+                    <span class="lang-en font-mono"><span class="kpi-counter font-mono font-bold" data-target="580" data-suffix="M+">580M+</span> Consumers</span>
+                    <span class="lang-ar font-cairo"><span class="kpi-counter font-mono font-bold" data-target="580" data-suffix="M+">580M+</span> مستهلك</span>
                   </div>
                 </div>
               </div>
@@ -1054,7 +1154,7 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2.5 lg:pt-3 relative z-10">
+        <footer class="reveal-5 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2.5 lg:pt-3 relative z-10">
           <div>
             <span class="lang-en">Khaeer Alwadi Food Industries • Supply Chain Economics &amp; Logistics Desk</span>
             <span class="lang-ar font-cairo">خير الوادي للصناعات الغذائية • قطاع اقتصاديات سلاسل التوريد واللوجستيات</span>
@@ -1073,7 +1173,7 @@
         <div class="absolute -bottom-32 left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-3 lg:pb-4 relative z-10">
+        <header class="reveal-1 flex items-center justify-between border-b border-white/10 pb-3 lg:pb-4 relative z-10">
           <div class="flex items-center gap-3 lg:gap-4">
             <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain hidden sm:block opacity-90">
             <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
@@ -1109,35 +1209,35 @@
           <!-- Left: Automated Processing Technology & QC Lab (Col 7) -->
           <div class="col-span-12 lg:col-span-7 flex flex-col justify-between h-full space-y-2.5">
             <!-- 4 Core Processing Line Pillars (2x2 Grid) -->
-            <div class="grid grid-cols-2 gap-2.5">
+            <div class="reveal-2 grid grid-cols-2 gap-2.5">
               <!-- Pillar 1: Stone Pitting -->
-              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
+              <div class="double-bezel p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
                   <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                   <span class="lang-en">Mechanical Stone Pitting</span>
                   <span class="lang-ar font-cairo">نزع النوى الميكانيكي</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-snug">
-                  <span class="lang-en">High-throughput automated mechanical olive pitting lines — precision stone extraction with <strong class="text-amber-300">&lt;1% fragment tolerance</strong> (&lt;0.1% target), preserving plump flesh geometry.</span>
-                  <span class="lang-ar font-cairo">خطوط آلية عالية الطاقة لنزع نوى الزيتون — استخراج دقيق للنوى مع نسبة شظايا نوى <strong class="text-amber-300">&lt;1% (المستهدف &lt;0.1%)</strong>، مع الحفاظ التام على هندسة واستدارة الثمرة.</span>
+                  <span class="lang-en">High-throughput automated mechanical olive pitting lines — precision stone extraction with <strong class="text-amber-300"><span class="kpi-counter font-mono" data-target="1" data-prefix="<" data-suffix="%">&lt;1%</span> fragment tolerance</strong> (&lt;0.1% target), preserving plump flesh geometry.</span>
+                  <span class="lang-ar font-cairo">خطوط آلية عالية الطاقة لنزع نوى الزيتون — استخراج دقيق للنوى مع نسبة شظايا نوى <strong class="text-amber-300"><span class="kpi-counter font-mono" data-target="1" data-prefix="<" data-suffix="%">&lt;1%</span> (المستهدف &lt;0.1%)</strong>، مع الحفاظ التام على هندسة واستدارة الثمرة.</span>
                 </p>
               </div>
 
               <!-- Pillar 2: Rotary Slicing -->
-              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
+              <div class="double-bezel p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
                   <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879a3 3 0 11-4.242-4.242L11.879 7.88a3 3 0 114.242 4.242z"></path></svg>
                   <span class="lang-en">Precision Rotary Slicing</span>
                   <span class="lang-ar font-cairo">التقطيع الدوراني الدقيق</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-snug">
-                  <span class="lang-en">Continuous rotary slicing drum producing calibrated <strong class="text-amber-300">3.2mm ±0.2mm rings</strong> with zero edge shredding or torn walls, engineered for pizza commissaries.</span>
-                  <span class="lang-ar font-cairo">أسطوانات تقطيع دوراني متواصل تنتج حلقات زيتون معايرة بدقة <strong class="text-amber-300">3.2 مم ±0.2 مم</strong> دون تمزق للجدران، مصممة خصيصاً لمطاعم ومصانع البيتزا.</span>
+                  <span class="lang-en">Continuous rotary slicing drum producing calibrated <strong class="text-amber-300"><span class="kpi-counter font-mono" data-target="3.2" data-decimals="1" data-suffix="mm">3.2mm</span> ±0.2mm rings</strong> with zero edge shredding or torn walls, engineered for pizza commissaries.</span>
+                  <span class="lang-ar font-cairo">أسطوانات تقطيع دوراني متواصل تنتج حلقات زيتون معايرة بدقة <strong class="text-amber-300"><span class="kpi-counter font-mono" data-target="3.2" data-decimals="1" data-suffix=" مم">3.2 مم</span> ±0.2 مم</strong> دون تمزق للجدران، مصممة خصيصاً لمطاعم ومصانع البيتزا.</span>
                 </p>
               </div>
 
               <!-- Pillar 3: Seaming & Capping -->
-              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
+              <div class="double-bezel p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
                   <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
                   <span class="lang-en">Automatic Seaming &amp; Capping</span>
@@ -1150,21 +1250,21 @@
               </div>
 
               <!-- Pillar 4: Autoclave Pasteurization -->
-              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
+              <div class="double-bezel p-3 rounded-xl bg-slate-900/60 border border-white/10 hover:border-amber-400/30 transition-all">
                 <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-1">
                   <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   <span class="lang-en">Pressurized Retort Autoclave</span>
                   <span class="lang-ar font-cairo">أوتوكلاف التعقيم بالضغط والبخار</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-snug">
-                  <span class="lang-en">Overpressure autoclave retort sterilization (<strong class="text-amber-300">F₀ ≥ 4.0</strong> microbiological sterility), achieving <strong class="text-emerald-400">24–36 month ambient shelf life</strong> with zero chemical preservatives.</span>
-                  <span class="lang-ar font-cairo">نظام تعقيم صناعي بأوتوكلاف الضغط العالي والبخار (<strong class="text-amber-300">قيمة F₀ ≥ 4.0</strong> لعقم تجاري تام) يضمن <strong class="text-emerald-400">صلاحية 24–36 شهراً</strong> بدرجة حرارة الغرفة دون مواد حافظة.</span>
+                  <span class="lang-en">Overpressure autoclave retort sterilization (<strong class="text-amber-300">F₀ ≥ <span class="kpi-counter font-mono" data-target="4.0" data-decimals="1">4.0</span></strong> microbiological sterility), achieving <strong class="text-emerald-400"><span class="kpi-counter font-mono" data-target="36" data-prefix="24–" data-suffix="">24–36</span> month ambient shelf life</strong> with zero chemical preservatives.</span>
+                  <span class="lang-ar font-cairo">نظام تعقيم صناعي بأوتوكلاف الضغط العالي والبخار (<strong class="text-amber-300">قيمة F₀ ≥ <span class="kpi-counter font-mono" data-target="4.0" data-decimals="1">4.0</span></strong> لعقم تجاري تام) يضمن <strong class="text-emerald-400">صلاحية <span class="kpi-counter font-mono" data-target="36" data-prefix="24–" data-suffix="">24–36</span> شهراً</strong> بدرجة حرارة الغرفة دون مواد حافظة.</span>
                 </p>
               </div>
             </div>
 
             <!-- In-House Laboratory Monitoring Strip -->
-            <div class="p-3 rounded-xl bg-white/[0.03] border border-amber-400/20">
+            <div class="reveal-3 double-bezel p-3 rounded-xl bg-white/[0.03] border border-amber-400/20">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
                   <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
@@ -1220,9 +1320,9 @@
           </div>
 
           <!-- Right: Visual Facility Photography (Col 5) -->
-          <div class="col-span-12 lg:col-span-5 flex flex-col justify-between h-full space-y-2.5">
+          <div class="reveal-3 col-span-12 lg:col-span-5 flex flex-col justify-between h-full space-y-2.5">
             <!-- Autoclave Retort Crate Image -->
-            <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-amber-400/30 group shadow-lg min-h-[120px]">
+            <div class="double-bezel relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-amber-400/30 group shadow-lg min-h-[120px]">
               <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM.jpeg" alt="Autoclave retort sterilization crate loaded with gold-lid jars - Khaeer Alwadi Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
               <div class="absolute bottom-2.5 inset-x-3 flex items-center justify-between">
@@ -1245,7 +1345,7 @@
             </div>
 
             <!-- Palletized Canning / Packaging Floor Image -->
-            <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-white/10 group shadow-lg min-h-[120px]">
+            <div class="double-bezel relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-white/10 group shadow-lg min-h-[120px]">
               <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM.jpeg" alt="Palletized canning floor and packaging lines - Khaeer Alwadi Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
               <div class="absolute bottom-2.5 inset-x-3 flex items-center justify-between">
@@ -1270,7 +1370,7 @@
         </div>
 
         <!-- Bottom Strip: 5 Certified Compliance Badges -->
-        <div class="p-2.5 lg:p-3 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
+        <div class="reveal-4 double-bezel p-2.5 lg:p-3 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
           <div class="flex items-center justify-between gap-2 overflow-x-auto">
             <!-- Badge 1: ISO 22000 -->
             <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 shrink-0">
@@ -1348,7 +1448,7 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2.5 lg:pt-3 relative z-10">
+        <footer class="reveal-5 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2.5 lg:pt-3 relative z-10">
           <div>
             <span class="lang-en">Khaeer Alwadi Food Industries • Quality Assurance, Processing &amp; Compliance Division</span>
             <span class="lang-ar font-cairo">خير الوادي للصناعات الغذائية • قطاع توكيد الجودة، التصنيع والمعايير الدولية</span>
@@ -1367,7 +1467,7 @@
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
+        <header class="reveal-1 flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
           <div class="flex items-center gap-3 lg:gap-4">
             <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain hidden sm:block opacity-90">
             <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
@@ -1398,7 +1498,7 @@
         </header>
 
         <!-- Executive Banner -->
-        <div class="my-1 px-3.5 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
+        <div class="reveal-2 double-bezel my-1 px-3.5 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
           <div class="flex items-center gap-2.5">
             <div class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></div>
             <p class="text-xs text-slate-200 leading-tight">
@@ -1407,16 +1507,16 @@
             </p>
           </div>
           <div class="hidden xl:flex items-center gap-2 text-xs text-amber-300/90 whitespace-nowrap ps-4 border-s border-white/10">
-            <span class="lang-en font-mono">Sterility: Retort Autoclave F<sub>0</sub> &ge; 4.0</span>
-            <span class="lang-ar font-cairo">التعقيم: أوتوكلاف حراري <span class="dir-ltr inline-block">F₀ ≥ 4.0</span></span>
+            <span class="lang-en font-mono">Sterility: Retort Autoclave F<sub>0</sub> &ge; <span class="kpi-counter" data-target="4.0" data-decimals="1">4.0</span></span>
+            <span class="lang-ar font-cairo">التعقيم: أوتوكلاف حراري <span class="dir-ltr inline-block">F₀ ≥ <span class="kpi-counter" data-target="4.0" data-decimals="1">4.0</span></span></span>
           </div>
         </div>
 
         <!-- 5-Column Product Showcase Grid -->
-        <div class="grid grid-cols-5 gap-2.5 lg:gap-3 flex-1 min-h-0 py-1 relative z-10 items-stretch">
+        <div class="reveal-3 grid grid-cols-5 gap-2.5 lg:gap-3 flex-1 min-h-0 py-1 relative z-10 items-stretch">
           
           <!-- Card 1: Sliced Black Olives -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.20 PM.jpeg" alt="Precision Sliced Black Olives - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -1442,81 +1542,13 @@
                 <li class="flex items-start gap-1.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1 shrink-0"></span>
                   <span>
-                    <span class="lang-en"><strong class="text-white"><span class="dir-ltr inline-block">3.2mm ±0.2mm</span>:</strong> Uniform ring thickness; zero ragged shredding.</span>
-                    <span class="lang-ar font-cairo"><strong class="text-white">سماكة <span class="dir-ltr inline-block">3.2 مم ±0.2 مم</span>:</strong> حلقات متجانسة بانتظام تام ودون تمزق للجوانب.</span>
+                    <span class="lang-en"><strong class="text-white"><span class="dir-ltr inline-block"><span class="kpi-counter" data-target="3.2" data-decimals="1" data-suffix="mm">3.2mm</span> ±0.2mm</span>:</strong> Uniform ring thickness; zero ragged shredding.</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">سماكة <span class="dir-ltr inline-block"><span class="kpi-counter" data-target="3.2" data-decimals="1" data-suffix=" مم">3.2 مم</span> ±0.2 مم</span>:</strong> حلقات متجانسة بانتظام تام ودون تمزق للجوانب.</span>
                   </span>
                 </li>
                 <li class="flex items-start gap-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1 shrink-0"></span>
-                  <span>
-                    <span class="lang-en"><strong class="text-white">Pizza Standard:</strong> Clean pit cavity prevents scorching on hot deck ovens.</span>
-                    <span class="lang-ar font-cairo"><strong class="text-white">معيار سلاسل البيتزا:</strong> تجويف نظيف خالٍ من الشظايا يمنع الاحتراق بأفران الخبز.</span>
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div class="mt-1.5 pt-1.5 border-t border-white/10 flex items-center justify-between text-[9px] text-slate-400">
-              <span>
-                <span class="lang-en font-mono">A10 Tins • Glass Jars</span>
-                <span class="lang-ar font-cairo">عبوات A10 • برطمانات</span>
-              </span>
-              <span class="text-emerald-400 font-bold">
-                <span class="lang-en font-mono">Pizza Chain #1</span>
-                <span class="lang-ar font-cairo">الخيار #1 للبيتزا</span>
-              </span>
-            </div>
-          </div>
-
-          <!-- Card 2: Mechanically Pitted Black Olives -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
-            <div>
-              <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
-                <img src="WhatsApp Image 2026-09-05 at 12.52.16 PM (5).jpeg" alt="Mechanically Pitted Black Olives - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none"></div>
-                <div class="absolute top-1.5 start-1.5 px-1.5 py-0.5 rounded bg-slate-950/85 backdrop-blur-sm border border-white/15 text-[9px] font-semibold text-emerald-400">
-                  <span class="lang-en font-mono">Needle Pitted</span>
-                  <span class="lang-ar font-cairo">نزع نوى ميكانيكي</span>
-                </div>
-              </div>
-              <h3 class="text-xs lg:text-[13px] font-bold text-white group-hover:text-amber-300 transition-colors leading-tight">
-                <span class="lang-en font-sans">Pitted Black Olives</span>
-                <span class="lang-ar font-cairo">زيتون أسود مخلي (منزوع النوى)</span>
-              </h3>
-              <p class="text-[10px] text-amber-300/80 mb-1">
-                <span class="lang-en font-mono">Picual / Firm Flesh Grade</span>
-                <span class="lang-ar font-cairo">بيكوال / قوام متماسك ولحمي</span>
-              </p>
-              <ul class="space-y-1 text-[10px] lg:text-[11px] text-slate-300 leading-snug">
-                <li class="flex items-start gap-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1 shrink-0"></span>
-                  <span>
-                    <span class="lang-en"><strong class="text-white"><span class="dir-ltr inline-block">&lt;0.1%</span> Pit Tolerance:</strong> Automated needle punch protects dining safety.</span>
-                    <span class="lang-ar font-cairo"><strong class="text-white">نسبة نوى <span class="dir-ltr inline-block">&lt;0.1%</span>:</strong> نزع نوى بإبر مؤتمتة يضمن أعلى معايير سلامة الغذاء.</span>
-                  </span>
-                </li>
-                <li class="flex items-start gap-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1 shrink-0"></span>
-                  <span>
-                    <span class="lang-en"><strong class="text-white">Intact Geometry:</strong> Cylindrical fruit walls remain plump without collapse.</span>
-                    <span class="lang-ar font-cairo"><strong class="text-white">استدارة هندسية متماسكة:</strong> جدران الثمرة ممتلئة تحتفظ بهيكلها دون هبوط.</span>
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div class="mt-1.5 pt-1.5 border-t border-white/10 flex items-center justify-between text-[9px] text-slate-400">
-              <span>
-                <span class="lang-en font-mono">A10 • 150kg Drums</span>
-                <span class="lang-ar font-cairo">A10 • براميل 150 كجم</span>
-              </span>
-              <span class="text-amber-300 font-bold">
-                <span class="lang-en font-mono">Foodservice Standard</span>
-                <span class="lang-ar font-cairo">معيار الفنادق والمطاعم</span>
-              </span>
-            </div>
-          </div>
-
-          <!-- Card 3: Whole & Sliced Green Olives -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+                  <span c          <!-- Card 3: Whole & Sliced Green Olives -->
+          <div class="double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM (6).jpeg" alt="Whole & Sliced Green Olives - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -1567,7 +1599,7 @@
           </div>
 
           <!-- Card 4: Pimento-Stuffed Green Olives -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM (5).jpeg" alt="Pimento-Stuffed Green Olives - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -1615,7 +1647,7 @@
           </div>
 
           <!-- Card 5: Kalamata-Style Dark Olives -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.19 PM.jpeg" alt="Kalamata-Style Dark Olives - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -1665,7 +1697,7 @@
         </div>
 
         <!-- Technical Specification Chips Row -->
-        <div class="p-2 lg:p-2.5 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
+        <div class="reveal-4 double-bezel p-2 lg:p-2.5 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
           <div class="grid grid-cols-4 gap-2.5 text-center">
             
             <!-- Chip 1: Calibers -->
@@ -1701,8 +1733,8 @@
                 <span class="lang-ar font-cairo">عائد الوزن المصفى</span>
               </div>
               <div class="text-xs lg:text-sm font-extrabold text-emerald-400 font-mono">
-                <span class="lang-en">&ge;52% Yield (CODEX STAN 66)</span>
-                <span class="lang-ar font-cairo"><span class="dir-ltr inline-block">&ge;52%</span> (معيار كودكس 66)</span>
+                <span class="lang-en">&ge;<span class="kpi-counter font-mono" data-target="52" data-suffix="%">52%</span> Yield (CODEX STAN 66)</span>
+                <span class="lang-ar font-cairo"><span class="dir-ltr inline-block">&ge;<span class="kpi-counter font-mono" data-target="52" data-suffix="%">52%</span></span> (معيار كودكس 66)</span>
               </div>
               <div class="text-[9px] text-slate-400">
                 <span class="lang-en font-sans">A10 net: 3,000g / drained: &ge;1,560g</span>
@@ -1717,8 +1749,8 @@
                 <span class="lang-ar font-cairo">التحكم في الملوحة و pH</span>
               </div>
               <div class="text-xs lg:text-sm font-extrabold text-amber-300 font-mono">
-                <span class="lang-en">Salinity 4.5%–6.0% • pH &lt; 4.0</span>
-                <span class="lang-ar font-cairo">ملوحة <span class="dir-ltr inline-block">4.5%–6.0%</span> • <span class="dir-ltr inline-block">pH &lt; 4.0</span></span>
+                <span class="lang-en">Salinity <span class="kpi-counter font-mono" data-target="6.0" data-decimals="1" data-prefix="4.5%–" data-suffix="%">4.5%–6.0%</span> • pH &lt; 4.0</span>
+                <span class="lang-ar font-cairo">ملوحة <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="6.0" data-decimals="1" data-prefix="4.5%–" data-suffix="%">4.5%–6.0%</span></span> • <span class="dir-ltr inline-block">pH &lt; 4.0</span></span>
               </div>
               <div class="text-[9px] text-slate-400">
                 <span class="lang-en font-sans">Commercial sterility; 24–36 mo shelf life</span>
@@ -1730,7 +1762,7 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
+        <footer class="reveal-5 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
           <div class="flex items-center gap-2">
             <span class="lang-en">Khaeer Alwadi Food Industries • Industrial Table Olive Processing &amp; Export Division</span>
             <span class="lang-ar font-cairo">شركة خير الوادي للصناعات الغذائية • قطاع تصنيع وتصدير زيتون المائدة المتوسطي</span>
@@ -1749,7 +1781,7 @@
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
+        <header class="reveal-1 flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
           <div class="flex items-center gap-3 lg:gap-4">
             <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain hidden sm:block opacity-90">
             <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
@@ -1780,12 +1812,12 @@
         </header>
 
         <!-- Executive Banner -->
-        <div class="my-1 px-3.5 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
+        <div class="reveal-2 double-bezel my-1 px-3.5 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
           <div class="flex items-center gap-2.5">
             <div class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></div>
             <p class="text-xs text-slate-200 leading-tight">
-              <span class="lang-en"><strong class="text-emerald-300">Peak Crispness Preservation:</strong> Contract-grown Nile Delta vegetables packed within 24 hours of harvest. Precise thermal pasteurization locks in cellular turgidity for an authentic crunchy texture snap with zero chemical firming agents.</span>
-              <span class="lang-ar font-cairo"><strong class="text-emerald-300">الحفاظ الفائق على القرمشة الطبيعية:</strong> خضروات تعاقدية طازجة من دلتا النيل تُعبأ خلال 24 ساعة من الحصاد. بسترة حرارية مضبوطة بدقة تحافظ على الصلابة الخلوية للقرمشة الطبيعية دون أي مصلبات كيميائية صناعية.</span>
+              <span class="lang-en"><strong class="text-emerald-300">Peak Crispness Preservation:</strong> Contract-grown Nile Delta vegetables packed within <span class="kpi-counter font-mono" data-target="24" data-suffix="-Hour">24-Hour</span> harvest window. Precise thermal pasteurization locks in cellular turgidity for an authentic crunchy texture snap with zero chemical firming agents.</span>
+              <span class="lang-ar font-cairo"><strong class="text-emerald-300">الحفاظ الفائق على القرمشة الطبيعية:</strong> خضروات تعاقدية طازجة من دلتا النيل تُعبأ خلال <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="24">24</span></span> ساعة من الحصاد. بسترة حرارية مضبوطة بدقة تحافظ على الصلابة الخلوية للقرمشة الطبيعية دون أي مصلبات كيميائية صناعية.</span>
             </p>
           </div>
           <div class="hidden xl:flex items-center gap-2 text-xs text-amber-300/90 whitespace-nowrap ps-4 border-s border-white/10">
@@ -1798,7 +1830,7 @@
         <div class="grid grid-cols-4 gap-3 lg:gap-3.5 flex-1 min-h-0 py-1 relative z-10 items-stretch">
           
           <!-- Card 1: Pickled Golden Pepperoncini -->
-          <div class="flex flex-col justify-between p-3 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-3 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-2">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM (2).jpeg" alt="Pickled Golden Pepperoncini - Khaeer Alwadi" class="w-full h-full object-cover object-left group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -1850,7 +1882,7 @@
           </div>
 
           <!-- Card 2: Whole Hot Red Chili Peppers -->
-          <div class="flex flex-col justify-between p-3 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-3 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-2">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.19 PM.jpeg" alt="Whole Hot Red Chili Peppers - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -1902,7 +1934,7 @@
           </div>
 
           <!-- Card 3: Traditional Mixed Pickles (Turshi) -->
-          <div class="flex flex-col justify-between p-3 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-3 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-2">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.16 PM (2).jpeg" alt="Traditional Mixed Pickles Turshi - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -1954,7 +1986,7 @@
           </div>
 
           <!-- Card 4: Pickled Cucumbers & Cornichons (Gherkins) -->
-          <div class="flex flex-col justify-between p-3 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-3 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-2">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM (2).jpeg" alt="Pickled Cucumbers and Gherkins - Khaeer Alwadi" class="w-full h-full object-cover object-right group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -2008,7 +2040,7 @@
         </div>
 
         <!-- Technical Specification Chips Row -->
-        <div class="p-2 lg:p-2.5 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
+        <div class="reveal-4 double-bezel p-2 lg:p-2.5 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
           <div class="grid grid-cols-4 gap-2.5 text-center">
             
             <!-- Chip 1: Crunchy Texture Snap -->
@@ -2018,8 +2050,8 @@
                 <span class="lang-ar font-cairo">مؤشر الصلابة والقرمشة</span>
               </div>
               <div class="text-xs lg:text-sm font-extrabold text-emerald-400 font-mono">
-                <span class="lang-en">Crunchy Texture Snap</span>
-                <span class="lang-ar font-cairo">قرمشة طبيعية فائقة (Snap)</span>
+                <span class="lang-en"><span class="kpi-counter font-mono" data-target="100" data-suffix="%">100%</span> Crunchy Snap</span>
+                <span class="lang-ar font-cairo">قرمشة طبيعية فائقة (<span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="100" data-suffix="%">100%</span></span> Snap)</span>
               </div>
               <div class="text-[9px] text-slate-400">
                 <span class="lang-en font-sans">High cellular turgidity; zero softening</span>
@@ -2034,8 +2066,8 @@
                 <span class="lang-ar font-cairo">ضبط الحموضة ودرجة pH</span>
               </div>
               <div class="text-xs lg:text-sm font-extrabold text-amber-300 font-mono">
-                <span class="lang-en">Acidity/pH (3.2–3.6)</span>
-                <span class="lang-ar font-cairo">درجة حموضة pH (<span class="dir-ltr inline-block">3.2–3.6</span>)</span>
+                <span class="lang-en">Acidity/pH (<span class="kpi-counter font-mono" data-target="3.6" data-decimals="1" data-prefix="3.2–">3.2–3.6</span>)</span>
+                <span class="lang-ar font-cairo">درجة حموضة pH (<span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="3.6" data-decimals="1" data-prefix="3.2–">3.2–3.6</span></span>)</span>
               </div>
               <div class="text-[9px] text-slate-400">
                 <span class="lang-en font-sans">Microbial hurdle control; crisp preservation</span>
@@ -2050,8 +2082,8 @@
                 <span class="lang-ar font-cairo">تركيز الملوحة الموزونة</span>
               </div>
               <div class="text-xs lg:text-sm font-extrabold text-white font-mono">
-                <span class="lang-en">Salinity (3.5%–5.0%)</span>
-                <span class="lang-ar font-cairo">تركيز الملح (<span class="dir-ltr inline-block">3.5%–5.0%</span>)</span>
+                <span class="lang-en">Salinity (<span class="kpi-counter font-mono" data-target="5.0" data-decimals="1" data-prefix="3.5%–" data-suffix="%">3.5%–5.0%</span>)</span>
+                <span class="lang-ar font-cairo">تركيز الملح (<span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="5.0" data-decimals="1" data-prefix="3.5%–" data-suffix="%">3.5%–5.0%</span></span>)</span>
               </div>
               <div class="text-[9px] text-slate-400">
                 <span class="lang-en font-sans">Balanced savory palate; low sodium leaching</span>
@@ -2079,7 +2111,7 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
+        <footer class="reveal-5 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
           <div class="flex items-center gap-2">
             <span class="lang-en">Khaeer Alwadi Food Industries • Pickled Vegetables &amp; Specialty Pepper Division</span>
             <span class="lang-ar font-cairo">شركة خير الوادي للصناعات الغذائية • قطاع المخللات التخصصية والفلفل الفاخر</span>
@@ -2098,7 +2130,7 @@
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
+        <header class="reveal-1 flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
           <div class="flex items-center gap-3 lg:gap-4">
             <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain hidden sm:block opacity-90">
             <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
@@ -2129,7 +2161,7 @@
         </header>
 
         <!-- Executive Banner -->
-        <div class="my-1 px-3.5 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
+        <div class="reveal-2 double-bezel my-1 px-3.5 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
           <div class="flex items-center gap-2.5">
             <div class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></div>
             <p class="text-xs text-slate-200 leading-tight">
@@ -2138,8 +2170,8 @@
             </p>
           </div>
           <div class="hidden xl:flex items-center gap-2 text-xs text-amber-300/90 whitespace-nowrap ps-4 border-s border-white/10">
-            <span class="lang-en font-mono">Ambient Shelf Life: 24–36 Months</span>
-            <span class="lang-ar font-cairo">فترة الصلاحية: <span class="dir-ltr inline-block">24–36</span> شهراً</span>
+            <span class="lang-en font-mono">Ambient Shelf Life: <span class="kpi-counter font-mono" data-target="36" data-prefix="24–" data-suffix=" Months">24–36 Months</span></span>
+            <span class="lang-ar font-cairo">فترة الصلاحية: <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="36" data-prefix="24–">24–36</span></span> شهراً</span>
           </div>
         </div>
 
@@ -2147,7 +2179,7 @@
         <div class="grid grid-cols-4 gap-2.5 lg:gap-3 flex-1 min-h-0 py-1 relative z-10 items-stretch">
 
           <!-- Card 1: Foodservice Tier (A10 Cans) -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM (7).jpeg" alt="Institutional A10 Can with Sliced Green Olives - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -2187,8 +2219,8 @@
                 <li class="flex items-start gap-1.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1 shrink-0"></span>
                   <span>
-                    <span class="lang-en"><strong class="text-white">Retort Sterility:</strong> Steam autoclave cooked (<span class="dir-ltr inline-block font-mono">F<sub>0</sub> &ge; 4.0</span>) for 36-month ambient stability.</span>
-                    <span class="lang-ar font-cairo"><strong class="text-white">تعقيم بالبخار المضغوط:</strong> معالجة حرارية بالأوتوكلاف (<span class="dir-ltr inline-block font-mono">F₀ ≥ 4.0</span>) لصلاحية 36 شهراً دون تبريد.</span>
+                    <span class="lang-en"><strong class="text-white">Retort Sterility:</strong> Steam autoclave cooked (<span class="dir-ltr inline-block font-mono">F<sub>0</sub> &ge; 4.0</span>) for <span class="kpi-counter font-mono" data-target="36" data-suffix="-month">36-month</span> ambient stability.</span>
+                    <span class="lang-ar font-cairo"><strong class="text-white">تعقيم بالبخار المضغوط:</strong> معالجة حرارية بالأوتوكلاف (<span class="dir-ltr inline-block font-mono">F₀ ≥ 4.0</span>) لصلاحية <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="36">36</span></span> شهراً دون تبريد.</span>
                   </span>
                 </li>
               </ul>
@@ -2206,7 +2238,7 @@
           </div>
 
           <!-- Card 2: Industrial Bulk Tier (Drums / Barrels) -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM (4).jpeg" alt="Industrial Bulk Polymer Barrels with Olives in Brine - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -2221,8 +2253,8 @@
                 </div>
               </div>
               <h3 class="text-xs lg:text-[13px] font-bold text-white group-hover:text-amber-300 transition-colors leading-tight">
-                <span class="lang-en font-sans"><span class="dir-ltr inline-block">150kg–220kg</span> Bulk Drums</span>
-                <span class="lang-ar font-cairo">براميل بوليمر صناعية للأغذية (<span class="dir-ltr inline-block">150–220</span> كجم)</span>
+                <span class="lang-en font-sans"><span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="220" data-prefix="150kg–" data-suffix="kg">150kg–220kg</span></span> Bulk Drums</span>
+                <span class="lang-ar font-cairo">براميل بوليمر صناعية للأغذية (<span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="220" data-prefix="150kg–" data-suffix="kg">150kg–220kg</span></span>)</span>
               </h3>
               <p class="text-[10px] text-amber-300/80 mb-1">
                 <span class="lang-en font-mono">Food Processors &amp; Re-Packers</span>
@@ -2265,7 +2297,7 @@
           </div>
 
           <!-- Card 3: Retail Supermarket Tier (Glass Jars) -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.16 PM (4).jpeg" alt="High-Clarity Supermarket Glass Jars with Safety Caps - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -2324,7 +2356,7 @@
           </div>
 
           <!-- Card 4: Palletization & Logistics Tier -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/11] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.15 PM (5).jpeg" alt="Full Stretch-Wrapped Master Pallet on Export Staging Floor - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -2385,7 +2417,7 @@
         </div>
 
         <!-- Technical Packaging Specification Bar (4 Laboratory Metrics) -->
-        <div class="p-2 lg:p-2.5 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
+        <div class="reveal-4 double-bezel p-2 lg:p-2.5 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
           <div class="grid grid-cols-4 gap-2.5 text-center">
 
             <!-- Chip 1: Hermetic Barrier Integrity -->
@@ -2411,8 +2443,8 @@
                 <span class="lang-ar font-cairo">عائد الوزن المصفى المعتمد</span>
               </div>
               <div class="text-xs lg:text-sm font-extrabold text-white font-mono">
-                <span class="lang-en">&ge;52% Yield (CODEX STAN 66)</span>
-                <span class="lang-ar font-cairo"><span class="dir-ltr inline-block">&ge;52%</span> (معيار كودكس 66)</span>
+                <span class="lang-en">&ge;<span class="kpi-counter font-mono" data-target="52" data-suffix="%">52%</span> Yield (CODEX STAN 66)</span>
+                <span class="lang-ar font-cairo"><span class="dir-ltr inline-block">&ge;<span class="kpi-counter font-mono" data-target="52" data-suffix="%">52%</span></span> (معيار كودكس 66)</span>
               </div>
               <div class="text-[9px] text-slate-400">
                 <span class="lang-en font-sans">A10 net 3,000g / drained &ge;1,560g verified</span>
@@ -2456,7 +2488,7 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
+        <footer class="reveal-5 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
           <div>
             <span class="lang-en font-sans">Khaeer Alwadi • Packaging Engineering &amp; Export Freight Architecture</span>
             <span class="lang-ar font-cairo">شركة خير الوادي للتصنيع الزراعي • هندسة العبوات والتعبئة متعددة المستويات</span>
@@ -2475,7 +2507,7 @@
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
+        <header class="reveal-1 flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
           <div class="flex items-center gap-3 lg:gap-4">
             <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain hidden sm:block opacity-90">
             <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
@@ -2506,7 +2538,7 @@
         </header>
 
         <!-- Executive Banner & Dual Brand Strategy Box -->
-        <div class="my-1 px-3.5 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
+        <div class="reveal-2 double-bezel my-1 px-3.5 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
           <div class="flex items-center gap-2.5">
             <div class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></div>
             <p class="text-xs text-slate-200 leading-tight">
@@ -2521,7 +2553,7 @@
         </div>
 
         <!-- 6-Stage Turnkey OEM Engineering Workflow Bar -->
-        <div class="py-1 px-2.5 rounded-xl bg-white/[0.02] border border-white/5 relative z-10">
+        <div class="reveal-2 double-bezel py-1 px-2.5 rounded-xl bg-white/[0.02] border border-white/5 relative z-10">
           <div class="grid grid-cols-6 gap-1.5 text-center">
             <!-- Stage 1 -->
             <div class="p-1 rounded bg-white/[0.02] border border-white/5">
@@ -2620,7 +2652,7 @@
         <div class="grid grid-cols-3 gap-2.5 lg:gap-3 flex-1 min-h-0 py-1 relative z-10 items-stretch">
 
           <!-- Pillar 1: Tailored Recipe Formulation & Brining R&D -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/10] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.19 PM (2).jpeg" alt="Quality Control Laboratory Testing Bench - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -2675,7 +2707,7 @@
           </div>
 
           <!-- Pillar 2: Regulatory Labeling & Brand Identity -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/10] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM (1).jpeg" alt="Private Label Prototype Jars for Buyer Brand Customization - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -2730,7 +2762,7 @@
           </div>
 
           <!-- Pillar 3: Slicing Calibers, Packaging Lines & Master Shipper Packaging -->
-          <div class="flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
+          <div class="reveal-3 double-bezel flex flex-col justify-between p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/40 transition-all duration-300 group">
             <div>
               <div class="relative aspect-[16/10] rounded-lg overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5">
                 <img src="WhatsApp Image 2026-09-05 at 12.52.19 PM (1).jpeg" alt="Palletized Packaging Floor and Automated Lines - Khaeer Alwadi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
@@ -2749,8 +2781,8 @@
                 <span class="lang-ar font-cairo">التقطيع الدقيق وتخصيص الأحجام والكرتون</span>
               </h3>
               <p class="text-[10px] text-amber-300/80 mb-1">
-                <span class="lang-en font-mono">2mm–4mm Slice Cuts &amp; 5-Ply Export Shippers</span>
-                <span class="lang-ar font-cairo">تقطيع <span class="dir-ltr inline-block">2mm–4mm</span> وكرتون تصدير مقوى 5 طبقات</span>
+                <span class="lang-en font-mono"><span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="4" data-prefix="2mm–" data-suffix="mm">2mm–4mm</span></span> Slice Cuts &amp; 5-Ply Export Shippers</span>
+                <span class="lang-ar font-cairo">تقطيع <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="4" data-prefix="2mm–" data-suffix="mm">2mm–4mm</span></span> وكرتون تصدير مقوى 5 طبقات</span>
               </p>
               <ul class="space-y-1 text-[10px] lg:text-[11px] text-slate-300 leading-snug">
                 <li class="flex items-start gap-1.5">
@@ -2791,7 +2823,7 @@
         </div>
 
         <!-- Technical OEM Specifications Bar (4 Partnership Pillars) -->
-        <div class="p-2 lg:p-2.5 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
+        <div class="reveal-4 double-bezel p-2 lg:p-2.5 rounded-xl bg-slate-900/80 border border-amber-400/20 relative z-10">
           <div class="grid grid-cols-4 gap-2.5 text-center">
 
             <!-- Chip 1: Rapid Prototype Sampling -->
@@ -2801,8 +2833,8 @@
                 <span class="lang-ar font-cairo">عينات مخبرية سريعة</span>
               </div>
               <div class="text-xs lg:text-sm font-extrabold text-amber-300 font-mono">
-                <span class="lang-en">5–7 Day DHL/FedEx Dispatch</span>
-                <span class="lang-ar font-cairo"><span class="dir-ltr inline-block">5–7</span> أيام عبر DHL/FedEx</span>
+                <span class="lang-en"><span class="kpi-counter font-mono" data-target="7" data-prefix="5–" data-suffix=" Day">5–7 Day</span> DHL/FedEx Dispatch</span>
+                <span class="lang-ar font-cairo"><span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="7" data-prefix="5–">5–7</span></span> أيام عبر DHL/FedEx</span>
               </div>
               <div class="text-[9px] text-slate-400">
                 <span class="lang-en font-sans">Custom bench samples for sensory &amp; lab approval</span>
@@ -2862,7 +2894,7 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
+        <footer class="reveal-5 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
           <div>
             <span class="lang-en font-sans">Khaeer Alwadi • Private Label &amp; Turnkey Contract Manufacturing Division</span>
             <span class="lang-ar font-cairo">شركة خير الوادي للتصنيع الزراعي • قطاع التصنيع للغير والعلامات التجارية الخاصة</span>
@@ -2881,7 +2913,7 @@
         <div class="absolute -bottom-32 -end-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-2 relative z-10">
+        <header class="reveal-1 flex items-center justify-between border-b border-white/10 pb-2 relative z-10">
           <div class="flex items-center gap-3 lg:gap-4">
             <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain hidden sm:block opacity-90">
             <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
@@ -2912,7 +2944,7 @@
         </header>
 
         <!-- Executive Quality & Freight Protocol Banner -->
-        <div class="my-1 px-3 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
+        <div class="reveal-2 double-bezel my-1 px-3 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
           <div class="flex items-center gap-2.5">
             <div class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></div>
             <p class="text-[11px] lg:text-xs text-slate-200 leading-tight">
@@ -2930,7 +2962,7 @@
         <div class="flex-1 min-h-0 flex flex-col justify-between gap-2 relative z-10 py-0.5">
           
           <!-- Quality Specification Matrix Table -->
-          <div class="rounded-xl bg-slate-900/70 border border-white/10 overflow-hidden shadow-xl">
+          <div class="reveal-2 double-bezel rounded-xl bg-slate-900/70 border border-white/10 overflow-hidden shadow-xl">
             <div class="px-3 py-1.5 bg-white/[0.04] border-b border-white/10 flex items-center justify-between">
               <div class="flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-amber-400"></span>
@@ -3005,10 +3037,10 @@
                         <span class="lang-ar font-cairo">نسبة الوزن المصفى</span>
                       </span>
                     </td>
-                    <td class="py-1.5 px-3 font-mono font-bold text-emerald-400"><span class="dir-ltr inline-block">&ge; 52% – 55%</span></td>
-                    <td class="py-1.5 px-3 font-mono font-bold text-emerald-400"><span class="dir-ltr inline-block">&ge; 50% – 52%</span></td>
-                    <td class="py-1.5 px-3 font-mono font-bold text-emerald-400"><span class="dir-ltr inline-block">&ge; 50%</span></td>
-                    <td class="py-1.5 px-3 font-mono font-bold text-emerald-400"><span class="dir-ltr inline-block">&ge; 52%</span></td>
+                    <td class="py-1.5 px-3 font-mono font-bold text-emerald-400"><span class="dir-ltr inline-block">&ge; <span class="kpi-counter font-mono" data-target="55" data-prefix="52% – " data-suffix="%">52% – 55%</span></span></td>
+                    <td class="py-1.5 px-3 font-mono font-bold text-emerald-400"><span class="dir-ltr inline-block">&ge; <span class="kpi-counter font-mono" data-target="52" data-prefix="50% – " data-suffix="%">50% – 52%</span></span></td>
+                    <td class="py-1.5 px-3 font-mono font-bold text-emerald-400"><span class="dir-ltr inline-block">&ge; <span class="kpi-counter font-mono" data-target="50" data-suffix="%">50%</span></span></td>
+                    <td class="py-1.5 px-3 font-mono font-bold text-emerald-400"><span class="dir-ltr inline-block">&ge; <span class="kpi-counter font-mono" data-target="52" data-suffix="%">52%</span></span></td>
                   </tr>
                   <tr class="hover:bg-white/[0.02] transition-colors">
                     <td class="py-1.5 px-3 font-semibold text-white flex items-center gap-1.5">
@@ -3101,7 +3133,7 @@
           <div class="grid grid-cols-3 gap-2.5 lg:gap-3 items-stretch">
             
             <!-- Pillar 1: 20ft FCL Standard Container -->
-            <div class="p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/30 transition-all flex flex-col justify-between">
+            <div class="reveal-3 double-bezel p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/30 transition-all flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
@@ -3114,8 +3146,8 @@
                     </h3>
                   </div>
                   <span class="px-1.5 py-0.5 rounded bg-amber-400/20 text-amber-300 text-[9px] font-mono font-semibold">
-                    <span class="lang-en">10 Pallets</span>
-                    <span class="lang-ar font-cairo">10 طبالي</span>
+                    <span class="lang-en"><span class="kpi-counter font-mono" data-target="10" data-suffix=" Pallets">10 Pallets</span></span>
+                    <span class="lang-ar font-cairo"><span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="10">10</span></span> طبالي</span>
                   </span>
                 </div>
                 <div class="space-y-1 text-[10px] lg:text-[11px] text-slate-300 leading-tight">
@@ -3155,7 +3187,7 @@
                       <span class="lang-ar font-cairo">صافي الحمولة:</span>
                     </span>
                     <span class="font-mono font-bold text-emerald-400">
-                      <span class="dir-ltr inline-block">~18,000 – 20,500 kg</span>
+                      <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="20500" data-prefix="~18,000 – " data-suffix=" kg">~18,000 – 20,500 kg</span></span>
                     </span>
                   </div>
                 </div>
@@ -3167,7 +3199,7 @@
             </div>
 
             <!-- Pillar 2: 40ft High Cube FCL Container -->
-            <div class="p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/30 transition-all flex flex-col justify-between">
+            <div class="reveal-3 double-bezel p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/30 transition-all flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
@@ -3180,7 +3212,7 @@
                     </h3>
                   </div>
                   <span class="px-1.5 py-0.5 rounded bg-emerald-400/20 text-emerald-300 text-[9px] font-mono font-semibold">
-                    <span class="dir-ltr inline-block">20–22 Pallets</span>
+                    <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="22" data-prefix="20–" data-suffix=" Pallets">20–22 Pallets</span></span>
                   </span>
                 </div>
                 <div class="space-y-1 text-[10px] lg:text-[11px] text-slate-300 leading-tight">
@@ -3220,19 +3252,19 @@
                       <span class="lang-ar font-cairo">صافي الحمولة:</span>
                     </span>
                     <span class="font-mono font-bold text-emerald-400">
-                      <span class="dir-ltr inline-block">~24,500 – 26,000 kg</span>
+                      <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="26000" data-prefix="~24,500 – " data-suffix=" kg">~24,500 – 26,000 kg</span></span>
                     </span>
                   </div>
                 </div>
               </div>
               <div class="mt-2 pt-1 border-t border-white/10 text-[9px] text-emerald-300/80 font-mono">
-                <span class="lang-en">Maximum cube efficiency: reduces freight cost per kg by up to 35%</span>
-                <span class="lang-ar font-cairo">أقصى كفاءة تكعيبية: تخفيض تكلفة الشحن البحري للكيلوغرام حتى <span class="dir-ltr inline-block">35%</span></span>
+                <span class="lang-en">Maximum cube efficiency: reduces freight cost per kg by up to <span class="kpi-counter font-mono" data-target="35" data-suffix="%">35%</span></span>
+                <span class="lang-ar font-cairo">أقصى كفاءة تكعيبية: تخفيض تكلفة الشحن البحري للكيلوغرام حتى <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="35" data-suffix="%">35%</span></span></span>
               </div>
             </div>
 
             <!-- Pillar 3: Sea-Freight Protection & Gateways -->
-            <div class="p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/30 transition-all flex flex-col justify-between">
+            <div class="reveal-3 double-bezel p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/30 transition-all flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
@@ -3284,7 +3316,7 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
+        <footer class="reveal-5 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
           <div>
             <span class="lang-en font-sans">Khaeer Alwadi Food Industries • Industrial Quality Assurance &amp; Global Ocean Freight Logistics</span>
             <span class="lang-ar font-cairo">شركة خير الوادي للصناعات الغذائية • ضمان الجودة المخبرية واللوجستيات والشحن البحري الدولي</span>
@@ -3303,7 +3335,7 @@
         <div class="absolute -bottom-32 -start-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
-        <header class="flex items-center justify-between border-b border-white/10 pb-2 relative z-10">
+        <header class="reveal-1 flex items-center justify-between border-b border-white/10 pb-2 relative z-10">
           <div class="flex items-center gap-3 lg:gap-4">
             <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto object-contain hidden sm:block opacity-90">
             <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
@@ -3334,7 +3366,7 @@
         </header>
 
         <!-- Executive Commercial Invitation Banner -->
-        <div class="my-1 px-3 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
+        <div class="reveal-2 double-bezel my-1 px-3 py-1.5 rounded-xl bg-white/[0.03] border border-amber-400/20 flex items-center justify-between relative z-10">
           <div class="flex items-center gap-2.5">
             <div class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></div>
             <p class="text-[11px] lg:text-xs text-slate-200 leading-tight">
@@ -3343,8 +3375,8 @@
             </p>
           </div>
           <div class="hidden xl:flex items-center gap-2 text-xs text-amber-300/90 whitespace-nowrap ps-4 border-s border-white/10">
-            <span class="lang-en font-mono">24-Hour Quote Guarantee</span>
-            <span class="lang-ar font-cairo">ضمان تسعير خلال 24 ساعة</span>
+            <span class="lang-en font-mono"><span class="kpi-counter font-mono" data-target="24" data-suffix="-Hour">24-Hour</span> Quote Guarantee</span>
+            <span class="lang-ar font-cairo">ضمان تسعير خلال <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="24">24</span></span> ساعة</span>
           </div>
         </div>
 
@@ -3372,7 +3404,7 @@
               
               <div class="grid grid-cols-2 gap-2">
                 <!-- Step 1: Sample Dispatch Protocol -->
-                <div class="p-2.5 rounded-xl bg-slate-900/70 border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="reveal-2 double-bezel p-2.5 rounded-xl bg-slate-900/70 border border-white/10 hover:border-amber-400/30 transition-all">
                   <div class="flex items-center gap-2 mb-1">
                     <div class="w-6 h-6 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-mono font-bold text-xs shrink-0">
                       01
@@ -3383,13 +3415,13 @@
                     </h3>
                   </div>
                   <p class="text-[10px] lg:text-[11px] text-slate-300 leading-snug">
-                    <span class="lang-en">Express door-to-door product sample kits dispatched via <strong class="text-white">DHL Express</strong> or <strong class="text-white">FedEx International Priority</strong> within <span class="text-emerald-400 font-semibold dir-ltr inline-block">48 hours</span> for sensory, culinary kitchen tests, and lab evaluation. Complete with Certificate of Analysis (CoA) and specification sheets.</span>
-                    <span class="lang-ar font-cairo">إرسال حقائب عينات تجريبية كاملة عبر <strong class="text-white">DHL Express</strong> أو <strong class="text-white">FedEx</strong> خلال <span class="text-emerald-400 font-semibold dir-ltr inline-block">48 ساعة</span> للفحص الحسي والمطابقة المخبرية، مرفقة بشهادات التحليل (CoA) وجداول المواصفات الفنية.</span>
+                    <span class="lang-en">Express door-to-door product sample kits dispatched via <strong class="text-white">DHL Express</strong> or <strong class="text-white">FedEx International Priority</strong> within <span class="text-emerald-400 font-semibold dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="48" data-suffix=" hours">48 hours</span></span> for sensory, culinary kitchen tests, and lab evaluation. Complete with Certificate of Analysis (CoA) and specification sheets.</span>
+                    <span class="lang-ar font-cairo">إرسال حقائب عينات تجريبية كاملة عبر <strong class="text-white">DHL Express</strong> أو <strong class="text-white">FedEx</strong> خلال <span class="text-emerald-400 font-semibold dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="48">48</span> ساعة</span> للفحص الحسي والمطابقة المخبرية، مرفقة بشهادات التحليل (CoA) وجداول المواصفات الفنية.</span>
                   </p>
                 </div>
 
                 <!-- Step 2: 24-Hour Formal Quotation -->
-                <div class="p-2.5 rounded-xl bg-slate-900/70 border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="reveal-2 double-bezel p-2.5 rounded-xl bg-slate-900/70 border border-white/10 hover:border-amber-400/30 transition-all">
                   <div class="flex items-center gap-2 mb-1">
                     <div class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-mono font-bold text-xs shrink-0">
                       02
@@ -3400,13 +3432,13 @@
                     </h3>
                   </div>
                   <p class="text-[10px] lg:text-[11px] text-slate-300 leading-snug">
-                    <span class="lang-en">Transparent Incoterms customized to buyer logistics: <strong class="text-white">FOB Alexandria / FOB Damietta / FOB Port Said</strong>, or competitive <strong class="text-white">CIF / CFR Global Ports</strong>. Guaranteed formal binding quote issued within <span class="text-emerald-400 font-semibold dir-ltr inline-block">24 hours</span>.</span>
-                    <span class="lang-ar font-cairo">عروض أسعار رسمية وشفافة وفق شروط التجارة الدولية: <strong class="text-white">FOB الإسكندرية / دمياط / بورسعيد</strong> أو <strong class="text-white">CIF / CFR</strong> لموانئ العميل حول العالم. ضمان إصدار عرض السعر المفصل خلال <span class="text-emerald-400 font-semibold dir-ltr inline-block">24 ساعة</span>.</span>
+                    <span class="lang-en">Transparent Incoterms customized to buyer logistics: <strong class="text-white">FOB Alexandria / FOB Damietta / FOB Port Said</strong>, or competitive <strong class="text-white">CIF / CFR Global Ports</strong>. Guaranteed formal binding quote issued within <span class="text-emerald-400 font-semibold dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="24" data-suffix=" hours">24 hours</span></span>.</span>
+                    <span class="lang-ar font-cairo">عروض أسعار رسمية وشفافة وفق شروط التجارة الدولية: <strong class="text-white">FOB الإسكندرية / دمياط / بورسعيد</strong> أو <strong class="text-white">CIF / CFR</strong> لموانئ العميل حول العالم. ضمان إصدار عرض السعر المفصل خلال <span class="text-emerald-400 font-semibold dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="24">24</span> ساعة</span>.</span>
                   </p>
                 </div>
 
                 <!-- Step 3: Flexible Payment Terms -->
-                <div class="p-2.5 rounded-xl bg-slate-900/70 border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="reveal-2 double-bezel p-2.5 rounded-xl bg-slate-900/70 border border-white/10 hover:border-amber-400/30 transition-all">
                   <div class="flex items-center gap-2 mb-1">
                     <div class="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center font-mono font-bold text-xs shrink-0">
                       03
@@ -3423,7 +3455,7 @@
                 </div>
 
                 <!-- Step 4: Production Laycan & Dispatch -->
-                <div class="p-2.5 rounded-xl bg-slate-900/70 border border-white/10 hover:border-amber-400/30 transition-all">
+                <div class="reveal-2 double-bezel p-2.5 rounded-xl bg-slate-900/70 border border-white/10 hover:border-amber-400/30 transition-all">
                   <div class="flex items-center gap-2 mb-1">
                     <div class="w-6 h-6 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-mono font-bold text-xs shrink-0">
                       04
@@ -3434,15 +3466,15 @@
                     </h3>
                   </div>
                   <p class="text-[10px] lg:text-[11px] text-slate-300 leading-snug">
-                    <span class="lang-en">Scheduled harvest-to-pack batches with <span class="text-emerald-400 font-semibold dir-ltr inline-block">10–14 days</span> standard order turnaround. In-line laboratory QA sign-off, optional SGS / Bureau Veritas pre-shipment inspection, container drayage to port, and guaranteed vessel laycan booking.</span>
-                    <span class="lang-ar font-cairo">تنفيذ وجدولة سريعة للطلبيات خلال <span class="text-emerald-400 font-semibold dir-ltr inline-block">10–14 يوماً</span>. فحص جودة نهائي مع إمكانية الفحص عبر جهات التفتيش الدولية (SGS / Bureau Veritas)، ونقل الحاويات المباشر للميناء وجدولة الإبحار.</span>
+                    <span class="lang-en">Scheduled harvest-to-pack batches with <span class="text-emerald-400 font-semibold dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="14" data-prefix="10–" data-suffix=" days">10–14 days</span></span> standard order turnaround. In-line laboratory QA sign-off, optional SGS / Bureau Veritas pre-shipment inspection, container drayage to port, and guaranteed vessel laycan booking.</span>
+                    <span class="lang-ar font-cairo">تنفيذ وجدولة سريعة للطلبيات خلال <span class="text-emerald-400 font-semibold dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="14" data-prefix="10–">10–14</span> يوماً</span>. فحص جودة نهائي مع إمكانية الفحص عبر جهات التفتيش الدولية (SGS / Bureau Veritas)، ونقل الحاويات المباشر للميناء وجدولة الإبحار.</span>
                   </p>
                 </div>
               </div>
             </div>
 
             <!-- 4 Strategic Partnership Value Pillars -->
-            <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/10">
+            <div class="reveal-3 double-bezel p-2.5 rounded-xl bg-white/[0.02] border border-white/10">
               <div class="text-[10px] font-mono text-amber-400 uppercase font-bold tracking-wider mb-1.5 flex items-center gap-1.5">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 <span>
@@ -3453,8 +3485,8 @@
               <div class="grid grid-cols-4 gap-2 text-[10px] leading-tight text-slate-300">
                 <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
                   <div class="font-bold text-white mb-0.5">
-                    <span class="lang-en"><span class="dir-ltr inline-block">15–25%</span> Cost Edge</span>
-                    <span class="lang-ar font-cairo">وفر سعري <span class="dir-ltr inline-block">15–25%</span></span>
+                    <span class="lang-en"><span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="25" data-prefix="15–" data-suffix="%">15–25%</span></span> Cost Edge</span>
+                    <span class="lang-ar font-cairo">وفر سعري <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="25" data-prefix="15–" data-suffix="%">15–25%</span></span></span>
                   </div>
                   <div class="text-slate-400 text-[9px]">
                     <span class="lang-en">Direct Nile Delta groves &amp; pepper crops eliminate middleman brokerage.</span>
@@ -3477,8 +3509,8 @@
                     <span class="lang-ar font-cairo">تعقيم حراري بالأوتوكلاف</span>
                   </div>
                   <div class="text-slate-400 text-[9px]">
-                    <span class="lang-en">High-pressure retort cooks assure <span class="dir-ltr inline-block">24–36</span> month ambient stability.</span>
-                    <span class="lang-ar font-cairo">صلاحية تبلغ <span class="dir-ltr inline-block">24–36</span> شهراً في درجة الحرارة العادية لسلامة متناهية.</span>
+                    <span class="lang-en">High-pressure retort cooks assure <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="36" data-prefix="24–" data-suffix=" month">24–36 month</span></span> ambient stability.</span>
+                    <span class="lang-ar font-cairo">صلاحية تبلغ <span class="dir-ltr inline-block"><span class="kpi-counter font-mono" data-target="36" data-prefix="24–">24–36</span></span> شهراً في درجة الحرارة العادية لسلامة متناهية.</span>
                   </div>
                 </div>
                 <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
@@ -3497,7 +3529,7 @@
           </div>
 
           <!-- Right: Khaeer Alwadi Food Industries Executive Contact Card (5 cols) -->
-          <div class="col-span-5 flex flex-col justify-between p-3.5 rounded-xl bg-slate-900/80 border border-amber-400/30 shadow-2xl relative overflow-hidden">
+          <div class="reveal-3 double-bezel-emerald col-span-5 flex flex-col justify-between p-3.5 rounded-xl bg-slate-900/80 border border-emerald-500/30 shadow-2xl relative overflow-hidden">
             <!-- Decorative Top Accent -->
             <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-emerald-400 to-amber-500"></div>
 
@@ -3505,8 +3537,9 @@
               <!-- Official Brand Logo & Desk Header -->
               <div class="flex items-center justify-between mb-2 pb-2 border-b border-white/10">
                 <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi Food Industries" class="h-8 w-auto object-contain">
-                <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[9px] font-mono font-bold uppercase">
-                  <span class="lang-en">Active Desk</span>
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[9px] font-mono font-bold uppercase">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="lang-en">Active Desk 24/7</span>
                   <span class="lang-ar font-cairo">مكتب نشط 24/7</span>
                 </span>
               </div>
@@ -3643,7 +3676,7 @@
             </div>
 
             <!-- 5 Compliance Badges & Port Serving -->
-            <div class="mt-2 pt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-1 text-[9px] font-mono text-slate-400">
+            <div class="reveal-4 mt-2 pt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-1 text-[9px] font-mono text-slate-400">
               <div class="flex items-center gap-1 flex-wrap">
                 <span class="px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 font-bold">ISO 22000</span>
                 <span class="px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 font-bold">HACCP</span>
@@ -3662,7 +3695,7 @@
         </div>
 
         <!-- Footer / Metadata -->
-        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
+        <footer class="reveal-5 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
           <div>
             <span class="lang-en font-sans">Khaeer Alwadi Food Industries • Cairo, Egypt • Direct Export Division &amp; Commercial Partnerships</span>
             <span class="lang-ar font-cairo">شركة خير الوادي للصناعات الغذائية • القاهرة، جمهورية مصر العربية • قطاع التصدير المباشر والشراكات الدولية</span>
@@ -4252,6 +4285,47 @@
       renderOverviewGrid();
     }
 
+    function animateCounters(container) {
+      if (!container) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const counterEls = container.querySelectorAll('.kpi-counter');
+      counterEls.forEach((el) => {
+        const target = parseFloat(el.getAttribute('data-target'));
+        if (isNaN(target)) return;
+
+        const prefix = el.getAttribute('data-prefix') || '';
+        const suffix = el.getAttribute('data-suffix') || '';
+        const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        const duration = parseInt(el.getAttribute('data-duration') || '1000', 10);
+        const startTime = performance.now();
+
+        if (el._rafId) {
+          cancelAnimationFrame(el._rafId);
+        }
+
+        function updateCounter(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease-out cubic: 1 - Math.pow(1 - progress, 3)
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          const currentVal = (target * easeProgress).toFixed(decimals);
+
+          el.textContent = `${prefix}${currentVal}${suffix}`;
+
+          if (progress < 1) {
+            el._rafId = requestAnimationFrame(updateCounter);
+          } else {
+            el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
+            el._rafId = null;
+          }
+        }
+
+        el.textContent = `${prefix}${(0).toFixed(decimals)}${suffix}`;
+        el._rafId = requestAnimationFrame(updateCounter);
+      });
+    }
+
     function showSlide(index) {
       if (index < 0) index = 0;
       if (index >= totalSlides) index = totalSlides - 1;
@@ -4261,7 +4335,10 @@
       slides.forEach((slide, idx) => {
         if (idx === currentSlide) {
           slide.classList.remove('hidden');
+          slide.classList.remove('active');
+          void slide.offsetWidth;
           slide.classList.add('active');
+          animateCounters(slide);
         } else {
           slide.classList.remove('active');
           slide.classList.add('hidden');
@@ -4675,6 +4752,7 @@
     window.togglePdfModal = togglePdfModal;
     window.selectPdfModalLang = selectPdfModalLang;
     window.printDeck = printDeck;
+    window.animateCounters = animateCounters;
 
     // Initialize state
     document.addEventListener('DOMContentLoaded', () => {
