@@ -12,7 +12,7 @@ def test_deck_contains_9_slides_and_nav():
     assert len(slides) == 9, f"Expected 9 slides, found {len(slides)}"
     assert 'id="nav-dock"' in html, "Navigation dock must be present"
     assert '+20 10 08716714' in html, "Contact number must be present"
-    assert 'Mariam Food Industries' in html, "Company name must be present"
+    assert 'Khaeer Alwadi' in html or 'خير الوادي' in html, "Company brand must be present in index.html"
 
 def test_slides_1_to_3_content():
     with open("index.html", "r", encoding="utf-8") as f:
@@ -72,11 +72,16 @@ def test_lightbox_modal_and_print_rules():
 def test_official_brand_identity():
     assert os.path.exists("mariam-logo-gold.png"), "mariam-logo-gold.png must exist in workspace"
     assert os.path.exists("mariam-logo-white.png"), "mariam-logo-white.png must exist in workspace"
+    assert os.path.exists("khaeer-alwadi-logo.png"), "khaeer-alwadi-logo.png must exist"
+    assert os.path.exists("khaeer-alwadi-logo-gold.png"), "khaeer-alwadi-logo-gold.png must exist"
     with open("index.html", "r", encoding="utf-8") as f:
         html = f.read()
-    assert "mariam-logo-gold.png" in html, "mariam-logo-gold.png must be embedded in index.html"
-    assert "#D4A836" in html, "Calibrated Mariam gold (#D4A836) must be configured in index.html"
+    assert "khaeer-alwadi-logo.png" in html or "khaeer-alwadi-logo-gold.png" in html, "Khaeer Alwadi logo must be embedded in index.html"
+    assert "#D4A836" in html, "Calibrated gold (#D4A836) must be configured in index.html"
     assert "#091410" in html, "Calibrated obsidian-olive background (#091410) must be present in index.html"
+    with open("mariam.html", "r", encoding="utf-8") as f:
+        m_html = f.read()
+    assert "mariam-logo-gold.png" in m_html, "mariam-logo-gold.png must be embedded in mariam.html"
 
 def test_mariam_deck_preserved():
     assert os.path.exists("mariam.html"), "mariam.html must exist as a preserved copy of the Mariam deck"
