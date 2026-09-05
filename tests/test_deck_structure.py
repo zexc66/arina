@@ -122,6 +122,30 @@ def test_bilingual_slides_4_and_5():
     assert "WhatsApp Image 2026-09-05 at 12.52.18 PM (2).jpeg" in html
     assert "WhatsApp Image 2026-09-05 at 12.52.19 PM.jpeg" in html
 
+def test_bilingual_slides_6_and_7():
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    # Slide 6 bilingual assertions
+    assert "هندسة العبوات" in html or "هندسة التعبئة والتغليف" in html, "Slide 6 Arabic title required"
+    assert "Multi-Tier Packaging Architecture" in html, "Slide 6 English title required"
+    assert "عبوات الصفيح" in html or "صفيح" in html, "Slide 6 Arabic cans tier required"
+    assert "براميل" in html, "Slide 6 Arabic bulk drums required"
+    assert "برطمانات" in html, "Slide 6 Arabic glass jars required"
+    assert "منصات الشحن" in html or "طبالي" in html, "Slide 6 Arabic pallets required"
+    assert "A10" in html, "A10 foodservice can format required"
+    assert "150kg" in html or "220kg" in html, "Bulk drum specs required"
+    assert "WhatsApp Image 2026-09-05 at 12.52.17 PM (7).jpeg" in html, "Open can photo required"
+    assert "WhatsApp Image 2026-09-05 at 12.52.17 PM (4).jpeg" in html, "Bulk barrel photo required"
+    assert "WhatsApp Image 2026-09-05 at 12.52.15 PM (5).jpeg" in html, "Pallet photo required"
+
+    # Slide 7 bilingual assertions
+    assert "التصنيع للغير" in html or "العلامات التجارية الخاصة" in html, "Slide 7 Arabic title required"
+    assert "Private Label" in html, "Slide 7 English title required"
+    assert "التوريد الزراعي" in html, "Slide 7 workflow stage 1 Arabic required"
+    assert "المحاليل الملحية" in html or "تطوير المحاليل" in html, "Slide 7 workflow stage 2 Arabic required"
+    assert "المطابقة التنظيمية" in html, "Slide 7 workflow stage 4 Arabic required"
+    assert "WhatsApp Image 2026-09-05 at 12.52.19 PM (1).jpeg" in html, "Slide 7 packaging floor photo required"
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -161,6 +185,9 @@ class TestDeckStructure(unittest.TestCase):
 
     def test_bilingual_slides_4_and_5(self):
         test_bilingual_slides_4_and_5()
+
+    def test_bilingual_slides_6_and_7(self):
+        test_bilingual_slides_6_and_7()
 
 if __name__ == '__main__':
     unittest.main()
