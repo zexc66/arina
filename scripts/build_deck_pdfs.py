@@ -3,10 +3,10 @@ import sys
 from PIL import Image, ImageDraw, ImageFont
 
 # Fonts paths
-AR_BOLD = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
-AR_REG = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
-EN_BOLD = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
-EN_REG = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+AR_BOLD = 'fonts/Tajawal-Bold.ttf' if os.path.exists('fonts/Tajawal-Bold.ttf') else '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+AR_REG = 'fonts/Tajawal-Regular.ttf' if os.path.exists('fonts/Tajawal-Regular.ttf') else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+EN_BOLD = 'fonts/Tajawal-Bold.ttf' if os.path.exists('fonts/Tajawal-Bold.ttf') else '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+EN_REG = 'fonts/Tajawal-Regular.ttf' if os.path.exists('fonts/Tajawal-Regular.ttf') else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
 
 def load_fonts(scale=1.0):
     return {
