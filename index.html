@@ -806,7 +806,7 @@
               </p>
             </div>
           </div>
-          <div class="text-right">
+          <div class="text-end">
             <span class="text-xs text-slate-400">
               <span class="lang-en font-mono">Cairo Processing Plant • Tri-Port Proximity</span>
               <span class="lang-ar font-cairo">مجمع التصنيع بالقاهرة • قرب استراتيجي لثلاثة موانئ</span>
@@ -894,7 +894,7 @@
                     <span class="lang-ar font-cairo">15%–25% وفر تكلفة</span>
                   </div>
                 </div>
-                <div class="text-right">
+                <div class="text-end">
                   <div class="text-[10px] text-slate-400 uppercase font-semibold">
                     <span class="lang-en">Baseline Comp</span>
                     <span class="lang-ar font-cairo">المقارنة المرجعية</span>
@@ -1038,7 +1038,7 @@
                     <span class="lang-ar font-cairo">0% رسوم جمركية</span>
                   </div>
                 </div>
-                <div class="text-right">
+                <div class="text-end">
                   <div class="text-[10px] text-slate-400 uppercase font-semibold">
                     <span class="lang-en">Preferential Reach</span>
                     <span class="lang-ar font-cairo">السوق التفضيلي</span>
@@ -1094,7 +1094,7 @@
               </p>
             </div>
           </div>
-          <div class="text-right">
+          <div class="text-end">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-emerald-400">
               <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
               <span class="lang-en font-mono">Capacity: Hundreds of MT / Month</span>
@@ -3579,20 +3579,24 @@
               </div>
 
               <!-- Direct PDF Download Buttons for Mobile & Desktop -->
-              <div class="grid grid-cols-2 gap-2 my-2 no-print">
+              <div class="lang-ar grid grid-cols-2 gap-2 my-2 no-print">
                 <a href="Khaeer-Alwadi-Mobile-Deck.pdf" download="Khaeer-Alwadi-Mobile-Deck.pdf" class="tactile-btn flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 text-[10px] font-bold transition-all text-center shadow-md">
                   <span>📱</span>
-                  <span>
-                    <span class="lang-en">Mobile PDF</span>
-                    <span class="lang-ar font-cairo">PDF للموبايل</span>
-                  </span>
+                  <span class="font-cairo">PDF موبايل عربي</span>
                 </a>
                 <a href="Khaeer-Alwadi-Presentation-Deck.pdf" download="Khaeer-Alwadi-Presentation-Deck.pdf" class="tactile-btn flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-amber-950/50 hover:bg-amber-900/70 border border-amber-400/40 hover:border-amber-400 text-amber-300 text-[10px] font-bold transition-all text-center shadow-md">
                   <span>💻</span>
-                  <span>
-                    <span class="lang-en">Deck (16:9)</span>
-                    <span class="lang-ar font-cairo">عرض (16:9)</span>
-                  </span>
+                  <span class="font-cairo">عرض كامل عربي</span>
+                </a>
+              </div>
+              <div class="lang-en grid grid-cols-2 gap-2 my-2 no-print">
+                <a href="Khaeer-Alwadi-Mobile-Deck-EN.pdf" download="Khaeer-Alwadi-Mobile-Deck-EN.pdf" class="tactile-btn flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 text-[10px] font-bold transition-all text-center shadow-md">
+                  <span>📱</span>
+                  <span>Mobile PDF (EN)</span>
+                </a>
+                <a href="Khaeer-Alwadi-Presentation-Deck-EN.pdf" download="Khaeer-Alwadi-Presentation-Deck-EN.pdf" class="tactile-btn flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-amber-950/50 hover:bg-amber-900/70 border border-amber-400/40 hover:border-amber-400 text-amber-300 text-[10px] font-bold transition-all text-center shadow-md">
+                  <span>💻</span>
+                  <span>Widescreen Deck (EN)</span>
                 </a>
               </div>
 
@@ -3879,65 +3883,131 @@
         </button>
       </div>
 
-      <!-- Download Options List -->
-      <div class="flex flex-col gap-2.5">
-        <!-- Option 1: Mobile-Optimized PDF (Portrait) -->
-        <a href="Khaeer-Alwadi-Mobile-Deck.pdf" download="Khaeer-Alwadi-Mobile-Deck.pdf" class="group flex items-center justify-between p-3.5 rounded-2xl bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-500/40 hover:border-emerald-400 transition-all shadow-md">
+      <!-- Edition Selector Tabs -->
+      <div class="flex items-center p-1 rounded-2xl bg-white/5 border border-white/10 gap-1">
+        <button id="pdf-tab-en" onclick="selectPdfModalLang('en')" type="button" class="flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5 cursor-pointer">
+          <span>🇬🇧</span>
+          <span>English Edition</span>
+        </button>
+        <button id="pdf-tab-ar" onclick="selectPdfModalLang('ar')" type="button" class="flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5 font-cairo cursor-pointer">
+          <span>🇪🇬</span>
+          <span>النسخة العربية</span>
+        </button>
+      </div>
+
+      <!-- English Download & Print Panel -->
+      <div id="pdf-panel-en" class="flex flex-col gap-2.5">
+        <!-- Option 1: Mobile-Optimized English PDF -->
+        <a href="Khaeer-Alwadi-Mobile-Deck-EN.pdf" download="Khaeer-Alwadi-Mobile-Deck-EN.pdf" class="group flex items-center justify-between p-3.5 rounded-2xl bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-500/40 hover:border-emerald-400 transition-all shadow-md">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-xl shrink-0">
               📱
             </div>
             <div class="flex flex-col">
               <span class="font-bold text-xs sm:text-sm text-emerald-300 flex items-center gap-2">
-                <span class="lang-ar font-cairo">تحميل نسخة الهواتف الذكية والواتساب</span>
-                <span class="lang-en font-sans">Download Mobile-Ready PDF</span>
-                <span class="px-1.5 py-0.5 rounded text-[9px] bg-emerald-500/20 text-emerald-300 font-mono">1.3 MB • 9:16</span>
+                <span>Download English Mobile PDF</span>
+                <span class="px-1.5 py-0.5 rounded text-[9px] bg-emerald-500/20 text-emerald-300 font-mono">1.0 MB • 9:16</span>
               </span>
               <span class="text-[11px] text-slate-300 mt-0.5">
-                <span class="lang-ar font-cairo">ملف رأسي مخصص لشاشات الموبايل — خطوط كبيرة وواضحة بدون تكبير</span>
-                <span class="lang-en font-sans">Full vertical smartphone presentation, clear large fonts &amp; high-res cards</span>
+                Full-screen vertical presentation in English for smartphones &amp; WhatsApp
               </span>
             </div>
           </div>
           <svg class="w-5 h-5 text-emerald-400 group-hover:translate-y-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
         </a>
 
-        <!-- Option 2: Widescreen Presentation PDF (16:9 Landscape) -->
-        <a href="Khaeer-Alwadi-Presentation-Deck.pdf" download="Khaeer-Alwadi-Presentation-Deck.pdf" class="group flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/60 hover:bg-slate-800/80 border border-amber-400/30 hover:border-amber-400 transition-all shadow-md">
+        <!-- Option 2: Widescreen Presentation English PDF -->
+        <a href="Khaeer-Alwadi-Presentation-Deck-EN.pdf" download="Khaeer-Alwadi-Presentation-Deck-EN.pdf" class="group flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/60 hover:bg-slate-800/80 border border-amber-400/30 hover:border-amber-400 transition-all shadow-md">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-amber-400/15 border border-amber-400/30 text-amber-300 flex items-center justify-center text-xl shrink-0">
               💻
             </div>
             <div class="flex flex-col">
               <span class="font-bold text-xs sm:text-sm text-amber-300 flex items-center gap-2">
-                <span class="lang-ar font-cairo">تحميل نسخة العرض الكامل (16:9)</span>
-                <span class="lang-en font-sans">Download Widescreen Presentation (16:9)</span>
-                <span class="px-1.5 py-0.5 rounded text-[9px] bg-amber-400/20 text-amber-300 font-mono">1.5 MB • 16:9</span>
+                <span>Download English Widescreen Deck</span>
+                <span class="px-1.5 py-0.5 rounded text-[9px] bg-amber-400/20 text-amber-300 font-mono">1.3 MB • 16:9</span>
               </span>
               <span class="text-[11px] text-slate-300 mt-0.5">
-                <span class="lang-ar font-cairo">ملف عريض مخصص للشاشات وأجهزة الكمبيوتر والأجهزة اللوحية</span>
-                <span class="lang-en font-sans">Executive landscape format for projectors, laptops, tablets &amp; printing</span>
+                Executive landscape presentation in English for laptops, projectors &amp; printing
               </span>
             </div>
           </div>
           <svg class="w-5 h-5 text-amber-400 group-hover:translate-y-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
         </a>
 
-        <!-- Option 3: Browser Print to PDF -->
-        <button onclick="closePdfModal(); window.print();" class="group flex items-center justify-between p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/15 transition-all text-start">
+        <!-- Option 3: Browser Print English -->
+        <button onclick="printDeck('en')" class="group flex items-center justify-between p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/15 transition-all text-start cursor-pointer">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-white/10 text-slate-300 flex items-center justify-center text-xl shrink-0">
               🖨️
             </div>
             <div class="flex flex-col">
               <span class="font-bold text-xs sm:text-sm text-white flex items-center gap-2">
-                <span class="lang-ar font-cairo">طباعة مباشرة عبر المتصفح (Print to PDF)</span>
-                <span class="lang-en font-sans">Print to PDF via Browser Dialog</span>
+                <span>Print English Edition via Browser</span>
                 <kbd class="px-1.5 py-0.5 rounded text-[9px] bg-white/10 text-amber-300 font-mono">Ctrl+P</kbd>
               </span>
               <span class="text-[10px] text-slate-400 mt-0.5">
-                <span class="lang-ar font-cairo">مقاسات A4 Landscape معايرة بدقة لتجنب الهوامش المقصوصة</span>
-                <span class="lang-en font-sans">Calibrated A4 landscape layout with zero margin spillover</span>
+                Switches active view to English and opens calibrated A4 landscape print layout
+              </span>
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+
+      <!-- Arabic Download & Print Panel -->
+      <div id="pdf-panel-ar" class="flex flex-col gap-2.5">
+        <!-- Option 1: Mobile-Optimized Arabic PDF -->
+        <a href="Khaeer-Alwadi-Mobile-Deck.pdf" download="Khaeer-Alwadi-Mobile-Deck.pdf" class="group flex items-center justify-between p-3.5 rounded-2xl bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-500/40 hover:border-emerald-400 transition-all shadow-md">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+              📱
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs sm:text-sm text-emerald-300 flex items-center gap-2 font-cairo">
+                <span>تحميل نسخة الهواتف الذكية والواتساب</span>
+                <span class="px-1.5 py-0.5 rounded text-[9px] bg-emerald-500/20 text-emerald-300 font-mono">1.2 MB • 9:16</span>
+              </span>
+              <span class="text-[11px] text-slate-300 mt-0.5 font-cairo">
+                ملف رأسي مخصص لشاشات الموبايل — خطوط كبيرة وواضحة بدون تكبير
+              </span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-emerald-400 group-hover:translate-y-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        </a>
+
+        <!-- Option 2: Widescreen Presentation Arabic PDF -->
+        <a href="Khaeer-Alwadi-Presentation-Deck.pdf" download="Khaeer-Alwadi-Presentation-Deck.pdf" class="group flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/60 hover:bg-slate-800/80 border border-amber-400/30 hover:border-amber-400 transition-all shadow-md">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-400/15 border border-amber-400/30 text-amber-300 flex items-center justify-center text-xl shrink-0">
+              💻
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs sm:text-sm text-amber-300 flex items-center gap-2 font-cairo">
+                <span>تحميل نسخة العرض الكامل (16:9)</span>
+                <span class="px-1.5 py-0.5 rounded text-[9px] bg-amber-400/20 text-amber-300 font-mono">1.4 MB • 16:9</span>
+              </span>
+              <span class="text-[11px] text-slate-300 mt-0.5 font-cairo">
+                ملف عريض مخصص للشاشات وأجهزة الكمبيوتر والأجهزة اللوحية
+              </span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-amber-400 group-hover:translate-y-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        </a>
+
+        <!-- Option 3: Browser Print Arabic -->
+        <button onclick="printDeck('ar')" class="group flex items-center justify-between p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/15 transition-all text-start cursor-pointer">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white/10 text-slate-300 flex items-center justify-center text-xl shrink-0">
+              🖨️
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs sm:text-sm text-white flex items-center gap-2 font-cairo">
+                <span>طباعة مباشرة عبر المتصفح (Print to PDF)</span>
+                <kbd class="px-1.5 py-0.5 rounded text-[9px] bg-white/10 text-amber-300 font-mono">Ctrl+P</kbd>
+              </span>
+              <span class="text-[10px] text-slate-400 mt-0.5 font-cairo">
+                مقاسات A4 Landscape معايرة بدقة لتجنب الهوامش المقصوصة
               </span>
             </div>
           </div>
@@ -3946,8 +4016,8 @@
       </div>
 
       <div class="text-[10px] sm:text-[11px] text-slate-400 border-t border-white/10 pt-2.5 text-center">
-        <span class="lang-ar font-cairo">💡 لفتح الملف على الواتساب والموبايل، نوصي بتحميل "نسخة الهواتف الذكية" لقراءة مثالية وسلسة.</span>
-        <span class="lang-en font-sans">💡 For WhatsApp &amp; smartphones, download the "Mobile-Ready PDF" for an optimal vertical viewing experience.</span>
+        <span class="lang-ar font-cairo">💡 يمكنك التبديل بين "النسخة الإنجليزية" و"النسخة العربية" في التبويب أعلاه لتحميل أو طباعة أي لغة بنقرة واحدة.</span>
+        <span class="lang-en font-sans">💡 Use the tabs above to switch between English Edition and Arabic Edition for instant download or browser printing.</span>
       </div>
     </div>
   </div>
@@ -4369,9 +4439,38 @@
       }
     }
 
+    function selectPdfModalLang(lang) {
+      const tabEn = document.getElementById('pdf-tab-en');
+      const tabAr = document.getElementById('pdf-tab-ar');
+      const panelEn = document.getElementById('pdf-panel-en');
+      const panelAr = document.getElementById('pdf-panel-ar');
+      if (lang === 'en') {
+        if (tabEn) tabEn.className = 'flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5 bg-amber-400 text-slate-950 shadow-md cursor-pointer';
+        if (tabAr) tabAr.className = 'flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5 text-slate-400 hover:text-white font-cairo cursor-pointer';
+        if (panelEn) panelEn.classList.remove('hidden');
+        if (panelAr) panelAr.classList.add('hidden');
+      } else {
+        if (tabAr) tabAr.className = 'flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5 bg-amber-400 text-slate-950 shadow-md font-cairo cursor-pointer';
+        if (tabEn) tabEn.className = 'flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5 text-slate-400 hover:text-white cursor-pointer';
+        if (panelAr) panelAr.classList.remove('hidden');
+        if (panelEn) panelEn.classList.add('hidden');
+      }
+    }
+
+    function printDeck(targetLang) {
+      if (targetLang && targetLang !== currentLang) {
+        setLanguage(targetLang);
+      }
+      closePdfModal();
+      setTimeout(() => {
+        window.print();
+      }, 150);
+    }
+
     function openPdfModal() {
       const modal = document.getElementById('pdf-modal');
       if (modal) {
+        selectPdfModalLang(currentLang);
         modal.classList.remove('hidden');
         modal.classList.add('flex');
       }
@@ -4574,6 +4673,8 @@
     window.openPdfModal = openPdfModal;
     window.closePdfModal = closePdfModal;
     window.togglePdfModal = togglePdfModal;
+    window.selectPdfModalLang = selectPdfModalLang;
+    window.printDeck = printDeck;
 
     // Initialize state
     document.addEventListener('DOMContentLoaded', () => {

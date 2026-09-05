@@ -236,6 +236,9 @@ def test_mobile_deck_and_pdf_export():
     assert os.path.exists("Khaeer-Alwadi-Mobile-Deck.pdf"), "Mobile PDF must exist"
     assert os.path.exists("Khaeer-Alwadi-Presentation-Deck.pdf"), "Presentation PDF must exist"
     assert os.path.exists("Khaeer-Alwadi-B2B-Deck.pdf"), "B2B Deck PDF must exist"
+    assert os.path.exists("Khaeer-Alwadi-Presentation-Deck-EN.pdf"), "English Presentation PDF must exist"
+    assert os.path.exists("Khaeer-Alwadi-Mobile-Deck-EN.pdf"), "English Mobile PDF must exist"
+    assert os.path.exists("Khaeer-Alwadi-B2B-Deck-EN.pdf"), "English B2B Deck PDF must exist"
     with open("index.html", "r", encoding="utf-8") as f:
         html = f.read()
     assert 'id="pdf-modal"' in html, "PDF export modal required in index.html"
@@ -244,6 +247,10 @@ def test_mobile_deck_and_pdf_export():
     assert 'touchstart' in html and 'touchend' in html, "Mobile touch swipe support required"
     assert 'Khaeer-Alwadi-Mobile-Deck.pdf' in html, "Link to mobile deck PDF required in index.html"
     assert 'Khaeer-Alwadi-Presentation-Deck.pdf' in html, "Link to presentation deck PDF required in index.html"
+    assert 'Khaeer-Alwadi-Presentation-Deck-EN.pdf' in html, "Link to English presentation deck PDF required"
+    assert 'Khaeer-Alwadi-Mobile-Deck-EN.pdf' in html, "Link to English mobile deck PDF required"
+    assert 'printDeck' in html, "printDeck function required"
+    assert 'selectPdfModalLang' in html, "selectPdfModalLang function required"
 
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):

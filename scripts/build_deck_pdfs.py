@@ -753,5 +753,27 @@ def main():
     pres_slides[0].save(b2b_path, save_all=True, append_images=pres_slides[1:], resolution=150.0)
     print(f"Generated {b2b_path} successfully ({len(pres_slides)} slides, size: {os.path.getsize(b2b_path)/1024:.1f} KB)")
 
+    # Build English Editions
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from build_english_deck import generate_english_presentation_slides, generate_english_mobile_slides
+        print("Building English Widescreen Presentation Deck (1920x1080 landscape)...")
+        en_pres = generate_english_presentation_slides()
+        en_pres_path = "Khaeer-Alwadi-Presentation-Deck-EN.pdf"
+        en_pres[0].save(en_pres_path, save_all=True, append_images=en_pres[1:], resolution=150.0)
+        print(f"Generated {en_pres_path} successfully ({len(en_pres)} slides, size: {os.path.getsize(en_pres_path)/1024:.1f} KB)")
+
+        en_b2b_path = "Khaeer-Alwadi-B2B-Deck-EN.pdf"
+        en_pres[0].save(en_b2b_path, save_all=True, append_images=en_pres[1:], resolution=150.0)
+        print(f"Generated {en_b2b_path} successfully ({len(en_pres)} slides, size: {os.path.getsize(en_b2b_path)/1024:.1f} KB)")
+
+        print("Building English Mobile-Optimized Deck (1080x1920 portrait)...")
+        en_mob = generate_english_mobile_slides()
+        en_mob_path = "Khaeer-Alwadi-Mobile-Deck-EN.pdf"
+        en_mob[0].save(en_mob_path, save_all=True, append_images=en_mob[1:], resolution=150.0)
+        print(f"Generated {en_mob_path} successfully ({len(en_mob)} slides, size: {os.path.getsize(en_mob_path)/1024:.1f} KB)")
+    except Exception as e:
+        print(f"Notice: English deck build skipped ({e})")
+
 if __name__ == '__main__':
     main()
