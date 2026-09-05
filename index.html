@@ -13,18 +13,36 @@
         extend: {
           colors: {
             olive: {
-              DEFAULT: '#1E3A2F',
-              dark: '#142720',
-              deep: '#0D1A15',
-              light: '#2A5243',
+              DEFAULT: '#142720',
+              dark: '#0E1C16',
+              deep: '#070E0B',
+              light: '#224035',
             },
             amber: {
-              gold: '#C89D3C',
-              light: '#E5B85C',
-              dark: '#9A772B',
+              DEFAULT: '#D4A836',
+              50: '#FDF9EE',
+              100: '#FAF1D4',
+              200: '#F5E1A4',
+              300: '#E6C46E',
+              400: '#D4A836',
+              500: '#BA8E24',
+              600: '#946E16',
+              700: '#735312',
+              800: '#543B0E',
+              900: '#382609',
+              gold: '#D4A836',
+              light: '#E5BE56',
+              dark: '#B88E28',
+            },
+            brand: {
+              gold: '#D4A836',
+              brass: '#C89D3C',
+              honey: '#E5BA55',
+              dark: '#070E0B',
+              surface: '#10221A',
             },
             slate: {
-              charcoal: '#0F172A',
+              charcoal: '#070E0B',
             }
           },
           fontFamily: {
@@ -49,18 +67,19 @@
 
   <style>
     :root {
-      --primary-olive: #162C23;
-      --dark-olive: #0F1F18;
-      --deep-olive: #0A1410;
-      --amber-gold: #C89D3C;
-      --amber-gold-glow: rgba(200, 157, 60, 0.15);
-      --charcoal: #080D0B;
+      --primary-olive: #10221A;
+      --dark-olive: #0A1612;
+      --deep-olive: #050A08;
+      --brand-gold: #D4A836;
+      --brand-gold-glow: rgba(212, 168, 54, 0.18);
+      --charcoal: #070E0B;
+      --emerald-trust: #10B981;
       --ease-agency: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      background-color: #060B09;
+      background-color: #050A08;
       color: #F8FAFC;
       margin: 0;
       padding: 0;
@@ -88,8 +107,8 @@
       width: min(100vw, calc(100vh * (16 / 9)));
       height: min(100vh, calc(100vw * (9 / 16)));
       position: relative;
-      background-color: #0E1B15;
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+      background-color: #0B1712;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 1px 1px rgba(255, 255, 255, 0.08);
       overflow: hidden;
     }
 
@@ -121,13 +140,13 @@
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .bezel-shell:hover {
-      border-color: rgba(200, 157, 60, 0.35);
-      box-shadow: 0 14px 40px -8px rgba(0, 0, 0, 0.65), 0 0 25px -4px rgba(200, 157, 60, 0.12);
+      border-color: rgba(212, 168, 54, 0.35);
+      box-shadow: 0 14px 40px -8px rgba(0, 0, 0, 0.7), 0 0 25px -4px rgba(212, 168, 54, 0.14);
       transform: translateY(-1px);
     }
     .bezel-core {
       border-radius: calc(1.25rem - 0.375rem);
-      background: linear-gradient(145deg, rgba(20, 39, 32, 0.95), rgba(12, 24, 19, 0.98));
+      background: linear-gradient(145deg, rgba(16, 34, 26, 0.95), rgba(9, 18, 14, 0.98));
       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.12);
       height: 100%;
       width: 100%;
@@ -157,9 +176,9 @@
     .slide .rounded-xl.bg-slate-900\/70,
     .slide .rounded-xl.bg-slate-900\/80,
     .slide .rounded-2xl.bg-slate-900\/60 {
-      border: 1px solid rgba(255, 255, 255, 0.09) !important;
-      box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.55), inset 0 1px 1px 0 rgba(255, 255, 255, 0.12) !important;
-      background: linear-gradient(145deg, rgba(20, 39, 32, 0.88), rgba(11, 23, 18, 0.94)) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1) !important;
+      background: linear-gradient(145deg, rgba(16, 34, 26, 0.88), rgba(9, 18, 14, 0.95)) !important;
       backdrop-filter: blur(14px) !important;
       -webkit-backdrop-filter: blur(14px) !important;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -171,8 +190,8 @@
     .slide .rounded-xl.bg-slate-900\/70:hover,
     .slide .rounded-xl.bg-slate-900\/80:hover,
     .slide .rounded-2xl.bg-slate-900\/60:hover {
-      border-color: rgba(200, 157, 60, 0.45) !important;
-      box-shadow: 0 14px 40px -6px rgba(0, 0, 0, 0.7), 0 0 24px -2px rgba(200, 157, 60, 0.18), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18) !important;
+      border-color: rgba(212, 168, 54, 0.45) !important;
+      box-shadow: 0 14px 40px -6px rgba(0, 0, 0, 0.75), 0 0 24px -2px rgba(212, 168, 54, 0.2), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18) !important;
       transform: translateY(-2px);
     }
 
@@ -245,28 +264,26 @@
 
   <div id="presentation-viewport">
     <!-- 16:9 Presentation Canvas -->
-    <main id="deck-container" class="relative bg-gradient-to-br from-[#12221b] via-[#162c23] to-[#0a1410] border border-white/10 shadow-2xl flex flex-col">
+    <main id="deck-container" class="relative bg-gradient-to-br from-[#0B1712] via-[#0E1F17] to-[#050907] border border-white/10 shadow-2xl flex flex-col">
 
       <!-- Slide 1: Cover & Executive Introduction -->
-      <section id="slide-1" class="slide active w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+      <section id="slide-1" class="slide active w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Subtle Gradient Accents -->
         <div class="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header / Identity -->
         <header class="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
-          <div class="flex items-center space-x-3.5">
-            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 p-[1px] shadow-lg shadow-amber-500/10">
-              <div class="w-full h-full bg-[#142720] rounded-[11px] flex items-center justify-center font-black text-lg text-amber-400">
-                MFI
-              </div>
+          <div class="flex items-center space-x-4">
+            <div class="h-12 lg:h-14 px-3 py-1 rounded-xl bg-white/[0.03] border border-amber-400/30 shadow-lg shadow-amber-500/10 flex items-center justify-center">
+              <img src="mariam-logo-gold.png" alt="Mariam - made with love" class="h-9 lg:h-10 w-auto object-contain">
             </div>
             <div>
               <div class="flex items-center gap-2">
                 <h1 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Mariam Food Industries</h1>
                 <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Official B2B Portfolio</span>
               </div>
-              <p class="text-xs font-medium text-amber-300/80">Cairo, Egypt • Global Agro-Processing, Private Label & Bulk Export</p>
+              <p class="text-xs font-medium text-amber-300/80">Cairo, Egypt • Global Agro-Processing, Private Label &amp; Bulk Export</p>
             </div>
           </div>
           <div class="flex items-center gap-3">
@@ -419,19 +436,23 @@
       </section>
 
       <!-- Slide 2: The Egyptian Strategic Supply Advantage -->
-      <section id="slide-2" class="slide w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+      <section id="slide-2" class="slide w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Subtle Gradient Accents -->
         <div class="absolute -top-32 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
         <header class="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">The Egyptian Strategic Supply Advantage</h2>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Strategic Arbitrage</span>
+          <div class="flex items-center gap-4">
+            <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain hidden sm:block opacity-90">
+            <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">The Egyptian Strategic Supply Advantage</h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Strategic Arbitrage</span>
+              </div>
+              <p class="text-xs font-medium text-amber-300/80">Section 01 // Geographic Terroir, Maritime Feeder Corridors & Zero-Tariff Treaties</p>
             </div>
-            <p class="text-xs font-medium text-amber-300/80">Section 01 // Geographic Terroir, Maritime Feeder Corridors & Zero-Tariff Treaties</p>
           </div>
           <div class="text-right">
             <span class="text-xs font-mono text-slate-400">Cairo Processing Plant • Tri-Port Proximity</span>
@@ -589,19 +610,23 @@
       </section>
 
       <!-- Slide 3: Industrial Infrastructure, Technology & Compliance -->
-      <section id="slide-3" class="slide w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+      <section id="slide-3" class="slide w-full h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Accents -->
         <div class="absolute -top-32 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
         <header class="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Industrial Infrastructure, Technology & Compliance</h2>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Plant & QA</span>
+          <div class="flex items-center gap-4">
+            <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain hidden sm:block opacity-90">
+            <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Industrial Infrastructure, Technology & Compliance</h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Plant & QA</span>
+              </div>
+              <p class="text-xs font-medium text-amber-300/80">Section 02 // High-Volume Processing Lines, Thermal Retort Sterilization & Certified Standards</p>
             </div>
-            <p class="text-xs font-medium text-amber-300/80">Section 02 // High-Volume Processing Lines, Thermal Retort Sterilization & Certified Standards</p>
           </div>
           <div class="text-right">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400">
@@ -801,19 +826,23 @@
       </section>
 
       <!-- Slide 4: Core Line I — Premium Mediterranean Olives -->
-      <section id="slide-4" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+      <section id="slide-4" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Subtle Gradient Accents -->
         <div class="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
         <header class="flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Core Line I: Premium Mediterranean Olives</h2>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Table Olives Portfolio</span>
+          <div class="flex items-center gap-4">
+            <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain hidden sm:block opacity-90">
+            <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Core Line I: Premium Mediterranean Olives</h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Table Olives Portfolio</span>
+              </div>
+              <p class="text-xs font-medium text-amber-300/80">Section 03 // Egyptian Picual &amp; Manzanilla Cultivars • Sliced, Pitted, Whole &amp; Pimento-Stuffed</p>
             </div>
-            <p class="text-xs font-medium text-amber-300/80">Section 03 // Egyptian Picual &amp; Manzanilla Cultivars • Sliced, Pitted, Whole &amp; Pimento-Stuffed</p>
           </div>
           <div class="text-right">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400">
@@ -1037,19 +1066,23 @@
       </section>
 
       <!-- Slide 5: Core Line II — Pickled Vegetables & Specialty Peppers -->
-      <section id="slide-5" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+      <section id="slide-5" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Subtle Gradient Accents -->
         <div class="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
         <header class="flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Core Line II: Pickled Vegetables &amp; Specialty Peppers</h2>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Pickles &amp; Peppers</span>
+          <div class="flex items-center gap-4">
+            <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain hidden sm:block opacity-90">
+            <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Core Line II: Pickled Vegetables &amp; Specialty Peppers</h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Pickles &amp; Peppers</span>
+              </div>
+              <p class="text-xs font-medium text-amber-300/80">Section 04 // Golden Pepperoncini, Whole Red Chilies, Traditional Turshi &amp; Crunchy Gherkins</p>
             </div>
-            <p class="text-xs font-medium text-amber-300/80">Section 04 // Golden Pepperoncini, Whole Red Chilies, Traditional Turshi &amp; Crunchy Gherkins</p>
           </div>
           <div class="text-right">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400">
@@ -1248,19 +1281,23 @@
       </section>
 
       <!-- Slide 6: Multi-Tier Packaging Architecture -->
-      <section id="slide-6" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+      <section id="slide-6" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Subtle Gradient Accents -->
         <div class="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
         <header class="flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Multi-Tier Packaging Architecture</h2>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Global Supply Formats</span>
+          <div class="flex items-center gap-4">
+            <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain hidden sm:block opacity-90">
+            <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Multi-Tier Packaging Architecture</h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Global Supply Formats</span>
+              </div>
+              <p class="text-xs font-medium text-amber-300/80">Section 05 // Engineered for Commercial Foodservice, Industrial Repacking &amp; Global Supermarket Shelves</p>
             </div>
-            <p class="text-xs font-medium text-amber-300/80">Section 05 // Engineered for Commercial Foodservice, Industrial Repacking &amp; Global Supermarket Shelves</p>
           </div>
           <div class="text-right">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400">
@@ -1367,7 +1404,7 @@
                 <img src="WhatsApp Image 2026-09-05 at 12.52.16 PM (4).jpeg" alt="High-Clarity Glass Jars with Safety Caps - Mariam Food Industries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none"></div>
                 <div class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-slate-950/85 backdrop-blur-sm border border-white/15 text-[9px] font-semibold text-amber-300 font-mono">
-                  Retail Supermarket Tier
+                  Retail Tier • Mariam Brand ("made with love")
                 </div>
                 <!-- Dual Macro Inset -->
                 <div class="absolute bottom-1 right-1 w-8 h-8 rounded border border-amber-400/40 overflow-hidden shadow-md" title="Handheld jar inspection for clarity and safety seal">
@@ -1479,19 +1516,23 @@
       </section>
 
       <!-- Slide 7: Private Label & Turnkey OEM Solutions -->
-      <section id="slide-7" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+      <section id="slide-7" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Subtle Gradient Accents -->
         <div class="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
         <header class="flex items-center justify-between border-b border-white/10 pb-2.5 relative z-10">
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Private Label &amp; Turnkey OEM Solutions</h2>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Contract Manufacturing</span>
+          <div class="flex items-center gap-4">
+            <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain hidden sm:block opacity-90">
+            <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Private Label &amp; Turnkey OEM Solutions</h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Contract Manufacturing</span>
+              </div>
+              <p class="text-xs font-medium text-amber-300/80">Section 06 // Turnkey White-Label Solutions • Custom Recipe Formulation, International Label Compliance &amp; Slicing Geometry</p>
             </div>
-            <p class="text-xs font-medium text-amber-300/80">Section 06 // Turnkey White-Label Solutions • Custom Recipe Formulation, International Label Compliance &amp; Slicing Geometry</p>
           </div>
           <div class="text-right">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400">
@@ -1506,7 +1547,7 @@
           <div class="flex items-center gap-2.5">
             <div class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></div>
             <p class="text-xs text-slate-200 leading-tight">
-              <strong class="text-amber-300">Dedicated Contract Manufacturing Partner:</strong> Mariam Food Industries acts as a full-service contract manufacturing arm for global supermarket chains, private brand distributors, and food processors. We transform buyer brand concepts into shelf-ready, fully compliant finished goods with custom recipe brining, tailored slice cuts (2mm–4mm), and multi-language international packaging.
+              <strong class="text-amber-300">Dual Brand &amp; Contract Manufacturing Strategy:</strong> Clients can import under our registered flagship <strong class="text-white">Mariam</strong> brand ("made with love") or deploy full-service turnkey <strong class="text-emerald-400">Private Label OEM</strong> with tailor-made recipe brining, custom slice cuts (2mm–4mm), and multi-language international compliance packaging.
             </p>
           </div>
           <div class="hidden xl:flex items-center gap-2 text-xs font-mono text-amber-300/90 whitespace-nowrap pl-4 border-l border-white/10">
@@ -1697,19 +1738,23 @@
       </section>
 
       <!-- Slide 8: Technical Specifications & Export Logistics -->
-      <section id="slide-8" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+      <section id="slide-8" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Subtle Gradient Accents -->
         <div class="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
         <header class="flex items-center justify-between border-b border-white/10 pb-2 relative z-10">
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Technical Specifications &amp; Freight Matrix</h2>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Quality Assurance &amp; Logistics</span>
+          <div class="flex items-center gap-4">
+            <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain hidden sm:block opacity-90">
+            <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Technical Specifications &amp; Freight Matrix</h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Quality Assurance &amp; Logistics</span>
+              </div>
+              <p class="text-xs font-medium text-amber-300/80">Section 07 // Quality Specification Matrix • Container Optimization • ISPM-15 Heat-Treated Palletizing</p>
             </div>
-            <p class="text-xs font-medium text-amber-300/80">Section 07 // Quality Specification Matrix • Container Optimization • ISPM-15 Heat-Treated Palletizing</p>
           </div>
           <div class="text-right">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400">
@@ -1956,19 +2001,23 @@
       </section>
 
       <!-- Slide 9: Commercial Partnership & Contact -->
-      <section id="slide-9" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15]">
+      <section id="slide-9" class="slide w-full h-full flex flex-col justify-between p-5 lg:p-7 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#0E1F17] to-[#050907]">
         <!-- Background Subtle Gradient Accents -->
         <div class="absolute -top-32 -right-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Header -->
         <header class="flex items-center justify-between border-b border-white/10 pb-2 relative z-10">
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Commercial Partnership &amp; Direct Line</h2>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Direct Procurement Desk</span>
+          <div class="flex items-center gap-4">
+            <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain hidden sm:block opacity-90">
+            <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-xl lg:text-2xl font-bold tracking-tight text-white">Commercial Partnership &amp; Direct Line</h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">Direct Procurement Desk</span>
+              </div>
+              <p class="text-xs font-medium text-amber-300/80">Section 08 // International Buyer Onboarding • Commercial Incoterms • 24-Hour Quotation Turnaround</p>
             </div>
-            <p class="text-xs font-medium text-amber-300/80">Section 08 // International Buyer Onboarding • Commercial Incoterms • 24-Hour Quotation Turnaround</p>
           </div>
           <div class="text-right">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400">
@@ -2096,6 +2145,12 @@
             <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-emerald-400 to-amber-500"></div>
 
             <div>
+              <!-- Official Brand Logo & Desk Header -->
+              <div class="flex items-center justify-between mb-2 pb-2 border-b border-white/10">
+                <img src="mariam-logo-gold.png" alt="Mariam - made with love" class="h-8 w-auto object-contain">
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[9px] font-mono font-bold uppercase">Active Desk</span>
+              </div>
+
               <!-- Company Heading -->
               <div class="flex items-start justify-between mb-2">
                 <div>
@@ -2108,7 +2163,6 @@
                     <span class="text-slate-400 text-[11px]">Industrial Processing Zone</span>
                   </div>
                 </div>
-                <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[9px] font-mono font-bold uppercase">Active Desk</span>
               </div>
 
               <!-- Direct Contact Channels with Active Clickable Links -->
@@ -2213,10 +2267,9 @@
     <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col bg-[#0A1612]/95 border border-white/20 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden p-5 sm:p-6" onclick="event.stopPropagation()">
       <!-- Modal Header -->
       <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-amber-400/20 border border-amber-400/30 text-amber-300 flex items-center justify-center font-bold">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-          </div>
+        <div class="flex items-center gap-3.5">
+          <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain">
+          <div class="h-6 w-px bg-white/15"></div>
           <div>
             <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">Presentation Deck Overview</h2>
             <p class="text-xs text-slate-400">Select any slide to jump directly (or press 1–9, G, or Esc)</p>
@@ -2238,8 +2291,9 @@
   <div id="shortcuts-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md transition-all duration-300 no-print" onclick="closeShortcutsModal(event)">
     <div class="relative max-w-md w-full bg-[#0A1612]/95 border border-white/20 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden p-5 sm:p-6" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg bg-amber-400/20 text-amber-300 flex items-center justify-center font-bold text-sm font-mono">?</div>
+        <div class="flex items-center gap-3">
+          <img src="mariam-logo-gold.png" alt="Mariam" class="h-6 w-auto object-contain">
+          <div class="h-5 w-px bg-white/15"></div>
           <div>
             <h3 class="text-base font-bold text-white tracking-tight">Keyboard Navigation Shortcuts</h3>
             <p class="text-[11px] text-slate-400">Master deck controls with your keyboard</p>

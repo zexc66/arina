@@ -69,6 +69,15 @@ def test_lightbox_modal_and_print_rules():
     assert "Object.defineProperty(window, 'currentSlide'" in html or 'Object.defineProperty(window, "currentSlide"' in html, "Reactive window.currentSlide required"
     assert 'showSlide(${idx})' in html, "renderOverviewGrid must call showSlide(${idx}) directly"
 
+def test_official_brand_identity():
+    assert os.path.exists("mariam-logo-gold.png"), "mariam-logo-gold.png must exist in workspace"
+    assert os.path.exists("mariam-logo-white.png"), "mariam-logo-white.png must exist in workspace"
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert "mariam-logo-gold.png" in html, "mariam-logo-gold.png must be embedded in index.html"
+    assert "#D4A836" in html, "Calibrated Mariam gold (#D4A836) must be configured in index.html"
+    assert "#091410" in html, "Calibrated obsidian-olive background (#091410) must be present in index.html"
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -91,6 +100,10 @@ class TestDeckStructure(unittest.TestCase):
     def test_lightbox_modal_and_print_rules(self):
         test_lightbox_modal_and_print_rules()
 
+    def test_official_brand_identity(self):
+        test_official_brand_identity()
+
 if __name__ == '__main__':
     unittest.main()
+
 
