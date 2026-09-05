@@ -257,9 +257,11 @@
       html, body {
         background: #091410 !important;
         color: #F8FAFC !important;
-        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
         width: 100% !important;
-        height: auto !important;
+        height: 100% !important;
+        overflow: visible !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -270,48 +272,90 @@
       html[dir="ltr"] {
         direction: ltr !important;
       }
-      #presentation-viewport {
+      #presentation-viewport,
+      #deck-container {
         display: block !important;
         width: 100% !important;
         height: auto !important;
-        padding: 0 !important;
-        margin: 0 !important;
-      }
-      #deck-container {
-        width: 100% !important;
-        height: auto !important;
+        min-height: 0 !important;
         max-width: none !important;
         max-height: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
         box-shadow: none !important;
         border: none !important;
         position: static !important;
         overflow: visible !important;
         background: transparent !important;
+        transform: none !important;
       }
-      /* All 9 slides display sequentially in print */
+      /* All 9 slides display sequentially in print with full flexbox preservation */
       .slide,
       .slide.hidden,
       .slide.active {
-        display: block !important;
-        break-after: page !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        min-height: 100vh !important;
+        page-break-before: auto !important;
+        break-before: auto !important;
         page-break-after: always !important;
+        break-after: page !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        min-height: 100vh !important;
+        box-sizing: border-box !important;
         overflow: hidden !important;
         opacity: 1 !important;
         visibility: visible !important;
-        position: relative !important;
+        background: #091410 !important;
+        background-image: linear-gradient(to bottom right, #091410, #0E1F17, #050907) !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
-        box-sizing: border-box !important;
+        padding: 14px 22px !important;
       }
       .slide:last-child {
         page-break-after: auto !important;
         break-after: auto !important;
       }
+      /* Hide heavy decorative blur orbs during print to prevent raster bloat and render clean gradients */
+      .slide > .blur-3xl {
+        display: none !important;
+      }
+      /* Ensure headers maintain calibrated density for A4 landscape print */
+      .slide header {
+        padding-bottom: 6px !important;
+      }
+      .slide header h1, .slide header h2 {
+        font-size: 1.15rem !important;
+        line-height: 1.2 !important;
+      }
+      .slide header p {
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+      }
+      /* Slide 4 & 5 Product Cards Image Optimization in Print */
+      #slide-4 .aspect-\[16\/11\],
+      #slide-5 .aspect-\[16\/11\] {
+        aspect-ratio: 16 / 9.5 !important;
+      }
+      /* Slide 8 Table Density in Print */
+      #slide-8 table {
+        font-size: 10px !important;
+      }
+      #slide-8 table th,
+      #slide-8 table td {
+        padding: 2.5px 6px !important;
+      }
+      /* Suppression of interactive elements during printing */
       #nav-dock, #image-modal, #overview-modal, #shortcuts-modal, .no-print {
         display: none !important;
       }
