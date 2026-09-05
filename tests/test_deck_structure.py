@@ -21,6 +21,17 @@ def test_slides_1_to_3_content():
     assert "WhatsApp Image 2026-09-05 at 12.52.18 PM.jpeg" in html, "Autoclave photo must be in slide 3"
     assert "Alexandria" in html and "Damietta" in html, "Ports must be referenced in slide 2"
 
+def test_slides_4_and_5_products():
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert "Picual" in html
+    assert "Pimento" in html
+    assert "Pepperoncini" in html
+    assert "Turshi" in html
+    assert "WhatsApp Image 2026-09-05 at 12.52.20 PM.jpeg" in html, "Sliced black olives image required"
+    assert "WhatsApp Image 2026-09-05 at 12.52.17 PM (5).jpeg" in html, "Pimento stuffed olives image required"
+    assert "WhatsApp Image 2026-09-05 at 12.52.16 PM (2).jpeg" in html, "Mixed pickle jar image required"
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -30,6 +41,9 @@ class TestDeckStructure(unittest.TestCase):
 
     def test_slides_1_to_3_content(self):
         test_slides_1_to_3_content()
+
+    def test_slides_4_and_5_products(self):
+        test_slides_4_and_5_products()
 
 if __name__ == '__main__':
     unittest.main()
