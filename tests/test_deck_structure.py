@@ -88,6 +88,16 @@ def test_khaeer_alwadi_logo_assets():
     assert os.path.exists("khaeer-alwadi-logo.png"), "khaeer-alwadi-logo.png must exist"
     assert os.path.exists("khaeer-alwadi-logo-gold.png"), "khaeer-alwadi-logo-gold.png must exist"
 
+def test_bilingual_shell_and_branding():
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert "khaeer-alwadi-logo.png" in html, "Logo must be referenced in index.html"
+    assert "خير الوادي" in html, "Arabic brand name must exist"
+    assert "Khaeer Alwadi" in html, "English brand name must exist"
+    assert 'id="nav-dock"' in html, "Navigation dock must exist"
+    assert "toggleLanguage" in html, "toggleLanguage function must be defined in index.html"
+    assert "lang-ar" in html and "lang-en" in html, "Bilingual CSS classes must exist"
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -118,6 +128,9 @@ class TestDeckStructure(unittest.TestCase):
 
     def test_khaeer_alwadi_logo_assets(self):
         test_khaeer_alwadi_logo_assets()
+
+    def test_bilingual_shell_and_branding(self):
+        test_bilingual_shell_and_branding()
 
 if __name__ == '__main__':
     unittest.main()
