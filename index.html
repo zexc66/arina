@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariam Food Industries — Executive B2B Presentation Deck</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            olive: {
+              DEFAULT: '#1E3A2F',
+              dark: '#142720',
+              deep: '#0D1A15',
+              light: '#2A5243',
+            },
+            amber: {
+              gold: '#C89D3C',
+              light: '#E5B85C',
+              dark: '#9A772B',
+            },
+            slate: {
+              charcoal: '#0F172A',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          aspectRatio: {
+            '16/9': '16 / 9',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --primary-olive: #1E3A2F;
+      --dark-olive: #142720;
+      --amber-gold: #C89D3C;
+      --charcoal: #0F172A;
+    }
+
+    body {
+      font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+      background-color: #0B1310;
+      color: #F8FAFC;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      width: 100vw;
+      user-select: none;
+    }
+
+    #presentation-viewport {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    #deck-container {
+      width: min(100vw, calc(100vh * (16 / 9)));
+      height: min(100vh, calc(100vw * (9 / 16)));
+      position: relative;
+      background-color: #142720;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* Print styles for clean 9-page landscape PDF export */
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+      html, body {
+        background: #FFFFFF !important;
+        color: #0F172A !important;
+        overflow: visible !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+      #presentation-viewport {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+      #deck-container {
+        width: 100% !important;
+        height: auto !important;
+        box-shadow: none !important;
+        position: static !important;
+        overflow: visible !important;
+      }
+      .slide {
+        display: flex !important;
+        opacity: 1 !important;
+        position: relative !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      #nav-dock, .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="presentation-viewport">
+    <!-- 16:9 Presentation Canvas -->
+    <main id="deck-container" class="relative bg-gradient-to-br from-[#142720] via-[#1E3A2F] to-[#0D1A15] border border-white/5 shadow-2xl flex flex-col">
+
+      <!-- Slide 1: Cover & Executive Introduction -->
+      <section id="slide-1" class="slide active w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
+        <!-- Header / Identity -->
+        <div class="flex items-center justify-between border-b border-white/10 pb-6">
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center font-black text-xl text-amber-400">
+              MFI
+            </div>
+            <div>
+              <h1 class="text-2xl font-bold tracking-tight text-white">Mariam Food Industries</h1>
+              <p class="text-sm font-medium text-amber-300/80">Cairo, Egypt • Global Agro-Processing & Export</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-emerald-400">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Export Ready & ISO Certified
+            </span>
+          </div>
+        </div>
+
+        <!-- Hero Content Placeholder -->
+        <div class="my-auto max-w-4xl">
+          <div class="inline-block px-3 py-1 rounded-md bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold tracking-wider uppercase mb-4">
+            B2B Commercial Portfolio
+          </div>
+          <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Mediterranean Table Olives & <span class="text-amber-400">Pickled Specialties</span>
+          </h2>
+          <p class="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+            Industrial processing, direct grove sourcing, and turnkey private label manufacturing for international food importers, foodservice distributors, and supermarket retailers.
+          </p>
+          <div class="mt-8 flex items-center gap-6 text-sm text-slate-400 font-mono">
+            <span>Direct Line / WhatsApp: <strong class="text-amber-300 font-semibold">+20 10 08716714</strong></span>
+          </div>
+        </div>
+
+        <!-- Footer / Metadata -->
+        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
+          <span>Mariam Food Industries • Cairo, Egypt</span>
+          <span>Slide 1 of 9</span>
+        </div>
+      </section>
+
+      <!-- Slide 2: The Egyptian Strategic Supply Advantage -->
+      <section id="slide-2" class="slide w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-white/10 pb-6">
+          <h2 class="text-xl font-bold tracking-tight text-white">The Egyptian Strategic Supply Advantage</h2>
+          <span class="text-xs text-amber-400 font-mono">Section 01 // Supply Chain</span>
+        </div>
+        <div class="my-auto flex flex-col items-center justify-center text-center">
+          <h3 class="text-3xl font-bold text-white mb-2">Geographic & Agro Terroir Superiority</h3>
+          <p class="text-slate-300 max-w-xl text-sm">Mariam Food Industries leverages fertile Mediterranean agro terroir, zero-tariff trade accords, and maritime ports in Alexandria, Damietta, and Port Said.</p>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
+          <span>Mariam Food Industries • Cairo, Egypt</span>
+          <span>Slide 2 of 9</span>
+        </div>
+      </section>
+
+      <!-- Slide 3: Industrial Infrastructure, Technology & Compliance -->
+      <section id="slide-3" class="slide w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-white/10 pb-6">
+          <h2 class="text-xl font-bold tracking-tight text-white">Industrial Infrastructure & Certifications</h2>
+          <span class="text-xs text-amber-400 font-mono">Section 02 // Operations</span>
+        </div>
+        <div class="my-auto flex flex-col items-center justify-center text-center">
+          <h3 class="text-3xl font-bold text-white mb-2">High-Capacity Industrial Facility</h3>
+          <p class="text-slate-300 max-w-xl text-sm">Automated mechanical stone pitting, rotary slicing lines, autoclave retort pasteurization, and ISO 22000, HACCP, FDA Registered, Halal, ISO 9001 compliance.</p>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
+          <span>Mariam Food Industries • Cairo, Egypt</span>
+          <span>Slide 3 of 9</span>
+        </div>
+      </section>
+
+      <!-- Slide 4: Core Line I — Premium Mediterranean Olives -->
+      <section id="slide-4" class="slide w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-white/10 pb-6">
+          <h2 class="text-xl font-bold tracking-tight text-white">Core Line I: Premium Mediterranean Olives</h2>
+          <span class="text-xs text-amber-400 font-mono">Section 03 // Products</span>
+        </div>
+        <div class="my-auto flex flex-col items-center justify-center text-center">
+          <h3 class="text-3xl font-bold text-white mb-2">Black & Green Table Olives</h3>
+          <p class="text-slate-300 max-w-xl text-sm">Sliced rings, pitted, whole, and pimento-stuffed varieties calibrated for pizza chains, foodservice, and retail packaging.</p>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
+          <span>Mariam Food Industries • Cairo, Egypt</span>
+          <span>Slide 4 of 9</span>
+        </div>
+      </section>
+
+      <!-- Slide 5: Core Line II — Pickled Vegetables & Specialty Peppers -->
+      <section id="slide-5" class="slide w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-white/10 pb-6">
+          <h2 class="text-xl font-bold tracking-tight text-white">Core Line II: Pickled Vegetables & Specialty Peppers</h2>
+          <span class="text-xs text-amber-400 font-mono">Section 04 // Products</span>
+        </div>
+        <div class="my-auto flex flex-col items-center justify-center text-center">
+          <h3 class="text-3xl font-bold text-white mb-2">Artisan Pickles & Golden Peppers</h3>
+          <p class="text-slate-300 max-w-xl text-sm">Crisp pepperoncini, hot red chilies, traditional mixed turshi, and pickled cucumbers packed in spiced aromatic brine.</p>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
+          <span>Mariam Food Industries • Cairo, Egypt</span>
+          <span>Slide 5 of 9</span>
+        </div>
+      </section>
+
+      <!-- Slide 6: Multi-Tier Packaging Architecture -->
+      <section id="slide-6" class="slide w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-white/10 pb-6">
+          <h2 class="text-xl font-bold tracking-tight text-white">Multi-Tier Packaging Architecture</h2>
+          <span class="text-xs text-amber-400 font-mono">Section 05 // Packaging</span>
+        </div>
+        <div class="my-auto flex flex-col items-center justify-center text-center">
+          <h3 class="text-3xl font-bold text-white mb-2">A10 Cans, Bulk Barrels & Glass Jars</h3>
+          <p class="text-slate-300 max-w-xl text-sm">Institutional A10 foodservice tins, 150kg–220kg industrial brine drums, and 370ml–1000ml retail glass jars.</p>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
+          <span>Mariam Food Industries • Cairo, Egypt</span>
+          <span>Slide 6 of 9</span>
+        </div>
+      </section>
+
+      <!-- Slide 7: Private Label & Turnkey OEM Solutions -->
+      <section id="slide-7" class="slide w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-white/10 pb-6">
+          <h2 class="text-xl font-bold tracking-tight text-white">Private Label & Turnkey OEM Solutions</h2>
+          <span class="text-xs text-amber-400 font-mono">Section 06 // OEM</span>
+        </div>
+        <div class="my-auto flex flex-col items-center justify-center text-center">
+          <h3 class="text-3xl font-bold text-white mb-2">Turnkey Contract Manufacturing</h3>
+          <p class="text-slate-300 max-w-xl text-sm">Custom brine formulation, multi-language international labeling compliance (FDA, EU FIC, GSO), and contract packing under buyer brand marks.</p>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
+          <span>Mariam Food Industries • Cairo, Egypt</span>
+          <span>Slide 7 of 9</span>
+        </div>
+      </section>
+
+      <!-- Slide 8: Technical Specifications & Export Logistics -->
+      <section id="slide-8" class="slide w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-white/10 pb-6">
+          <h2 class="text-xl font-bold tracking-tight text-white">Technical Specifications & Freight Matrix</h2>
+          <span class="text-xs text-amber-400 font-mono">Section 07 // Specifications</span>
+        </div>
+        <div class="my-auto flex flex-col items-center justify-center text-center">
+          <h3 class="text-3xl font-bold text-white mb-2">Rigorous Quality & Container Logistics</h3>
+          <p class="text-slate-300 max-w-xl text-sm">Caliber tolerances, drained weights, pH/salinity matrices, and 20ft/40ft FCL container freight loading calculations.</p>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
+          <span>Mariam Food Industries • Cairo, Egypt</span>
+          <span>Slide 8 of 9</span>
+        </div>
+      </section>
+
+      <!-- Slide 9: Commercial Partnership & Contact -->
+      <section id="slide-9" class="slide w-full h-full flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-white/10 pb-6">
+          <h2 class="text-xl font-bold tracking-tight text-white">Commercial Partnership & Direct Line</h2>
+          <span class="text-xs text-amber-400 font-mono">Section 08 // Commercial</span>
+        </div>
+        <div class="my-auto flex flex-col items-center justify-center text-center">
+          <h3 class="text-3xl font-bold text-white mb-2">Connect Directly with Mariam Food Industries</h3>
+          <p class="text-slate-300 max-w-xl text-sm mb-4">Request express sample kits via DHL/FedEx, receive 24-hour FOB/CIF quotations, and discuss private label partnerships.</p>
+          <div class="text-amber-300 font-mono text-lg">
+            Cairo, Egypt • Phone / WhatsApp: +20 10 08716714
+          </div>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
+          <span>Mariam Food Industries • Cairo, Egypt</span>
+          <span>Slide 9 of 9</span>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Floating Navigation Dock (#nav-dock) -->
+  <nav id="nav-dock" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-5 py-2.5 rounded-full bg-slate-900/85 backdrop-blur-md border border-white/10 shadow-2xl transition-all duration-300 hover:bg-slate-900/95 text-slate-200">
+    <!-- Prev Button -->
+    <button id="prev-btn" onclick="prevSlide()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-white focus:outline-none" title="Previous Slide (Left Arrow)">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+    </button>
+
+    <!-- Slide Indicator -->
+    <div class="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-amber-300 font-mono">
+      <span id="slide-indicator">Slide 1 / 9</span>
+    </div>
+
+    <!-- Next Button -->
+    <button id="next-btn" onclick="nextSlide()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-white focus:outline-none" title="Next Slide (Right Arrow / Space)">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+    </button>
+
+    <div class="w-px h-5 bg-white/20 mx-1"></div>
+
+    <!-- Fullscreen Toggle Button -->
+    <button id="fullscreen-btn" onclick="toggleFullScreen()" class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all text-white focus:outline-none" title="Toggle Fullscreen (F)">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0 0l-5-5m-6 16H4m0 0v-4m0 4l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+    </button>
+
+    <!-- Direct WhatsApp Contact Link -->
+    <a href="https://wa.me/201008716714" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500/40 text-emerald-300 text-xs font-medium transition-all" title="Direct WhatsApp: +20 10 08716714">
+      <span>+20 10 08716714</span>
+    </a>
+  </nav>
+
+  <!-- Slide Navigation Script -->
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 9;
+
+    function updateNavDock() {
+      const indicator = document.getElementById('slide-indicator');
+      if (indicator) {
+        indicator.textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+      }
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      if (prevBtn) {
+        prevBtn.style.opacity = currentSlide === 0 ? '0.4' : '1';
+        prevBtn.style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
+      }
+      if (nextBtn) {
+        nextBtn.style.opacity = currentSlide === totalSlides - 1 ? '0.4' : '1';
+        nextBtn.style.pointerEvents = currentSlide === totalSlides - 1 ? 'none' : 'auto';
+      }
+    }
+
+    function showSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= totalSlides) index = totalSlides - 1;
+      currentSlide = index;
+
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach((slide, idx) => {
+        if (idx === currentSlide) {
+          slide.classList.remove('hidden');
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+          slide.classList.add('hidden');
+        }
+      });
+
+      updateNavDock();
+    }
+
+    function goToSlide(n) {
+      // Support 1-based or 0-based indexing
+      const idx = (n >= 1 && n <= totalSlides) ? n - 1 : n;
+      showSlide(idx);
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.warn(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Keyboard navigation listener
+    window.addEventListener('keydown', (e) => {
+      // Avoid intercepting input if user is in an input field
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+
+      switch (e.key) {
+        case 'ArrowRight':
+        case ' ': // Space bar
+          e.preventDefault();
+          nextSlide();
+          break;
+        case 'ArrowLeft':
+        case 'Backspace':
+          e.preventDefault();
+          prevSlide();
+          break;
+        case 'f':
+        case 'F':
+          e.preventDefault();
+          toggleFullScreen();
+          break;
+        case 'Home':
+          e.preventDefault();
+          showSlide(0);
+          break;
+        case 'End':
+          e.preventDefault();
+          showSlide(totalSlides - 1);
+          break;
+      }
+    });
+
+    // Expose functions globally for API / testing
+    window.currentSlide = currentSlide;
+    window.totalSlides = totalSlides;
+    window.showSlide = showSlide;
+    window.goToSlide = goToSlide;
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+    window.toggleFullScreen = toggleFullScreen;
+
+    // Initialize state
+    document.addEventListener('DOMContentLoaded', () => {
+      showSlide(0);
+    });
+  </script>
+</body>
+</html>
