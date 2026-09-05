@@ -172,6 +172,21 @@ def test_bilingual_slides_8_and_9():
     assert "Letter of Credit" in html or "L/C" in html, "Payment terms required"
     assert "ISO 9001" in html, "ISO 9001 compliance badge required"
 
+def test_bilingual_modals_and_print():
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert 'id="image-modal"' in html, "Image modal element required"
+    assert 'id="overview-modal"' in html, "Overview modal required"
+    assert 'id="shortcuts-modal"' in html, "Shortcuts modal required"
+    assert '@media print' in html, "Media print required"
+    assert 'break-after: page' in html or 'page-break-after: always' in html, "Page break rules required"
+    assert 'print-color-adjust: exact' in html or '-webkit-print-color-adjust: exact' in html, "Print color adjustment required"
+    # Task 7 bilingual modals and print engine assertions
+    assert 'size: landscape;' in html or 'size: landscape' in html, "@page size must be landscape"
+    assert 'نظرة عامة على شرائح العرض' in html, "Overview modal must have Arabic title"
+    assert 'modal-title-en' in html and 'modal-title-ar' in html, "Image lightbox must have bilingual title containers"
+    assert 'data-zoomable="true"' in html, "Images must support data-zoomable attribute"
+
 class TestDeckStructure(unittest.TestCase):
     def test_index_file_exists(self):
         test_index_file_exists()
@@ -218,8 +233,12 @@ class TestDeckStructure(unittest.TestCase):
     def test_bilingual_slides_8_and_9(self):
         test_bilingual_slides_8_and_9()
 
+    def test_bilingual_modals_and_print(self):
+        test_bilingual_modals_and_print()
+
 if __name__ == '__main__':
     unittest.main()
+
 
 
 

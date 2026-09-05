@@ -248,20 +248,27 @@
       cursor: pointer;
     }
 
-    /* Print styles for clean 9-page landscape PDF export */
+    /* Dedicated Print-to-PDF Engine (Agency Standard 9-Page Landscape Architecture) */
     @media print {
       @page {
-        size: A4 landscape;
+        size: landscape;
         margin: 0;
       }
       html, body {
-        background: #0B1310 !important;
+        background: #091410 !important;
         color: #F8FAFC !important;
         overflow: visible !important;
         width: 100% !important;
         height: auto !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+      }
+      /* Respect active language orientation in print */
+      html[dir="rtl"] {
+        direction: rtl !important;
+      }
+      html[dir="ltr"] {
+        direction: ltr !important;
       }
       #presentation-viewport {
         display: block !important;
@@ -281,17 +288,22 @@
         overflow: visible !important;
         background: transparent !important;
       }
-      .slide {
-        display: flex !important;
-        opacity: 1 !important;
-        position: relative !important;
-        page-break-after: always !important;
+      /* All 9 slides display sequentially in print */
+      .slide,
+      .slide.hidden,
+      .slide.active {
+        display: block !important;
         break-after: page !important;
+        page-break-after: always !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
         width: 100vw !important;
         height: 100vh !important;
         min-height: 100vh !important;
+        overflow: hidden !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
         box-sizing: border-box !important;
@@ -473,7 +485,7 @@
               <!-- Main Composition Card -->
               <div class="relative rounded-2xl overflow-hidden bg-slate-900/80 border border-amber-400/30 shadow-2xl p-2.5">
                 <div class="relative aspect-[4/3] rounded-xl overflow-hidden">
-                  <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM (2).jpeg" alt="Khaeer Alwadi Food Industries - Mediterranean Pickled Specialties and Table Olives" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+                  <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM (2).jpeg" alt="Khaeer Alwadi Food Industries - Mediterranean Pickled Specialties and Table Olives" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20 pointer-events-none"></div>
                   
                   <!-- Top Badge -->
@@ -1015,7 +1027,7 @@
           <div class="col-span-12 lg:col-span-5 flex flex-col justify-between h-full space-y-2.5">
             <!-- Autoclave Retort Crate Image -->
             <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-amber-400/30 group shadow-lg min-h-[120px]">
-              <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM.jpeg" alt="Autoclave retort sterilization crate loaded with gold-lid jars - Khaeer Alwadi Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+              <img src="WhatsApp Image 2026-09-05 at 12.52.18 PM.jpeg" alt="Autoclave retort sterilization crate loaded with gold-lid jars - Khaeer Alwadi Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
               <div class="absolute bottom-2.5 inset-x-3 flex items-center justify-between">
                 <div>
@@ -1038,7 +1050,7 @@
 
             <!-- Palletized Canning / Packaging Floor Image -->
             <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-900/80 border border-white/10 group shadow-lg min-h-[120px]">
-              <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM.jpeg" alt="Palletized canning floor and packaging lines - Khaeer Alwadi Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer">
+              <img src="WhatsApp Image 2026-09-05 at 12.52.17 PM.jpeg" alt="Palletized canning floor and packaging lines - Khaeer Alwadi Food Industries" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 cursor-pointer" data-zoomable="true">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
               <div class="absolute bottom-2.5 inset-x-3 flex items-center justify-between">
                 <div>
@@ -3452,7 +3464,7 @@
   <div id="image-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 lg:p-10 bg-black/90 backdrop-blur-md transition-all duration-300 no-print" onclick="closeImageModal(event)">
     <div class="relative max-w-5xl w-full max-h-[92vh] flex flex-col items-center bg-[#0A1612]/95 border border-white/20 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden p-4 sm:p-6" onclick="event.stopPropagation()">
       <!-- Close Button -->
-      <button id="modal-close-btn" onclick="closeImageModal()" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-all z-20 focus:outline-none tactile-btn" title="Close Preview (Esc)">
+      <button id="modal-close-btn" onclick="closeImageModal()" class="absolute top-3 right-3 rtl:right-auto rtl:left-3 sm:top-4 sm:right-4 rtl:sm:right-auto rtl:sm:left-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-all z-20 focus:outline-none tactile-btn" title="Close Preview (Esc) / إغلاق المعاينة" aria-label="Close Preview / إغلاق المعاينة">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
 
@@ -3463,12 +3475,26 @@
 
       <!-- Modal Caption & Metadata -->
       <div class="w-full text-center pt-3 px-4 border-t border-white/10 mt-3 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <div class="text-left">
-          <h3 id="modal-title" class="text-sm sm:text-base font-bold text-white tracking-wide"></h3>
-          <p id="modal-caption" class="text-xs text-amber-300/90 font-medium"></p>
+        <div class="text-left rtl:text-right w-full sm:w-auto">
+          <h3 id="modal-title" class="text-sm sm:text-base font-bold text-white tracking-wide">
+            <span class="lang-en" id="modal-title-en">Product Inspection View</span>
+            <span class="lang-ar font-cairo" id="modal-title-ar">معاينة فحص المنتج</span>
+          </h3>
+          <p id="modal-caption" class="text-xs text-amber-300/90 font-medium">
+            <span class="lang-en" id="modal-caption-en">Mariam Food Industries • Khaeer Alwadi Export Grade</span>
+            <span class="lang-ar font-cairo" id="modal-caption-ar">مريم للصناعات الغذائية • خير الوادي درجة تصدير أولى</span>
+          </p>
         </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="px-2.5 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-[11px] font-semibold">Mariam Food Industries • Export Grade</span>
+        <div class="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+          <span class="px-2.5 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-[11px] font-semibold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+            <span class="lang-en">Mariam Food Industries • Export Grade</span>
+            <span class="lang-ar font-cairo">مريم للصناعات الغذائية • درجة تصدير أولى</span>
+          </span>
+          <span class="hidden sm:inline-block px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] text-slate-400">
+            <span class="lang-en">Esc / Click outside to close</span>
+            <span class="lang-ar font-cairo">Esc / انقر بالخارج للإغلاق</span>
+          </span>
         </div>
       </div>
     </div>
@@ -3483,11 +3509,17 @@
           <img src="mariam-logo-gold.png" alt="Mariam" class="h-8 w-auto object-contain">
           <div class="h-6 w-px bg-white/15"></div>
           <div>
-            <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">Presentation Deck Overview</h2>
-            <p class="text-xs text-slate-400">Select any slide to jump directly (or press 1–9, G, or Esc)</p>
+            <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">
+              <span class="lang-en">Presentation Deck Overview</span>
+              <span class="lang-ar font-cairo">نظرة عامة على شرائح العرض</span>
+            </h2>
+            <p class="text-xs text-slate-400">
+              <span class="lang-en">Select any slide to jump directly (or press 1–9, G, M, or Esc)</span>
+              <span class="lang-ar font-cairo">اختر أي شريحة للانتقال المباشر (أو اضغط 1–9 أو G أو M أو Esc)</span>
+            </p>
           </div>
         </div>
-        <button onclick="closeOverviewModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-all focus:outline-none tactile-btn" title="Close (Esc)">
+        <button onclick="closeOverviewModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-all focus:outline-none tactile-btn" title="Close (Esc) / إغلاق" aria-label="Close / إغلاق">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
       </div>
@@ -3517,7 +3549,7 @@
             </p>
           </div>
         </div>
-        <button onclick="closeShortcutsModal()" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all focus:outline-none tactile-btn" title="Close (Esc)">
+        <button onclick="closeShortcutsModal()" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all focus:outline-none tactile-btn" title="Close (Esc) / إغلاق" aria-label="Close / إغلاق">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
       </div>
@@ -3528,14 +3560,68 @@
             <span class="lang-en">Next Slide</span>
             <span class="lang-ar font-cairo">الشريحة التالية</span>
           </span>
-          <div class="flex items-center gap-1.5"><kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">&rarr;</kbd> <span class="text-slate-500">or</span> <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Space</kbd></div>
+          <div class="flex items-center gap-1.5">
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">&rarr;</kbd>
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Space</kbd>
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Enter</kbd>
+          </div>
         </div>
         <div class="flex items-center justify-between py-1.5 border-b border-white/5">
           <span class="text-slate-300">
             <span class="lang-en">Previous Slide</span>
             <span class="lang-ar font-cairo">الشريحة السابقة</span>
           </span>
-          <div class="flex items-center gap-1.5"><kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">&larr;</kbd> <span class="text-slate-500">or</span> <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Backspace</kbd></div>
+          <div class="flex items-center gap-1.5">
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">&larr;</kbd>
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Backspace</kbd>
+          </div>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">
+            <span class="lang-en">Toggle Language (EN | عربي)</span>
+            <span class="lang-ar font-cairo">تبديل اللغة (عربي | إنجليزي)</span>
+          </span>
+          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">L</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">
+            <span class="lang-en">Slide Overview Drawer</span>
+            <span class="lang-ar font-cairo">لوحة نظرة عامة على الشرائح</span>
+          </span>
+          <div class="flex items-center gap-1.5">
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">G</kbd>
+            <span class="text-slate-500">/</span>
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">M</kbd>
+          </div>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">
+            <span class="lang-en">Print / PDF Export</span>
+            <span class="lang-ar font-cairo">طباعة / تصدير PDF</span>
+          </span>
+          <div class="flex items-center gap-1.5">
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">P</kbd>
+            <span class="text-slate-500">/</span>
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Ctrl+P</kbd>
+          </div>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">
+            <span class="lang-en">Shortcuts Help</span>
+            <span class="lang-ar font-cairo">دليل الاختصارات</span>
+          </span>
+          <div class="flex items-center gap-1.5">
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">?</kbd>
+            <span class="text-slate-500">/</span>
+            <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">/</kbd>
+          </div>
+        </div>
+        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+          <span class="text-slate-300">
+            <span class="lang-en">Close Modals / Lightbox</span>
+            <span class="lang-ar font-cairo">إغلاق النوافذ والنافذة المكبرة</span>
+          </span>
+          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Esc</kbd>
         </div>
         <div class="flex items-center justify-between py-1.5 border-b border-white/5">
           <span class="text-slate-300">
@@ -3544,54 +3630,12 @@
           </span>
           <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">1 – 9</kbd>
         </div>
-        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
-          <span class="text-slate-300">
-            <span class="lang-en">Toggle Language (AR / EN)</span>
-            <span class="lang-ar font-cairo">تبديل اللغة (عربي / إنجليزي)</span>
-          </span>
-          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">L</kbd>
-        </div>
-        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
-          <span class="text-slate-300">
-            <span class="lang-en">First / Last Slide</span>
-            <span class="lang-ar font-cairo">أول / آخر شريحة</span>
-          </span>
-          <div class="flex items-center gap-1.5"><kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Home</kbd> / <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">End</kbd></div>
-        </div>
-        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
-          <span class="text-slate-300">
-            <span class="lang-en">Slide Overview Grid</span>
-            <span class="lang-ar font-cairo">شبكة نظرة عامة</span>
-          </span>
-          <div class="flex items-center gap-1.5"><kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">G</kbd> <span class="text-slate-500">or</span> <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">M</kbd></div>
-        </div>
-        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+        <div class="flex items-center justify-between py-1.5">
           <span class="text-slate-300">
             <span class="lang-en">Toggle Fullscreen</span>
             <span class="lang-ar font-cairo">ملء الشاشة</span>
           </span>
           <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">F</kbd>
-        </div>
-        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
-          <span class="text-slate-300">
-            <span class="lang-en">Print to PDF (9-Page Landscape)</span>
-            <span class="lang-ar font-cairo">طباعة PDF (أفقي A4)</span>
-          </span>
-          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Ctrl + P</kbd>
-        </div>
-        <div class="flex items-center justify-between py-1.5 border-b border-white/5">
-          <span class="text-slate-300">
-            <span class="lang-en">Keyboard Shortcuts Help</span>
-            <span class="lang-ar font-cairo">دليل الاختصارات</span>
-          </span>
-          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">?</kbd>
-        </div>
-        <div class="flex items-center justify-between py-1.5">
-          <span class="text-slate-300">
-            <span class="lang-en">Close Open Modal / Lightbox</span>
-            <span class="lang-ar font-cairo">إغلاق النوافذ المنبثقة</span>
-          </span>
-          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">Esc</kbd>
         </div>
       </div>
     </div>
@@ -3762,6 +3806,12 @@
       // Re-render slide overview drawer if present
       renderOverviewGrid();
 
+      // Update image modal texts if currently open
+      const imgModal = document.getElementById('image-modal');
+      if (imgModal && imgModal.classList.contains('flex')) {
+        updateModalText();
+      }
+
       // Dispatch custom event for reactive listeners
       window.dispatchEvent(new CustomEvent('languageChanged', {
         detail: { lang: lang, dir: document.documentElement.dir }
@@ -3785,15 +3835,15 @@
         const jumpLabel = isAr ? 'انقر للانتقال' : 'Click to jump';
         const slidePrefix = isAr ? 'شريحة' : 'Slide';
         return `
-          <div onclick="showSlide(${idx}); closeOverviewModal();" class="p-3 rounded-xl border transition-all cursor-pointer flex flex-col justify-between group ${isActive ? 'bg-amber-500/20 border-amber-400 shadow-lg shadow-amber-500/10 ring-1 ring-amber-400' : 'bg-white/[0.04] border-white/10 hover:border-amber-400/40 hover:bg-white/[0.08]'}">
-            <div class="flex items-center justify-between mb-1.5">
+          <div onclick="showSlide(${idx}); closeOverviewModal();" class="p-3.5 rounded-xl border transition-all cursor-pointer flex flex-col justify-between group ${isActive ? 'bg-amber-500/20 border-amber-400 shadow-lg shadow-amber-500/20 ring-2 ring-amber-400' : 'bg-white/[0.04] border-white/10 hover:border-amber-400/40 hover:bg-white/[0.08]'}">
+            <div class="flex items-center justify-between mb-2">
               <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold ${isActive ? 'bg-amber-400 text-slate-950 font-extrabold' : 'bg-white/10 text-amber-300'}">${slidePrefix} ${slide.num}</span>
-              <span class="text-[10px] uppercase font-semibold tracking-wider text-slate-400">${cat}</span>
+              <span class="text-[10px] uppercase font-semibold tracking-wider text-slate-400 ${isAr ? 'font-cairo' : 'font-sans'}">${cat}</span>
             </div>
-            <h4 class="text-xs font-bold text-white group-hover:text-amber-300 transition-colors leading-snug line-clamp-2">${title}</h4>
-            <div class="mt-2 pt-1.5 border-t border-white/5 flex items-center justify-between text-[10px] text-slate-400">
+            <h4 class="text-xs font-bold text-white group-hover:text-amber-300 transition-colors leading-snug line-clamp-2 ${isAr ? 'font-cairo' : 'font-sans'}">${title}</h4>
+            <div class="mt-2.5 pt-2 border-t border-white/5 flex items-center justify-between text-[10px] text-slate-400">
               <span class="${isActive ? 'text-amber-300 font-semibold' : ''}">${isActive ? activeLabel : jumpLabel}</span>
-              <span class="font-mono text-slate-500 group-hover:text-slate-300 transition-colors">&rarr;</span>
+              <span class="font-mono text-slate-500 group-hover:text-slate-300 transition-colors rtl:rotate-180">&rarr;</span>
             </div>
           </div>
         `;
@@ -3870,17 +3920,72 @@
       }
     }
 
-    // Modal Control Functions
+    // Lightbox State & Modal Control Functions
+    let currentModalData = {
+      src: '',
+      titleEn: '',
+      titleAr: '',
+      captionEn: '',
+      captionAr: ''
+    };
+
+    function updateModalText() {
+      const modalImg = document.getElementById('modal-img');
+      const elTitleEn = document.getElementById('modal-title-en');
+      const elTitleAr = document.getElementById('modal-title-ar');
+      const elCaptionEn = document.getElementById('modal-caption-en');
+      const elCaptionAr = document.getElementById('modal-caption-ar');
+      const modalTitle = document.getElementById('modal-title');
+      const modalCaption = document.getElementById('modal-caption');
+      const isAr = (currentLang === 'ar');
+
+      const currentTitle = isAr ? (currentModalData.titleAr || currentModalData.titleEn) : (currentModalData.titleEn || currentModalData.titleAr);
+      const currentCaption = isAr ? (currentModalData.captionAr || currentModalData.captionEn) : (currentModalData.captionEn || currentModalData.captionAr);
+
+      if (modalImg && currentTitle) {
+        modalImg.alt = currentTitle;
+      }
+
+      if (elTitleEn) elTitleEn.textContent = currentModalData.titleEn || currentTitle;
+      if (elTitleAr) elTitleAr.textContent = currentModalData.titleAr || currentTitle;
+      if (!elTitleEn && modalTitle) modalTitle.textContent = currentTitle;
+
+      if (elCaptionEn) elCaptionEn.textContent = currentModalData.captionEn || currentCaption;
+      if (elCaptionAr) elCaptionAr.textContent = currentModalData.captionAr || currentCaption;
+      if (!elCaptionEn && modalCaption) modalCaption.textContent = currentCaption;
+    }
+
     function openImageModal(src, title, caption) {
       const modal = document.getElementById('image-modal');
       const modalImg = document.getElementById('modal-img');
-      const modalTitle = document.getElementById('modal-title');
-      const modalCaption = document.getElementById('modal-caption');
       if (!modal || !modalImg) return;
       modalImg.src = src;
-      modalImg.alt = title || 'Mariam Food Industries Product Preview';
-      if (modalTitle) modalTitle.textContent = title || 'Product Inspection View';
-      if (modalCaption) modalCaption.textContent = caption || 'Mariam Food Industries • Export Division • High-Resolution View';
+
+      let tEn = '', tAr = '', cEn = '', cAr = '';
+      if (typeof title === 'object' && title !== null) {
+        tEn = title.en || title.ar || '';
+        tAr = title.ar || title.en || '';
+      } else if (typeof title === 'string') {
+        tEn = tAr = title;
+      }
+
+      if (typeof caption === 'object' && caption !== null) {
+        cEn = caption.en || caption.ar || '';
+        cAr = caption.ar || caption.en || '';
+      } else if (typeof caption === 'string') {
+        cEn = cAr = caption;
+      }
+
+      currentModalData = {
+        src: src,
+        titleEn: tEn || 'High-Resolution Product Inspection',
+        titleAr: tAr || 'معاينة المنتج فائقة الدقة',
+        captionEn: cEn || 'Mariam Food Industries • Khaeer Alwadi Export Grade',
+        captionAr: cAr || 'مريم للصناعات الغذائية • خير الوادي درجة تصدير أولى'
+      };
+
+      updateModalText();
+
       modal.classList.remove('hidden');
       modal.classList.add('flex');
     }
@@ -3965,18 +4070,39 @@
       const img = e.target.closest('img');
       if (img && !img.closest('#image-modal') && !img.closest('#overview-modal') && !img.closest('#shortcuts-modal') && !img.closest('#nav-dock')) {
         const src = img.getAttribute('src');
-        if (src && !src.startsWith('data:image/svg')) {
-          const alt = img.getAttribute('alt') || 'Mariam Food Industries Product Preview';
-          let title = alt;
-          let caption = 'Mariam Food Industries • Export Grade Inspection View';
-          const card = img.closest('.group') || img.closest('.rounded-xl') || img.closest('.rounded-2xl');
+        if (src && !src.startsWith('data:image/svg') && !src.includes('logo')) {
+          let titleEn = img.getAttribute('data-title-en') || '';
+          let titleAr = img.getAttribute('data-title-ar') || '';
+          let captionEn = img.getAttribute('data-caption-en') || '';
+          let captionAr = img.getAttribute('data-caption-ar') || '';
+
+          const card = img.closest('.group') || img.closest('.rounded-xl') || img.closest('.rounded-2xl') || img.closest('[data-zoomable="true"]') || img.parentElement;
           if (card) {
             const heading = card.querySelector('h3') || card.querySelector('h4');
-            if (heading) title = heading.textContent.trim();
+            if (heading) {
+              const hEn = heading.querySelector('.lang-en');
+              const hAr = heading.querySelector('.lang-ar');
+              if (hEn && !titleEn) titleEn = hEn.textContent.trim();
+              if (hAr && !titleAr) titleAr = hAr.textContent.trim();
+              if (!titleEn && !titleAr) titleEn = titleAr = heading.textContent.trim();
+            }
             const desc = card.querySelector('p');
-            if (desc) caption = desc.textContent.trim();
+            if (desc) {
+              const pEn = desc.querySelector('.lang-en');
+              const pAr = desc.querySelector('.lang-ar');
+              if (pEn && !captionEn) captionEn = pEn.textContent.trim();
+              if (pAr && !captionAr) captionAr = pAr.textContent.trim();
+              if (!captionEn && !captionAr) captionEn = captionAr = desc.textContent.trim();
+            }
           }
-          openImageModal(src, title, caption);
+
+          const alt = img.getAttribute('alt') || 'Khaeer Alwadi Food Industries';
+          if (!titleEn) titleEn = alt;
+          if (!titleAr) titleAr = alt;
+          if (!captionEn) captionEn = 'Mariam Food Industries • Khaeer Alwadi Export Grade';
+          if (!captionAr) captionAr = 'مريم للصناعات الغذائية • خير الوادي درجة تصدير أولى';
+
+          openImageModal(src, { en: titleEn, ar: titleAr }, { en: captionEn, ar: captionAr });
         }
       }
     });
@@ -3996,6 +4122,7 @@
       switch (e.key) {
         case 'ArrowRight':
         case ' ': // Space bar
+        case 'Enter':
         case 'n':
         case 'N':
           e.preventDefault();
@@ -4003,10 +4130,13 @@
           break;
         case 'ArrowLeft':
         case 'Backspace':
+          e.preventDefault();
+          prevSlide();
+          break;
         case 'p':
         case 'P':
           e.preventDefault();
-          prevSlide();
+          window.print();
           break;
         case 'f':
         case 'F':
@@ -4071,6 +4201,8 @@
     window.openShortcutsModal = openShortcutsModal;
     window.closeShortcutsModal = closeShortcutsModal;
     window.toggleShortcutsModal = toggleShortcutsModal;
+    window.updateModalText = updateModalText;
+    window.currentModalData = currentModalData;
 
     // Initialize state
     document.addEventListener('DOMContentLoaded', () => {
