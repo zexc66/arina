@@ -304,6 +304,30 @@ class TestDeckStructure(unittest.TestCase):
     def test_mobile_deck_and_pdf_export(self):
         test_mobile_deck_and_pdf_export()
 
+    def test_ambient_canvas_and_texture(self):
+        with open("index.html", "r", encoding="utf-8") as f:
+            html = f.read()
+        assert 'id="ambient-canvas"' in html, "Ambient canvas element must be present in index.html"
+        assert 'id="grain-overlay"' in html or 'ambient-orb' in html, "Ambient orbs and grain overlay must be present"
+        assert '#ambient-canvas' in html and 'display: none' in html, "Ambient canvas must be hidden in print mode"
+
+    def test_interactive_card_tilt_and_glint(self):
+        with open("index.html", "r", encoding="utf-8") as f:
+            html = f.read()
+        assert 'initCardTilt' in html or '--glint-x' in html, "Card tilt engine with specular glint must be present"
+
+    def test_presentation_timeline_and_kiosk(self):
+        with open("index.html", "r", encoding="utf-8") as f:
+            html = f.read()
+        assert 'id="timeline-bar"' in html, "Presentation timeline progress bar must be present"
+        assert 'toggleKioskMode' in html, "Trade show kiosk auto-play function must be present"
+        assert 'toggleFullscreen' in html, "Fullscreen presentation mode function must be present"
+
+    def test_interactive_freight_calculator(self):
+        with open("index.html", "r", encoding="utf-8") as f:
+            html = f.read()
+        assert 'id="freight-calc-container"' in html or 'setFreightContainer' in html, "Interactive freight calculator must be present in Slide 8"
+
 if __name__ == '__main__':
     unittest.main()
 

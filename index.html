@@ -246,6 +246,58 @@
       animation: revealStaggerUp 0.55s var(--ease-agency) 0.33s forwards;
     }
 
+    /* Ambient Cinematic Lighting Mesh & Hardware Canvas */
+    #ambient-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+      display: block;
+    }
+    .ambient-orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(80px);
+      opacity: 0.35;
+      will-change: transform;
+      pointer-events: none;
+    }
+    .ambient-orb-1 {
+      top: -10%;
+      left: -10%;
+      width: 55vw;
+      height: 55vw;
+      background: radial-gradient(circle, rgba(45, 82, 50, 0.45) 0%, rgba(30, 58, 36, 0) 70%);
+      animation: ambientDrift1 22s ease-in-out infinite alternate;
+    }
+    .ambient-orb-2 {
+      bottom: -15%;
+      right: -10%;
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(212, 168, 54, 0.22) 0%, rgba(186, 142, 36, 0) 70%);
+      animation: ambientDrift2 26s ease-in-out infinite alternate;
+    }
+    .ambient-orb-3 {
+      top: 35%;
+      left: 55%;
+      width: 40vw;
+      height: 40vw;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(16, 185, 129, 0) 70%);
+      animation: ambientDrift1 18s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes ambientDrift1 {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(4vw, 3vh, 0) scale(1.08); }
+      100% { transform: translate3d(-3vw, 5vh, 0) scale(0.96); }
+    }
+    @keyframes ambientDrift2 {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-5vw, -4vh, 0) scale(1.12); }
+      100% { transform: translate3d(3vw, -2vh, 0) scale(0.92); }
+    }
+
     /* High-End Agency Micro-Aesthetics & Double-Bezel (Doppelrand) Architecture */
     .double-bezel {
       position: relative;
@@ -539,7 +591,7 @@
         padding: 2px 5px !important;
       }
       /* Suppression of interactive elements during printing */
-      #nav-dock, #image-modal, #overview-modal, #shortcuts-modal, #pdf-modal, #mobile-rotate-banner, .no-print {
+      #nav-dock, #image-modal, #overview-modal, #shortcuts-modal, #pdf-modal, #mobile-rotate-banner, #ambient-canvas, #grain-overlay, .no-print {
         display: none !important;
       }
     }
@@ -601,19 +653,29 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, .reveal-1, .reveal-2, .reveal-3, .reveal-4, .reveal-5, .slide, .slide.active {
+      *, .reveal-1, .reveal-2, .reveal-3, .reveal-4, .reveal-5, .slide, .slide.active, .ambient-orb {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
         transform: none !important;
+      }
+      #ambient-canvas {
+        display: none !important;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Ambient Hardware Lighting Mesh Canvas (Cinematic Agency Atmosphere) -->
+  <div id="ambient-canvas" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+    <div class="ambient-orb ambient-orb-3"></div>
+  </div>
+
   <!-- Subtle Tactile Film Grain Overlay (Agency Standard) -->
-  <div class="fixed inset-0 pointer-events-none z-50 opacity-[0.025]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
+  <div id="grain-overlay" class="fixed inset-0 pointer-events-none z-50 opacity-[0.025]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
 
   <!-- Mobile Rotation Hint Banner (visible only on mobile portrait) -->
   <aside id="mobile-rotate-banner" class="hidden fixed top-3 left-1/2 -translate-x-1/2 z-40 items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#10221A]/95 border border-amber-400/40 text-amber-300 text-[11px] font-medium shadow-lg backdrop-blur-md no-print pointer-events-none" aria-label="Mobile Orientation Hint">
