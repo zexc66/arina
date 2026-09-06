@@ -3221,18 +3221,39 @@
             </div>
           </div>
 
-          <!-- Shipping & Container Freight Logistics (3 Pillars) -->
-          <div class="grid grid-cols-3 gap-2.5 lg:gap-3 items-stretch">
+          <!-- Shipping & Container Freight Logistics (Interactive Calculator) -->
+          <div id="freight-calc-container" class="space-y-2">
+            <!-- Interactive Simulator Header Controls -->
+            <div class="flex items-center justify-between px-3 py-1.5 rounded-xl bg-white/[0.03] border border-white/10 text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                <span class="font-bold text-white">
+                  <span class="lang-en">Interactive Freight Simulator:</span>
+                  <span class="lang-ar font-cairo">محاكي حمولة وشحن الحاويات:</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button type="button" id="btn-freight-20ft" onclick="setFreightContainer('20ft')" class="px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-amber-500/30 text-amber-300 border border-amber-400/50 cursor-pointer shadow-sm">
+                  20ft Standard (10 Pallets)
+                </button>
+                <button type="button" id="btn-freight-40ft" onclick="setFreightContainer('40ft')" class="px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-white/5 text-slate-400 border border-white/10 hover:text-white cursor-pointer">
+                  40ft High Cube (21 Pallets)
+                </button>
+              </div>
+            </div>
+
+            <!-- 3 Pillars Grid -->
+            <div class="grid grid-cols-3 gap-2.5 lg:gap-3 items-stretch">
             
-            <!-- Pillar 1: 20ft FCL Standard Container -->
-            <div class="reveal-3 double-bezel p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/30 transition-all flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-1.5">
-                  <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
-                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
-                    </div>
-                    <h3 class="text-xs lg:text-sm font-bold text-white">
+              <!-- Pillar 1: 20ft FCL Standard Container -->
+              <div id="pillar-freight-20ft" class="reveal-3 double-bezel p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/30 transition-all flex flex-col justify-between ring-2 ring-amber-400/60">
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center gap-2">
+                      <div class="w-6 h-6 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                      </div>
+                      <h3 class="text-xs lg:text-sm font-bold text-white">
                       <span class="lang-en">20ft FCL Container</span>
                       <span class="lang-ar font-cairo">حاوية 20 قدم قياسية (FCL)</span>
                     </h3>
@@ -3291,7 +3312,7 @@
             </div>
 
             <!-- Pillar 2: 40ft High Cube FCL Container -->
-            <div class="reveal-3 double-bezel p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/30 transition-all flex flex-col justify-between">
+            <div id="pillar-freight-40ft" class="reveal-3 double-bezel p-2.5 rounded-xl bg-slate-900/65 border border-white/10 hover:border-amber-400/30 transition-all flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
@@ -3404,6 +3425,7 @@
             </div>
 
           </div>
+        </div>
 
         </div>
 
@@ -4935,6 +4957,42 @@
       });
     }
 
+    // Interactive Freight Container Simulator (Slide 8)
+    function setFreightContainer(type) {
+      const btn20 = document.getElementById('btn-freight-20ft');
+      const btn40 = document.getElementById('btn-freight-40ft');
+      const pillar20 = document.getElementById('pillar-freight-20ft');
+      const pillar40 = document.getElementById('pillar-freight-40ft');
+
+      if (type === '20ft') {
+        if (btn20) {
+          btn20.className = 'px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-amber-500/30 text-amber-300 border border-amber-400/50 cursor-pointer shadow-sm';
+        }
+        if (btn40) {
+          btn40.className = 'px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-white/5 text-slate-400 border border-white/10 hover:text-white cursor-pointer';
+        }
+        if (pillar20) {
+          pillar20.classList.add('ring-2', 'ring-amber-400/60', 'bg-slate-900/90');
+        }
+        if (pillar40) {
+          pillar40.classList.remove('ring-2', 'ring-emerald-400/60', 'bg-slate-900/90');
+        }
+      } else {
+        if (btn20) {
+          btn20.className = 'px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-white/5 text-slate-400 border border-white/10 hover:text-white cursor-pointer';
+        }
+        if (btn40) {
+          btn40.className = 'px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-emerald-500/30 text-emerald-300 border border-emerald-400/50 cursor-pointer shadow-sm';
+        }
+        if (pillar20) {
+          pillar20.classList.remove('ring-2', 'ring-amber-400/60', 'bg-slate-900/90');
+        }
+        if (pillar40) {
+          pillar40.classList.add('ring-2', 'ring-emerald-400/60', 'bg-slate-900/90');
+        }
+      }
+    }
+
     // Expose functions globally for API / testing
     window.totalSlides = totalSlides;
     window.showSlide = showSlide;
@@ -4965,6 +5023,7 @@
     window.printDeck = printDeck;
     window.animateCounters = animateCounters;
     window.initCardTilt = initCardTilt;
+    window.setFreightContainer = setFreightContainer;
 
     // Initialize state
     document.addEventListener('DOMContentLoaded', () => {
