@@ -307,21 +307,51 @@
       background: linear-gradient(145deg, rgba(16, 34, 26, 0.90), rgba(9, 18, 14, 0.96));
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      transition: all 0.35s var(--ease-agency);
+      transition: border-color 0.35s var(--ease-agency), box-shadow 0.35s var(--ease-agency);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .double-bezel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle 280px at var(--glint-x, 50%) var(--glint-y, 50%), rgba(212, 168, 54, 0.14), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 25;
+    }
+    .double-bezel:hover::after {
+      opacity: 1;
     }
     .double-bezel:hover {
       border-color: rgba(212, 168, 54, 0.45);
       box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.8), 0 0 25px -3px rgba(212, 168, 54, 0.22), inset 0 1px 1px 0 rgba(255, 255, 255, 0.22);
-      transform: translateY(-2px);
     }
     .double-bezel-emerald {
       border-color: rgba(61, 107, 66, 0.35);
       box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.65), inset 0 1px 1px 0 rgba(74, 222, 128, 0.15);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .double-bezel-emerald::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle 280px at var(--glint-x, 50%) var(--glint-y, 50%), rgba(74, 222, 128, 0.16), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 25;
+    }
+    .double-bezel-emerald:hover::after {
+      opacity: 1;
     }
     .double-bezel-emerald:hover {
       border-color: rgba(74, 222, 128, 0.55);
       box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.8), 0 0 25px -3px rgba(74, 222, 128, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
     }
 
     .bezel-shell {
@@ -4789,6 +4819,39 @@
       }
     });
 
+    // Interactive 3D Perspective Card Tilt & Specular Glint (Agency Haptic Physics)
+    function initCardTilt() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+      const tiltCards = document.querySelectorAll('.double-bezel, .double-bezel-emerald');
+      tiltCards.forEach(card => {
+        if (card.dataset.tiltInitialized) return;
+        card.dataset.tiltInitialized = "true";
+
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          if (rect.width === 0 || rect.height === 0) return;
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = Math.max(-6, Math.min(6, ((y - centerY) / centerY) * -5));
+          const rotateY = Math.max(-6, Math.min(6, ((x - centerX) / centerX) * 5));
+
+          card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.015, 1.015, 1.015)`;
+          card.style.setProperty('--glint-x', `${((x / rect.width) * 100).toFixed(1)}%`);
+          card.style.setProperty('--glint-y', `${((y / rect.height) * 100).toFixed(1)}%`);
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+          card.style.removeProperty('--glint-x');
+          card.style.removeProperty('--glint-y');
+        });
+      });
+    }
+
     // Expose functions globally for API / testing
     window.totalSlides = totalSlides;
     window.showSlide = showSlide;
@@ -4815,12 +4878,14 @@
     window.selectPdfModalLang = selectPdfModalLang;
     window.printDeck = printDeck;
     window.animateCounters = animateCounters;
+    window.initCardTilt = initCardTilt;
 
     // Initialize state
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage(currentLang);
       showSlide(0);
       renderOverviewGrid();
+      initCardTilt();
     });
   </script>
 </body>
