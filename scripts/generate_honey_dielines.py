@@ -9,16 +9,15 @@ Generates high-resolution, print-calibrated packaging label blueprints with:
   4. dieline_honeycomb_500g_hex.png (1800 × 900 px @ 254 DPI, 180mm × 90mm)
   5. dieline_tamper_ribbon_crown.png (450 × 1125 px @ 254 DPI, 18mm × 45mm)
   6. dieline_discovery_flight_50g.png (1200 × 400 px @ 254 DPI, 120mm × 40mm)
-- Official Honey & Superfoods palette:
-  * Mariam Blush Pink: RGB(232, 197, 200) / #E8C5C8
-  * Imperial Burgundy: RGB(105, 22, 48) / #691630
+- Official Honey & Superfoods palette (calibrated to authentic product reference photo):
+  * Mariam Petal Blush Pink: RGB(245, 183, 194) / #F5B7C2
+  * Deep Wine Burgundy: RGB(118, 18, 46) / #76122E
   * Luxor Gold Foil: RGB(218, 172, 54) / #DAAC36
-  * Warm Ivory: RGB(248, 245, 238) / #F8F5EE
-- Rounded die-cut border guides and inner safety margin
-- 3-zone layout (Zone 1: Regulatory/Nutrition/Allergen; Zone 2: Hero Brand; Zone 3: Terroir/Logistics)
-- Authentic cursive gold logo: mariam-logo-gold.png
-- High-precision vector registration crosshairs, mechanical dimension callouts, and barcodes
-- Dedicated crown crest and tamper-evident perforation score on tamper ribbon
+  * Warm Ivory Blush: RGB(255, 245, 247) / #FFF5F7
+- High contrast typography: on blush pink, all typography is strictly Deep Wine Burgundy (#76122E)
+- Authentic cursive logo: mariam-logo-gold.png composited with balanced proportions and zero text collisions
+- Royal Mix 500g features the authentic baroque scalloped cartouche from the user reference photo
+- Tamper ribbon features 18mm × 45mm geometry, gold crown crest, perforation score, and crisp wine burgundy text
 """
 
 import json
@@ -27,7 +26,7 @@ import os
 import random
 from PIL import Image, ImageDraw, ImageFont
 
-# Official Brand Palette Constants - Calibrated to User Photo Reference
+# Official Brand Palette Constants - Calibrated to Authentic Reference Photo
 BLUSH_PINK = (245, 183, 194)        # #F5B7C2 (Petal Blush Pink sampled from user photo)
 BLUSH_PINK_LIGHT = (252, 220, 227)  # #FCDCE3 (Light Petal Tint)
 IMPERIAL_BURGUNDY = (118, 18, 46)   # #76122E (Deep Wine Burgundy sampled from user photo)
@@ -46,6 +45,15 @@ def load_font(size, bold=False):
         except Exception:
             pass
     return ImageFont.load_default()
+
+def get_tinted_logo(logo_img, color):
+    """Create a tinted version of the authentic logo preserving its exact alpha mask."""
+    if not logo_img:
+        return None
+    r, g, b, a = logo_img.split()
+    tinted = Image.new("RGBA", logo_img.size, (*color, 255))
+    tinted.putalpha(a)
+    return tinted
 
 def draw_crosshair(draw, x, y, size=18, color=LUXOR_GOLD, width=2):
     """Draw high-precision optical registration crosshair."""
@@ -72,7 +80,7 @@ def draw_dashed_line(draw, start, end, fill, width=1, dash_length=8, gap_length=
         ], fill=fill, width=width)
         cur += dash_length + gap_length
 
-def draw_crown(draw, cx, cy, width, height, color=LUXOR_GOLD, jewel_color=BLUSH_PINK):
+def draw_crown(draw, cx, cy, width, height, color=LUXOR_GOLD, jewel_color=IMPERIAL_BURGUNDY):
     """
     Draw an embossed royal crown crest with 5 peaks, pearls, and jeweled base band.
     """
@@ -83,7 +91,7 @@ def draw_crown(draw, cx, cy, width, height, color=LUXOR_GOLD, jewel_color=BLUSH_
     h_inner = int(h2 * 0.52)
     
     # Base band
-    base_h = max(6, int(height * 0.18))
+    base_h = max(5, int(height * 0.20))
     base_y = cy + h2 - base_h
     draw.rectangle([cx - w2, base_y, cx + w2, cy + h2], fill=color)
     
@@ -98,26 +106,86 @@ def draw_crown(draw, cx, cy, width, height, color=LUXOR_GOLD, jewel_color=BLUSH_
     # Crown body polygon
     pts = [
         (cx - w2, base_y),
-        (cx - w2 - 4, cy - h_outer),
-        (cx - int(w2 * 0.52), cy + int(h2 * 0.12)),
-        (cx - int(w2 * 0.28), cy - h_inner),
-        (cx - int(w2 * 0.12), cy + int(h2 * 0.06)),
+        (cx - w2 - 3, cy - h_outer),
+        (cx - int(w2 * 0.50), cy + int(h2 * 0.10)),
+        (cx - int(w2 * 0.26), cy - h_inner),
+        (cx - int(w2 * 0.10), cy + int(h2 * 0.05)),
         (cx, cy - h_center),
-        (cx + int(w2 * 0.12), cy + int(h2 * 0.06)),
-        (cx + int(w2 * 0.28), cy - h_inner),
-        (cx + int(w2 * 0.52), cy + int(h2 * 0.12)),
-        (cx + w2 + 4, cy - h_outer),
+        (cx + int(w2 * 0.10), cy + int(h2 * 0.05)),
+        (cx + int(w2 * 0.26), cy - h_inner),
+        (cx + int(w2 * 0.50), cy + int(h2 * 0.10)),
+        (cx + w2 + 3, cy - h_outer),
         (cx + w2, base_y),
     ]
     draw.polygon(pts, fill=color)
     
     # Pearls on top of peaks
-    pr = max(3, int(width * 0.038))
+    pr = max(2, int(width * 0.038))
     draw.ellipse([cx - pr, cy - h_center - pr * 2, cx + pr, cy - h_center], fill=color)
-    draw.ellipse([cx - int(w2 * 0.28) - pr, cy - h_inner - pr * 2, cx - int(w2 * 0.28) + pr, cy - h_inner], fill=color)
-    draw.ellipse([cx + int(w2 * 0.28) - pr, cy - h_inner - pr * 2, cx + int(w2 * 0.28) + pr, cy - h_inner], fill=color)
-    draw.ellipse([cx - w2 - 4 - pr, cy - h_outer - pr * 2, cx - w2 - 4 + pr, cy - h_outer], fill=color)
-    draw.ellipse([cx + w2 + 4 - pr, cy - h_outer - pr * 2, cx + w2 + 4 + pr, cy - h_outer], fill=color)
+    draw.ellipse([cx - int(w2 * 0.26) - pr, cy - h_inner - pr * 2, cx - int(w2 * 0.26) + pr, cy - h_inner], fill=color)
+    draw.ellipse([cx + int(w2 * 0.26) - pr, cy - h_inner - pr * 2, cx + int(w2 * 0.26) + pr, cy - h_inner], fill=color)
+    draw.ellipse([cx - w2 - 3 - pr, cy - h_outer - pr * 2, cx - w2 - 3 + pr, cy - h_outer], fill=color)
+    draw.ellipse([cx + w2 + 3 - pr, cy - h_outer - pr * 2, cx + w2 + 3 + pr, cy - h_outer], fill=color)
+
+def get_scalloped_cartouche_polygon(x0, y0, x1, y1, r=36, arch_h=22):
+    """
+    Construct mathematically precise baroque scalloped cartouche with inward concave notches
+    and gentle convex arches at top and bottom, matching the authentic reference jar label.
+    """
+    cx = (x0 + x1) / 2
+    pts = []
+    
+    # 1. Top Arch: from (x0 + r, y0 + arch_h) to (x1 - r, y0 + arch_h) peaking at (cx, y0)
+    n_arch = 30
+    for i in range(n_arch + 1):
+        t = i / n_arch
+        px = (x0 + r) + t * (x1 - x0 - 2 * r)
+        py = y0 + (1.0 - math.sin(t * math.pi)) * arch_h
+        pts.append((px, py))
+        
+    # 2. Top-Right Concave Corner Notch
+    n_corner = 12
+    for i in range(1, n_corner + 1):
+        ang = math.radians(180 + i * (90 / n_corner))
+        px = x1 + r * math.cos(ang)
+        py = (y0 + arch_h) - r * math.sin(ang)
+        pts.append((px, py))
+        
+    # 3. Right edge
+    pts.append((x1, y1 - arch_h - r))
+    
+    # 4. Bottom-Right Concave Corner Notch
+    for i in range(1, n_corner + 1):
+        ang = math.radians(90 + i * (90 / n_corner))
+        px = x1 + r * math.cos(ang)
+        py = (y1 - arch_h) - r * math.sin(ang)
+        pts.append((px, py))
+        
+    # 5. Bottom Arch: from (x1 - r, y1 - arch_h) to (x0 + r, y1 - arch_h) dipping at (cx, y1)
+    for i in range(n_arch + 1):
+        t = i / n_arch
+        px = (x1 - r) - t * (x1 - x0 - 2 * r)
+        py = y1 - (1.0 - math.sin(t * math.pi)) * arch_h
+        pts.append((px, py))
+        
+    # 6. Bottom-Left Concave Corner Notch
+    for i in range(1, n_corner + 1):
+        ang = math.radians(0 + i * (90 / n_corner))
+        px = x0 + r * math.cos(ang)
+        py = (y1 - arch_h) - r * math.sin(ang)
+        pts.append((px, py))
+        
+    # 7. Left edge
+    pts.append((x0, y0 + arch_h + r))
+    
+    # 8. Top-Left Concave Corner Notch
+    for i in range(1, n_corner + 1):
+        ang = math.radians(270 + i * (90 / n_corner))
+        px = x0 + r * math.cos(ang)
+        py = (y0 + arch_h) - r * math.sin(ang)
+        pts.append((px, py))
+        
+    return [(int(round(px)), int(round(py))) for px, py in pts]
 
 def draw_hexagon(draw, cx, cy, radius, outline=LUXOR_GOLD, width=2):
     """Draw a regular hexagon centered at (cx, cy)."""
@@ -142,7 +210,7 @@ def draw_barcode(draw, x, y, w, h, code_text, bar_color=LUXOR_GOLD, text_color=W
     draw.line([(cur_x, y), (cur_x, y + bar_h + 8)], fill=bar_color, width=2)
     cur_x += 6
     
-    # Random realistic data bars
+    # Realistic data bars
     while cur_x < end_x - 14:
         bw = random.choice([1, 2, 3, 2, 1, 4, 2])
         gap = random.choice([2, 3, 4, 2, 3])
@@ -157,132 +225,136 @@ def draw_barcode(draw, x, y, w, h, code_text, bar_color=LUXOR_GOLD, text_color=W
     if font:
         draw.text((x + w // 2, y + h - 6), code_text, fill=text_color, font=font, anchor="mm")
 
-def draw_swatches_grid(draw, base_x, base_y, max_w, font, swatch_w=22, swatch_h=12):
-    """Draw official color calibration swatches in a neat 2x2 grid inside Zone 1."""
+def draw_swatches_grid(draw, base_x, base_y, max_w, font, text_color=None, swatch_w=20, swatch_h=11):
+    """Draw official color calibration swatches in a neat 2x2 grid."""
     swatches = [
-        (BLUSH_PINK, "Petal Blush #F5B7C2", LUXOR_GOLD),
-        (IMPERIAL_BURGUNDY, "Wine Burgundy #76122E", WARM_IVORY),
-        (LUXOR_GOLD, "Luxor Gold #DAAC36", LUXOR_GOLD),
-        (WARM_IVORY, "Warm Ivory #FFF5F7", WARM_IVORY),
+        (BLUSH_PINK, "Petal Blush #F5B7C2"),
+        (IMPERIAL_BURGUNDY, "Wine Burgundy #76122E"),
+        (LUXOR_GOLD, "Luxor Gold #DAAC36"),
+        (WARM_IVORY, "Warm Ivory #FFF5F7"),
     ]
-    col_w = max(max_w // 2, 130)
-    for idx, (color, name, label_col) in enumerate(swatches):
+    col_w = max(max_w // 2, 125)
+    for idx, (color, name) in enumerate(swatches):
         row = idx // 2
         col = idx % 2
         sx = base_x + col * col_w
-        sy = base_y + row * (swatch_h + 6)
+        sy = base_y + row * (swatch_h + 5)
+        lbl_col = text_color if text_color else (LUXOR_GOLD if color in [BLUSH_PINK, LUXOR_GOLD] else WARM_IVORY)
         draw.rectangle([sx, sy, sx + swatch_w, sy + swatch_h], fill=color, outline=LUXOR_GOLD, width=1)
-        draw.text((sx + swatch_w + 6, sy + swatch_h // 2), name, fill=label_col, font=font, anchor="lm")
+        draw.text((sx + swatch_w + 5, sy + swatch_h // 2), name, fill=lbl_col, font=font, anchor="lm")
 
 def generate_tamper_ribbon(output_dir="output/dielines", logo_img=None):
     """
     Generate dieline_tamper_ribbon_crown.png:
     - 450 × 1125 px @ 254 DPI (18mm × 45mm physical).
-    - Background: Strictly Blush Pink (232, 197, 200).
-    - Embossed Luxor Gold (218, 172, 54) crown crest in the center.
-    - Break score guide at lid junction.
-    - Authentic Mariam gold logo composited.
+    - Background: Strictly Petal Blush Pink (245, 183, 194).
+    - All typography strictly in Deep Wine Burgundy (#76122E) for high contrast and legibility.
+    - Embossed Luxor Gold (218, 172, 54) crown crest in the center medallion.
+    - Perforation break score guide at lid junction.
+    - Authentic Mariam cursive logo tinted in Deep Wine Burgundy (#76122E).
     """
     w, h = 450, 1125
     im = Image.new("RGBA", (w, h), (*BLUSH_PINK, 255))
     draw = ImageDraw.Draw(im)
     
-    # 1. Outer die-cut gold border with 20px inset
-    draw.rounded_rectangle([20, 20, w - 20, h - 20], radius=20, outline=LUXOR_GOLD, width=3)
+    # 1. Outer die-cut gold border with 18px inset
+    draw.rounded_rectangle([18, 18, w - 18, h - 18], radius=18, outline=LUXOR_GOLD, width=3)
     
-    # 2. Inner safety guide line (32px inset) in Imperial Burgundy
-    draw.rounded_rectangle([32, 32, w - 32, h - 32], radius=15, outline=IMPERIAL_BURGUNDY, width=1)
+    # 2. Inner safety guide line (28px inset) in Deep Wine Burgundy
+    draw.rounded_rectangle([28, 28, w - 28, h - 28], radius=14, outline=IMPERIAL_BURGUNDY, width=1)
     
     # 3. Four corner registration crosshairs
-    draw_crosshair(draw, 20, 20, size=15, color=LUXOR_GOLD)
-    draw_crosshair(draw, w - 20, 20, size=15, color=LUXOR_GOLD)
-    draw_crosshair(draw, 20, h - 20, size=15, color=LUXOR_GOLD)
-    draw_crosshair(draw, w - 20, h - 20, size=15, color=LUXOR_GOLD)
+    draw_crosshair(draw, 18, 18, size=14, color=LUXOR_GOLD)
+    draw_crosshair(draw, w - 18, 18, size=14, color=LUXOR_GOLD)
+    draw_crosshair(draw, 18, h - 18, size=14, color=LUXOR_GOLD)
+    draw_crosshair(draw, w - 18, h - 18, size=14, color=LUXOR_GOLD)
     
     # Fonts
-    title_font = load_font(18, bold=True)
-    sub_font = load_font(14, bold=True)
+    title_font = load_font(17, bold=True)
+    sub_font = load_font(13, bold=True)
     meta_font = load_font(11, bold=False)
-    small_font = load_font(10, bold=False)
-    crest_title_font = load_font(13, bold=True)
+    bold_meta_font = load_font(11, bold=True)
+    small_font = load_font(9, bold=False)
     
     # ==================== TOP ZONE: METALLIC LID ADHERENCE ====================
-    draw.text((w // 2, 48), "MARIAM PACKAGING BLUEPRINT", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
-    draw.text((w // 2, 72), "TAMPER-EVIDENT RIBBON", fill=LUXOR_GOLD, font=title_font, anchor="mm")
-    draw.text((w // 2, 95), "18mm × 45mm @ 254 DPI", fill=IMPERIAL_BURGUNDY, font=meta_font, anchor="mm")
+    draw.text((w // 2, 45), "MARIAM PACKAGING BLUEPRINT", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
+    draw.text((w // 2, 68), "TAMPER-EVIDENT RIBBON", fill=IMPERIAL_BURGUNDY, font=title_font, anchor="mm")
+    draw.text((w // 2, 90), "18mm x 45mm @ 254 DPI", fill=IMPERIAL_BURGUNDY, font=meta_font, anchor="mm")
     
-    # Top decorative horizontal bar
-    draw.line([(50, 115), (w - 50, 115)], fill=LUXOR_GOLD, width=2)
+    # Top decorative horizontal gold bar
+    draw.line([(45, 108), (w - 45, 108)], fill=LUXOR_GOLD, width=2)
     
-    # Scaled authentic cursive logo
+    # Scaled authentic cursive logo tinted in Deep Wine Burgundy for high legibility
     if logo_img:
-        lw, lh = logo_img.size
-        scale = min(280 / lw, 100 / lh)
+        burgundy_logo = get_tinted_logo(logo_img, IMPERIAL_BURGUNDY)
+        lw, lh = burgundy_logo.size
+        scale = min(260 / lw, 95 / lh)
         nw, nh = int(lw * scale), int(lh * scale)
-        scaled_logo = logo_img.resize((nw, nh), Image.Resampling.LANCZOS)
-        im.alpha_composite(scaled_logo, (w // 2 - nw // 2, 140))
+        scaled_logo = burgundy_logo.resize((nw, nh), Image.Resampling.LANCZOS)
+        im.alpha_composite(scaled_logo, (w // 2 - nw // 2, 128))
         
-    draw.text((w // 2, 260), "NATURAL HONEY & SUPERFOODS", fill=IMPERIAL_BURGUNDY, font=sub_font, anchor="mm")
-    draw.text((w // 2, 285), "Pure Goodness, Naturally.", fill=LUXOR_GOLD, font=meta_font, anchor="mm")
-    draw.text((w // 2, 330), "[ LID ADHERENCE OVERLAP ZONE ]", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
-    draw.text((w // 2, 350), "Adheres firmly over metallic lid top surface", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
+    draw.text((w // 2, 245), "NATURAL HONEY & SUPERFOODS", fill=IMPERIAL_BURGUNDY, font=sub_font, anchor="mm")
+    draw.text((w // 2, 270), "Pure Goodness, Naturally.", fill=IMPERIAL_BURGUNDY, font=meta_font, anchor="mm")
+    draw.text((w // 2, 310), "[ METALLIC LID ADHERENCE ZONE ]", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
+    draw.text((w // 2, 330), "Firm adhesive bond across twist cap surface", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
     
-    # Guideline down towards center
-    draw_dashed_line(draw, (w // 2, 380), (w // 2, 450), fill=IMPERIAL_BURGUNDY, width=1, dash_length=6, gap_length=4)
+    # Vertical guideline down towards center
+    draw_dashed_line(draw, (w // 2, 355), (w // 2, 435), fill=IMPERIAL_BURGUNDY, width=1, dash_length=6, gap_length=4)
     
     # ==================== CENTER ZONE: CROWN CREST & PERFORATION ====================
     cy_mid = 562
     
     # Perforation Score Line across ribbon
-    draw_dashed_line(draw, (35, cy_mid), (w - 35, cy_mid), fill=IMPERIAL_BURGUNDY, width=2, dash_length=8, gap_length=4)
-    draw.text((w // 2, cy_mid - 110), "✂ PERFORATION SCORE LINE ✂", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
+    draw_dashed_line(draw, (30, cy_mid), (w - 30, cy_mid), fill=IMPERIAL_BURGUNDY, width=2, dash_length=8, gap_length=4)
+    draw.text((w // 2, cy_mid - 118), "-- PERFORATION BREAK SCORE --", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
     
-    # Medallion background
+    # Center Medallion
     medallion_r = 95
-    # Inner medallion filled with Blush Pink and bordered with Luxor Gold
+    # Outer gold ring
     draw.ellipse([w // 2 - medallion_r, cy_mid - medallion_r, w // 2 + medallion_r, cy_mid + medallion_r],
                  fill=BLUSH_PINK, outline=LUXOR_GOLD, width=3)
+    # Inner gold ring
     draw.ellipse([w // 2 - medallion_r + 6, cy_mid - medallion_r + 6, w // 2 + medallion_r - 6, cy_mid + medallion_r - 6],
                  outline=LUXOR_GOLD, width=1)
                  
     # Medallion Header
-    draw.text((w // 2, cy_mid - 60), "MARIAM ROYAL SEAL", fill=LUXOR_GOLD, font=crest_title_font, anchor="mm")
+    draw.text((w // 2, cy_mid - 62), "MARIAM ROYAL SEAL", fill=IMPERIAL_BURGUNDY, font=sub_font, anchor="mm")
     
-    # Embossed Luxor Gold Crown Crest
-    draw_crown(draw, cx=w // 2, cy=cy_mid + 2, width=115, height=65, color=LUXOR_GOLD, jewel_color=BLUSH_PINK)
+    # Embossed Luxor Gold Crown Crest in center of medallion
+    draw_crown(draw, cx=w // 2, cy=cy_mid - 2, width=110, height=58, color=LUXOR_GOLD, jewel_color=IMPERIAL_BURGUNDY)
     
     # Medallion Subtext
-    draw.text((w // 2, cy_mid + 58), "★ AUTHENTIC & PURE ★", fill=LUXOR_GOLD, font=small_font, anchor="mm")
-    draw.text((w // 2, cy_mid + 75), "TAMPER EVIDENT", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
+    draw.text((w // 2, cy_mid + 56), "- AUTHENTIC & PURE -", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
+    draw.text((w // 2, cy_mid + 74), "TAMPER EVIDENT", fill=IMPERIAL_BURGUNDY, font=bold_meta_font, anchor="mm")
     
     # ==================== BOTTOM ZONE: SHOULDER GLASS ANCHOR ====================
     draw_dashed_line(draw, (w // 2, cy_mid + 115), (w // 2, cy_mid + 175), fill=IMPERIAL_BURGUNDY, width=1, dash_length=6, gap_length=4)
     
-    draw.text((w // 2, 770), "[ GLASS SHOULDER ANCHOR ZONE ]", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
-    draw.text((w // 2, 795), "SECURED TO FLINT GLASS SHOULDER", fill=LUXOR_GOLD, font=sub_font, anchor="mm")
+    draw.text((w // 2, 755), "[ FLINT GLASS ANCHOR ZONE ]", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
+    draw.text((w // 2, 778), "SECURED TO FLINT GLASS SHOULDER", fill=IMPERIAL_BURGUNDY, font=sub_font, anchor="mm")
     
-    # Second Scaled Logo at shoulder
-    if logo_img:
-        lw, lh = logo_img.size
-        scale2 = min(220 / lw, 75 / lh)
-        nw2, nh2 = int(lw * scale2), int(lh * scale2)
-        scaled_logo2 = logo_img.resize((nw2, nh2), Image.Resampling.LANCZOS)
-        im.alpha_composite(scaled_logo2, (w // 2 - nw2 // 2, 825))
-        
-    draw.text((w // 2, 925), "DO NOT ACCEPT IF SEAL IS BROKEN", fill=IMPERIAL_BURGUNDY, font=sub_font, anchor="mm")
-    draw.text((w // 2, 950), "إذا كان الختم مكسوراً لا تقبل العبوة", fill=IMPERIAL_BURGUNDY, font=meta_font, anchor="mm")
-    draw.text((w // 2, 980), "Single-Harvest Raw Honey Guarantee", fill=LUXOR_GOLD, font=small_font, anchor="mm")
+    draw.text((w // 2, 825), "DO NOT ACCEPT IF SEAL IS BROKEN", fill=IMPERIAL_BURGUNDY, font=sub_font, anchor="mm")
+    draw.text((w // 2, 852), "إذا كان الختم مكسوراً لا تقبل العبوة", fill=IMPERIAL_BURGUNDY, font=meta_font, anchor="mm")
+    draw.text((w // 2, 885), "Single-Harvest Terroir Guarantee", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
     
-    # Swatches on bottom of ribbon
-    sw_y = 1030
-    draw.rectangle([55, sw_y, 80, sw_y + 12], fill=BLUSH_PINK, outline=LUXOR_GOLD, width=1)
-    draw.text((88, sw_y + 6), "#F5B7C2", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="lm")
+    # Technical specs
+    draw.text((w // 2, 925), "Substrate: Fasson Estate Velvet 90gsm", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
+    draw.text((w // 2, 945), "Adhesive: Permanent Acrylic High-Tack", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
+    draw.text((w // 2, 965), "Finish: Kurz Luxor Gold Hot Foil Stamping", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="mm")
     
-    draw.rectangle([180, sw_y, 205, sw_y + 12], fill=LUXOR_GOLD, outline=IMPERIAL_BURGUNDY, width=1)
-    draw.text((213, sw_y + 6), "#DAAC36", fill=LUXOR_GOLD, font=small_font, anchor="lm")
+    # Bottom decorative gold bar
+    draw.line([(45, 995), (w - 45, 995)], fill=LUXOR_GOLD, width=2)
     
-    draw.rectangle([305, sw_y, 330, sw_y + 12], fill=IMPERIAL_BURGUNDY, outline=LUXOR_GOLD, width=1)
-    draw.text((338, sw_y + 6), "#76122E", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="lm")
+    # Swatches on bottom of ribbon - labels strictly in Deep Wine Burgundy
+    sw_y = 1025
+    draw.rectangle([50, sw_y, 75, sw_y + 12], fill=BLUSH_PINK, outline=LUXOR_GOLD, width=1)
+    draw.text((82, sw_y + 6), "#F5B7C2", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="lm")
+    
+    draw.rectangle([175, sw_y, 200, sw_y + 12], fill=LUXOR_GOLD, outline=IMPERIAL_BURGUNDY, width=1)
+    draw.text((207, sw_y + 6), "#DAAC36", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="lm")
+    
+    draw.rectangle([300, sw_y, 325, sw_y + 12], fill=IMPERIAL_BURGUNDY, outline=LUXOR_GOLD, width=1)
+    draw.text((332, sw_y + 6), "#76122E", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="lm")
     
     out_path = os.path.join(output_dir, "dieline_tamper_ribbon_crown.png")
     im.save(out_path)
@@ -294,9 +366,9 @@ def generate_horizontal_dieline(config, catalog_data, output_dir="output/dieline
     Generate horizontal 3-zone print dieline:
     - Outer cut border with registration crosshairs
     - Inner safety guide
-    - Zone 1: Regulatory / Nutrition / Allergen / Warning / Color Calibration Swatches
-    - Zone 2: Hero Brand / Authentic Cursive Logo / Descriptor / Title / Sensory Triad
-    - Zone 3: Terroir / Logistics / Barcode / Producer Emblem / Certifications
+    - Zone 1 (Left 28%): Regulatory / Nutrition / Allergen / Warning / Color Calibration Swatches
+    - Zone 2 (Center 44%): Blueprint Header / Hero Brand / Authentic Cursive Logo / Descriptor / Title / Sensory Triad
+    - Zone 3 (Right 28%): Terroir / Logistics / Barcode / Producer Emblem / Certifications
     """
     filename = config["filename"]
     w = config["width"]
@@ -305,6 +377,7 @@ def generate_horizontal_dieline(config, catalog_data, output_dir="output/dieline
     sku_id = config.get("sku_id")
     bg_color = config.get("bg_color", IMPERIAL_BURGUNDY)
     special_mode = config.get("special_mode")
+    is_royal = (special_mode == "royal_mix")
     
     # Retrieve SKU data if available
     sku_info = None
@@ -327,8 +400,8 @@ def generate_horizontal_dieline(config, catalog_data, output_dir="output/dieline
     draw.rounded_rectangle([outer_inset, outer_inset, w - outer_inset, h - outer_inset],
                            radius=25 if h >= 600 else 15, outline=LUXOR_GOLD, width=4 if h >= 600 else 3)
                            
-    # 2. Inner thin ivory safety guide with 45px inset (32px for petite)
-    inner_inset = 45 if h >= 600 else 32
+    # 2. Inner thin ivory safety guide with 45px inset (30px for petite)
+    inner_inset = 45 if h >= 600 else 30
     draw.rounded_rectangle([inner_inset, inner_inset, w - inner_inset, h - inner_inset],
                            radius=20 if h >= 600 else 12, outline=WARM_IVORY, width=2)
                            
@@ -339,144 +412,226 @@ def generate_horizontal_dieline(config, catalog_data, output_dir="output/dieline
     draw_crosshair(draw, outer_inset, h - outer_inset, size=cross_size, color=LUXOR_GOLD)
     draw_crosshair(draw, w - outer_inset, h - outer_inset, size=cross_size, color=LUXOR_GOLD)
     
-    # 4. Grid dividers: Zone 1 (~28%), Zone 2 (~44%), Zone 3 (~28%)
+    # 4. Grid dividers: Zone 1 (28%), Zone 2 (44%), Zone 3 (28%)
     cx0 = int(w * 0.28)
     cx1 = int(w * 0.72)
     draw.line([(cx0, inner_inset), (cx0, h - inner_inset)], fill=LUXOR_GOLD, width=2)
     draw.line([(cx1, inner_inset), (cx1, h - inner_inset)], fill=LUXOR_GOLD, width=2)
     
-    # Font scaling
-    title_font = load_font(max(16, int(scale_ref * 0.040)), bold=True)
-    sub_font = load_font(max(12, int(scale_ref * 0.024)), bold=False)
-    meta_font = load_font(max(10, int(scale_ref * 0.018)), bold=False)
-    bold_meta_font = load_font(max(10, int(scale_ref * 0.018)), bold=True)
-    section_font = load_font(max(12, int(scale_ref * 0.024)), bold=True)
-    hero_font = load_font(max(18, int(scale_ref * 0.052)), bold=True)
-    small_font = load_font(max(9, int(scale_ref * 0.015)), bold=False)
+    # Font scales based on dieline dimensions
+    title_font = load_font(max(15, int(scale_ref * 0.034)), bold=True)
+    sub_font = load_font(max(12, int(scale_ref * 0.022)), bold=False)
+    meta_font = load_font(max(10, int(scale_ref * 0.017)), bold=False)
+    bold_meta_font = load_font(max(10, int(scale_ref * 0.017)), bold=True)
+    section_font = load_font(max(12, int(scale_ref * 0.022)), bold=True)
+    hero_font = load_font(max(18, int(scale_ref * 0.042)), bold=True)
+    small_font = load_font(max(9, int(scale_ref * 0.014)), bold=False)
     
     # ==================== ZONE 2: CENTER HERO BRANDING ====================
-    is_royal = (special_mode == "royal_mix")
+    # A. TOP BLUEPRINT HEADER (Positioned cleanly at top of Zone 2, above the packaging graphic)
+    header_top = inner_inset + (18 if h >= 600 else 10)
+    draw.text((w // 2, header_top), "MARIAM LUXURY PACKAGING BLUEPRINT", fill=LUXOR_GOLD, font=bold_meta_font, anchor="mm")
     
-    # 5. Zone 2 Center Luxury Panel / Baroque Cartouche
-    center_box_w = cx1 - cx0 - 80
-    cart_x0 = cx0 + 35
-    cart_x1 = cx1 - 35
-    cart_y0 = inner_inset + 18
-    cart_y1 = h - inner_inset - 18
+    product_title = config.get("title", "MARIAM NATURAL HONEY")
+    draw.text((w // 2, header_top + 22), product_title, fill=WARM_IVORY, font=sub_font, anchor="mm")
+    
+    spec_line = f"SPECIFICATION: {physical} • {w}x{h} px @ 254 DPI"
+    draw.text((w // 2, header_top + 42), spec_line, fill=LUXOR_GOLD, font=small_font, anchor="mm")
+    
+    # Subtle dashed divider line separating blueprint header from packaging art
+    art_y_top = header_top + 58
+    draw_dashed_line(draw, (cx0 + 40, art_y_top), (cx1 - 40, art_y_top), fill=LUXOR_GOLD, width=1, dash_length=6, gap_length=4)
+    
+    # B. BOTTOM BLUEPRINT FOOTER (Positioned safely above bottom inner margin)
+    footer_y = h - inner_inset - (18 if h >= 600 else 12)
+    draw.text((w // 2, footer_y), "[ CENTRAL LUXURY BRANDING & EMBOSS PANEL ]", fill=WARM_IVORY, font=small_font, anchor="mm")
+    art_y_bottom = footer_y - 18
+    
+    # C. PACKAGING ART IN ZONE 2 (Between art_y_top + 15 and art_y_bottom)
+    avail_h = art_y_bottom - (art_y_top + 15)
     
     if is_royal:
-        # Draw the iconic Petal Blush Pink baroque cartouche with gold outline from reference photo
-        draw.rounded_rectangle([cart_x0, cart_y0, cart_x1, cart_y1], radius=28, fill=BLUSH_PINK, outline=LUXOR_GOLD, width=3)
-        draw.rounded_rectangle([cart_x0 + 8, cart_y0 + 8, cart_x1 - 8, cart_y1 - 8], radius=22, outline=LUXOR_GOLD, width=1)
-        # Gold Crown on top
-        draw_crown(draw, cx=w // 2, cy=cart_y0 + 48, width=70, height=40, color=LUXOR_GOLD, jewel_color=IMPERIAL_BURGUNDY)
-    else:
-        # Standard elegant frame
-        draw.rounded_rectangle([cart_x0, cart_y0, cart_x1, cart_y1], radius=16, outline=LUXOR_GOLD, width=2)
-    
-    header_y = int(h * 0.09) if h >= 600 else 46
-    top_title_col = IMPERIAL_BURGUNDY if is_royal else LUXOR_GOLD
-    top_sub_col = IMPERIAL_BURGUNDY if is_royal else WARM_IVORY
-    
-    draw.text((w // 2, header_y), "MARIAM — MADE WITH LOVE", fill=top_title_col, font=title_font, anchor="mm")
-    
-    product_title = config.get("title", "NATURAL HONEY")
-    draw.text((w // 2, header_y + int(scale_ref * 0.045)), product_title, fill=top_sub_col, font=sub_font, anchor="mm")
-    draw.text((w // 2, header_y + int(scale_ref * 0.082)),
-              f"SPECIFICATION: {physical} • {w}x{h} px @ 254 DPI", fill=LUXOR_GOLD, font=small_font, anchor="mm")
-              
-    # Central Logo integration
-    center_box_h = int(h * 0.32)
-    if logo_img:
-        lw, lh = logo_img.size
-        scale = min(center_box_w / lw, center_box_h / lh, 0.70)
-        nw, nh = int(lw * scale), int(lh * scale)
-        if nw > 0 and nh > 0:
-            scaled_logo = logo_img.resize((nw, nh), Image.Resampling.LANCZOS)
-            logo_x = w // 2 - nw // 2
-            logo_y = int(h * 0.37) - nh // 2 if h >= 600 else int(h * 0.36) - nh // 2
-            im.alpha_composite(scaled_logo, (logo_x, logo_y))
-            
-    # Sub-Brand Descriptor below logo
-    desc_y = int(h * 0.53) if h >= 600 else int(h * 0.54)
-    desc_col = IMPERIAL_BURGUNDY if is_royal else WARM_IVORY
-    draw.text((w // 2, desc_y), "NATURAL HONEY & SUPERFOODS", fill=desc_col, font=sub_font, anchor="mm")
-    
-    # Hero Title
-    hero_title = config.get("hero_title", product_title)
-    hero_y = desc_y + int(scale_ref * 0.065)
-    hero_col = IMPERIAL_BURGUNDY if is_royal else LUXOR_GOLD
-    draw.text((w // 2, hero_y), hero_title, fill=hero_col, font=hero_font, anchor="mm")
-    
-    # Special Ribbon / Subhead for Royal Mix
-    if is_royal:
-        ribbon_w = min(center_box_w, 650)
-        ribbon_h = int(scale_ref * 0.045)
-        ribbon_y = hero_y + int(scale_ref * 0.055)
-        draw.rounded_rectangle([w // 2 - ribbon_w // 2, ribbon_y, w // 2 + ribbon_w // 2, ribbon_y + ribbon_h],
-                               radius=6, fill=IMPERIAL_BURGUNDY, outline=LUXOR_GOLD, width=2)
-        draw.text((w // 2, ribbon_y + ribbon_h // 2),
-                  "★ HERO FLAGSHIP • 0% PEANUTS • 5% FRESH ROYAL JELLY ★",
-                  fill=WARM_IVORY, font=bold_meta_font, anchor="mm")
-        sub_y = ribbon_y + ribbon_h + int(scale_ref * 0.035)
-    elif special_mode == "hex":
-        hex_y = hero_y + int(scale_ref * 0.055)
-        draw_hexagon(draw, w // 2, hex_y, radius=18, outline=LUXOR_GOLD, width=2)
-        draw_hexagon(draw, w // 2, hex_y, radius=12, outline=WARM_IVORY, width=1)
-        sub_y = hex_y + int(scale_ref * 0.045)
-    else:
-        sub_y = hero_y + int(scale_ref * 0.055)
+        # ================= ROYAL MIX SCALLOPED BAROQUE CARTOUCHE =================
+        # Exactly sized and proportioned to match the authentic reference photo:
+        cart_w = min(cx1 - cx0 - 80, 680)
+        cart_h = min(avail_h - 10, 530)
+        cart_cx = w // 2
+        cart_cy = (art_y_top + 15 + art_y_bottom) // 2
         
-    subtitle = config.get("subtitle", "Pure Natural Honey")
-    sub_col = IMPERIAL_BURGUNDY if is_royal else WARM_IVORY
-    draw.text((w // 2, sub_y), subtitle, fill=sub_col, font=meta_font, anchor="mm")
-    
-    # Sensory Triad Box
-    triad = config.get("triad", "Pure • Natural • Golden")
-    triad_y = sub_y + int(scale_ref * 0.060)
-    triad_box_w = int(len(triad) * scale_ref * 0.015) + 60
-    triad_box_h = int(scale_ref * 0.048)
-    triad_fill = BLUSH_PINK_LIGHT if is_royal else None
-    draw.rounded_rectangle([w // 2 - triad_box_w // 2, triad_y - triad_box_h // 2,
-                            w // 2 + triad_box_w // 2, triad_y + triad_box_h // 2],
-                           radius=6, fill=triad_fill, outline=LUXOR_GOLD, width=1)
-    triad_col = IMPERIAL_BURGUNDY if is_royal else LUXOR_GOLD
-    draw.text((w // 2, triad_y), triad, fill=triad_col, font=bold_meta_font, anchor="mm")
-    
-    # Net Weight Banner
-    weight_str = config.get("weight", "Net Wt. 500g (17.6 oz)")
-    weight_y = triad_y + int(scale_ref * 0.052)
-    weight_col = IMPERIAL_BURGUNDY if is_royal else WARM_IVORY
-    draw.text((w // 2, weight_y), weight_str, fill=weight_col, font=bold_meta_font, anchor="mm")
-    
-    # Center Panel Footer
-    footer_y = h - inner_inset - int(scale_ref * 0.035)
-    footer_col = IMPERIAL_BURGUNDY if is_royal else WARM_IVORY
-    draw.text((w // 2, footer_y), "[ CENTRAL LUXURY BRANDING & EMBOSS PANEL ]", fill=footer_col, font=small_font, anchor="mm")
-    
+        c_x0 = cart_cx - cart_w // 2
+        c_x1 = cart_cx + cart_w // 2
+        c_y0 = cart_cy - cart_h // 2
+        c_y1 = cart_cy + cart_h // 2
+        
+        # Draw Scalloped Baroque Cartouche with concave corner cutouts
+        cart_r = max(24, int(cart_w * 0.055))
+        cart_arch = max(16, int(cart_h * 0.045))
+        pts_outer = get_scalloped_cartouche_polygon(c_x0, c_y0, c_x1, c_y1, r=cart_r, arch_h=cart_arch)
+        draw.polygon(pts_outer, fill=BLUSH_PINK, outline=LUXOR_GOLD, width=3)
+        
+        # Inner thin gold pinstripe
+        pts_inner = get_scalloped_cartouche_polygon(c_x0 + 7, c_y0 + 7, c_x1 - 7, c_y1 - 7, r=cart_r - 4, arch_h=cart_arch - 2)
+        draw.polygon(pts_inner, outline=LUXOR_GOLD, width=1)
+        
+        # 1. Royal Crown Crest at top of cartouche
+        crown_w = min(80, int(cart_w * 0.14))
+        crown_h = int(crown_w * 0.52)
+        crown_cy = c_y0 + cart_arch + crown_h // 2 + 16
+        draw_crown(draw, cx=cart_cx, cy=crown_cy, width=crown_w, height=crown_h, color=LUXOR_GOLD, jewel_color=IMPERIAL_BURGUNDY)
+        
+        # 2. Authentic Mariam cursive logo tinted in Deep Wine Burgundy (#76122E)
+        if logo_img:
+            burgundy_logo = get_tinted_logo(logo_img, IMPERIAL_BURGUNDY)
+            lw, lh = burgundy_logo.size
+            max_lw = min(cart_w - 90, 360)
+            max_lh = min(int(cart_h * 0.24), 130)
+            scale = min(max_lw / lw, max_lh / lh)
+            nw, nh = int(lw * scale), int(lh * scale)
+            scaled_logo = burgundy_logo.resize((nw, nh), Image.Resampling.LANCZOS)
+            logo_y = crown_cy + crown_h // 2 + 12
+            im.alpha_composite(scaled_logo, (cart_cx - nw // 2, logo_y))
+            next_y = logo_y + nh + 14
+        else:
+            next_y = crown_cy + crown_h // 2 + 40
+            
+        # 3. Sub-Brand Descriptor: NATURAL HONEY & SUPERFOODS
+        draw.text((cart_cx, next_y), "NATURAL HONEY & SUPERFOODS", fill=IMPERIAL_BURGUNDY, font=bold_meta_font, anchor="mm")
+        next_y += 28
+        
+        # 4. Product Hero Title: MARIAM ROYAL MIX
+        draw.text((cart_cx, next_y), "MARIAM ROYAL MIX", fill=IMPERIAL_BURGUNDY, font=hero_font, anchor="mm")
+        next_y += 26
+        
+        # 5. Arabic Subhead
+        draw.text((cart_cx, next_y), "الخلطة الملكية الفاخرة • عسل طبيعي ومكسرات وغذاء ملكات", fill=IMPERIAL_BURGUNDY, font=meta_font, anchor="mm")
+        next_y += 32
+        
+        # 6. Hero Distinction Ribbon: 0% PEANUTS • 100% TREE NUTS • 5% ROYAL JELLY
+        ribbon_w = min(cart_w - 60, 480)
+        ribbon_h = 28
+        draw.rounded_rectangle([cart_cx - ribbon_w // 2, next_y - ribbon_h // 2,
+                                cart_cx + ribbon_w // 2, next_y + ribbon_h // 2],
+                               radius=6, fill=IMPERIAL_BURGUNDY, outline=LUXOR_GOLD, width=1)
+        draw.text((cart_cx, next_y), "• 0% PEANUTS • 100% TREE NUTS • 5% ROYAL JELLY •",
+                  fill=WARM_IVORY, font=bold_meta_font, anchor="mm")
+        next_y += 30
+        
+        # 7. Sensory Triad
+        triad = config.get("triad", "Crunchy • Opulent • Energizing")
+        draw.text((cart_cx, next_y), triad, fill=IMPERIAL_BURGUNDY, font=meta_font, anchor="mm")
+        next_y += 24
+        
+        # 8. Delicate Gold Filigree Divider
+        draw.line([(cart_cx - 60, next_y), (cart_cx - 10, next_y)], fill=LUXOR_GOLD, width=1)
+        draw.line([(cart_cx + 10, next_y), (cart_cx + 60, next_y)], fill=LUXOR_GOLD, width=1)
+        draw.ellipse([cart_cx - 3, next_y - 3, cart_cx + 3, next_y + 3], fill=LUXOR_GOLD)
+        next_y += 24
+        
+        # 9. Net Weight
+        weight_str = config.get("weight", "Net Wt. 500g e (17.6 oz)")
+        draw.text((cart_cx, next_y), weight_str, fill=IMPERIAL_BURGUNDY, font=bold_meta_font, anchor="mm")
+        
+    else:
+        # ================= STANDARD HONEY / HONEYCOMB / FLIGHT PANEL =================
+        panel_w = cx1 - cx0 - 80
+        panel_cx = w // 2
+        p_x0 = panel_cx - panel_w // 2
+        p_x1 = panel_cx + panel_w // 2
+        
+        # Proportional frame height centered in Zone 2
+        panel_h = min(avail_h - 10, int(scale_ref * 0.62)) if h >= 600 else avail_h - 5
+        panel_cy = (art_y_top + 15 + art_y_bottom) // 2
+        p_y0 = panel_cy - panel_h // 2
+        p_y1 = panel_cy + panel_h // 2
+        
+        # Double gold rounded frame
+        draw.rounded_rectangle([p_x0, p_y0, p_x1, p_y1], radius=18, outline=LUXOR_GOLD, width=2)
+        draw.rounded_rectangle([p_x0 + 6, p_y0 + 6, p_x1 - 6, p_y1 - 6], radius=14, outline=LUXOR_GOLD, width=1)
+        
+        # 1. Crown Crest at top
+        crown_w = min(75, int(panel_w * 0.12))
+        crown_h = int(crown_w * 0.52)
+        crown_cy = p_y0 + (40 if h >= 600 else 24)
+        draw_crown(draw, cx=panel_cx, cy=crown_cy, width=crown_w, height=crown_h, color=LUXOR_GOLD, jewel_color=IMPERIAL_BURGUNDY)
+        
+        # 2. Authentic Mariam Cursive Gold Logo
+        if logo_img:
+            lw, lh = logo_img.size
+            max_lw = min(panel_w - 80, 380)
+            max_lh = min(int(panel_h * 0.26), 140)
+            scale = min(max_lw / lw, max_lh / lh)
+            nw, nh = int(lw * scale), int(lh * scale)
+            scaled_logo = logo_img.resize((nw, nh), Image.Resampling.LANCZOS)
+            logo_y = crown_cy + crown_h // 2 + (12 if h >= 600 else 8)
+            im.alpha_composite(scaled_logo, (panel_cx - nw // 2, logo_y))
+            next_y = logo_y + nh + (16 if h >= 600 else 8)
+        else:
+            next_y = crown_cy + crown_h // 2 + 40
+            
+        # 3. Sub-Brand Descriptor: NATURAL HONEY & SUPERFOODS
+        draw.text((panel_cx, next_y), "NATURAL HONEY & SUPERFOODS", fill=WARM_IVORY, font=bold_meta_font, anchor="mm")
+        next_y += (28 if h >= 600 else 18)
+        
+        # 4. Hero Product Title
+        hero_title = config.get("hero_title", product_title)
+        draw.text((panel_cx, next_y), hero_title, fill=LUXOR_GOLD, font=hero_font, anchor="mm")
+        next_y += (28 if h >= 600 else 20)
+        
+        # 5. Hexagon icon if Honeycomb format
+        if special_mode == "hex":
+            draw_hexagon(draw, panel_cx, next_y, radius=14, outline=LUXOR_GOLD, width=2)
+            draw_hexagon(draw, panel_cx, next_y, radius=9, outline=WARM_IVORY, width=1)
+            next_y += 24
+            
+        # 6. Subtitle / Terroir Descriptor
+        subtitle = config.get("subtitle", "Pure Single-Origin Natural Honey")
+        draw.text((panel_cx, next_y), subtitle, fill=WARM_IVORY, font=meta_font, anchor="mm")
+        next_y += (30 if h >= 600 else 20)
+        
+        # 7. Sensory Triad Pill Badge
+        triad = config.get("triad", "Pure • Natural • Golden")
+        triad_w = min(panel_w - 100, int(len(triad) * scale_ref * 0.014) + 60)
+        triad_h = 26 if h >= 600 else 20
+        draw.rounded_rectangle([panel_cx - triad_w // 2, next_y - triad_h // 2,
+                                panel_cx + triad_w // 2, next_y + triad_h // 2],
+                               radius=6, fill=DEEP_BURGUNDY, outline=LUXOR_GOLD, width=1)
+        draw.text((panel_cx, next_y), triad, fill=LUXOR_GOLD, font=bold_meta_font, anchor="mm")
+        next_y += (30 if h >= 600 else 20)
+        
+        # 8. Delicate Gold Divider (for tall labels)
+        if h >= 600:
+            draw.line([(panel_cx - 50, next_y), (panel_cx - 10, next_y)], fill=LUXOR_GOLD, width=1)
+            draw.line([(panel_cx + 10, next_y), (panel_cx + 50, next_y)], fill=LUXOR_GOLD, width=1)
+            draw.ellipse([panel_cx - 3, next_y - 3, panel_cx + 3, next_y + 3], fill=LUXOR_GOLD)
+            next_y += 24
+            
+        # 9. Net Weight
+        weight_str = config.get("weight", "Net Wt. 500g (17.6 oz)")
+        draw.text((panel_cx, next_y), weight_str, fill=WARM_IVORY, font=bold_meta_font, anchor="mm")
+        
     # ==================== ZONE 1: REGULATORY & NUTRITION ====================
     left_cx = (inner_inset + cx0) // 2
-    z1_top = inner_inset + 20
+    z1_top = inner_inset + (20 if h >= 600 else 12)
     draw.text((left_cx, z1_top), "ZONE 1: REGULATORY & NUTRITION", fill=LUXOR_GOLD, font=section_font, anchor="mm")
     
-    # Nutrition Facts Box
     nbox_x0 = inner_inset + 18
     nbox_x1 = cx0 - 18
-    nbox_y0 = z1_top + int(scale_ref * 0.035)
+    nbox_y0 = z1_top + (24 if h >= 600 else 16)
     nbox_h = int(scale_ref * 0.28) if h >= 600 else int(scale_ref * 0.24)
     nbox_y1 = nbox_y0 + nbox_h
     
+    # Nutrition Facts Box
     draw.rectangle([nbox_x0, nbox_y0, nbox_x1, nbox_y1], outline=WARM_IVORY, width=1)
     draw.text((nbox_x0 + 10, nbox_y0 + 12), "NUTRITION FACTS / VALEUR NUTRITIVE", fill=LUXOR_GOLD, font=bold_meta_font, anchor="lm")
     draw.line([(nbox_x0, nbox_y0 + 22), (nbox_x1, nbox_y0 + 22)], fill=WARM_IVORY, width=1)
     
     nut_lines = config.get("nutrition", [
         "Serving Size / Portion: 20g (1 tbsp)",
-        "Calories / Énergie: 61 kcal (304 kcal / 100g)",
+        "Calories / Energie: 61 kcal (304 kcal / 100g)",
         "Total Fat / Lipides: 0g (0% DV)",
         "Total Carbohydrate / Glucides: 16.5g (82g / 100g)",
         "  Sugars / Sucres: 16.4g (82g / 100g)",
-        "Protein / Protéines: 0.1g",
+        "Protein / Proteines: 0.1g",
         "Sodium / Sel: 1mg (<1% DV)"
     ])
     
@@ -487,14 +642,14 @@ def generate_horizontal_dieline(config, catalog_data, output_dir="output/dieline
         line_y += spacing
         
     # Ingredients List
-    ing_top = nbox_y1 + 10
-    draw.text((nbox_x0, ing_top), "INGREDIENTS / INGRÉDIENTS:", fill=LUXOR_GOLD, font=bold_meta_font, anchor="lm")
+    ing_top = nbox_y1 + (12 if h >= 600 else 8)
+    draw.text((nbox_x0, ing_top), "INGREDIENTS / INGREDIENTS:", fill=LUXOR_GOLD, font=bold_meta_font, anchor="lm")
     
     ingredients_str = config.get("ingredients", "100% Pure Raw Natural Honey.")
     words = ingredients_str.split(" ")
     lines = []
     cur_line = ""
-    max_line_len = 45 if w >= 2200 else 32
+    max_line_len = 44 if w >= 2200 else 32
     for word in words:
         if len(cur_line) + len(word) + 1 <= max_line_len:
             cur_line += (" " if cur_line else "") + word
@@ -518,13 +673,13 @@ def generate_horizontal_dieline(config, catalog_data, output_dir="output/dieline
     if h >= 600:
         draw.text((nbox_x0, warn_y + 32), "Storage: Store at room temperature away from sunlight.", fill=WARM_IVORY, font=small_font, anchor="lm")
     
-    # Swatches inside Zone 1 at the bottom
-    swatch_y = h - inner_inset - 38
+    # Swatches inside Zone 1 at bottom
+    swatch_y = h - inner_inset - 36
     draw_swatches_grid(draw, nbox_x0, swatch_y, cx0 - nbox_x0, small_font)
     
     # ==================== ZONE 3: ORIGIN & LOGISTICS ====================
     right_cx = (cx1 + w - inner_inset) // 2
-    z3_top = inner_inset + 20
+    z3_top = inner_inset + (20 if h >= 600 else 12)
     draw.text((right_cx, z3_top), "ZONE 3: ORIGIN & LOGISTICS", fill=LUXOR_GOLD, font=section_font, anchor="mm")
     
     rbox_x0 = cx1 + 18
@@ -544,26 +699,26 @@ def generate_horizontal_dieline(config, catalog_data, output_dir="output/dieline
     
     if producer_img and h >= 600:
         pw, ph = producer_img.size
-        pscale = min(160 / pw, 60 / ph)
+        pscale = min(150 / pw, 55 / ph)
         pnw, pnh = int(pw * pscale), int(ph * pscale)
         scaled_prod = producer_img.resize((pnw, pnh), Image.Resampling.LANCZOS)
         im.alpha_composite(scaled_prod, (rbox_x1 - pnw, cur_r_y - 10))
         
     # EAN-13 Barcode Mockup
     cur_r_y += 50
-    barcode_w = min(rbox_x1 - rbox_x0, 280)
+    barcode_w = min(rbox_x1 - rbox_x0, 270)
     barcode_h = int(scale_ref * 0.10)
     draw_barcode(draw, rbox_x0, cur_r_y, barcode_w, barcode_h,
                  config.get("barcode", "6 281001 029101"),
                  bar_color=LUXOR_GOLD, text_color=WARM_IVORY, font=small_font)
                  
-    # Quality & Compliance Badges
+    # Quality & Compliance Badges (using bullet '•' to prevent missing glyphs)
     cur_r_y += barcode_h + 18
     badges = config.get("badges", [
-        "✓ 100% Raw & Unpasteurized",
-        "✓ Cold Extracted Single-Harvest",
-        "✓ Zero Additives or Sugars",
-        "✓ Recyclable Flint Glass"
+        "• 100% Raw & Unpasteurized",
+        "• Cold Extracted Single-Harvest",
+        "• Zero Additives or Sugars",
+        "• Recyclable Flint Glass"
     ])
     max_badges = 4 if h >= 600 else 2
     for b in badges[:max_badges]:
@@ -631,18 +786,18 @@ def generate_all_dielines(output_dir="output/dielines"):
             "special_mode": "standard",
             "nutrition": [
                 "Serving Size / Portion: 20g (1 tbsp)",
-                "Calories / Énergie: 61 kcal (304 kcal / 100g)",
+                "Calories / Energie: 61 kcal (304 kcal / 100g)",
                 "Total Fat / Lipides: 0g (0% DV)",
                 "Total Carbohydrate / Glucides: 16.5g (82.4g / 100g)",
                 "  Sugars / Sucres: 16.4g (82.1g / 100g)",
-                "Protein / Protéines: 0.1g (0.3g / 100g)",
+                "Protein / Proteines: 0.1g (0.3g / 100g)",
                 "Sodium / Sel: < 1mg (<1% DV)"
             ],
             "badges": [
-                "✓ 100% Pure Monofloral Mountain Sidr",
-                "✓ Unpasteurized & Cold Extracted",
-                "✓ High Antibacterial & Enzyme Potency",
-                "✓ Ultra-Clear Flint Glass Jar"
+                "• 100% Pure Monofloral Mountain Sidr",
+                "• Unpasteurized & Cold Extracted",
+                "• High Antibacterial & Enzyme Potency",
+                "• Ultra-Clear Flint Glass Jar"
             ]
         },
         {
@@ -663,18 +818,18 @@ def generate_all_dielines(output_dir="output/dielines"):
             "special_mode": "standard",
             "nutrition": [
                 "Serving Size / Portion: 20g (1 tbsp)",
-                "Calories / Énergie: 61 kcal (304 kcal / 100g)",
+                "Calories / Energie: 61 kcal (304 kcal / 100g)",
                 "Total Fat / Lipides: 0g (0% DV)",
                 "Total Carbohydrate / Glucides: 16.4g (82g / 100g)",
                 "  Sugars / Sucres: 16.4g (82g / 100g)",
-                "Protein / Protéines: 0.1g (0.3g / 100g)",
+                "Protein / Proteines: 0.1g (0.3g / 100g)",
                 "Sodium / Sel: 1mg (<1% DV)"
             ],
             "badges": [
-                "✓ 100% Pure Natural Clover Honey",
-                "✓ Family Bulk Reserve • 1000g Standard",
-                "✓ Unpasteurized & Cold Extracted",
-                "✓ Recyclable Heavy Flint Glass"
+                "• 100% Pure Natural Clover Honey",
+                "• Family Bulk Reserve • 1000g Standard",
+                "• Unpasteurized & Cold Extracted",
+                "• Recyclable Heavy Flint Glass"
             ]
         },
         {
@@ -695,18 +850,18 @@ def generate_all_dielines(output_dir="output/dielines"):
             "special_mode": "royal_mix",
             "nutrition": [
                 "Serving Size / Portion: 30g (2 tbsp)",
-                "Calories / Énergie: 135 kcal (449 kcal / 100g)",
+                "Calories / Energie: 135 kcal (449 kcal / 100g)",
                 "Total Fat / Lipides: 5.0g (Saturated: 0.6g)",
                 "Total Carbohydrate / Glucides: 15.6g (Sugars: 14.4g)",
                 "Dietary Fiber / Fibres: 1.7g",
-                "Protein / Protéines: 2.5g (8.2g / 100g)",
+                "Protein / Proteines: 2.5g (8.2g / 100g)",
                 "Sodium / Sel: 4mg (<1% DV)"
             ],
             "badges": [
-                "✓ 0% Peanuts Policy — Exclusively Tree Nuts & Seeds",
-                "✓ Fortified with 5% Fresh Queen Bee Royal Jelly",
-                "✓ Rich in Plant Protein, Omega-3 & Zinc",
-                "✓ 12mm Solid Base Glass Jar Architecture"
+                "• 0% Peanuts Policy — Exclusively Tree Nuts & Seeds",
+                "• Fortified with 5% Fresh Queen Bee Royal Jelly",
+                "• Rich in Plant Protein, Omega-3 & Zinc",
+                "• 12mm Solid Base Glass Jar Architecture"
             ]
         },
         {
@@ -727,18 +882,18 @@ def generate_all_dielines(output_dir="output/dielines"):
             "special_mode": "hex",
             "nutrition": [
                 "Serving Size / Portion: 20g (1 tbsp)",
-                "Calories / Énergie: 61 kcal (304 kcal / 100g)",
+                "Calories / Energie: 61 kcal (304 kcal / 100g)",
                 "Total Fat / Lipides: 0g (0% DV)",
                 "Total Carbohydrate / Glucides: 16.4g (82.2g / 100g)",
                 "  Sugars / Sucres: 16.4g (82.0g / 100g)",
-                "Protein / Protéines: 0.1g (0.3g / 100g)",
+                "Protein / Proteines: 0.1g (0.3g / 100g)",
                 "Sodium / Sel: 1mg (<1% DV)"
             ],
             "badges": [
-                "✓ Direct From Hive to Jar Without Processing",
-                "✓ Naturally Contains Bee Propolis & Enzymes",
-                "✓ 100% Edible Natural Virgin Comb",
-                "✓ Faceted Hexagonal Glass Showpiece"
+                "• Direct From Hive to Jar Without Processing",
+                "• Naturally Contains Bee Propolis & Enzymes",
+                "• 100% Edible Natural Virgin Comb",
+                "• Faceted Hexagonal Glass Showpiece"
             ]
         },
         {
@@ -759,17 +914,17 @@ def generate_all_dielines(output_dir="output/dielines"):
             "special_mode": "flight",
             "nutrition": [
                 "Serving Size / Portion: 20g (1 tbsp)",
-                "Calories / Énergie: 61 kcal (304 kcal / 100g)",
+                "Calories / Energie: 61 kcal (304 kcal / 100g)",
                 "Total Fat / Lipides: 0g (0% DV)",
                 "Total Carbohydrate / Glucides: 16.4g (82g / 100g)",
-                "Protein / Protéines: 0.1g",
+                "Protein / Proteines: 0.1g",
                 "Sodium / Sel: < 1mg"
             ],
             "badges": [
-                "✓ 6 Terroirs Discovery Sampling Edition",
-                "✓ 100% Pure Raw Honey Varieties",
-                "✓ Hand-Poured Petite Flint Glass",
-                "✓ Gifting & Tasting Guide Included"
+                "• 6 Terroirs Discovery Sampling Edition",
+                "• 100% Pure Raw Honey Varieties",
+                "• Hand-Poured Petite Flint Glass",
+                "• Gifting & Tasting Guide Included"
             ]
         }
     ]
