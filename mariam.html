@@ -2238,10 +2238,260 @@
         <!-- Footer / Metadata -->
         <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-2 relative z-10">
           <div>Mariam Food Industries • Cairo, Egypt • Direct Export Division &amp; Commercial Partnerships</div>
-          <div class="font-mono text-amber-400 font-bold">Slide 9 of 9</div>
+          <div class="font-mono text-amber-400 font-bold">Slide 9 of 10</div>
         </footer>
       </section>
 
+      <!-- Slide 10: Mariam Natural Honey & Superfoods Collection -->
+      <section id="slide-10" class="slide w-full h-full flex flex-col justify-between p-4 lg:p-6 relative overflow-hidden bg-gradient-to-br from-[#091410] via-[#140810] to-[#050907]">
+        <!-- Background Subtle Glowing Accents (Blush Pink, Burgundy & Luxor Gold) -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#DAAC36]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-[#691630]/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/3 w-80 h-80 bg-[#E8C5C8]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Header -->
+        <header class="flex items-center justify-between border-b border-white/10 pb-2 relative z-10">
+          <div class="flex items-center gap-4">
+            <img src="mariam-logo-gold.png" alt="Mariam - made with love" class="h-8 w-auto object-contain hidden sm:block opacity-95">
+            <div class="h-7 w-px bg-white/15 hidden sm:block"></div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-lg lg:text-xl font-bold tracking-tight text-white">Natural Honey &amp; Superfoods</h2>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#691630]/60 text-[#E8C5C8] border border-[#E8C5C8]/30">Artisanal Superfood Suite</span>
+              </div>
+              <p class="text-[11px] font-medium text-[#DAAC36]/90">Section 09 // Raw Unpasteurized Monoflorals • Tree Nut &amp; Super Seed Blends • 0% Peanuts Policy</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <!-- Tamper Ribbon Mini-Badge -->
+            <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#691630]/40 border border-[#E8C5C8]/30 text-[10px] font-mono text-[#E8C5C8]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#DAAC36] animate-pulse"></span>
+              <span>Crown Seal Tamper Ribbon</span>
+            </div>
+            <!-- Standard Badge -->
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono text-[#DAAC36]">
+              <span>CODEX STAN 12-1981 • Cold Extracted</span>
+            </span>
+          </div>
+        </header>
+
+        <!-- Executive Banner with 500g / 1kg Interactive Switcher -->
+        <div class="my-1 px-3 py-1.5 rounded-xl bg-white/[0.02] border border-[#DAAC36]/25 flex items-center justify-between relative z-10">
+          <div class="flex items-center gap-2.5">
+            <div class="w-2 h-2 rounded-full bg-[#DAAC36] shrink-0"></div>
+            <p class="text-[11px] text-slate-200 leading-tight">
+              <strong class="text-[#DAAC36]">Pinnacle of Functional Luxury:</strong> 100% pure raw Mediterranean honey enriched with hand-selected crunchy tree nuts, power seeds, and fresh royal jelly. Strictly backed by our <span class="text-[#E8C5C8] font-bold">0% Peanuts Guarantee</span> for premium international retail and connoisseur gifting.
+            </p>
+          </div>
+          <!-- 500g / 1kg Packaging Switcher Controls -->
+          <div class="flex items-center gap-1.5 text-xs font-mono shrink-0 pl-3 border-l border-white/10">
+            <span class="text-[10px] text-slate-400 uppercase tracking-wider hidden md:inline">Packaging Standard:</span>
+            <button id="honey-size-500g" onclick="switchHoneySize('500g')" class="px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-[#691630] text-[#E8C5C8] border border-[#DAAC36] shadow-sm cursor-pointer" title="500g Primary Retail Standard">
+              500g Standard
+            </button>
+            <button id="honey-size-1kg" onclick="switchHoneySize('1kg')" class="px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-white/5 text-slate-400 border border-white/10 hover:text-white cursor-pointer" title="1kg Family &amp; Connoisseur Reserve">
+              1kg Reserve
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Body: 2-Column Split (7 Cols Hero Spotlight + 5 Cols Collection Suite & Dielines) -->
+        <div class="flex-1 min-h-0 grid grid-cols-12 gap-2.5 relative z-10 py-0.5 items-stretch">
+
+          <!-- Left Column (7 Cols): Hero Product Spotlight — MARIAM ROYAL MIX -->
+          <div class="col-span-12 lg:col-span-7 flex flex-col justify-between p-3 rounded-xl bg-gradient-to-br from-[#180A12]/90 via-[#0F1B15]/90 to-[#0A1612]/95 border border-[#E8C5C8]/25 shadow-xl relative overflow-hidden group">
+            
+            <!-- Hero Header Row -->
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-[#E8C5C8] text-[#691630] uppercase tracking-wider">
+                    Hero Flagship • SKU-SF01
+                  </span>
+                  <span id="hero-size-badge" class="px-2 py-0.5 rounded text-[9px] font-mono text-[#DAAC36] bg-[#DAAC36]/15 border border-[#DAAC36]/30">
+                    500g Primary Retail Standard
+                  </span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    0% Peanuts • 100% Tree Nuts
+                  </span>
+                </div>
+              </div>
+
+              <!-- Product Title -->
+              <div class="flex items-baseline gap-2 mb-1">
+                <h3 class="text-base lg:text-lg font-extrabold text-white tracking-wide group-hover:text-[#DAAC36] transition-colors leading-tight">
+                  MARIAM ROYAL MIX
+                </h3>
+                <span class="text-[11px] text-[#E8C5C8] font-medium hidden sm:inline">— Natural Honey with Selected Tree Nuts, Super Seeds &amp; Royal Jelly</span>
+              </div>
+            </div>
+
+            <!-- Visual Blueprint & Tamper Ribbon Split (Middle) -->
+            <div class="grid grid-cols-12 gap-2.5 my-1">
+              
+              <!-- Left: Dieline Blueprint Viewer (7 cols) -->
+              <div class="col-span-7 flex flex-col justify-between bg-black/40 rounded-lg p-2 border border-white/10">
+                <div class="relative aspect-[24/9] rounded overflow-hidden bg-slate-950/80 border border-white/10 mb-1.5 cursor-pointer">
+                  <img id="hero-dieline-img" src="output/dielines/dieline_royal_mix_500g_wide.png" alt="MARIAM ROYAL MIX 500g Wide-Mouth Jar Dieline" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" data-zoomable="true">
+                  <div class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-black/80 text-[8px] font-mono text-[#DAAC36] border border-[#DAAC36]/30">
+                    Click to Inspect 254 DPI Blueprint
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-[9px] font-mono text-slate-400">
+                  <span id="hero-dieline-title" class="text-[#E8C5C8] font-medium">Dieline Blueprint: 500g Wide-Mouth Jar (2400 × 850 px)</span>
+                  <span class="text-[#DAAC36]">12mm Solid Base</span>
+                </div>
+              </div>
+
+              <!-- Right: Crown Seal Tamper Ribbon Card (5 cols) -->
+              <div class="col-span-5 flex flex-col justify-between bg-gradient-to-b from-[#691630]/30 to-[#12070D]/50 rounded-lg p-2 border border-[#E8C5C8]/20">
+                <div>
+                  <div class="flex items-center gap-1.5 mb-1 text-[10px] font-bold text-[#E8C5C8]">
+                    <svg class="w-3.5 h-3.5 text-[#DAAC36]" fill="currentColor" viewBox="0 0 24 24"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
+                    <span>Royal Crown Tamper Ribbon</span>
+                  </div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <div class="w-8 h-16 rounded bg-black/50 border border-[#DAAC36]/40 overflow-hidden shrink-0 cursor-pointer shadow-md">
+                      <img src="output/dielines/dieline_tamper_ribbon_crown.png" alt="Tamper Ribbon Crown Seal Dieline" class="w-full h-full object-contain hover:scale-110 transition-transform">
+                    </div>
+                    <div class="text-[9px] text-slate-300 leading-tight">
+                      <p><strong class="text-white">18mm × 45mm</strong> Blush Pink (<code class="text-[#E8C5C8]">#E8C5C8</code>) security ribbon.</p>
+                      <p class="text-[#DAAC36] mt-0.5">Hot-stamped Luxor Gold (<code class="text-[#DAAC36]">#DAAC36</code>) Crown Crest.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="pt-1 border-t border-white/10 text-[8px] text-slate-400 font-mono">
+                  <span>Tamper-evident seal running lid-to-shoulder</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Ingredients & Nutritional Triad Row (Bottom) -->
+            <div class="grid grid-cols-3 gap-2 pt-1.5 border-t border-white/10 text-[10px]">
+              
+              <!-- Purity Box 1: 100% Tree Nuts (0% Peanuts) -->
+              <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
+                <div class="text-[9px] font-bold uppercase tracking-wider text-[#DAAC36] mb-0.5 flex items-center gap-1">
+                  <span class="w-1 h-1 rounded-full bg-[#DAAC36]"></span>
+                  <span>100% Tree Nuts (25%)</span>
+                </div>
+                <p class="text-[9px] text-slate-300 leading-snug">
+                  Green Pistachios, Golden Cashews, Raw Almonds, Walnuts. <strong class="text-emerald-400">Strictly 0% Peanuts.</strong>
+                </p>
+              </div>
+
+              <!-- Purity Box 2: Bio-Active Super Seeds -->
+              <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
+                <div class="text-[9px] font-bold uppercase tracking-wider text-[#E8C5C8] mb-0.5 flex items-center gap-1">
+                  <span class="w-1 h-1 rounded-full bg-[#E8C5C8]"></span>
+                  <span>Super Seeds (15%)</span>
+                </div>
+                <p class="text-[9px] text-slate-300 leading-snug">
+                  Pumpkin, Chia, Golden Flaxseeds, Sesame, &amp; Whole Black Nigella Seeds.
+                </p>
+              </div>
+
+              <!-- Purity Box 3: Fresh Royal Jelly -->
+              <div class="p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
+                <div class="text-[9px] font-bold uppercase tracking-wider text-[#DAAC36] mb-0.5 flex items-center gap-1">
+                  <span class="w-1 h-1 rounded-full bg-[#DAAC36]"></span>
+                  <span>Royal Jelly (5%)</span>
+                </div>
+                <p class="text-[9px] text-slate-300 leading-snug">
+                  100% Fresh Pure Royal Jelly suspended in 55% Raw Mountain Sidr/Wildflower Honey.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Dynamic Packaging Specs Line -->
+            <div class="mt-1 pt-1 border-t border-white/10 flex items-center justify-between text-[9px] font-mono text-slate-400">
+              <div><strong class="text-white">Jar:</strong> <span id="hero-spec-dimensions">Ø88mm × 115mm (12mm Heavy Base)</span></div>
+              <div><strong class="text-white">Case:</strong> <span id="hero-spec-case">12 Jars / Master Carton</span></div>
+              <div><strong class="text-white">Pallet:</strong> <span id="hero-spec-pallet">144 Cases (1,728 Jars)</span></div>
+              <div class="text-[#DAAC36] font-bold"><span id="hero-spec-gross">500g Net / 780g Gross</span></div>
+            </div>
+
+          </div>
+
+          <!-- Right Column (5 Cols): Complete Honey & Superfoods Portfolio Matrix -->
+          <div class="col-span-12 lg:col-span-5 flex flex-col justify-between gap-2">
+            
+            <!-- Suite 1: Pure Monofloral Honey Standard Jar -->
+            <div class="p-2 rounded-xl bg-slate-900/70 border border-white/10 hover:border-[#DAAC36]/40 transition-all flex items-center justify-between gap-2.5">
+              <div class="w-14 h-14 rounded-lg bg-black/40 border border-white/10 overflow-hidden shrink-0 cursor-pointer">
+                <img src="output/dielines/dieline_honey_500g_standard.png" alt="Pure Monofloral Honey Standard 500g Dieline" class="w-full h-full object-contain hover:scale-110 transition-transform" data-zoomable="true">
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between mb-0.5">
+                  <h4 class="text-xs font-bold text-white leading-tight truncate">Pure Monofloral Honey</h4>
+                  <span class="text-[9px] font-mono text-[#DAAC36] shrink-0">500g &amp; 1kg</span>
+                </div>
+                <p class="text-[9px] text-[#DAAC36]/90 font-mono">Clover Blossom &amp; Citrus Blossom</p>
+                <p class="text-[9px] text-slate-300 line-clamp-1">100% Raw Unpasteurized, Cold Extracted, Nordic Cylindrical Glass.</p>
+              </div>
+            </div>
+
+            <!-- Suite 2: Mountain Sidr & Raw Cut Honeycomb -->
+            <div class="p-2 rounded-xl bg-slate-900/70 border border-white/10 hover:border-[#DAAC36]/40 transition-all flex items-center justify-between gap-2.5">
+              <div class="w-14 h-14 rounded-lg bg-black/40 border border-white/10 overflow-hidden shrink-0 cursor-pointer">
+                <img src="output/dielines/dieline_honeycomb_500g_hex.png" alt="Raw Cut Honeycomb Hexagonal Jar Dieline" class="w-full h-full object-contain hover:scale-110 transition-transform" data-zoomable="true">
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between mb-0.5">
+                  <h4 class="text-xs font-bold text-white leading-tight truncate">Mountain Sidr &amp; Cut Honeycomb</h4>
+                  <span class="text-[9px] font-mono text-[#E8C5C8] shrink-0">500g Hexagonal</span>
+                </div>
+                <p class="text-[9px] text-[#DAAC36]/90 font-mono">Artisanal Cut Comb in Raw Honey</p>
+                <p class="text-[9px] text-slate-300 line-clamp-1">Heavy hexagonal glass showcase. Pure virgin beeswax comb cells.</p>
+              </div>
+            </div>
+
+            <!-- Suite 3: Discovery Flight & 1kg Family Reserve -->
+            <div class="p-2 rounded-xl bg-slate-900/70 border border-white/10 hover:border-[#DAAC36]/40 transition-all flex items-center justify-between gap-2.5">
+              <div class="w-14 h-14 rounded-lg bg-black/40 border border-white/10 overflow-hidden shrink-0 cursor-pointer">
+                <img src="output/dielines/dieline_discovery_flight_50g.png" alt="Mariam Discovery Flight 50g Dieline" class="w-full h-full object-contain hover:scale-110 transition-transform" data-zoomable="true">
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between mb-0.5">
+                  <h4 class="text-xs font-bold text-white leading-tight truncate">Discovery Flight &amp; Family Packs</h4>
+                  <span class="text-[9px] font-mono text-[#DAAC36] shrink-0">3×50g &amp; 1kg</span>
+                </div>
+                <p class="text-[9px] text-[#DAAC36]/90 font-mono">Tasting Flights &amp; 1kg Family Dieline</p>
+                <p class="text-[9px] text-slate-300 line-clamp-1">Gift coffret sets with carved olive-wood dipper and 1kg family jars.</p>
+              </div>
+            </div>
+
+            <!-- Technical & Logistics Spec Matrix Summary -->
+            <div class="p-2 rounded-xl bg-gradient-to-r from-[#691630]/20 via-[#14221A] to-[#0A1612] border border-[#DAAC36]/30 text-[9px]">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-bold text-white flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  Export Logistics &amp; Purity Compliance
+                </span>
+                <span class="text-[#DAAC36] font-mono">20ft / 40ft FCL Ready</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-slate-300 text-[8.5px] leading-tight">
+                <div>• Moisture Content: &lt;17.5% (High Density)</div>
+                <div>• HMF: &lt;10 mg/kg (Ultra-Fresh Harvest)</div>
+                <div>• Diastase Activity: &ge;8 Schade units</div>
+                <div>• Zero Invert Sugar / Zero Corn Syrup</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Footer / Metadata -->
+        <footer class="flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-1.5 relative z-10">
+          <div>Mariam Natural Honey &amp; Superfoods • 100% Tree Nuts &amp; 0% Peanuts Policy • Heavy Flint Glass Standards</div>
+          <div class="font-mono text-[#DAAC36] font-bold">Slide 10 of 10</div>
+        </footer>
+      </section>
 
     </main>
   </div>
@@ -2282,7 +2532,7 @@
           <div class="h-6 w-px bg-white/15"></div>
           <div>
             <h2 class="text-base sm:text-lg font-bold text-white tracking-tight">Presentation Deck Overview</h2>
-            <p class="text-xs text-slate-400">Select any slide to jump directly (or press 1–9, G, or Esc)</p>
+            <p class="text-xs text-slate-400">Select any slide to jump directly (or press 1–9, 0, G, or Esc)</p>
           </div>
         </div>
         <button onclick="closeOverviewModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-all focus:outline-none tactile-btn" title="Close (Esc)">
@@ -2325,7 +2575,7 @@
         </div>
         <div class="flex items-center justify-between py-1.5 border-b border-white/5">
           <span class="text-slate-300">Jump to Slide Directly</span>
-          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">1 – 9</kbd>
+          <kbd class="px-2 py-0.5 rounded bg-white/10 border border-white/20 font-mono text-amber-300 font-bold">1 – 9, 0</kbd>
         </div>
         <div class="flex items-center justify-between py-1.5 border-b border-white/5">
           <span class="text-slate-300">First / Last Slide</span>
@@ -2364,7 +2614,7 @@
 
     <!-- Slide Indicator / Overview Trigger -->
     <button id="indicator-btn" onclick="toggleOverviewModal()" class="px-3 py-1 rounded-md bg-white/5 hover:bg-white/15 border border-white/10 text-xs font-semibold tracking-wider text-amber-300 font-mono transition-colors focus:outline-none cursor-pointer tactile-btn" title="Click to view all 9 slides (G / M)">
-      <span id="slide-indicator">Slide 1 / 9</span>
+      <span id="slide-indicator">Slide 1 / 10</span>
     </button>
 
     <!-- Next Button -->
@@ -2407,7 +2657,7 @@
   <!-- Slide Navigation & Interactivity Script -->
   <script>
     let currentSlide = 0;
-    const totalSlides = 9;
+    const totalSlides = 10;
 
     const slideTitles = [
       { num: '01', category: 'Executive Overview', title: 'Mediterranean Table Olives & Pickled Specialties' },
@@ -2418,7 +2668,8 @@
       { num: '06', category: 'Packaging Solutions', title: 'Foodservice A10 Cans, Bulk Drums, Jars & Pallets' },
       { num: '07', category: 'Turnkey Private Label', title: 'OEM Contract Manufacturing, Custom Recipes & Export QC' },
       { num: '08', category: 'Technical Specifications', title: 'Physicochemical Parameters, Salinity & FCL Loading' },
-      { num: '09', category: 'Commercial Terms & RFQ', title: 'Procurement Desk, Incoterms & Fast-Track Sampling' }
+      { num: '09', category: 'Commercial Terms & RFQ', title: 'Procurement Desk, Incoterms & Fast-Track Sampling' },
+      { num: '10', category: 'Honey & Superfoods', title: 'Natural Honey & Superfoods — MARIAM ROYAL MIX Hero Spotlight' }
     ];
 
     function renderOverviewGrid() {
@@ -2684,6 +2935,10 @@
           e.preventDefault();
           showSlide(parseInt(e.key) - 1);
           break;
+        case '0':
+          e.preventDefault();
+          showSlide(9);
+          break;
       }
     });
 
@@ -2702,6 +2957,56 @@
     window.openShortcutsModal = openShortcutsModal;
     window.closeShortcutsModal = closeShortcutsModal;
     window.toggleShortcutsModal = toggleShortcutsModal;
+    // Interactive Honey & Superfoods Packaging Switcher (Slide 10)
+    function switchHoneySize(size) {
+      const btn500 = document.getElementById('honey-size-500g');
+      const btn1000 = document.getElementById('honey-size-1kg');
+      const sizeBadge = document.getElementById('hero-size-badge');
+      const dImage = document.getElementById('hero-dieline-img');
+      const dTitle = document.getElementById('hero-dieline-title');
+      const specDimensions = document.getElementById('hero-spec-dimensions');
+      const specCase = document.getElementById('hero-spec-case');
+      const specPallet = document.getElementById('hero-spec-pallet');
+      const specGross = document.getElementById('hero-spec-gross');
+
+      if (size === '500g') {
+        if (btn500) {
+          btn500.className = 'px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-[#691630] text-[#E8C5C8] border border-[#DAAC36] shadow-sm cursor-pointer';
+        }
+        if (btn1000) {
+          btn1000.className = 'px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-white/5 text-slate-400 border border-white/10 hover:text-white cursor-pointer';
+        }
+        if (sizeBadge) sizeBadge.textContent = '500g Primary Retail Standard';
+        if (dImage) {
+          dImage.src = 'output/dielines/dieline_royal_mix_500g_wide.png';
+          dImage.alt = 'MARIAM ROYAL MIX 500g Wide-Mouth Jar Dieline';
+        }
+        if (dTitle) dTitle.textContent = 'Dieline Blueprint: 500g Wide-Mouth Jar (2400 × 850 px)';
+        if (specDimensions) specDimensions.textContent = 'Ø88mm × 115mm (12mm Heavy Base)';
+        if (specCase) specCase.textContent = '12 Jars / Master Carton';
+        if (specPallet) specPallet.textContent = '144 Cases (1,728 Jars)';
+        if (specGross) specGross.textContent = '500g Net / 780g Gross';
+      } else {
+        if (btn500) {
+          btn500.className = 'px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-white/5 text-slate-400 border border-white/10 hover:text-white cursor-pointer';
+        }
+        if (btn1000) {
+          btn1000.className = 'px-2.5 py-1 rounded-lg text-xs font-bold font-mono transition-all bg-[#691630] text-[#E8C5C8] border border-[#DAAC36] shadow-sm cursor-pointer';
+        }
+        if (sizeBadge) sizeBadge.textContent = '1kg Family & Connoisseur Reserve';
+        if (dImage) {
+          dImage.src = 'output/dielines/dieline_honey_1kg_family.png';
+          dImage.alt = 'MARIAM Honey & Superfoods 1kg Family Jar Dieline';
+        }
+        if (dTitle) dTitle.textContent = 'Dieline Blueprint: 1kg Family Jar (2600 × 1100 px)';
+        if (specDimensions) specDimensions.textContent = 'Ø108mm × 152mm (15mm Heavy Base)';
+        if (specCase) specCase.textContent = '6 Jars / Master Carton';
+        if (specPallet) specPallet.textContent = '105 Cases (630 Jars)';
+        if (specGross) specGross.textContent = '1,000g Net / 1,480g Gross';
+      }
+    }
+    window.switchHoneySize = switchHoneySize;
+
 
     // Initialize state
     document.addEventListener('DOMContentLoaded', () => {
