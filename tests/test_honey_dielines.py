@@ -20,8 +20,8 @@ class TestHoneyDielines(unittest.TestCase):
             ("dieline_tamper_ribbon_crown.png", (450, 1125)),
             ("dieline_discovery_flight_50g.png", (1200, 400)),
         ]
-        self.blush_pink = (232, 197, 200)
-        self.burgundy = (105, 22, 48)
+        self.blush_pink = (245, 183, 194)
+        self.burgundy = (118, 18, 46)
         self.gold_foil = (218, 172, 54)
 
     def test_dielines_exist_and_match_dimensions(self):

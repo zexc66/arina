@@ -27,11 +27,12 @@ import os
 import random
 from PIL import Image, ImageDraw, ImageFont
 
-# Official Brand Palette Constants
-BLUSH_PINK = (232, 197, 200)        # #E8C5C8
-IMPERIAL_BURGUNDY = (105, 22, 48)   # #691630
+# Official Brand Palette Constants - Calibrated to User Photo Reference
+BLUSH_PINK = (245, 183, 194)        # #F5B7C2 (Petal Blush Pink sampled from user photo)
+BLUSH_PINK_LIGHT = (252, 220, 227)  # #FCDCE3 (Light Petal Tint)
+IMPERIAL_BURGUNDY = (118, 18, 46)   # #76122E (Deep Wine Burgundy sampled from user photo)
 LUXOR_GOLD = (218, 172, 54)         # #DAAC36 (Kurz Luxor 428 Gold)
-WARM_IVORY = (248, 245, 238)        # #F8F5EE (Pantone 7527 C Warm Organic Ivory)
+WARM_IVORY = (255, 245, 247)        # #FFF5F7 (Warm Ivory Blush)
 HONEY_AMBER = (226, 149, 39)        # #E29527
 CHAMPAGNE_GOLD = (238, 212, 142)    # #EED48E
 DEEP_BURGUNDY = (75, 12, 32)        # #4B0C20
@@ -159,10 +160,10 @@ def draw_barcode(draw, x, y, w, h, code_text, bar_color=LUXOR_GOLD, text_color=W
 def draw_swatches_grid(draw, base_x, base_y, max_w, font, swatch_w=22, swatch_h=12):
     """Draw official color calibration swatches in a neat 2x2 grid inside Zone 1."""
     swatches = [
-        (BLUSH_PINK, "Blush Pink #E8C5C8", LUXOR_GOLD),
-        (IMPERIAL_BURGUNDY, "Burgundy #691630", WARM_IVORY),
+        (BLUSH_PINK, "Petal Blush #F5B7C2", LUXOR_GOLD),
+        (IMPERIAL_BURGUNDY, "Wine Burgundy #76122E", WARM_IVORY),
         (LUXOR_GOLD, "Luxor Gold #DAAC36", LUXOR_GOLD),
-        (WARM_IVORY, "Warm Ivory #F8F5EE", WARM_IVORY),
+        (WARM_IVORY, "Warm Ivory #FFF5F7", WARM_IVORY),
     ]
     col_w = max(max_w // 2, 130)
     for idx, (color, name, label_col) in enumerate(swatches):
@@ -275,13 +276,13 @@ def generate_tamper_ribbon(output_dir="output/dielines", logo_img=None):
     # Swatches on bottom of ribbon
     sw_y = 1030
     draw.rectangle([55, sw_y, 80, sw_y + 12], fill=BLUSH_PINK, outline=LUXOR_GOLD, width=1)
-    draw.text((88, sw_y + 6), "#E8C5C8", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="lm")
+    draw.text((88, sw_y + 6), "#F5B7C2", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="lm")
     
     draw.rectangle([180, sw_y, 205, sw_y + 12], fill=LUXOR_GOLD, outline=IMPERIAL_BURGUNDY, width=1)
     draw.text((213, sw_y + 6), "#DAAC36", fill=LUXOR_GOLD, font=small_font, anchor="lm")
     
     draw.rectangle([305, sw_y, 330, sw_y + 12], fill=IMPERIAL_BURGUNDY, outline=LUXOR_GOLD, width=1)
-    draw.text((338, sw_y + 6), "#691630", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="lm")
+    draw.text((338, sw_y + 6), "#76122E", fill=IMPERIAL_BURGUNDY, font=small_font, anchor="lm")
     
     out_path = os.path.join(output_dir, "dieline_tamper_ribbon_crown.png")
     im.save(out_path)
@@ -354,16 +355,37 @@ def generate_horizontal_dieline(config, catalog_data, output_dir="output/dieline
     small_font = load_font(max(9, int(scale_ref * 0.015)), bold=False)
     
     # ==================== ZONE 2: CENTER HERO BRANDING ====================
+    is_royal = (special_mode == "royal_mix")
+    
+    # 5. Zone 2 Center Luxury Panel / Baroque Cartouche
+    center_box_w = cx1 - cx0 - 80
+    cart_x0 = cx0 + 35
+    cart_x1 = cx1 - 35
+    cart_y0 = inner_inset + 18
+    cart_y1 = h - inner_inset - 18
+    
+    if is_royal:
+        # Draw the iconic Petal Blush Pink baroque cartouche with gold outline from reference photo
+        draw.rounded_rectangle([cart_x0, cart_y0, cart_x1, cart_y1], radius=28, fill=BLUSH_PINK, outline=LUXOR_GOLD, width=3)
+        draw.rounded_rectangle([cart_x0 + 8, cart_y0 + 8, cart_x1 - 8, cart_y1 - 8], radius=22, outline=LUXOR_GOLD, width=1)
+        # Gold Crown on top
+        draw_crown(draw, cx=w // 2, cy=cart_y0 + 48, width=70, height=40, color=LUXOR_GOLD, jewel_color=IMPERIAL_BURGUNDY)
+    else:
+        # Standard elegant frame
+        draw.rounded_rectangle([cart_x0, cart_y0, cart_x1, cart_y1], radius=16, outline=LUXOR_GOLD, width=2)
+    
     header_y = int(h * 0.09) if h >= 600 else 46
-    draw.text((w // 2, header_y), "MARIAM — MADE WITH LOVE", fill=LUXOR_GOLD, font=title_font, anchor="mm")
+    top_title_col = IMPERIAL_BURGUNDY if is_royal else LUXOR_GOLD
+    top_sub_col = IMPERIAL_BURGUNDY if is_royal else WARM_IVORY
+    
+    draw.text((w // 2, header_y), "MARIAM — MADE WITH LOVE", fill=top_title_col, font=title_font, anchor="mm")
     
     product_title = config.get("title", "NATURAL HONEY")
-    draw.text((w // 2, header_y + int(scale_ref * 0.045)), product_title, fill=WARM_IVORY, font=sub_font, anchor="mm")
+    draw.text((w // 2, header_y + int(scale_ref * 0.045)), product_title, fill=top_sub_col, font=sub_font, anchor="mm")
     draw.text((w // 2, header_y + int(scale_ref * 0.082)),
               f"SPECIFICATION: {physical} • {w}x{h} px @ 254 DPI", fill=LUXOR_GOLD, font=small_font, anchor="mm")
               
     # Central Logo integration
-    center_box_w = cx1 - cx0 - 80
     center_box_h = int(h * 0.32)
     if logo_img:
         lw, lh = logo_img.size
@@ -377,27 +399,27 @@ def generate_horizontal_dieline(config, catalog_data, output_dir="output/dieline
             
     # Sub-Brand Descriptor below logo
     desc_y = int(h * 0.53) if h >= 600 else int(h * 0.54)
-    draw.text((w // 2, desc_y), "NATURAL HONEY & SUPERFOODS", fill=WARM_IVORY, font=sub_font, anchor="mm")
+    desc_col = IMPERIAL_BURGUNDY if is_royal else WARM_IVORY
+    draw.text((w // 2, desc_y), "NATURAL HONEY & SUPERFOODS", fill=desc_col, font=sub_font, anchor="mm")
     
     # Hero Title
     hero_title = config.get("hero_title", product_title)
     hero_y = desc_y + int(scale_ref * 0.065)
-    draw.text((w // 2, hero_y), hero_title, fill=LUXOR_GOLD, font=hero_font, anchor="mm")
+    hero_col = IMPERIAL_BURGUNDY if is_royal else LUXOR_GOLD
+    draw.text((w // 2, hero_y), hero_title, fill=hero_col, font=hero_font, anchor="mm")
     
     # Special Ribbon / Subhead for Royal Mix
-    if special_mode == "royal_mix":
-        # Blush Pink Ribbon Banner
+    if is_royal:
         ribbon_w = min(center_box_w, 650)
         ribbon_h = int(scale_ref * 0.045)
         ribbon_y = hero_y + int(scale_ref * 0.055)
-        draw.rectangle([w // 2 - ribbon_w // 2, ribbon_y, w // 2 + ribbon_w // 2, ribbon_y + ribbon_h],
-                       fill=BLUSH_PINK, outline=LUXOR_GOLD, width=2)
+        draw.rounded_rectangle([w // 2 - ribbon_w // 2, ribbon_y, w // 2 + ribbon_w // 2, ribbon_y + ribbon_h],
+                               radius=6, fill=IMPERIAL_BURGUNDY, outline=LUXOR_GOLD, width=2)
         draw.text((w // 2, ribbon_y + ribbon_h // 2),
                   "★ HERO FLAGSHIP • 0% PEANUTS • 5% FRESH ROYAL JELLY ★",
-                  fill=IMPERIAL_BURGUNDY, font=bold_meta_font, anchor="mm")
+                  fill=WARM_IVORY, font=bold_meta_font, anchor="mm")
         sub_y = ribbon_y + ribbon_h + int(scale_ref * 0.035)
     elif special_mode == "hex":
-        # Hexagonal gold decorative icon / motif
         hex_y = hero_y + int(scale_ref * 0.055)
         draw_hexagon(draw, w // 2, hex_y, radius=18, outline=LUXOR_GOLD, width=2)
         draw_hexagon(draw, w // 2, hex_y, radius=12, outline=WARM_IVORY, width=1)
@@ -406,26 +428,31 @@ def generate_horizontal_dieline(config, catalog_data, output_dir="output/dieline
         sub_y = hero_y + int(scale_ref * 0.055)
         
     subtitle = config.get("subtitle", "Pure Natural Honey")
-    draw.text((w // 2, sub_y), subtitle, fill=WARM_IVORY, font=meta_font, anchor="mm")
+    sub_col = IMPERIAL_BURGUNDY if is_royal else WARM_IVORY
+    draw.text((w // 2, sub_y), subtitle, fill=sub_col, font=meta_font, anchor="mm")
     
     # Sensory Triad Box
     triad = config.get("triad", "Pure • Natural • Golden")
     triad_y = sub_y + int(scale_ref * 0.060)
     triad_box_w = int(len(triad) * scale_ref * 0.015) + 60
     triad_box_h = int(scale_ref * 0.048)
+    triad_fill = BLUSH_PINK_LIGHT if is_royal else None
     draw.rounded_rectangle([w // 2 - triad_box_w // 2, triad_y - triad_box_h // 2,
                             w // 2 + triad_box_w // 2, triad_y + triad_box_h // 2],
-                           radius=6, outline=LUXOR_GOLD, width=1)
-    draw.text((w // 2, triad_y), triad, fill=LUXOR_GOLD, font=bold_meta_font, anchor="mm")
+                           radius=6, fill=triad_fill, outline=LUXOR_GOLD, width=1)
+    triad_col = IMPERIAL_BURGUNDY if is_royal else LUXOR_GOLD
+    draw.text((w // 2, triad_y), triad, fill=triad_col, font=bold_meta_font, anchor="mm")
     
     # Net Weight Banner
     weight_str = config.get("weight", "Net Wt. 500g (17.6 oz)")
     weight_y = triad_y + int(scale_ref * 0.052)
-    draw.text((w // 2, weight_y), weight_str, fill=WARM_IVORY, font=bold_meta_font, anchor="mm")
+    weight_col = IMPERIAL_BURGUNDY if is_royal else WARM_IVORY
+    draw.text((w // 2, weight_y), weight_str, fill=weight_col, font=bold_meta_font, anchor="mm")
     
     # Center Panel Footer
     footer_y = h - inner_inset - int(scale_ref * 0.035)
-    draw.text((w // 2, footer_y), "[ CENTRAL LUXURY BRANDING & EMBOSS PANEL ]", fill=WARM_IVORY, font=small_font, anchor="mm")
+    footer_col = IMPERIAL_BURGUNDY if is_royal else WARM_IVORY
+    draw.text((w // 2, footer_y), "[ CENTRAL LUXURY BRANDING & EMBOSS PANEL ]", fill=footer_col, font=small_font, anchor="mm")
     
     # ==================== ZONE 1: REGULATORY & NUTRITION ====================
     left_cx = (inner_inset + cx0) // 2

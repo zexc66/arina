@@ -23,14 +23,14 @@
   },
   "palette": {
     "blush_pink": {
-      "hex": "#E8C5C8",
-      "rgb": [232, 197, 200],
-      "name": "Mariam Blush Pink"
+      "hex": "#F5B7C2",
+      "rgb": [245, 183, 194],
+      "name": "Mariam Petal Blush Pink"
     },
     "imperial_burgundy": {
-      "hex": "#691630",
-      "rgb": [105, 22, 48],
-      "name": "Imperial Burgundy"
+      "hex": "#76122E",
+      "rgb": [118, 18, 46],
+      "name": "Imperial Wine Burgundy"
     },
     "luxor_gold": {
       "hex": "#DAAC36",
@@ -38,9 +38,9 @@
       "name": "Warm Luxor Gold"
     },
     "warm_ivory": {
-      "hex": "#F8F5EE",
-      "rgb": [248, 245, 238],
-      "name": "Warm Ivory"
+      "hex": "#FFF5F7",
+      "rgb": [255, 245, 247],
+      "name": "Warm Ivory Blush"
     },
     "honey_amber": {
       "hex": "#E29527",
@@ -51,7 +51,7 @@
   "tamper_ribbon": {
     "width_mm": 18,
     "length_mm": 45,
-    "background_color": "#E8C5C8",
+    "background_color": "#F5B7C2",
     "crest": "Embossed Luxor Gold Crown Crest",
     "crest_color": "#DAAC36",
     "purpose": "Tamper-evident seal running from metallic lid down over jar shoulder"
