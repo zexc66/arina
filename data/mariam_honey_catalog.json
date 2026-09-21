@@ -1,0 +1,1146 @@
+{
+  "brand": "Mariam",
+  "category": "Natural Honey & Superfoods",
+  "category_ar": "عسل مريم الطبيعي والسوبرفود",
+  "descriptor": "NATURAL HONEY & SUPERFOODS",
+  "descriptor_ar": "عسل طبيعي وسوبرفود",
+  "tagline": "Pure Goodness, Naturally.",
+  "tagline_ar": "نقاء الطبيعة... بكل بساطة",
+  "signature": "Made with Love",
+  "signature_ar": "صُنع بكل حب",
+  "producer": "Khaeer Alwadi",
+  "producer_ar": "خير الوادي",
+  "standards": {
+    "primary_size": "500g",
+    "family_size": "1kg",
+    "glass_quality": "Ultra-Clear Heavy Flint Glass",
+    "tamper_evident": true,
+    "unpasteurized": true,
+    "cold_extracted": true,
+    "no_additives": true,
+    "zero_peanuts_policy": true,
+    "infant_warning": "Not suitable for infants under 12 months of age."
+  },
+  "palette": {
+    "blush_pink": {
+      "hex": "#E8C5C8",
+      "rgb": [232, 197, 200],
+      "name": "Mariam Blush Pink"
+    },
+    "imperial_burgundy": {
+      "hex": "#691630",
+      "rgb": [105, 22, 48],
+      "name": "Imperial Burgundy"
+    },
+    "luxor_gold": {
+      "hex": "#DAAC36",
+      "rgb": [218, 172, 54],
+      "name": "Warm Luxor Gold"
+    },
+    "warm_ivory": {
+      "hex": "#F8F5EE",
+      "rgb": [248, 245, 238],
+      "name": "Warm Ivory"
+    },
+    "honey_amber": {
+      "hex": "#E29527",
+      "rgb": [226, 149, 39],
+      "name": "Honey Amber"
+    }
+  },
+  "tamper_ribbon": {
+    "width_mm": 18,
+    "length_mm": 45,
+    "background_color": "#E8C5C8",
+    "crest": "Embossed Luxor Gold Crown Crest",
+    "crest_color": "#DAAC36",
+    "purpose": "Tamper-evident seal running from metallic lid down over jar shoulder"
+  },
+  "families": [
+    {
+      "family_id": "pure_honey",
+      "name_en": "Pure Monofloral Honey",
+      "name_ar": "العسل الصافي الأحادي",
+      "description_en": "100% pure raw unpasteurized honey harvested from single floral sources across pristine Mediterranean terroirs.",
+      "description_ar": "عسل خام طبيعي 100% غير مبستر مستخلص من مصادر زهرية أحادية نقية من بيئات البحر الأبيض المتوسط.",
+      "items": [
+        {
+          "sku": "SKU-H01",
+          "name_en": "Mariam Clover Honey",
+          "name_ar": "عسل زهور البرسيم النقي",
+          "subtitle_en": "Pure Monofloral Clover Blossom Honey",
+          "subtitle_ar": "عسل نحل صافي من رحيق زهور البرسيم",
+          "tier": "Everyday",
+          "packaging_type": "Cylindrical Nordic Glass Jar",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "ingredients": ["100% Pure Natural Clover Blossom Honey"],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Light, silky & crystalline",
+            "notes": ["Gentle floral", "Sweet vanilla", "Golden sunshine"],
+            "sensory_triad": "Delicate • Floral • Pure"
+          },
+          "label_palette": {
+            "primary": "#6B8E73",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Lush Mediterranean River Plains",
+          "health_claims": [
+            "100% Pure Natural Honey",
+            "Naturally Nourishing & Energizing",
+            "No Refined Sugars, Additives, or Preservatives",
+            "Unpasteurized & Cold Extracted"
+          ]
+        },
+        {
+          "sku": "SKU-H02",
+          "name_en": "Mariam Citrus Blossom Honey",
+          "name_ar": "عسل أزهار الموالح والبرتقال",
+          "subtitle_en": "Spring Orange & Lemon Blossom Honey",
+          "subtitle_ar": "عسل أزهار الحمضيات والبرتقال الربيعي",
+          "tier": "Everyday",
+          "packaging_type": "Cylindrical Nordic Glass Jar",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "ingredients": ["100% Pure Natural Citrus & Orange Blossom Honey"],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Smooth & luminous golden amber",
+            "notes": ["Orange blossom aroma", "Crisp citrus undertones", "Refreshing tang"],
+            "sensory_triad": "Vibrant • Citrusy • Uplifting"
+          },
+          "label_palette": {
+            "primary": "#D88235",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Coastal Mediterranean Citrus Groves",
+          "health_claims": [
+            "100% Pure Natural Honey",
+            "Rich in Natural Vitamin C Precursors & Antioxidants",
+            "No Refined Sugars, Additives, or Preservatives",
+            "Unpasteurized & Cold Extracted"
+          ]
+        },
+        {
+          "sku": "SKU-H03",
+          "name_en": "Mariam Mountain Sidr Honey",
+          "name_ar": "عسل السدر الجبلي الفاخر",
+          "subtitle_en": "Royal Reserve Wild Mountain Sidr (Ziziphus)",
+          "subtitle_ar": "عسل سدر جبلي ملكي أحادي المصدر من الوديان البرية",
+          "tier": "Royal Reserve",
+          "packaging_type": "Nordic Heavy Glass Jar with Gold Lid",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "ingredients": ["100% Pure Wild Mountain Sidr (Ziziphus spina-christi) Honey"],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Ultra-thick, rich velvety body",
+            "notes": ["Rich butterscotch", "Warm woody undertone", "Caramel resin"],
+            "sensory_triad": "Rich • Velvety • Raw"
+          },
+          "label_palette": {
+            "primary": "#691630",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Untouched Highland Valleys & Mountain Slopes",
+          "health_claims": [
+            "100% Pure Monofloral Mountain Sidr Honey",
+            "Renowned High Antibacterial & Therapeutic Potency",
+            "No Refined Sugars, Additives, or Preservatives",
+            "Unpasteurized & Cold Extracted"
+          ]
+        },
+        {
+          "sku": "SKU-H04",
+          "name_en": "Mariam Wild Mountain Flower Honey",
+          "name_ar": "عسل أزهار الجبل البرية",
+          "subtitle_en": "Wild Multi-Flora Highland Blossom Honey",
+          "subtitle_ar": "عسل جبلي بري متعدد الأزهار البرية العطرية",
+          "tier": "Artisan Heritage",
+          "packaging_type": "Cylindrical Nordic Glass Jar",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "ingredients": ["100% Pure Wild Highland Mountain Multi-Floral Honey"],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Medium body, radiant deep amber",
+            "notes": ["Herbal thyme", "Wild lavender", "Earthy undertones"],
+            "sensory_triad": "Aromatic • Herbal • Complex"
+          },
+          "label_palette": {
+            "primary": "#4A5D4E",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "High Altitude Mountain Meadows",
+          "health_claims": [
+            "100% Pure Natural Honey",
+            "Rich in Natural Bio-flavonoids",
+            "No Refined Sugars, Additives, or Preservatives"
+          ]
+        },
+        {
+          "sku": "SKU-H05",
+          "name_en": "Mariam Black Seed Blossom Honey",
+          "name_ar": "عسل أزهار حبة البركة",
+          "subtitle_en": "Pure Nigella Sativa Nectar Honey",
+          "subtitle_ar": "عسل مستخلص من رحيق أزهار الحبة السوداء الطبيعية",
+          "tier": "Traditional",
+          "packaging_type": "Cylindrical Nordic Glass Jar",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "ingredients": ["100% Pure Black Seed (Nigella sativa) Blossom Honey"],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Dense copper-amber, balsamic warmth",
+            "notes": ["Warm spice", "Subtle balsamic finish", "Molasses depth"],
+            "sensory_triad": "Warm • Balsamic • Grounding"
+          },
+          "label_palette": {
+            "primary": "#1A1A1A",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Nigella Sativa Cultivation Valleys",
+          "health_claims": [
+            "100% Pure Monofloral Black Seed Honey",
+            "Celebrated Heritage Remedy for Longevity & Vitality",
+            "No Refined Sugars, Additives, or Preservatives"
+          ]
+        },
+        {
+          "sku": "SKU-H06",
+          "name_en": "Mariam Raw Honeycomb in Honey",
+          "name_ar": "عسل الشمع الطبيعي",
+          "subtitle_en": "Fresh Natural Hexagonal Comb immersed in Pure Raw Honey",
+          "subtitle_ar": "قرص شمع عسل طبيعي مغمور بعسل النحل الصافي",
+          "tier": "Artisan Showpiece",
+          "packaging_type": "Hexagonal Faceted Glass Jar",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "ingredients": [
+            "100% Pure Raw Natural Honey",
+            "100% Virgin Natural Beeswax Honeycomb Section"
+          ],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Chewy pristine beeswax cells releasing liquid raw nectar",
+            "notes": ["Direct from the hive", "Floral beeswax aroma", "Crisp sweetness"],
+            "sensory_triad": "Raw • Hexagonal • Unfiltered"
+          },
+          "label_palette": {
+            "primary": "#C69214",
+            "accent": "#691630",
+            "text": "#F8F5EE"
+          },
+          "origin": "Artisanal Certified Apiaries",
+          "health_claims": [
+            "Direct from Hive to Jar Without Processing",
+            "Naturally Contains Bee Propolis, Pollen & Royal Enzymes",
+            "100% Edible Natural Virgin Comb"
+          ]
+        },
+        {
+          "sku": "SKU-H07",
+          "name_en": "Mariam Acacia Blossom Honey",
+          "name_ar": "عسل أزهار الأكاسيا النقي",
+          "subtitle_en": "Water-Clear Delicate Acacia Nectar",
+          "subtitle_ar": "عسل أكاسيا نقي فائق الشفافية والنعومة",
+          "tier": "Everyday Luxury",
+          "packaging_type": "Cylindrical Nordic Glass Jar",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "ingredients": ["100% Pure Natural Acacia Blossom Honey"],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Water-clear, non-crystallizing liquid gold",
+            "notes": ["Subtle vanilla", "Mellow almond blossom", "Clean sweet finish"],
+            "sensory_triad": "Crystal • Mild • Silken"
+          },
+          "label_palette": {
+            "primary": "#B2A379",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Protected Acacia Forest Woodlands",
+          "health_claims": [
+            "100% Pure Natural Acacia Honey",
+            "Naturally Low Glycemic Index & High Fructose",
+            "Smooth Flow & Gentle on Digestion"
+          ]
+        }
+      ]
+    },
+    {
+      "family_id": "superfood_nut_blends",
+      "name_en": "Superfood & Tree Nut Blends",
+      "name_ar": "خلطات المكسرات والسوبرفود",
+      "description_en": "Master combinations of pure raw honey, crisp selected whole tree nuts, super seeds, and pure royal jelly. Strictly 0% peanuts.",
+      "description_ar": "خلطات مريم الحرفية من العسل النقي والمكسرات الشجرية الكاملة وبذور السوبرفود وغذاء الملكات. خالية تماماً 0% من الفول السوداني.",
+      "items": [
+        {
+          "sku": "SKU-SF01",
+          "name_en": "Mariam Royal Mix",
+          "name_ar": "خلطة مريم الملكية",
+          "packaging_name_en": "MARIAM ROYAL MIX — Natural Honey with Selected Tree Nuts, Super Seeds & Royal Jelly",
+          "packaging_name_ar": "خلطة مريم الملكية — عسل طبيعي مع مكسرات شجرية فاخرة وبذور السوبرفود وغذاء الملكات",
+          "subtitle_en": "Hero Flagship: 55% Mountain Honey, 5% Fresh Royal Jelly, 25% Premium Tree Nuts, 15% Super Seeds",
+          "subtitle_ar": "المنتج البطولي: عسل جبلي 55%، غذاء ملكات طازج 5%، مكسرات شجرية 25%، بذور سوبرفود 15%",
+          "tier": "Hero Flagship",
+          "packaging_type": "Wide-Mouth Heavy-Base Cylindrical Glass Jar (12mm Solid Base)",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "zero_peanuts": true,
+          "ingredients": [
+            "Pure Mountain Honey (55%)",
+            "Fresh Pure Royal Jelly (5%)",
+            "Raw Green Pistachios (8%)",
+            "Jumbo Golden Cashews (7%)",
+            "Crisp Local Raw Almonds (5%)",
+            "Pure Walnuts (5%)",
+            "Pumpkin Seeds (4%)",
+            "Chia Seeds (3%)",
+            "Flaxseeds (3%)",
+            "Unroasted Local Sesame Seeds (3%)",
+            "Whole Black Nigella Seeds (2%)"
+          ],
+          "allergens": [
+            "Tree Nuts (Pistachios, Cashews, Almonds, Walnuts)",
+            "Sesame"
+          ],
+          "flavor_profile": {
+            "texture": "Abundant crunchy whole nuts and gelatinous seeds suspended in rich golden honey",
+            "notes": ["Toasted buttery crunch", "Tangy royal jelly note", "Earthy seeds", "Floral amber sweetness"],
+            "sensory_triad": "Crunchy • Opulent • Energizing"
+          },
+          "label_palette": {
+            "primary": "#691630",
+            "accent": "#DAAC36",
+            "ribbon": "#E8C5C8",
+            "text": "#F8F5EE"
+          },
+          "origin": "Estate Grown Mediterranean Terroir",
+          "health_claims": [
+            "0% Peanuts — Exclusively Premium Tree Nuts & Super Seeds",
+            "Naturally Rich in Plant Protein, Omega-3 Fatty Acids & Zinc",
+            "Fortified with 5% Concentrated Fresh Royal Jelly for Sustained Energy",
+            "No Preservatives, Added Oils, or Refined Sugars"
+          ]
+        },
+        {
+          "sku": "SKU-SF02",
+          "name_en": "Mariam Daily Mix",
+          "name_ar": "خلطة مريم اليومية المغذية",
+          "packaging_name_en": "MARIAM DAILY MIX — Pure Honey with Walnuts, Almonds & Power Seeds",
+          "packaging_name_ar": "خلطة مريم اليومية — عسل نحل صافي مع الجوز واللوز وبذور الطاقة",
+          "subtitle_en": "Everyday Wellness: 65% Pure Honey, 20% Tree Nuts, 15% Super Seeds",
+          "subtitle_ar": "التغذية اليومية المتوازنة: عسل نحل 65%، جوز ولوز 20%، بذور سوبرفود 15%",
+          "tier": "Everyday Wellness",
+          "packaging_type": "Wide-Mouth Glass Jar",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "zero_peanuts": true,
+          "ingredients": [
+            "Pure Natural Honey (65%)",
+            "Crisp Raw Walnuts (10%)",
+            "Raw Crunchy Almonds (10%)",
+            "Pumpkin Seeds (5%)",
+            "Sunflower Seeds (4%)",
+            "Organic Chia Seeds (3%)",
+            "Golden Flaxseeds (3%)"
+          ],
+          "allergens": [
+            "Tree Nuts (Walnuts, Almonds)"
+          ],
+          "flavor_profile": {
+            "texture": "Pleasant everyday crunch in smooth clover-flower honey",
+            "notes": ["Nutty walnut", "Crisp sweet almond", "Mild seed nuttiness"],
+            "sensory_triad": "Nourishing • Crisp • Balanced"
+          },
+          "label_palette": {
+            "primary": "#355E3B",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Sunlit Mountain Orchards",
+          "health_claims": [
+            "Ideal Daily Energy Topping for Greek Yogurt, Oatmeal & Toast",
+            "Rich in Heart-Healthy Unsaturated Fats and Fiber",
+            "100% Natural Whole Food Ingredients"
+          ]
+        },
+        {
+          "sku": "SKU-SF03",
+          "name_en": "Pistachio & Green Superfood Blend",
+          "name_ar": "خلطة الفستق والسوبرفود الأخضر بالعسل",
+          "packaging_name_en": "MARIAM GREEN SUPERFOOD — Honey with Raw Pistachios, Spirulina & Matcha",
+          "packaging_name_ar": "خلطة السوبرفود الأخضر — عسل نحل بالفستق الحلبي والسبيرولينا والماتشا",
+          "subtitle_en": "Antioxidant Powerhouse: Raw Mountain Honey with Green Pistachios & Organic Greens",
+          "subtitle_ar": "قوة مضادات الأكسدة: عسل جبلي مع فستق حلبي وأعشاب السوبرفود الخضراء",
+          "tier": "Vitality Superfood",
+          "packaging_type": "Wide-Mouth Glass Jar",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "zero_peanuts": true,
+          "ingredients": [
+            "Pure Raw Honey (70%)",
+            "Raw Green Pistachios (18%)",
+            "Pumpkin Seeds (7%)",
+            "Organic Blue-Green Spirulina Powder (3%)",
+            "Ceremonial Grade Matcha Green Tea (2%)"
+          ],
+          "allergens": [
+            "Tree Nuts (Pistachios)"
+          ],
+          "flavor_profile": {
+            "texture": "Emerald-flecked thick honey with whole vibrant pistachios",
+            "notes": ["Rich pistachio butteriness", "Earthy matcha tea", "Clean herbal sweetness"],
+            "sensory_triad": "Emerald • Antioxidant • Crisp"
+          },
+          "label_palette": {
+            "primary": "#2D5A27",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Alpine Valley Apiaries",
+          "health_claims": [
+            "Concentrated Chlorophyll, Iron & Plant Antioxidants",
+            "Sustained Clean Mental Clarity & Physical Endurance"
+          ]
+        },
+        {
+          "sku": "SKU-SF04",
+          "name_en": "Golden Turmeric & Walnut Energy Honey",
+          "name_ar": "عسل الجوز والكركم الذهبي للطاقة",
+          "packaging_name_en": "MARIAM GOLDEN TURMERIC — Honey with Halved Walnuts & Curcumin Root",
+          "packaging_name_ar": "عسل الكركم الذهبي والجوز — عسل جبلي بالكركم والزنجبيل وعين الجمل",
+          "subtitle_en": "Anti-Inflammatory Synergy: Raw Mountain Honey, Curcumin, Ginger & Whole Walnuts",
+          "subtitle_ar": "تآزر مضاد للالتهاب: عسل جبلي بالكركم والزنجبيل والجوز الكامل",
+          "tier": "Wellness Infusion",
+          "packaging_type": "Wide-Mouth Glass Jar",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "zero_peanuts": true,
+          "ingredients": [
+            "Mountain Wildflower Honey (70%)",
+            "Crisp Light Halved Walnuts (20%)",
+            "Organic High-Curcumin Turmeric Root Extract (4%)",
+            "Cold-Dried Ginger Root (3%)",
+            "Organic Chia Seeds (2%)",
+            "Black Pepper Piperine Extract (1%)"
+          ],
+          "allergens": [
+            "Tree Nuts (Walnuts)"
+          ],
+          "flavor_profile": {
+            "texture": "Warm golden amber with floating jumbo walnut halves",
+            "notes": ["Warm spicy turmeric", "Zingy ginger", "Buttery walnut depth"],
+            "sensory_triad": "Warm • Golden • Restorative"
+          },
+          "label_palette": {
+            "primary": "#C88214",
+            "accent": "#691630",
+            "text": "#F8F5EE"
+          },
+          "origin": "Highland Organic Groves",
+          "health_claims": [
+            "Enhanced Curcumin Bioavailability with Natural Piperine",
+            "Supports Joint Mobility & Natural Recovery"
+          ]
+        },
+        {
+          "sku": "SKU-SF05",
+          "name_en": "Almond Crunch & Chia Glow Honey",
+          "name_ar": "عسل اللوز المقرمش وبذور الشيا",
+          "packaging_name_en": "MARIAM ALMOND CRUNCH — Honey with Roasted Blanched Almonds & Chia Glow",
+          "packaging_name_ar": "عسل اللوز المقرمش وبذور الشيا — عسل أزهار بقطع اللوز الذهبي وبذور الشيا",
+          "subtitle_en": "Radiant Beauty Formula: Blossom Honey, Whole Sweet Almonds & Organic Chia",
+          "subtitle_ar": "تركيبة النضارة الطبيعية: عسل زهور باللوز الحلو وبذور الشيا",
+          "tier": "Everyday Wellness",
+          "packaging_type": "Wide-Mouth Glass Jar",
+          "sizes": ["500g", "1kg"],
+          "primary_size": "500g",
+          "secondary_size": "1kg",
+          "zero_peanuts": true,
+          "ingredients": [
+            "Pure Natural Blossom Honey (72%)",
+            "Roasted Blanched Sweet Almonds (18%)",
+            "Organic Black Chia Seeds (6%)",
+            "Golden Flaxseed Hearts (4%)"
+          ],
+          "allergens": [
+            "Tree Nuts (Almonds)"
+          ],
+          "flavor_profile": {
+            "texture": "Light crisp crunch bathed in delicate floral honey",
+            "notes": ["Toasted almond pastry", "Delicate floral nectar", "Clean nutty seeds"],
+            "sensory_triad": "Crisp • Floral • Radiant"
+          },
+          "label_palette": {
+            "primary": "#9E7B56",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Mediterranean Coastal Valleys",
+          "health_claims": [
+            "Rich in Natural Vitamin E for Skin Glow",
+            "High Plant Fiber & Soluble Mucilage"
+          ]
+        }
+      ]
+    },
+    {
+      "family_id": "functional_infusions",
+      "name_en": "Functional & Vitality Infusions",
+      "name_ar": "الخلطات الوظيفية التخصصية",
+      "description_en": "Therapeutic-grade raw honey formulations enriched with concentrated royal jelly, standardized propolis, multi-flora pollen, and herbal adaptogens.",
+      "description_ar": "تركيبات علاجية ووظيفية فائقة القوة من العسل الخام المدعم بغذاء الملكات المركز والبروبوليس وحبوب اللقاح ومقويات المناعة الطبيعية.",
+      "items": [
+        {
+          "sku": "SKU-FN01",
+          "name_en": "Mariam Royal Jelly Elixir",
+          "name_ar": "إكسير الغذاء الملكي الصافي",
+          "subtitle_en": "Ultra-Concentrated Fresh Royal Jelly in Mountain Sidr Honey",
+          "subtitle_ar": "غذاء ملكات النحل الطازج المركز في عسل السدر الجبلي",
+          "tier": "Vitality Premium",
+          "packaging_type": "Heavy Pharmaceutical Amber Glass Jar with Gold Foil Seal",
+          "sizes": ["250g", "500g"],
+          "primary_size": "500g",
+          "secondary_size": "250g",
+          "ingredients": [
+            "Pure Mountain Sidr Honey (92%)",
+            "Fresh Pure Queen Bee Royal Jelly (8% / 40g per 500g jar)"
+          ],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Silky, creamy, micro-fine suspension",
+            "notes": ["Sweet sidr nectar", "Slightly tangy authentic royal jelly zest", "Creamy finish"],
+            "sensory_triad": "Potent • Creamy • Restorative"
+          },
+          "label_palette": {
+            "primary": "#691630",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Mountain Apiary Queen Rearing Reserve",
+          "health_claims": [
+            "Natural Source of 10-HDA (10-hydroxy-2-decenoic acid)",
+            "Promotes Peak Cellular Vitality, Stamina & Cognitive Clarity",
+            "Contains Fresh Unprocessed Royal Jelly"
+          ]
+        },
+        {
+          "sku": "SKU-FN02",
+          "name_en": "Mariam Propolis Defense Fusion",
+          "name_ar": "مزيج البروبوليس والعكبر لتعزيز المناعة",
+          "subtitle_en": "Standardized Natural Bee Propolis Extract in Raw Honey",
+          "subtitle_ar": "خلاصة العكبر والبروبوليس الطبيعي في عسل النحل الخام",
+          "tier": "Immunity Support",
+          "packaging_type": "Pharmaceutical Glass Jar with Gold Tamper Seal",
+          "sizes": ["250g", "500g"],
+          "primary_size": "500g",
+          "secondary_size": "250g",
+          "ingredients": [
+            "Raw Wildflower Honey (94%)",
+            "Standardized Purified Bee Propolis Extract (4%)",
+            "Organic Echinacea Purpurea Root Extract (1%)",
+            "Mediterranean Citrus Bioflavonoids (1%)"
+          ],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Dark amber syrupy density with aromatic resin aroma",
+            "notes": ["Pine resin", "Herbal balsamic tingle", "Soothing warm finish"],
+            "sensory_triad": "Protective • Resinous • Soothing"
+          },
+          "label_palette": {
+            "primary": "#4A321E",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Pine & Poplar Forest Apiaries",
+          "health_claims": [
+            "Nature's Ultimate Shield — Rich in Bioactive Polyphenols & Flavonoids",
+            "Soothes Throat Irritation and Strengthens Seasonal Defenses"
+          ]
+        },
+        {
+          "sku": "SKU-FN03",
+          "name_en": "Golden Ginseng & Sidr Vitality Booster",
+          "name_ar": "عسل السدر المدعم بالجنسنج الأحمر",
+          "subtitle_en": "Red Panax Ginseng & Royal Jelly in Mountain Sidr Honey",
+          "subtitle_ar": "جنسنج أحمر كوري وغذاء ملكات في عسل سدر جبلي فاخر",
+          "tier": "Max Energy",
+          "packaging_type": "Pharmaceutical Glass Jar with Gold Tamper Seal",
+          "sizes": ["250g", "500g"],
+          "primary_size": "500g",
+          "secondary_size": "250g",
+          "ingredients": [
+            "Pure Mountain Sidr Honey (88%)",
+            "Red Panax Ginseng Root Extract (6%)",
+            "Fresh Royal Jelly (4%)",
+            "Peruvian Maca Root Powder (2%)"
+          ],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Thick velvet with earthy roots suspension",
+            "notes": ["Earthy ginseng spice", "Sweet caramel sidr", "Long energizing finish"],
+            "sensory_triad": "Invigorating • Robust • Potent"
+          },
+          "label_palette": {
+            "primary": "#87201D",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Highland Apiaries & Certified Botanical Reserves",
+          "health_claims": [
+            "Formulated for Peak Physical Stamina & Performance",
+            "Combines Ancient Adaptogenic Roots with Royal Honey"
+          ]
+        },
+        {
+          "sku": "SKU-FN04",
+          "name_en": "Ginger, Lemon & Sidr Throat Soother",
+          "name_ar": "عسل السدر بالزنجبيل والليمون وبلسم الحلق",
+          "subtitle_en": "Cold-Pressed Ginger, Sicilian Lemon Oil & Ceylon Cinnamon in Raw Honey",
+          "subtitle_ar": "عسل جبلي بالزنجبيل المعصور على البارد وزيت الليمون الصقلي والقرفة",
+          "tier": "Respiratory Soother",
+          "packaging_type": "Pharmaceutical Glass Jar with Gold Tamper Seal",
+          "sizes": ["250g", "500g"],
+          "primary_size": "500g",
+          "secondary_size": "250g",
+          "ingredients": [
+            "Pure Raw Mountain Honey (90%)",
+            "Cold-Pressed Fresh Ginger Extract (5%)",
+            "Cold-Pressed Sicilian Lemon Rind Essential Oil (2%)",
+            "Ceylon True Cinnamon Extract (2%)",
+            "Eucalyptus Leaf Nectar (1%)"
+          ],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Smooth warming syrup with spicy zesty clarity",
+            "notes": ["Zesty fresh lemon", "Fiery ginger tingle", "Warming sweet cinnamon"],
+            "sensory_triad": "Zesty • Warming • Calming"
+          },
+          "label_palette": {
+            "primary": "#D47C20",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Citrus Valley Apiaries",
+          "health_claims": [
+            "Immediate Soothing Action for Dry Throat & Hoarseness",
+            "Naturally Warming Cold-Season Support"
+          ]
+        },
+        {
+          "sku": "SKU-FN05",
+          "name_en": "Pure Bee Pollen Enriched Honey",
+          "name_ar": "عسل النحل المدعم بحبوب اللقاح الإسبانية",
+          "subtitle_en": "Wildflower Raw Honey Enriched with Spanish Multi-Flora Bee Pollen",
+          "subtitle_ar": "عسل أزهار برية ممتزج بحبوب لقاح النحل الإسبانية متعددة الأزهار",
+          "tier": "Multi-Nutrient Fusion",
+          "packaging_type": "Cylindrical Nordic Glass Jar",
+          "sizes": ["250g", "500g"],
+          "primary_size": "500g",
+          "secondary_size": "250g",
+          "ingredients": [
+            "Raw Multi-Floral Honey (88%)",
+            "Premium Spanish Multi-Flora Bee Pollen Granules (12%)"
+          ],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Suspended golden-orange pollen granules melting into amber honey",
+            "notes": ["Earthy floral bouquet", "Light nutty note", "Fresh field grass"],
+            "sensory_triad": "Nutrient-Dense • Floral • Golden"
+          },
+          "label_palette": {
+            "primary": "#D99B00",
+            "accent": "#691630",
+            "text": "#F8F5EE"
+          },
+          "origin": "Sunny Wildflower Reserves",
+          "health_claims": [
+            "Complete Spectrum of 22 Amino Acids & Natural Vitamin B-Complex",
+            "Supports Metabolism & Immune Vitality"
+          ]
+        }
+      ]
+    },
+    {
+      "family_id": "breakfast_spreads",
+      "name_en": "Artisan Breakfast & Spreads",
+      "name_ar": "مدهونات الإفطار الحرفية",
+      "description_en": "Gourmet wholesome breakfast spreads sweetened strictly with Mariam pure raw honey. Zero refined cane sugar, zero palm oil, zero artificial aromas.",
+      "description_ar": "مدهونات إفطار راقية ومغذية محلاة حصرياً بعسل مريم الطبيعي. خالية تماماً من السكر المكرر، زيت النخيل، والنكهات الاصطناعية.",
+      "items": [
+        {
+          "sku": "SKU-BR01",
+          "name_en": "Honey-Baked Nutty Granola",
+          "name_ar": "جرانولا مريم المخبوزة بالعسل والمكسرات",
+          "subtitle_en": "Slow-Toasted Rolled Oats with Honey, Whole Almonds & Pumpkin Seeds",
+          "subtitle_ar": "رقائق الشوفان المحمصة ببطء بعسل مريم واللوز وبذور اليقطين",
+          "tier": "Artisan Pantry",
+          "packaging_type": "Resealable Stand-up Foil Kraft Pouch (350g & 700g)",
+          "sizes": ["350g", "700g"],
+          "primary_size": "350g",
+          "secondary_size": "700g",
+          "ingredients": [
+            "Rolled Whole Grain Oats (45%)",
+            "Mariam Natural Clover Honey (20%)",
+            "Crisp Raw Whole Almonds (12%)",
+            "Raw Pecan Halves (8%)",
+            "Pumpkin Seeds (6%)",
+            "Cold-Pressed Virgin Coconut Oil (5%)",
+            "Pure Vanilla Bean Extract (2%)",
+            "Himalayan Pink Salt (2%)"
+          ],
+          "allergens": [
+            "Gluten (Oats)",
+            "Tree Nuts (Almonds, Pecans)"
+          ],
+          "flavor_profile": {
+            "texture": "Crunchy golden clusters, nutty and satisfying",
+            "notes": ["Caramelized honey oats", "Toasted pecans", "Vanilla aroma"],
+            "sensory_triad": "Crunchy • Toasted • Wholesome"
+          },
+          "label_palette": {
+            "primary": "#8C6D46",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Artisanal Bakery Kitchen",
+          "health_claims": [
+            "Naturally Sweetened with 100% Pure Honey — 0g Refined Sugar",
+            "High Plant Fiber & Whole Grain Goodness"
+          ]
+        },
+        {
+          "sku": "SKU-BR02",
+          "name_en": "Pure Pistachio Cream with Honey",
+          "name_ar": "كريمة الفستق الحلبي الطبيعي المحلاة بعسل مريم",
+          "subtitle_en": "Stone-Ground Green Pistachios Sweetened with Mariam Pure Honey",
+          "subtitle_ar": "زبدة الفستق الأخضر الحجرية الصافية المحلاة بعسل مريم",
+          "tier": "Gourmet Cream",
+          "packaging_type": "Petite Cylindrical Glass Jar with Gold Foil Wrap",
+          "sizes": ["200g", "400g"],
+          "primary_size": "200g",
+          "secondary_size": "400g",
+          "ingredients": [
+            "Slow-Roasted Premium Green Pistachios (70%)",
+            "Mariam Pure Raw Honey (27%)",
+            "Cold-Pressed Extra Virgin Olive Oil (2.5%)",
+            "Hand-Harvested Sea Salt (0.5%)"
+          ],
+          "allergens": [
+            "Tree Nuts (Pistachios)"
+          ],
+          "flavor_profile": {
+            "texture": "Velvety smooth spreadable emerald cream",
+            "notes": ["Intense roasted pistachio", "Delicate honey undertone", "Buttery finish"],
+            "sensory_triad": "Velvety • Emerald • Pure"
+          },
+          "label_palette": {
+            "primary": "#486B40",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Mediterranean Pistachio Terroir",
+          "health_claims": [
+            "No Palm Oil, No Milk Powder, No Hydrogenated Fats",
+            "100% Plant-Based Healthy Monounsaturated Fats"
+          ]
+        },
+        {
+          "sku": "SKU-BR03",
+          "name_en": "Roasted Almond Butter with Citrus Honey",
+          "name_ar": "زبدة اللوز المحمص بعسل أزهار الموالح",
+          "subtitle_en": "Slow-Roasted California Almonds Blended with Citrus Blossom Honey",
+          "subtitle_ar": "زبدة اللوز المحمص الممتزجة بعسل أزهار البرتقال والليمون",
+          "tier": "Gourmet Cream",
+          "packaging_type": "Petite Cylindrical Glass Jar",
+          "sizes": ["200g", "400g"],
+          "primary_size": "200g",
+          "secondary_size": "400g",
+          "ingredients": [
+            "Slow-Roasted Whole Sweet Almonds (78%)",
+            "Mariam Citrus Blossom Honey (20%)",
+            "Bourbon Vanilla Bean Pods (1%)",
+            "Sea Salt (1%)"
+          ],
+          "allergens": [
+            "Tree Nuts (Almonds)"
+          ],
+          "flavor_profile": {
+            "texture": "Rich silken butter with micro-crunch texture",
+            "notes": ["Dark roasted almond", "Subtle orange zest", "Aromatic vanilla"],
+            "sensory_triad": "Nutty • Citrus-Kissed • Silk"
+          },
+          "label_palette": {
+            "primary": "#8C5938",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Sun-Kissed Orchard Terroir",
+          "health_claims": [
+            "High Plant Protein & Vitamin E",
+            "0% Palm Oil & 0% Refined Sugars"
+          ]
+        },
+        {
+          "sku": "SKU-BR04",
+          "name_en": "Artisan Stone-Ground Tahini with Flower Honey",
+          "name_ar": "طحينة سمسم بلدي حجرية ممتزجة بعسل الزهور",
+          "subtitle_en": "Single-Origin White Humera Sesame Paste Swirled with Raw Flower Honey",
+          "subtitle_ar": "طحينة سمسم بلدي معصورة على الحجر مع عسل زهور الجبل الصافي",
+          "tier": "Artisan Heritage",
+          "packaging_type": "Cylindrical Glass Jar with Belly-Band",
+          "sizes": ["300g", "600g"],
+          "primary_size": "300g",
+          "secondary_size": "600g",
+          "ingredients": [
+            "100% Stone-Ground Sesame Seed Paste (Tahini) (70%)",
+            "Mariam Mountain Flower Honey (29%)",
+            "Fine Sea Salt (1%)"
+          ],
+          "allergens": [
+            "Sesame"
+          ],
+          "flavor_profile": {
+            "texture": "Silky, dripping spread with decadent body",
+            "notes": ["Rich toasted sesame", "Wild blossom nectar", "Savory-sweet balance"],
+            "sensory_triad": "Toasted • Creamy • Heritage"
+          },
+          "label_palette": {
+            "primary": "#C29B38",
+            "accent": "#691630",
+            "text": "#F8F5EE"
+          },
+          "origin": "Traditional Millhouse",
+          "health_claims": [
+            "Exceptional Natural Source of Bioavailable Calcium & Healthy Fats",
+            "Authentic Mediterranean Clean Fuel"
+          ]
+        },
+        {
+          "sku": "SKU-BR05",
+          "name_en": "Medjool Date & Sidr Honey Spread",
+          "name_ar": "معجون تمر المجهول الفاخر بعسل السدر",
+          "subtitle_en": "Caramelized Royal Medjool Date Purée Infused with Mountain Sidr Honey & Cardamom",
+          "subtitle_ar": "معجون رطب المجهول الملكي ممتزج بعسل السدر والبهار والهيل",
+          "tier": "Gourmet Reserve",
+          "packaging_type": "Petite Cylindrical Glass Jar",
+          "sizes": ["250g", "500g"],
+          "primary_size": "250g",
+          "secondary_size": "500g",
+          "ingredients": [
+            "Prime Palestinian & Jordan Valley Medjool Dates (65%)",
+            "Mariam Mountain Sidr Honey (28%)",
+            "Ground Green Cardamom Pods (3%)",
+            "Virgin Sesame Seeds (3%)",
+            "Pure Lemon Juice (1%)"
+          ],
+          "allergens": [
+            "Sesame"
+          ],
+          "flavor_profile": {
+            "texture": "Dense luscious date caramel paste",
+            "notes": ["Dark toffee", "Sidr resinous sweetness", "Fragrant cardamom"],
+            "sensory_triad": "Caramelized • Spiced • Rich"
+          },
+          "label_palette": {
+            "primary": "#5E2C1A",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Jordan Valley Date Oases",
+          "health_claims": [
+            "High Potassium, Magnesium & Natural Carbohydrate Energy",
+            "100% Whole Fruit & Honey Sweetness"
+          ]
+        },
+        {
+          "sku": "SKU-BR06",
+          "name_en": "Raw Dark Cacao & Honey Spread",
+          "name_ar": "دهين الكاكاو الداكن النقي المحلى بالعسل الخام",
+          "subtitle_en": "Unroasted Criollo Cacao Paste Sweetened Exclusively with Raw Honey",
+          "subtitle_ar": "شوكولاتة داكنة نقية من كاكاو الكريولو الطبيعي المحلى بعسل مريم",
+          "tier": "Guilt-Free Indulgence",
+          "packaging_type": "Petite Cylindrical Glass Jar",
+          "sizes": ["200g", "400g"],
+          "primary_size": "200g",
+          "secondary_size": "400g",
+          "ingredients": [
+            "Mariam Pure Raw Honey (48%)",
+            "Organic Criollo Raw Cacao Paste & Powder (26%)",
+            "Cold-Pressed Virgin Coconut Oil (14%)",
+            "Roasted Hazelnut Butter (11%)",
+            "Bourbon Vanilla & Sea Salt (1%)"
+          ],
+          "allergens": [
+            "Tree Nuts (Hazelnuts)"
+          ],
+          "flavor_profile": {
+            "texture": "Gently firm yet melts on tongue into rich chocolate velvet",
+            "notes": ["Deep bitter cacao", "Rich floral honey sweetness", "Hazelnut praline"],
+            "sensory_triad": "Decadent • Chocolatey • Clean"
+          },
+          "label_palette": {
+            "primary": "#3B2219",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Artisan Chocolatier Atelier",
+          "health_claims": [
+            "Clean Healthy Alternative to Commercial Chocolate Spreads",
+            "0g Refined Sugars, 0% Palm Oil, High Polyphenols"
+          ]
+        }
+      ]
+    },
+    {
+      "family_id": "mariam_go",
+      "name_en": "Mariam GO (On-The-Go Single Serves)",
+      "name_ar": "عائلة مريم للاستخدام الفردي وسفر",
+      "description_en": "Single-portion premium honey straws and travel snap packs designed for pocket vitality, athletes, travel, and tea sweetening.",
+      "description_ar": "أظرف وعصي العسل الفردية المحمولة والمثالية للرياضيين، السفر، وتحلية المشروبات الساخنة والباردة بكل أناقة ونظافة.",
+      "items": [
+        {
+          "sku": "SKU-GO01",
+          "name_en": "Mariam Pure Honey Straws",
+          "name_ar": "عصي عسل البرسيم النقي الفردية",
+          "subtitle_en": "Pack of 30 BPA-Free Single-Serve Straws (10g each) of 100% Pure Clover Honey",
+          "subtitle_ar": "علبة تضم 30 ظرفاً فردياً (10 غرام) من عسل البرسيم الصافي",
+          "tier": "Everyday On-The-Go",
+          "packaging_type": "Rigid Hexagonal Cylinder Box (30x10g sachets)",
+          "sizes": ["300g (30x10g)", "100g (10x10g)"],
+          "primary_size": "300g (30x10g)",
+          "secondary_size": "100g (10x10g)",
+          "ingredients": [
+            "100% Pure Natural Clover Blossom Honey"
+          ],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Clear smooth liquid flow",
+            "notes": ["Sweet floral", "Clean honey nectar"],
+            "sensory_triad": "Instant • Clean • Pocket-Sized"
+          },
+          "label_palette": {
+            "primary": "#E8C5C8",
+            "accent": "#DAAC36",
+            "text": "#691630"
+          },
+          "origin": "Mediterranean Floral Plains",
+          "health_claims": [
+            "Quick Clean Pre-Workout Carbohydrate Energy",
+            "Easy Mess-Free Snapping for Tea & Coffee"
+          ]
+        },
+        {
+          "sku": "SKU-GO02",
+          "name_en": "Mariam Power Sticks with Black Seed & Royal Jelly",
+          "name_ar": "عصي الطاقة بالعسل وحبة البركة وغذاء الملكات",
+          "subtitle_en": "Pack of 30 High-Potency Energy Honey Sticks Fortified with Royal Jelly & Nigella Oil",
+          "subtitle_ar": "علبة تضم 30 عصا طاقة مركزة بالعسل وحبة البركة وغذاء ملكات النحل",
+          "tier": "Performance Vitality",
+          "packaging_type": "Rigid Hexagonal Box with Pull-Out Drawer",
+          "sizes": ["300g (30x10g)", "100g (10x10g)"],
+          "primary_size": "300g (30x10g)",
+          "secondary_size": "100g (10x10g)",
+          "ingredients": [
+            "Pure Mountain Honey (88%)",
+            "Fresh Royal Jelly (7%)",
+            "Virgin Cold-Pressed Black Nigella Seed Oil (5%)"
+          ],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Viscous golden-copper nectar with peppery hint",
+            "notes": ["Robust honey", "Spicy black seed", "Tangy royal jelly boost"],
+            "sensory_triad": "Potent • Dynamic • Invigorating"
+          },
+          "label_palette": {
+            "primary": "#691630",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Highland Apiaries",
+          "health_claims": [
+            "Immediate Fatigue Relief & Mental Spark",
+            "Compact Endurance Pocket Fuel for Athletes & Travellers"
+          ]
+        },
+        {
+          "sku": "SKU-GO03",
+          "name_en": "Mariam Immunity Travel Snaps with Propolis",
+          "name_ar": "أظرف مناعة السفر السريعة بالبروبوليس",
+          "subtitle_en": "Pack of 30 Squeeze-Snap Portions with Pure Honey, Propolis & Acerola Vitamin C",
+          "subtitle_ar": "30 ظرف كسر سريع بالعسل والبروبوليس وفيتامين سي الطبيعي لدعم مناعة السفر",
+          "tier": "Immunity On-The-Go",
+          "packaging_type": "Rigid Slip-Cover Pocket Box (30x10g)",
+          "sizes": ["300g (30x10g)", "100g (10x10g)"],
+          "primary_size": "300g (30x10g)",
+          "secondary_size": "100g (10x10g)",
+          "ingredients": [
+            "Raw Blossom Honey (90%)",
+            "Purified Bee Propolis Extract (5%)",
+            "Organic Acerola Cherry Pure Fruit Vitamin C (3%)",
+            "Natural Lemon Rind Oil (2%)"
+          ],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "Smooth golden amber syrup with citrus sparkle",
+            "notes": ["Bright citrus lemon", "Resinous propolis balm", "Tangy acerola"],
+            "sensory_triad": "Protective • Zesty • Fast-Acting"
+          },
+          "label_palette": {
+            "primary": "#A63A26",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Pristine Alpine Apiary",
+          "health_claims": [
+            "Designed for Air Travel, Commuting & Rapid Immune Rebound",
+            "Single-Hand One-Snap Dispenser"
+          ]
+        }
+      ]
+    },
+    {
+      "family_id": "luxury_gift_vaults",
+      "name_en": "Luxury Gift Vaults & Tasting Chests",
+      "name_ar": "صناديق وخزائن الهدايا الملكية",
+      "description_en": "Handcrafted presentation chests, velvet-lined discovery flights, and royal bespoke wedding & corporate gift vaults featuring 24K gold foil and custom brass accoutrements.",
+      "description_ar": "صناديق هدايا فاخرة ومبطنة بالمخمل العاجي، تجمع أندر أصناف العسل الملكي وملاعق العسل النحاسية المذهبة المحفورة بشعار مريم.",
+      "items": [
+        {
+          "sku": "SKU-GF01",
+          "name_en": "Mariam Discovery Flight Box",
+          "name_ar": "صندوق الاكتشاف والتذوق الفاخر",
+          "subtitle_en": "Curated Tasting Flight of 6 Artisanal Honey Varieties (6 x 50g Petite Jars)",
+          "subtitle_ar": "صندوق تذوق فاخر يضم 6 برطمانات ميني (50 غرام) من أندر أنواع عسل مريم",
+          "tier": "Gifting & Sampling",
+          "packaging_type": "Blush Pink Rigid Sliding Box with Gold Hot-Stamped Foil Logo & Tasting Guidebook",
+          "sizes": ["300g (6x50g jars)"],
+          "primary_size": "300g (6x50g jars)",
+          "secondary_size": "300g (6x50g jars)",
+          "ingredients": [
+            "Mariam Clover Honey (50g jar)",
+            "Mariam Citrus Blossom Honey (50g jar)",
+            "Mariam Mountain Sidr Honey (50g jar)",
+            "Mariam Black Seed Blossom Honey (50g jar)",
+            "Mariam Wild Mountain Flower Honey (50g jar)",
+            "Mariam Raw Honeycomb in Honey (50g jar)"
+          ],
+          "allergens": [],
+          "flavor_profile": {
+            "texture": "A sensory spectrum ranging from water-clear liquid acacia to chewy hexagonal comb and thick velvety sidr",
+            "notes": ["Six distinct terroir tasting notes described in accompanying gilded booklet"],
+            "sensory_triad": "Curated • Elegant • Complete"
+          },
+          "label_palette": {
+            "primary": "#E8C5C8",
+            "accent": "#DAAC36",
+            "interior": "#F8F5EE",
+            "text": "#691630"
+          },
+          "origin": "Across 6 Protected Terroirs",
+          "health_claims": [
+            "The Perfect Introduction to Rare Artisan Mediterranean Honeys",
+            "Ideal for High-End Corporate Gifting, Weddings & Honey Sommelier Tastings"
+          ]
+        },
+        {
+          "sku": "SKU-GF02",
+          "name_en": "Mariam Royal Reserve Vault",
+          "name_ar": "خزنة الإهداء الملكية",
+          "subtitle_en": "VIP Ultra-Luxury Presentation Chest in Matte Burgundy Lacquered Wood with Warm Ivory Velvet Lining",
+          "subtitle_ar": "خزنة خشبية فاخرة بطلاء عنابي مطفأ وبطانة مخملية عاجية تضم العسل الملكي والملعقة المذهبة",
+          "tier": "VIP Ultra-Luxury",
+          "packaging_type": "Solid Handcrafted Lacquered Burgundy Wood Chest with Polished Brass Hinges and Wax-Sealed Parchment",
+          "sizes": ["1kg Set (2x500g jars + spoon)"],
+          "primary_size": "1kg Set (2x500g jars + spoon)",
+          "secondary_size": "1kg Set (2x500g jars + spoon)",
+          "zero_peanuts": true,
+          "ingredients": [
+            "Mariam Mountain Sidr Honey 500g Jar (500g)",
+            "Mariam Royal Mix 500g Jar (Tree nuts, Super seeds & Royal jelly) (500g)",
+            "Solid Gold-Plated Brass Honey Drizzler with Engraved Mariam Cursive Crest",
+            "Wax-Sealed Authenticity Certificate printed on Heavyweight Gilded Cotton Paper"
+          ],
+          "allergens": [
+            "Tree Nuts (Pistachios, Cashews, Almonds, Walnuts)",
+            "Sesame"
+          ],
+          "flavor_profile": {
+            "texture": "The pinnacle of luxury honey and opulent crunchy royal mix",
+            "notes": ["Deep buttery sidr honey caramel", "Rich nutty crunch bathed in royal jelly"],
+            "sensory_triad": "Imperial • Bespoke • Crown"
+          },
+          "label_palette": {
+            "primary": "#691630",
+            "accent": "#DAAC36",
+            "lining": "#F8F5EE",
+            "text": "#DAAC36"
+          },
+          "origin": "Highland Reserve Apiary & Royal Orchard",
+          "health_claims": [
+            "Mariam's Crown Jewel Presentation for Dignitaries and Connoisseurs",
+            "Zero Peanuts Guaranteed, Pure Cold-Extracted Honey & Premium Tree Nuts"
+          ]
+        },
+        {
+          "sku": "SKU-GF03",
+          "name_en": "Mariam Grand Terroir Connoisseur Chest",
+          "name_ar": "صندوق الخبير التراثي لعسل مريم",
+          "subtitle_en": "Three Master Jars (500g each) featuring Mountain Sidr, Raw Honeycomb, and Royal Mix with Carved Olive Wood Dipper",
+          "subtitle_ar": "الصندوق التراثي الثلاثي: عسل سدر 500g، عسل بالشمع 500g، خلطة ملكية 500g مع ملعقة خشب زيتون حرفية",
+          "tier": "Connoisseur Reserve",
+          "packaging_type": "Artisan Natural Walnut Wood Presentation Casket with Magnetic Closure",
+          "sizes": ["1.5kg Set (3x500g jars + dipper)"],
+          "primary_size": "1.5kg Set (3x500g jars + dipper)",
+          "secondary_size": "1.5kg Set (3x500g jars + dipper)",
+          "zero_peanuts": true,
+          "ingredients": [
+            "Mariam Mountain Sidr Honey 500g Jar",
+            "Mariam Raw Honeycomb in Honey 500g Hex Jar",
+            "Mariam Royal Mix 500g Wide-Mouth Jar",
+            "Handcrafted Natural Olive Wood Honey Dipper"
+          ],
+          "allergens": [
+            "Tree Nuts (Pistachios, Cashews, Almonds, Walnuts)",
+            "Sesame"
+          ],
+          "flavor_profile": {
+            "texture": "Complete tasting journey across comb, raw monofloral, and crunchy royal superfood blend",
+            "notes": ["Wild sidr", "Hive fresh wax comb", "Opulent royal tree nuts"],
+            "sensory_triad": "Heritage • Artisanal • Abundant"
+          },
+          "label_palette": {
+            "primary": "#33241B",
+            "accent": "#DAAC36",
+            "text": "#F8F5EE"
+          },
+          "origin": "Heritage Mountain Apiaries",
+          "health_claims": [
+            "Comprehensive 1.5kg Honeycomb & Superfood Master Flight",
+            "All Natural, Cold Extracted, Zero Peanuts"
+          ]
+        }
+      ]
+    }
+  ]
+}
