@@ -7,6 +7,11 @@ class TestPrintMockups(unittest.TestCase):
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.mockups_dir = os.path.join(base_dir, "output", "mockups")
         self.expected_files = [
+            ("mariam_honey_sidr_500g_printable_label_sheet_a4_300dpi.png", (3508, 2480)),
+            ("mariam_honey_royal_mix_500g_printable_label_sheet_a4_300dpi.png", (3508, 2480)),
+            ("mariam_honey_master_press_proof_sheet_a3_300dpi.png", (4960, 3508)),
+            ("mariam_honey_sidr_500g_photorealistic_print_mockup_4k.jpg", (3840, 2160)),
+            ("mariam_honey_packaging_evaluation_board_4k.jpg", (3840, 2160)),
             ("mariam_royal_mix_500g_printable_label_sheet_a4_300dpi.png", (3508, 2480)),
             ("mariam_packaging_press_proof_sheet_a3_300dpi.png", (4960, 3508)),
             ("mariam_royal_mix_500g_photorealistic_print_mockup_4k.jpg", (3840, 2160)),
@@ -25,16 +30,27 @@ class TestPrintMockups(unittest.TestCase):
             with Image.open(path) as im:
                 self.assertEqual(im.size, expected_size, f"{filename} size mismatch: {im.size} vs {expected_size}")
 
-    def test_brand_colors_in_printable_sheet(self):
-        path = os.path.join(self.mockups_dir, "mariam_royal_mix_500g_printable_label_sheet_a4_300dpi.png")
+    def test_honey_brand_colors_in_printable_sheet(self):
+        path = os.path.join(self.mockups_dir, "mariam_honey_sidr_500g_printable_label_sheet_a4_300dpi.png")
         self.assertTrue(os.path.exists(path))
         with Image.open(path) as im:
             rgb_im = im.convert("RGB")
             colors = rgb_im.getcolors(maxcolors=im.width * im.height)
             unique_rgb = {c[1] for c in colors}
-            self.assertIn(self.blush_pink, unique_rgb, "Blush Pink missing from printable A4 sheet")
-            self.assertIn(self.burgundy, unique_rgb, "Wine Burgundy missing from printable A4 sheet")
-            self.assertIn(self.gold_foil, unique_rgb, "Luxor Gold missing from printable A4 sheet")
+            self.assertIn(self.blush_pink, unique_rgb, "Blush Pink missing from honey printable A4 sheet")
+            self.assertIn(self.burgundy, unique_rgb, "Wine Burgundy missing from honey printable A4 sheet")
+            self.assertIn(self.gold_foil, unique_rgb, "Luxor Gold missing from honey printable A4 sheet")
+
+    def test_royal_mix_solid_pink_colors(self):
+        path = os.path.join(self.mockups_dir, "mariam_honey_royal_mix_500g_printable_label_sheet_a4_300dpi.png")
+        self.assertTrue(os.path.exists(path))
+        with Image.open(path) as im:
+            rgb_im = im.convert("RGB")
+            colors = rgb_im.getcolors(maxcolors=im.width * im.height)
+            unique_rgb = {c[1] for c in colors}
+            self.assertIn(self.blush_pink, unique_rgb, "Blush Pink missing from royal mix pink sheet")
+            self.assertIn(self.burgundy, unique_rgb, "Wine Burgundy missing from royal mix pink sheet")
+            self.assertIn(self.gold_foil, unique_rgb, "Luxor Gold missing from royal mix pink sheet")
 
 if __name__ == "__main__":
     unittest.main()
