@@ -34,6 +34,20 @@ class TestHoneyImagery(unittest.TestCase):
             ("mariam_honey_raw_honeycomb_hex_500g_white_studio_hero_4k.jpg", (3000, 3000)),
             ("mariam_honey_royal_jelly_elixir_white_studio_hero_4k.jpg", (3000, 3000)),
             ("mariam_honey_discovery_flight_box_white_studio_hero_4k.jpg", (3000, 3000)),
+            # New E-Commerce Multi-Angle & Open Jar Packshots (Pure White #FFFFFF)
+            ("mariam_honey_sidr_500g_open_jar_white_studio_4k.jpg", (3000, 3000)),
+            ("mariam_honey_royal_mix_500g_open_jar_white_studio_4k.jpg", (3000, 3000)),
+            ("mariam_honey_raw_honeycomb_hex_500g_open_jar_white_studio_4k.jpg", (3000, 3000)),
+            ("mariam_honey_cap_seal_and_ribbon_macro_white_studio_4k.jpg", (3000, 3000)),
+            ("mariam_honey_royal_mix_500g_back_label_white_studio_4k.jpg", (3000, 3000)),
+            ("mariam_honey_black_seed_500g_white_studio_hero_4k.jpg", (3000, 3000)),
+            ("mariam_honey_citrus_blossom_500g_white_studio_hero_4k.jpg", (3000, 3000)),
+            ("mariam_honey_sidr_500g_45deg_angle_white_studio_4k.jpg", (3000, 3000)),
+            # New E-Commerce Curated Bundles (Pure White #FFFFFF)
+            ("mariam_honey_open_jars_connoisseur_duo_white_studio_4k.jpg", (3000, 3000)),
+            ("mariam_honey_functional_wellness_trio_white_studio_4k.jpg", (3000, 3000)),
+            ("mariam_honey_breakfast_spreads_duo_white_studio_4k.jpg", (3000, 3000)),
+            ("mariam_honey_master_ecommerce_lineup_white_studio_4k.jpg", (3840, 2160)),
         ]
 
     def test_all_honey_imagery_exists_and_matches_resolution(self):
@@ -46,6 +60,23 @@ class TestHoneyImagery(unittest.TestCase):
                 # Verify minimum file size (at least 200KB for high-res JPEG)
                 fsize = os.path.getsize(path)
                 self.assertGreater(fsize, 200 * 1024, f"{filename} file size too small: {fsize} bytes")
+
+    def test_white_studio_corners_pure_white(self):
+        white_studio_imgs = [fname for fname, _ in self.expected_images if "white_studio" in fname]
+        for fname in white_studio_imgs:
+            path = os.path.join(self.imagery_dir, fname)
+            with Image.open(path) as im:
+                corners = [
+                    im.getpixel((10, 10))[:3],
+                    im.getpixel((im.width - 10, 10))[:3],
+                    im.getpixel((10, im.height - 10))[:3],
+                    im.getpixel((im.width - 10, im.height - 10))[:3],
+                ]
+                for idx, c in enumerate(corners):
+                    # Verify pure white within JPEG DCT quantization tolerance (>= 253)
+                    self.assertGreaterEqual(min(c), 253, f"{fname} corner {idx+1} is not pure white: {c}")
+                    # Verify neutral white balance (R, G, B within 2 levels of each other)
+                    self.assertLessEqual(max(c) - min(c), 2, f"{fname} corner {idx+1} not neutral white: {c}")
 
 if __name__ == "__main__":
     unittest.main()
