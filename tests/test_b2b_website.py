@@ -4,7 +4,7 @@ import re
 from html.parser import HTMLParser
 
 WORKSPACE_DIR = '/home/zexc/Desktop/New Folder'
-HTML_FILE = os.path.join(WORKSPACE_DIR, 'index.html')
+HTML_FILE = os.path.join(WORKSPACE_DIR, 'website.html' if os.path.exists(os.path.join(WORKSPACE_DIR, 'website.html')) else 'index.html')
 
 class SimpleDOMParser(HTMLParser):
     def __init__(self):
