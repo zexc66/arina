@@ -72,5 +72,25 @@ class TestWebCatalogHoneyShowcase(unittest.TestCase):
         self.assertIn("Mariam Food Industries", self.html_content,
                       "Mariam Food Industries company title must be preserved")
 
+    def test_09_interactive_4k_pdp_studio_viewer(self):
+        """Verify the interactive 4K multi-angle PDP studio viewer in Slide 10."""
+        self.assertIn("honey-pdp-main-img", self.html_content, "Must have #honey-pdp-main-img display frame")
+        self.assertIn("selectHoneyPdpAngle", self.html_content, "Must have selectHoneyPdpAngle controller")
+        self.assertIn("setHoneyViewMode", self.html_content, "Must have setHoneyViewMode controller")
+        self.assertIn("HONEY_PDP_DATA", self.html_content, "Must define HONEY_PDP_DATA object")
+        
+        # Verify core 4K white studio packshots referenced in Slide 10
+        expected_pdp_images = [
+            "mariam_honey_royal_mix_500g_white_studio_hero_4k.jpg",
+            "mariam_honey_royal_mix_500g_open_jar_white_studio_4k.jpg",
+            "mariam_honey_sidr_500g_open_jar_white_studio_4k.jpg",
+            "mariam_honey_sidr_500g_45deg_angle_white_studio_4k.jpg",
+            "mariam_honey_royal_mix_500g_back_label_white_studio_4k.jpg",
+            "mariam_honey_cap_seal_and_ribbon_macro_white_studio_4k.jpg",
+            "mariam_honey_master_ecommerce_lineup_white_studio_4k.jpg",
+        ]
+        for img_name in expected_pdp_images:
+            self.assertIn(img_name, self.html_content, f"Must reference 4K asset {img_name}")
+
 if __name__ == '__main__':
     unittest.main()
