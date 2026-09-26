@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MARIAM — Natural Honey & Superfoods | Dedicated Luxury Boutique Storefront</title>
+  <meta name="description" content="Mariam Natural Honey & Superfoods. Authentic single-estate Mediterranean honeys, raw honeycomb, and artisanal superfood nut blends. Unpasteurized, cold-extracted, strictly 0% peanuts.">
+
+  <!-- Luxury Typography Engine -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              obsidian: '#0A1612',
+              'forest-dark': '#102016',
+              'forest-card': '#14251B',
+              forest: '#1E3326',
+              'forest-light': '#274232',
+              gold: '#DAAC36',
+              'gold-light': '#EED48E',
+              'gold-dark': '#B88E28',
+              blush: '#F5B7C2',
+              'blush-soft': '#FDF2F4',
+              ivory: '#FFF5F7',
+              cream: '#F8F5EE',
+              amber: '#E29527',
+              charcoal: '#151816'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+            display: ['"Cinzel"', '"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Outfit"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            arabic: ['"Tajawal"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Gold Scrollbar */
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #0A1612; }
+    ::-webkit-scrollbar-thumb { background: #DAAC36; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #EED48E; }
+
+    /* Glassmorphism & Double-Bezel Elements */
+    .glass-island {
+      background: rgba(10, 22, 18, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(218, 172, 54, 0.28);
+      box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(218, 172, 54, 0.08);
+    }
+    .glass-card {
+      background: linear-gradient(150deg, rgba(20, 37, 27, 0.85) 0%, rgba(10, 22, 18, 0.95) 100%);
+      border: 1px solid rgba(218, 172, 54, 0.22);
+      box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.7);
+    }
+    .glass-card:hover {
+      border-color: rgba(218, 172, 54, 0.48);
+      box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(218, 172, 54, 0.12);
+    }
+    .gold-glow {
+      box-shadow: 0 0 22px rgba(218, 172, 54, 0.35);
+    }
+    .gold-text-glow {
+      text-shadow: 0 0 16px rgba(218, 172, 54, 0.45);
+    }
+    .blush-pill {
+      background: rgba(245, 183, 194, 0.14);
+      border: 1px solid rgba(245, 183, 194, 0.35);
+      color: #F5B7C2;
+    }
+
+    /* Tajawal Arabic Typography Overrides */
+    [dir="rtl"],
+    [dir="rtl"] body,
+    [dir="rtl"] button,
+    [dir="rtl"] input,
+    [dir="rtl"] select,
+    [dir="rtl"] textarea {
+      font-family: 'Tajawal', system-ui, sans-serif !important;
+      letter-spacing: normal !important;
+    }
+    [dir="rtl"] .font-serif,
+    [dir="rtl"] .font-display,
+    [dir="rtl"] h1,
+    [dir="rtl"] h2,
+    [dir="rtl"] h3,
+    [dir="rtl"] h4,
+    [dir="rtl"] h5 {
+      font-family: 'Tajawal', sans-serif !important;
+      font-weight: 800;
+    }
+
+    /* Studio Viewport Aspect Ratio and Lightbox */
+    .studio-stage-frame {
+      background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #FAFAFA 55%, #F0F0F0 100%);
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.04);
+    }
+    .lightbox-viewport {
+      background: radial-gradient(circle at center, rgba(16, 32, 22, 0.96) 0%, rgba(5, 11, 9, 0.99) 100%);
+    }
+
+    /* Smooth Zoom Transitions */
+    .zoom-image {
+      transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1);
+      cursor: zoom-in;
+    }
+    .zoom-image.is-zoomed {
+      cursor: grab;
+    }
+    .zoom-image.is-zoomed:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-obsidian text-brand-ivory font-sans antialiased min-h-screen selection:bg-brand-gold selection:text-brand-obsidian">
+
+  <!-- ========================================================================= -->
+  <!-- 1. LUXURY STICKY NAVIGATION BAR -->
+  <!-- ========================================================================= -->
+  <header class="fixed top-3 sm:top-4 inset-x-0 z-50 flex justify-center px-2 sm:px-4 lg:px-6 pointer-events-none transition-all duration-300" id="main-header">
+    <div class="pointer-events-auto w-full max-w-7xl rounded-full glass-island px-3 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between gap-3 shadow-2xl">
+      
+      <!-- Brand & Producer Identity (Authentic Luxor Gold Logo) -->
+      <div class="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+        <a href="#hero" class="flex items-center gap-2.5 group">
+          <img src="mariam-logo-gold.png" alt="Mariam Luxury Cursive Gold Logo" class="h-7 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105" fetchpriority="high">
+          <span class="hidden sm:inline-flex items-center text-[9px] uppercase font-display tracking-[0.2em] text-brand-gold bg-brand-obsidian/90 border border-brand-gold/40 px-2.5 py-0.5 rounded-full font-bold whitespace-nowrap shadow-sm" data-i18n="nav_boutique_badge">
+            HONEY & SUPERFOODS
+          </span>
+        </a>
+
+        <!-- Producer Crest Divider -->
+        <span class="hidden md:inline-block w-px h-5 bg-brand-gold/30"></span>
+        <div class="hidden md:flex items-center gap-2 text-brand-gold/80 hover:text-brand-gold transition-colors">
+          <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi Producer Crest" class="h-6 w-auto object-contain opacity-85 hover:opacity-100 transition-opacity">
+          <span class="text-[10px] uppercase font-display tracking-widest text-brand-cream/70 hidden lg:inline" data-i18n="nav_producer_label">Khaeer Alwadi</span>
+        </div>
+      </div>
+
+      <!-- Navigation Directory Links -->
+      <nav class="hidden xl:flex items-center gap-4 2xl:gap-6 text-xs font-semibold tracking-wide">
+        <!-- Active indicator for dedicated honey boutique -->
+        <a href="#studio-stage" class="whitespace-nowrap text-brand-gold font-bold flex items-center gap-1.5 py-1 px-3 rounded-full bg-brand-gold/10 border border-brand-gold/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
+          <span data-i18n="nav_pdp_studio">4K PDP Studio</span>
+        </a>
+        <a href="#collection-grid" class="whitespace-nowrap text-brand-cream/80 hover:text-brand-gold transition-colors py-1" data-i18n="nav_collection">Harvest Collection</a>
+        <a href="#standards-section" class="whitespace-nowrap text-brand-cream/80 hover:text-brand-gold transition-colors py-1" data-i18n="nav_standards">Purity & 0% Peanuts</a>
+        
+        <!-- Cross Navigation to Main Platform -->
+        <a href="website.html#olives" class="whitespace-nowrap text-brand-cream/70 hover:text-brand-gold transition-colors py-1 flex items-center gap-1">
+          <span data-i18n="nav_olives">Olives</span>
+          <svg class="w-2.5 h-2.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+        <a href="website.html#pickles" class="whitespace-nowrap text-brand-cream/70 hover:text-brand-gold transition-colors py-1 flex items-center gap-1">
+          <span data-i18n="nav_pickles">Pickles</span>
+          <svg class="w-2.5 h-2.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+        <a href="website.html#evoo" class="whitespace-nowrap text-brand-cream/70 hover:text-brand-gold transition-colors py-1 flex items-center gap-1">
+          <span data-i18n="nav_evoo">EVOO</span>
+          <svg class="w-2.5 h-2.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+        <a href="index.html" class="whitespace-nowrap text-brand-cream/70 hover:text-brand-gold transition-colors py-1 flex items-center gap-1">
+          <span data-i18n="nav_story">Brand Story</span>
+          <svg class="w-2.5 h-2.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </nav>
+
+      <!-- Right Interactive Action Controls -->
+      <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        
+        <!-- Seamless Bilingual Toggle Switch (AR / EN) -->
+        <button id="lang-btn" onclick="toggleLanguage()" class="px-3 py-1 sm:py-1.5 rounded-full border border-brand-gold/40 text-[11px] sm:text-xs font-bold text-brand-gold hover:bg-brand-gold hover:text-brand-obsidian transition-all duration-200 flex items-center gap-1.5 shadow-sm whitespace-nowrap active:scale-95" aria-label="Toggle language between English and Arabic">
+          <svg class="w-3.5 h-3.5 text-current" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/>
+          </svg>
+          <span id="lang-label">العربية</span>
+        </button>
+
+        <!-- B2B Sample Cart / Request Button -->
+        <button onclick="openSampleModal()" class="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold text-brand-obsidian font-bold text-xs hover:brightness-110 active:scale-95 transition-all duration-200 flex items-center gap-1.5 sm:gap-2 shadow-lg gold-glow whitespace-nowrap flex-shrink-0">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-obsidian flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+          </svg>
+          <span class="hidden sm:inline" data-i18n="nav_b2b_sample_btn">Wholesale Samples</span>
+          <span class="sm:hidden" data-i18n="nav_b2b_sample_btn_mob">Samples</span>
+          <span id="sample-count-badge" class="w-4 h-4 rounded-full bg-brand-obsidian text-brand-gold text-[10px] flex items-center justify-center font-bold">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" aria-label="Open mobile navigation" class="xl:hidden p-1.5 text-brand-cream hover:text-brand-gold active:scale-90 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay Menu -->
+  <div id="mobile-menu" class="hidden fixed inset-x-3 top-16 sm:top-20 z-50 rounded-3xl glass-card p-4 space-y-4 border border-brand-gold/40 shadow-2xl xl:hidden">
+    <div class="flex items-center justify-between border-b border-brand-gold/20 pb-3">
+      <div class="flex items-center gap-2">
+        <img src="mariam-logo-gold.png" alt="Mariam" class="h-6 w-auto">
+        <span class="text-[9px] uppercase tracking-widest text-brand-gold font-display font-bold">BOUTIQUE</span>
+      </div>
+      <button onclick="toggleMobileMenu()" class="w-7 h-7 rounded-full bg-brand-forest/60 border border-brand-gold/30 flex items-center justify-center text-brand-gold">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-2 text-sm font-semibold">
+      <a href="#studio-stage" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl bg-brand-gold/15 text-brand-gold flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-brand-gold"></span>
+        <span data-i18n="nav_pdp_studio">4K PDP Studio Stage</span>
+      </a>
+      <a href="#collection-grid" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl hover:bg-brand-forest/50 text-brand-cream" data-i18n="nav_collection">Harvest Collection</a>
+      <a href="#standards-section" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl hover:bg-brand-forest/50 text-brand-cream" data-i18n="nav_standards">Purity & 0% Peanuts Policy</a>
+      <hr class="border-brand-gold/20 my-1">
+      <a href="website.html#olives" class="p-2.5 rounded-xl hover:bg-brand-forest/50 text-brand-cream/80 flex items-center justify-between">
+        <span data-i18n="nav_olives">Table Olives & Stuffed</span>
+        <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+      <a href="website.html#pickles" class="p-2.5 rounded-xl hover:bg-brand-forest/50 text-brand-cream/80 flex items-center justify-between">
+        <span data-i18n="nav_pickles">Artisanal Pickles</span>
+        <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+      <a href="website.html#evoo" class="p-2.5 rounded-xl hover:bg-brand-forest/50 text-brand-cream/80 flex items-center justify-between">
+        <span data-i18n="nav_evoo">Extra Virgin Olive Oil</span>
+        <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+      <a href="index.html" class="p-2.5 rounded-xl hover:bg-brand-forest/50 text-brand-cream/80 flex items-center justify-between">
+        <span data-i18n="nav_story">Brand Story & Heritage</span>
+        <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SHOWCASE WITH MASTER CINEMA 4K LINEUP BANNER -->
+  <!-- ========================================================================= -->
+  <section id="hero" class="relative pt-28 sm:pt-36 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <!-- Ambient Radial Halo Background -->
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-brand-blush/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10 text-center">
+      
+      <!-- Top Kicker Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full blush-pill text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
+        <svg class="w-3.5 h-3.5 text-brand-blush" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <span data-i18n="hero_kicker">SINGLE-ESTATE APIARIES • MEDITERRANEAN HARVEST RESERVE</span>
+      </div>
+
+      <!-- Hero Monumental Title -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-serif font-extrabold tracking-tight text-brand-ivory mb-4 max-w-4xl mx-auto leading-tight" data-i18n="hero_title">
+        NATURAL HONEY & ARTISANAL SUPERFOODS
+      </h1>
+
+      <!-- Brand Signature Poetic Subtitle -->
+      <p class="text-lg sm:text-xl text-brand-gold-light font-serif italic mb-6 max-w-2xl mx-auto" data-i18n="hero_subtitle">
+        "Pure Goodness, Naturally. Made with Love."
+      </p>
+
+      <!-- Narrative Descriptor -->
+      <p class="text-sm sm:text-base text-brand-cream/80 max-w-3xl mx-auto mb-8 font-normal leading-relaxed" data-i18n="hero_desc">
+        Unpasteurized, cold-extracted monofloral honeys, pure honeycomb, and high-potency superfood nut blends. Packaged in ultra-clear Nordic flint glass with royal crown tamper-evident security seals. Strictly 0% peanuts.
+      </p>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-12">
+        <a href="#studio-stage" class="px-6 sm:px-8 py-3 rounded-full bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold text-brand-obsidian font-bold text-sm sm:text-base hover:brightness-110 active:scale-95 transition-all shadow-xl gold-glow flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-obsidian" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          <span data-i18n="hero_cta_explore">Explore 4K Studio Collection</span>
+        </a>
+        <button onclick="openSampleModal()" class="px-6 sm:px-8 py-3 rounded-full border border-brand-gold/60 bg-brand-forest-card/80 text-brand-gold font-bold text-sm sm:text-base hover:bg-brand-gold hover:text-brand-obsidian active:scale-95 transition-all shadow-lg flex items-center gap-2">
+          <svg class="w-4 h-4 text-current" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span data-i18n="hero_cta_sample">Request B2B Sample Kit</span>
+        </button>
+      </div>
+
+      <!-- Master Cinema 4K Lineup Banner Container -->
+      <div class="relative rounded-3xl p-1.5 sm:p-2 bg-gradient-to-b from-brand-gold/30 via-brand-forest/40 to-brand-obsidian/80 border border-brand-gold/40 shadow-2xl overflow-hidden group">
+        <div class="rounded-[calc(1.5rem-0.375rem)] overflow-hidden bg-white relative">
+          <img src="output/imagery/mariam_honey_master_ecommerce_lineup_white_studio_4k.jpg" alt="Mariam Honey Master Lineup Studio 4K Panorama" class="w-full h-auto object-cover transform duration-700 group-hover:scale-[1.02]" loading="eager" fetchpriority="high">
+          
+          <!-- Banner Overlay Tag -->
+          <div class="absolute bottom-3 sm:bottom-5 start-3 sm:start-6 bg-brand-obsidian/90 backdrop-blur-md border border-brand-gold/40 px-3 sm:px-4 py-1.5 rounded-full flex items-center gap-2 text-[10px] sm:text-xs font-mono text-brand-gold font-bold shadow-xl">
+            <span class="w-2 h-2 rounded-full bg-brand-gold"></span>
+            <span data-i18n="banner_lineup_tag">CINEMA 4K MASTER LINEUP • PURE WHITE STUDIO</span>
+          </div>
+
+          <!-- Click to inspect badge -->
+          <a href="#studio-stage" class="absolute bottom-3 sm:bottom-5 end-3 sm:end-6 bg-gradient-to-r from-brand-gold to-brand-gold-light text-brand-obsidian px-3 sm:px-4 py-1.5 rounded-full flex items-center gap-1.5 text-[10px] sm:text-xs font-bold shadow-xl hover:brightness-110 transition-all">
+            <span data-i18n="banner_inspect_btn">Inspect in 4K Studio Stage</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Trust Indicators Row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-8 max-w-5xl mx-auto text-start">
+        <div class="p-3 sm:p-4 rounded-2xl glass-card flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center text-brand-gold flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-brand-ivory" data-i18n="trust_codex_title">Codex Stan 12-1981</h4>
+            <p class="text-[11px] text-brand-cream/60" data-i18n="trust_codex_sub">Export Certified Pure Honey</p>
+          </div>
+        </div>
+
+        <div class="p-3 sm:p-4 rounded-2xl glass-card flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-brand-blush/20 border border-brand-blush/40 flex items-center justify-center text-brand-blush flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-brand-blush" data-i18n="trust_peanut_title">0% Peanuts Guarantee</h4>
+            <p class="text-[11px] text-brand-cream/60" data-i18n="trust_peanut_sub">100% Tree Nuts Formula</p>
+          </div>
+        </div>
+
+        <div class="p-3 sm:p-4 rounded-2xl glass-card flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center text-brand-gold flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-brand-ivory" data-i18n="trust_cold_title">Cold-Extracted Raw</h4>
+            <p class="text-[11px] text-brand-cream/60" data-i18n="trust_cold_sub">Active Hive Enzymes</p>
+          </div>
+        </div>
+
+        <div class="p-3 sm:p-4 rounded-2xl glass-card flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center text-brand-gold flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-brand-ivory" data-i18n="trust_nordic_title">Nordic Flint Glass</h4>
+            <p class="text-[11px] text-brand-cream/60" data-i18n="trust_nordic_sub">Gold Lid & Crown Ribbon</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3. INTERACTIVE 4K PDP STUDIO STAGE (6 PRODUCTS x 5 ANGLES x LIGHTBOX ZOOM) -->
+  <!-- ========================================================================= -->
+  <section id="studio-stage" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-brand-gold/20 bg-brand-forest-dark/40 relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/35 text-[11px] font-mono text-brand-gold font-bold uppercase tracking-wider mb-3">
+          <span class="w-2 h-2 rounded-full bg-brand-gold"></span>
+          <span data-i18n="studio_kicker">4K ULTRA-SHARP STUDIO PDP STAGE</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-serif font-bold text-brand-ivory mb-3" data-i18n="studio_title">
+          Interactive Product Inspection Stage
+        </h2>
+        <p class="text-xs sm:text-sm text-brand-cream/70" data-i18n="studio_subtitle">
+          Inspect 3000 × 3000 px ultra-sharp packshots rendered with the authentic Luxor Gold cursive logo across 5 standardized commercial angles.
+        </p>
+      </div>
+
+      <!-- Horizontal 6-Product Switcher Tabs -->
+      <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar touch-scroll">
+        <button onclick="selectHoneyProduct('royal_mix')" id="tab-prod-royal_mix" class="product-tab px-4 py-2 rounded-full border border-brand-gold bg-brand-gold text-brand-obsidian text-xs font-bold whitespace-nowrap transition-all shadow-md">
+          <span class="font-mono opacity-80 me-1">SKU-SF01</span>
+          <span data-i18n="prod_name_royal_mix">Mariam Royal Mix</span>
+        </button>
+        <button onclick="selectHoneyProduct('mountain_sidr')" id="tab-prod-mountain_sidr" class="product-tab px-4 py-2 rounded-full border border-brand-gold/30 bg-brand-forest-card/80 text-brand-cream hover:text-brand-gold hover:border-brand-gold/70 text-xs font-bold whitespace-nowrap transition-all">
+          <span class="font-mono opacity-80 me-1">SKU-H01</span>
+          <span data-i18n="prod_name_sidr">Mountain Sidr Honey</span>
+        </button>
+        <button onclick="selectHoneyProduct('honeycomb_hex')" id="tab-prod-honeycomb_hex" class="product-tab px-4 py-2 rounded-full border border-brand-gold/30 bg-brand-forest-card/80 text-brand-cream hover:text-brand-gold hover:border-brand-gold/70 text-xs font-bold whitespace-nowrap transition-all">
+          <span class="font-mono opacity-80 me-1">SKU-H03</span>
+          <span data-i18n="prod_name_comb">Raw Honeycomb Hex</span>
+        </button>
+        <button onclick="selectHoneyProduct('clover_blossom')" id="tab-prod-clover_blossom" class="product-tab px-4 py-2 rounded-full border border-brand-gold/30 bg-brand-forest-card/80 text-brand-cream hover:text-brand-gold hover:border-brand-gold/70 text-xs font-bold whitespace-nowrap transition-all">
+          <span class="font-mono opacity-80 me-1">SKU-H04</span>
+          <span data-i18n="prod_name_clover">Clover Blossom (1kg)</span>
+        </button>
+        <button onclick="selectHoneyProduct('black_seed')" id="tab-prod-black_seed" class="product-tab px-4 py-2 rounded-full border border-brand-gold/30 bg-brand-forest-card/80 text-brand-cream hover:text-brand-gold hover:border-brand-gold/70 text-xs font-bold whitespace-nowrap transition-all">
+          <span class="font-mono opacity-80 me-1">SKU-H05</span>
+          <span data-i18n="prod_name_black_seed">Black Seed Honey</span>
+        </button>
+        <button onclick="selectHoneyProduct('citrus_blossom')" id="tab-prod-citrus_blossom" class="product-tab px-4 py-2 rounded-full border border-brand-gold/30 bg-brand-forest-card/80 text-brand-cream hover:text-brand-gold hover:border-brand-gold/70 text-xs font-bold whitespace-nowrap transition-all">
+          <span class="font-mono opacity-80 me-1">SKU-H02</span>
+          <span data-i18n="prod_name_citrus">Citrus Blossom Honey</span>
+        </button>
+      </div>
+
+      <!-- Studio Stage Main Grid: Viewport + Angle Selector + Dynamic Spec Board -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left 7 Columns: 4K Studio Stage Viewport with Angle Selector Pills -->
+        <div class="lg:col-span-7 space-y-4">
+          
+          <!-- Main 4K Viewport Container -->
+          <div class="relative rounded-3xl studio-stage-frame p-4 sm:p-8 border border-brand-gold/30 shadow-2xl flex items-center justify-center min-h-[380px] sm:min-h-[500px] group overflow-hidden">
+            
+            <!-- Resolution Badge -->
+            <div class="absolute top-4 start-4 bg-brand-obsidian/85 backdrop-blur-md border border-brand-gold/40 px-3 py-1 rounded-full text-[10px] font-mono text-brand-gold font-bold shadow-md z-10 flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span id="studio-resolution-badge">3000 × 3000 PX • 4K ULTRA-SHARP</span>
+            </div>
+
+            <!-- Authentic Logo Verification Indicator -->
+            <div class="absolute top-4 end-4 bg-brand-obsidian/85 backdrop-blur-md border border-brand-gold/40 px-3 py-1 rounded-full text-[10px] font-mono text-brand-cream font-semibold shadow-md z-10 hidden sm:flex items-center gap-1.5">
+              <span class="text-brand-gold">★</span>
+              <span>KURZ LUXOR 428 GOLD LOGO</span>
+            </div>
+
+            <!-- Active Studio Packshot Image -->
+            <img id="studio-active-image" src="output/imagery/mariam_honey_royal_mix_500g_white_studio_hero_4k.jpg" alt="Active 4K Studio Packshot" class="max-w-full max-h-[460px] object-contain cursor-zoom-in transition-all duration-300 transform group-hover:scale-[1.02]" onclick="openLightbox()">
+
+            <!-- Hover Click-to-Zoom Button Overlay -->
+            <button onclick="openLightbox()" class="absolute bottom-5 inset-x-0 mx-auto w-fit bg-brand-obsidian/90 hover:bg-brand-gold hover:text-brand-obsidian text-brand-gold border border-brand-gold/50 px-4 py-2 rounded-full text-xs font-bold shadow-2xl transition-all flex items-center gap-2 opacity-90 group-hover:opacity-100 group-hover:scale-105">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span data-i18n="studio_zoom_btn">Inspect in Full-Screen Lightbox (3000x3000px)</span>
+            </button>
+          </div>
+
+          <!-- 5 View-Angle Selector Pills -->
+          <div class="p-2 rounded-2xl glass-card flex items-center justify-between gap-1 sm:gap-2 overflow-x-auto no-scrollbar">
+            <button onclick="selectHoneyAngle(0)" id="angle-pill-0" class="angle-pill flex-1 py-2 px-2.5 rounded-xl bg-brand-gold text-brand-obsidian text-[11px] sm:text-xs font-bold transition-all text-center whitespace-nowrap shadow-md">
+              <span class="block text-[9px] opacity-75 font-mono">0°</span>
+              <span data-i18n="angle_0">Front Hero</span>
+            </button>
+            <button onclick="selectHoneyAngle(1)" id="angle-pill-1" class="angle-pill flex-1 py-2 px-2.5 rounded-xl bg-brand-forest/60 hover:bg-brand-forest text-brand-cream hover:text-brand-gold text-[11px] sm:text-xs font-bold transition-all text-center whitespace-nowrap">
+              <span class="block text-[9px] opacity-75 font-mono">OPEN</span>
+              <span data-i18n="angle_1">Jar Texture</span>
+            </button>
+            <button onclick="selectHoneyAngle(2)" id="angle-pill-2" class="angle-pill flex-1 py-2 px-2.5 rounded-xl bg-brand-forest/60 hover:bg-brand-forest text-brand-cream hover:text-brand-gold text-[11px] sm:text-xs font-bold transition-all text-center whitespace-nowrap">
+              <span class="block text-[9px] opacity-75 font-mono">45°</span>
+              <span data-i18n="angle_2">Perspective</span>
+            </button>
+            <button onclick="selectHoneyAngle(3)" id="angle-pill-3" class="angle-pill flex-1 py-2 px-2.5 rounded-xl bg-brand-forest/60 hover:bg-brand-forest text-brand-cream hover:text-brand-gold text-[11px] sm:text-xs font-bold transition-all text-center whitespace-nowrap">
+              <span class="block text-[9px] opacity-75 font-mono">180°</span>
+              <span data-i18n="angle_3">Regulatory</span>
+            </button>
+            <button onclick="selectHoneyAngle(4)" id="angle-pill-4" class="angle-pill flex-1 py-2 px-2.5 rounded-xl bg-brand-forest/60 hover:bg-brand-forest text-brand-cream hover:text-brand-gold text-[11px] sm:text-xs font-bold transition-all text-center whitespace-nowrap">
+              <span class="block text-[9px] opacity-75 font-mono">MACRO</span>
+              <span data-i18n="angle_4">Crown Ribbon</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Right 5 Columns: Dynamic Specifications & Commercial Board -->
+        <div class="lg:col-span-5 space-y-5">
+          
+          <div class="p-6 rounded-3xl glass-card space-y-5 border border-brand-gold/30">
+            
+            <!-- Product Header Details -->
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-1.5">
+                <span id="spec-sku-badge" class="px-2.5 py-0.5 rounded-md bg-brand-gold/20 text-brand-gold font-mono text-xs font-bold border border-brand-gold/40">
+                  SKU-SF01
+                </span>
+                <span id="spec-tier-badge" class="text-[11px] font-bold text-brand-blush uppercase tracking-wider">
+                  HERO FLAGSHIP
+                </span>
+              </div>
+              <h3 id="spec-product-name" class="text-xl sm:text-2xl font-serif font-bold text-brand-ivory">
+                Mariam Royal Mix
+              </h3>
+              <p id="spec-product-subtitle" class="text-xs text-brand-gold-light mt-1 font-medium">
+                Natural Mountain Honey with Selected Tree Nuts, Super Seeds & Royal Jelly
+              </p>
+            </div>
+
+            <!-- Sensory Flavor Triad Callout -->
+            <div class="p-3 rounded-2xl bg-brand-obsidian/70 border border-brand-gold/25">
+              <span class="text-[10px] uppercase font-mono tracking-widest text-brand-gold block mb-1" data-i18n="spec_triad_label">SENSORY FLAVOR PROFILE</span>
+              <p id="spec-sensory-triad" class="text-sm font-serif font-bold text-brand-cream">
+                Crunchy • Opulent • Energizing
+              </p>
+            </div>
+
+            <!-- Allergy Policy Flag: Certified 0% Peanuts -->
+            <div id="spec-allergy-box" class="p-3 rounded-2xl bg-brand-blush/10 border border-brand-blush/40 flex items-start gap-2.5">
+              <div class="w-5 h-5 rounded-full bg-brand-blush/20 text-brand-blush flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h5 class="text-xs font-bold text-brand-blush" data-i18n="spec_peanut_title">CERTIFIED 0% PEANUTS FACILITY</h5>
+                <p id="spec-peanut-desc" class="text-[11px] text-brand-cream/80 mt-0.5">
+                  100% Tree Nuts (raw cashews, California almonds, Turkish hazelnuts, pistachios, pumpkin seeds). Strictly zero peanuts or peanut oils.
+                </p>
+              </div>
+            </div>
+
+            <!-- Full Ingredients Breakdown -->
+            <div>
+              <span class="text-[10px] uppercase font-mono tracking-widest text-brand-gold block mb-1.5" data-i18n="spec_ingredients_label">INGREDIENTS & COMPOSITION</span>
+              <p id="spec-ingredients-text" class="text-xs text-brand-cream/85 leading-relaxed bg-brand-obsidian/50 p-3 rounded-xl border border-brand-gold/15">
+                Pure Mountain Honey (55%), Fresh Pure Royal Jelly (5%), Raw Pistachios (8%), Jumbo Cashews (7%), Crisp Local Almonds (5%), Walnuts (5%), Pumpkin Seeds (4%), Chia Seeds (3%), Golden Flaxseeds (3%), Sesame Seeds (3%), Nigella Seeds (2%).
+              </p>
+            </div>
+
+            <!-- Commercial Specifications Grid -->
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div class="p-2.5 rounded-xl bg-brand-obsidian/60 border border-brand-gold/15">
+                <span class="text-[10px] font-mono text-brand-cream/60 block" data-i18n="spec_weight_label">Standard Sizes</span>
+                <span id="spec-weight-val" class="font-bold text-brand-ivory mt-0.5 block">500g Heavy Glass</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-brand-obsidian/60 border border-brand-gold/15">
+                <span class="text-[10px] font-mono text-brand-cream/60 block" data-i18n="spec_case_label">Case Packaging</span>
+                <span class="font-bold text-brand-ivory mt-0.5 block">12 Jars / Master Carton</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-brand-obsidian/60 border border-brand-gold/15">
+                <span class="text-[10px] font-mono text-brand-cream/60 block" data-i18n="spec_pallet_label">Pallet Configuration</span>
+                <span class="font-bold text-brand-ivory mt-0.5 block">1,200 Jars / EUR Pallet</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-brand-obsidian/60 border border-brand-gold/15">
+                <span class="text-[10px] font-mono text-brand-cream/60 block" data-i18n="spec_shelf_label">Shelf Life & Storage</span>
+                <span class="font-bold text-brand-ivory mt-0.5 block">24 Mos @ Ambient</span>
+              </div>
+            </div>
+
+            <!-- Action Button: Request Sample for this exact SKU -->
+            <button onclick="requestCurrentSample()" class="w-full py-3 rounded-full bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold text-brand-obsidian font-bold text-sm hover:brightness-110 active:scale-98 transition-all shadow-xl gold-glow flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              <span data-i18n="spec_add_sample_btn">Request Commercial Sample for this SKU</span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. PRODUCT COLLECTION BENTO GRID (6 CORE SKUs) -->
+  <!-- ========================================================================= -->
+  <section id="collection-grid" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-brand-gold/20">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full blush-pill text-[11px] font-mono font-bold uppercase tracking-wider mb-3">
+          <span data-i18n="bento_kicker">COMPLETE MARIAM HARVEST</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-serif font-bold text-brand-ivory mb-3" data-i18n="bento_title">
+          The 6 Core Honey & Superfoods Offerings
+        </h2>
+        <p class="text-xs sm:text-sm text-brand-cream/70" data-i18n="bento_subtitle">
+          Curated across Pure Monofloral Reserves, Superfood Nut Blends, and Artisan Heritage Showpieces.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- CARD 1: SKU-SF01 (Royal Mix) -->
+        <div class="rounded-3xl glass-card p-6 flex flex-col justify-between group transition-all duration-300 border border-brand-gold/30 hover:border-brand-gold">
+          <div>
+            <div class="rounded-2xl studio-stage-frame p-4 mb-5 flex items-center justify-center relative overflow-hidden h-64">
+              <span class="absolute top-3 start-3 px-2 py-0.5 rounded bg-brand-obsidian/80 text-brand-gold font-mono text-[10px] font-bold border border-brand-gold/30">
+                SKU-SF01
+              </span>
+              <span class="absolute top-3 end-3 px-2 py-0.5 rounded bg-brand-blush/20 text-brand-blush text-[10px] font-bold border border-brand-blush/40">
+                0% PEANUTS
+              </span>
+              <img src="output/imagery/mariam_honey_royal_mix_500g_white_studio_hero_4k.jpg" alt="Mariam Royal Mix 500g" class="max-h-56 object-contain transform duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono tracking-widest text-brand-blush uppercase font-bold" data-i18n="card1_cat">SUPERFOODS HERO</span>
+              <h3 class="text-lg font-serif font-bold text-brand-ivory" data-i18n="card1_title">Mariam Royal Mix</h3>
+              <p class="text-xs text-brand-cream/70 leading-relaxed" data-i18n="card1_desc">
+                Mountain honey infused with 5% fresh royal jelly, whole California almonds, raw cashews, Turkish hazelnuts, and super seeds.
+              </p>
+              
+              <!-- Flavor Triad -->
+              <div class="pt-2">
+                <span class="text-[11px] font-semibold text-brand-gold font-serif">Crunchy • Opulent • Energizing</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-4 border-t border-brand-gold/20 flex items-center gap-2">
+            <button onclick="selectHoneyProduct('royal_mix'); location.href='#studio-stage';" class="flex-1 py-2 px-3 rounded-full border border-brand-gold/40 text-brand-gold text-xs font-bold hover:bg-brand-gold/15 transition-all text-center">
+              <span data-i18n="card_btn_inspect">Inspect 4K</span>
+            </button>
+            <button onclick="openSampleModal('SKU-SF01')" class="py-2 px-4 rounded-full bg-gradient-to-r from-brand-gold to-brand-gold-light text-brand-obsidian text-xs font-bold hover:brightness-110 transition-all">
+              <span data-i18n="card_btn_sample">Sample</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 2: SKU-H01 (Mountain Sidr) -->
+        <div class="rounded-3xl glass-card p-6 flex flex-col justify-between group transition-all duration-300 border border-brand-gold/30 hover:border-brand-gold">
+          <div>
+            <div class="rounded-2xl studio-stage-frame p-4 mb-5 flex items-center justify-center relative overflow-hidden h-64">
+              <span class="absolute top-3 start-3 px-2 py-0.5 rounded bg-brand-obsidian/80 text-brand-gold font-mono text-[10px] font-bold border border-brand-gold/30">
+                SKU-H01
+              </span>
+              <span class="absolute top-3 end-3 px-2 py-0.5 rounded bg-brand-gold/20 text-brand-gold text-[10px] font-bold border border-brand-gold/40">
+                ROYAL RESERVE
+              </span>
+              <img src="output/imagery/mariam_honey_mountain_sidr_500g_white_studio_hero_4k.jpg" alt="Mountain Sidr Honey 500g" class="max-h-56 object-contain transform duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold" data-i18n="card2_cat">PURE MONOFLORAL</span>
+              <h3 class="text-lg font-serif font-bold text-brand-ivory" data-i18n="card2_title">Mountain Sidr Honey</h3>
+              <p class="text-xs text-brand-cream/70 leading-relaxed" data-i18n="card2_desc">
+                Raw, unpasteurized monofloral Sidr honey harvested from highland wild Ziziphus groves. Deep butterscotch and resinous finish.
+              </p>
+              
+              <!-- Flavor Triad -->
+              <div class="pt-2">
+                <span class="text-[11px] font-semibold text-brand-gold font-serif">Rich • Velvety • Raw</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-4 border-t border-brand-gold/20 flex items-center gap-2">
+            <button onclick="selectHoneyProduct('mountain_sidr'); location.href='#studio-stage';" class="flex-1 py-2 px-3 rounded-full border border-brand-gold/40 text-brand-gold text-xs font-bold hover:bg-brand-gold/15 transition-all text-center">
+              <span data-i18n="card_btn_inspect">Inspect 4K</span>
+            </button>
+            <button onclick="openSampleModal('SKU-H01')" class="py-2 px-4 rounded-full bg-gradient-to-r from-brand-gold to-brand-gold-light text-brand-obsidian text-xs font-bold hover:brightness-110 transition-all">
+              <span data-i18n="card_btn_sample">Sample</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 3: SKU-H03 (Honeycomb Hex) -->
+        <div class="rounded-3xl glass-card p-6 flex flex-col justify-between group transition-all duration-300 border border-brand-gold/30 hover:border-brand-gold">
+          <div>
+            <div class="rounded-2xl studio-stage-frame p-4 mb-5 flex items-center justify-center relative overflow-hidden h-64">
+              <span class="absolute top-3 start-3 px-2 py-0.5 rounded bg-brand-obsidian/80 text-brand-gold font-mono text-[10px] font-bold border border-brand-gold/30">
+                SKU-H03
+              </span>
+              <span class="absolute top-3 end-3 px-2 py-0.5 rounded bg-brand-amber/20 text-brand-amber text-[10px] font-bold border border-brand-amber/40">
+                ARTISAN HEX
+              </span>
+              <img src="output/imagery/mariam_honey_raw_honeycomb_hex_500g_white_studio_hero_4k.jpg" alt="Raw Cut Honeycomb in Honey 500g" class="max-h-56 object-contain transform duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono tracking-widest text-brand-amber uppercase font-bold" data-i18n="card3_cat">ARTISAN SHOWPIECE</span>
+              <h3 class="text-lg font-serif font-bold text-brand-ivory" data-i18n="card3_title">Raw Honeycomb in Hex Glass</h3>
+              <p class="text-xs text-brand-cream/70 leading-relaxed" data-i18n="card3_desc">
+                100% natural virgin beeswax comb steeped in pure raw honey. Distinctive hexagonal faceted jar for luxury retail displays.
+              </p>
+              
+              <!-- Flavor Triad -->
+              <div class="pt-2">
+                <span class="text-[11px] font-semibold text-brand-gold font-serif">Raw • Hexagonal • Unfiltered</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-4 border-t border-brand-gold/20 flex items-center gap-2">
+            <button onclick="selectHoneyProduct('honeycomb_hex'); location.href='#studio-stage';" class="flex-1 py-2 px-3 rounded-full border border-brand-gold/40 text-brand-gold text-xs font-bold hover:bg-brand-gold/15 transition-all text-center">
+              <span data-i18n="card_btn_inspect">Inspect 4K</span>
+            </button>
+            <button onclick="openSampleModal('SKU-H03')" class="py-2 px-4 rounded-full bg-gradient-to-r from-brand-gold to-brand-gold-light text-brand-obsidian text-xs font-bold hover:brightness-110 transition-all">
+              <span data-i18n="card_btn_sample">Sample</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 4: SKU-H04 (Clover Family 1kg) -->
+        <div class="rounded-3xl glass-card p-6 flex flex-col justify-between group transition-all duration-300 border border-brand-gold/30 hover:border-brand-gold">
+          <div>
+            <div class="rounded-2xl studio-stage-frame p-4 mb-5 flex items-center justify-center relative overflow-hidden h-64">
+              <span class="absolute top-3 start-3 px-2 py-0.5 rounded bg-brand-obsidian/80 text-brand-gold font-mono text-[10px] font-bold border border-brand-gold/30">
+                SKU-H04
+              </span>
+              <span class="absolute top-3 end-3 px-2 py-0.5 rounded bg-brand-gold/20 text-brand-gold text-[10px] font-bold border border-brand-gold/40">
+                FAMILY 1KG & 500G
+              </span>
+              <img src="output/imagery/mariam_honey_clover_blossom_1kg_white_studio_hero_4k.jpg" alt="Clover Blossom Honey 1kg" class="max-h-56 object-contain transform duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono tracking-widest text-brand-cream/60 uppercase font-bold" data-i18n="card4_cat">EVERYDAY LUXURY</span>
+              <h3 class="text-lg font-serif font-bold text-brand-ivory" data-i18n="card4_title">Clover Blossom Honey</h3>
+              <p class="text-xs text-brand-cream/70 leading-relaxed" data-i18n="card4_desc">
+                Silky, light golden crystalline clover nectar with delicate floral aroma. Ideal high-rotation staple for family tables.
+              </p>
+              
+              <!-- Flavor Triad -->
+              <div class="pt-2">
+                <span class="text-[11px] font-semibold text-brand-gold font-serif">Delicate • Floral • Pure</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-4 border-t border-brand-gold/20 flex items-center gap-2">
+            <button onclick="selectHoneyProduct('clover_blossom'); location.href='#studio-stage';" class="flex-1 py-2 px-3 rounded-full border border-brand-gold/40 text-brand-gold text-xs font-bold hover:bg-brand-gold/15 transition-all text-center">
+              <span data-i18n="card_btn_inspect">Inspect 4K</span>
+            </button>
+            <button onclick="openSampleModal('SKU-H04')" class="py-2 px-4 rounded-full bg-gradient-to-r from-brand-gold to-brand-gold-light text-brand-obsidian text-xs font-bold hover:brightness-110 transition-all">
+              <span data-i18n="card_btn_sample">Sample</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 5: SKU-H05 (Black Seed) -->
+        <div class="rounded-3xl glass-card p-6 flex flex-col justify-between group transition-all duration-300 border border-brand-gold/30 hover:border-brand-gold">
+          <div>
+            <div class="rounded-2xl studio-stage-frame p-4 mb-5 flex items-center justify-center relative overflow-hidden h-64">
+              <span class="absolute top-3 start-3 px-2 py-0.5 rounded bg-brand-obsidian/80 text-brand-gold font-mono text-[10px] font-bold border border-brand-gold/30">
+                SKU-H05
+              </span>
+              <span class="absolute top-3 end-3 px-2 py-0.5 rounded bg-brand-gold/20 text-brand-gold text-[10px] font-bold border border-brand-gold/40">
+                HERITAGE VITALITY
+              </span>
+              <img src="output/imagery/mariam_honey_black_seed_500g_white_studio_hero_4k.jpg" alt="Black Seed Blossom Honey 500g" class="max-h-56 object-contain transform duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono tracking-widest text-brand-gold-light uppercase font-bold" data-i18n="card5_cat">TRADITIONAL HERITAGE</span>
+              <h3 class="text-lg font-serif font-bold text-brand-ivory" data-i18n="card5_title">Black Seed Blossom Honey</h3>
+              <p class="text-xs text-brand-cream/70 leading-relaxed" data-i18n="card5_desc">
+                Monofloral honey from Nigella Sativa blossoms. Dense copper-amber tone with warm herbal spices and balsamic undertones.
+              </p>
+              
+              <!-- Flavor Triad -->
+              <div class="pt-2">
+                <span class="text-[11px] font-semibold text-brand-gold font-serif">Warm • Balsamic • Grounding</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-4 border-t border-brand-gold/20 flex items-center gap-2">
+            <button onclick="selectHoneyProduct('black_seed'); location.href='#studio-stage';" class="flex-1 py-2 px-3 rounded-full border border-brand-gold/40 text-brand-gold text-xs font-bold hover:bg-brand-gold/15 transition-all text-center">
+              <span data-i18n="card_btn_inspect">Inspect 4K</span>
+            </button>
+            <button onclick="openSampleModal('SKU-H05')" class="py-2 px-4 rounded-full bg-gradient-to-r from-brand-gold to-brand-gold-light text-brand-obsidian text-xs font-bold hover:brightness-110 transition-all">
+              <span data-i18n="card_btn_sample">Sample</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 6: SKU-H02 (Citrus Blossom) -->
+        <div class="rounded-3xl glass-card p-6 flex flex-col justify-between group transition-all duration-300 border border-brand-gold/30 hover:border-brand-gold">
+          <div>
+            <div class="rounded-2xl studio-stage-frame p-4 mb-5 flex items-center justify-center relative overflow-hidden h-64">
+              <span class="absolute top-3 start-3 px-2 py-0.5 rounded bg-brand-obsidian/80 text-brand-gold font-mono text-[10px] font-bold border border-brand-gold/30">
+                SKU-H02
+              </span>
+              <span class="absolute top-3 end-3 px-2 py-0.5 rounded bg-brand-gold/20 text-brand-gold text-[10px] font-bold border border-brand-gold/40">
+                ORCHARD NECTAR
+              </span>
+              <img src="output/imagery/mariam_honey_citrus_blossom_500g_white_studio_hero_4k.jpg" alt="Citrus Blossom Honey 500g" class="max-h-56 object-contain transform duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold" data-i18n="card6_cat">MEDITERRANEAN GROVES</span>
+              <h3 class="text-lg font-serif font-bold text-brand-ivory" data-i18n="card6_title">Citrus Blossom Honey</h3>
+              <p class="text-xs text-brand-cream/70 leading-relaxed" data-i18n="card6_desc">
+                Harvested from spring orange and lemon orchards. Luminous golden tone with refreshing floral citrus zest and natural vitamin C.
+              </p>
+              
+              <!-- Flavor Triad -->
+              <div class="pt-2">
+                <span class="text-[11px] font-semibold text-brand-gold font-serif">Vibrant • Citrusy • Uplifting</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-4 border-t border-brand-gold/20 flex items-center gap-2">
+            <button onclick="selectHoneyProduct('citrus_blossom'); location.href='#studio-stage';" class="flex-1 py-2 px-3 rounded-full border border-brand-gold/40 text-brand-gold text-xs font-bold hover:bg-brand-gold/15 transition-all text-center">
+              <span data-i18n="card_btn_inspect">Inspect 4K</span>
+            </button>
+            <button onclick="openSampleModal('SKU-H02')" class="py-2 px-4 rounded-full bg-gradient-to-r from-brand-gold to-brand-gold-light text-brand-obsidian text-xs font-bold hover:brightness-110 transition-all">
+              <span data-i18n="card_btn_sample">Sample</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. QUALITY, PURITY & LABORATORY VERIFICATION SECTION -->
+  <!-- ========================================================================= -->
+  <section id="standards-section" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-brand-gold/20 bg-brand-forest-dark/30">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/35 text-[11px] font-mono text-brand-gold font-bold uppercase tracking-wider mb-3">
+          <span data-i18n="standards_kicker">VERIFIED COMMERCIAL EXPORT STANDARDS</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-serif font-bold text-brand-ivory mb-3" data-i18n="standards_title">
+          Purity Protocols & Laboratory Integrity
+        </h2>
+        <p class="text-xs sm:text-sm text-brand-cream/70" data-i18n="standards_subtitle">
+          Every batch of Mariam Honey & Superfoods is verified by independent accredited testing laboratories to satisfy both regional and global food standards.
+        </p>
+      </div>
+
+      <!-- 4 Pillars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        
+        <!-- Pillar 1: Codex Stan 12-1981 -->
+        <div class="p-6 rounded-3xl glass-card space-y-4 border border-brand-gold/25">
+          <div class="w-12 h-12 rounded-2xl bg-brand-gold/15 border border-brand-gold/40 flex items-center justify-center text-brand-gold">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-base font-serif font-bold text-brand-ivory" data-i18n="pillar1_title">Codex Stan 12-1981</h3>
+          <p class="text-xs text-brand-cream/75 leading-relaxed" data-i18n="pillar1_desc">
+            Full compliance with Codex Alimentarius Stan 12-1981. Hydroxymethylfurfural (HMF) strictly under 15 mg/kg, Diastase activity above 10 Schade units, and moisture capped below 18.0%.
+          </p>
+          <div class="pt-2 text-[11px] font-mono text-brand-gold font-bold">
+            0% C4 Corn/Cane Sugars
+          </div>
+        </div>
+
+        <!-- Pillar 2: 0% Peanuts Policy -->
+        <div class="p-6 rounded-3xl glass-card space-y-4 border border-brand-blush/40 bg-brand-blush/5">
+          <div class="w-12 h-12 rounded-2xl bg-brand-blush/20 border border-brand-blush/50 flex items-center justify-center text-brand-blush">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+          </div>
+          <h3 class="text-base font-serif font-bold text-brand-blush" data-i18n="pillar2_title">Strict 0% Peanuts Guarantee</h3>
+          <p class="text-xs text-brand-cream/75 leading-relaxed" data-i18n="pillar2_desc">
+            Mariam Royal Mix and nut blends are processed in a certified peanut-free facility. Formulated strictly with premium whole tree nuts (cashews, almonds, walnuts, pistachios) and power seeds.
+          </p>
+          <div class="pt-2 text-[11px] font-mono text-brand-blush font-bold">
+            100% Tree Nuts Only
+          </div>
+        </div>
+
+        <!-- Pillar 3: Nordic Flint Glass & Security Seal -->
+        <div class="p-6 rounded-3xl glass-card space-y-4 border border-brand-gold/25">
+          <div class="w-12 h-12 rounded-2xl bg-brand-gold/15 border border-brand-gold/40 flex items-center justify-center text-brand-gold">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="text-base font-serif font-bold text-brand-ivory" data-i18n="pillar3_title">Nordic Flint Glass</h3>
+          <p class="text-xs text-brand-cream/75 leading-relaxed" data-i18n="pillar3_desc">
+            Ultra-clear, heavy 12mm solid base cylindrical jars. Fitted with tinplate gold lug caps and Petal Blush (#F5B7C2) tamper-evident ribbon seals embossed with the royal gold crown crest.
+          </p>
+          <div class="pt-2 text-[11px] font-mono text-brand-gold font-bold">
+            Tamper-Proof Guarantee
+          </div>
+        </div>
+
+        <!-- Pillar 4: Cold-Extracted & Unpasteurized -->
+        <div class="p-6 rounded-3xl glass-card space-y-4 border border-brand-gold/25">
+          <div class="w-12 h-12 rounded-2xl bg-brand-gold/15 border border-brand-gold/40 flex items-center justify-center text-brand-gold">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-base font-serif font-bold text-brand-ivory" data-i18n="pillar4_title">Cold-Extracted Bio-Potency</h3>
+          <p class="text-xs text-brand-cream/75 leading-relaxed" data-i18n="pillar4_desc">
+            Extracted below 38°C without heat pasteurization. Retains native bee pollen, royal jelly bio-peptides, propolis flavonoids, and live digestive honey enzymes in their natural state.
+          </p>
+          <div class="pt-2 text-[11px] font-mono text-brand-gold font-bold">
+            Live Hive Enzymes Retained
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Certifications Logo Badges Strip -->
+      <div class="p-6 rounded-3xl glass-card flex flex-wrap items-center justify-around gap-6 text-center border border-brand-gold/30">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-brand-gold"></span>
+          <span class="text-xs font-mono font-bold text-brand-cream">ISO 22000:2018</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-brand-gold"></span>
+          <span class="text-xs font-mono font-bold text-brand-cream">HACCP CERTIFIED</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-brand-gold"></span>
+          <span class="text-xs font-mono font-bold text-brand-cream">FDA REGISTERED</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-brand-gold"></span>
+          <span class="text-xs font-mono font-bold text-brand-cream">HALAL CERTIFIED</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-brand-gold"></span>
+          <span class="text-xs font-mono font-bold text-brand-cream">CODEX STAN 12-1981</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. FOOTER & CROSS-CATEGORY PLATFORM DIRECTORY -->
+  <!-- ========================================================================= -->
+  <footer class="py-16 px-4 sm:px-6 lg:px-8 border-t border-brand-gold/30 bg-brand-obsidian relative">
+    <div class="max-w-7xl mx-auto space-y-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
+        
+        <!-- Brand Summary -->
+        <div class="lg:col-span-2 space-y-4">
+          <img src="mariam-logo-gold.png" alt="Mariam Luxury Cursive Gold Logo" class="h-10 w-auto">
+          <p class="text-xs text-brand-cream/70 max-w-sm leading-relaxed" data-i18n="footer_brand_desc">
+            Mariam is the pinnacle of artisanal Mediterranean harvest gastronomy. Produced by Khaeer Alwadi, offering certified single-estate natural honey, table olives, handpicked pickles, and extra virgin olive oil.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <img src="khaeer-alwadi-logo.png" alt="Khaeer Alwadi" class="h-8 w-auto opacity-80">
+            <span class="text-[11px] font-mono text-brand-gold">KHAEER ALWADI EXPORT GROUP</span>
+          </div>
+        </div>
+
+        <!-- Honey Boutique Links -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-brand-gold" data-i18n="footer_col_honey">Honey Portfolio</h4>
+          <ul class="space-y-2 text-xs text-brand-cream/80">
+            <li><a href="#studio-stage" onclick="selectHoneyProduct('royal_mix')" class="hover:text-brand-gold transition-colors">Mariam Royal Mix (SKU-SF01)</a></li>
+            <li><a href="#studio-stage" onclick="selectHoneyProduct('mountain_sidr')" class="hover:text-brand-gold transition-colors">Mountain Sidr Honey (SKU-H01)</a></li>
+            <li><a href="#studio-stage" onclick="selectHoneyProduct('honeycomb_hex')" class="hover:text-brand-gold transition-colors">Raw Honeycomb Hex (SKU-H03)</a></li>
+            <li><a href="#studio-stage" onclick="selectHoneyProduct('clover_blossom')" class="hover:text-brand-gold transition-colors">Clover Blossom 1kg (SKU-H04)</a></li>
+            <li><a href="#studio-stage" onclick="selectHoneyProduct('black_seed')" class="hover:text-brand-gold transition-colors">Black Seed Honey (SKU-H05)</a></li>
+            <li><a href="#studio-stage" onclick="selectHoneyProduct('citrus_blossom')" class="hover:text-brand-gold transition-colors">Citrus Blossom Honey (SKU-H02)</a></li>
+          </ul>
+        </div>
+
+        <!-- Cross-Category Links -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-brand-gold" data-i18n="footer_col_harvest">Mediterranean Harvest</h4>
+          <ul class="space-y-2 text-xs text-brand-cream/80">
+            <li><a href="website.html#olives" class="hover:text-brand-gold transition-colors flex items-center gap-1">Table Olives & Stuffed <span>↗</span></a></li>
+            <li><a href="website.html#pickles" class="hover:text-brand-gold transition-colors flex items-center gap-1">Artisanal Pickles & Giardiniera <span>↗</span></a></li>
+            <li><a href="website.html#evoo" class="hover:text-brand-gold transition-colors flex items-center gap-1">Extra Virgin Olive Oil <span>↗</span></a></li>
+            <li><a href="website.html#catalog" class="hover:text-brand-gold transition-colors flex items-center gap-1">Full B2B Catalog Portal <span>↗</span></a></li>
+            <li><a href="index.html" class="hover:text-brand-gold transition-colors flex items-center gap-1">Terroir & Brand Story <span>↗</span></a></li>
+          </ul>
+        </div>
+
+        <!-- B2B Procurement -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-brand-gold" data-i18n="footer_col_b2b">Commercial Services</h4>
+          <ul class="space-y-2 text-xs text-brand-cream/80">
+            <li><button onclick="openSampleModal()" class="hover:text-brand-gold transition-colors text-start">Request Sample Shipper</button></li>
+            <li><a href="website.html#calculator" class="hover:text-brand-gold transition-colors">Freight & Pallet Calculator</a></li>
+            <li><a href="website.html#shipping" class="hover:text-brand-gold transition-colors">Export Container Logistics</a></li>
+            <li><a href="website.html#rfq" class="hover:text-brand-gold transition-colors">Commercial Quotations (RFQ)</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Notice -->
+      <div class="pt-8 border-t border-brand-gold/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-cream/50">
+        <p>© 2026 Mariam (مريم). All Rights Reserved. Produced by Khaeer Alwadi (خير الوادي).</p>
+        <p class="font-mono text-[11px] text-brand-gold/80">SACRED BRAND IDENTITY: EXCLUSIVELY LUXOR GOLD LOGO</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 7. FULL-SCREEN 4K LIGHTBOX MODAL (OPTICAL ZOOM & INSPECTION) -->
+  <!-- ========================================================================= -->
+  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 lightbox-viewport backdrop-blur-2xl flex flex-col justify-between p-4 sm:p-6" onclick="closeLightboxOnBackdrop(event)">
+    
+    <!-- Lightbox Top Control Bar -->
+    <div class="flex items-center justify-between z-20">
+      <div class="flex items-center gap-3">
+        <img src="mariam-logo-gold.png" alt="Mariam" class="h-6 w-auto">
+        <span id="lightbox-title-badge" class="px-3 py-1 rounded-full bg-brand-gold/20 text-brand-gold border border-brand-gold/40 text-xs font-mono font-bold">
+          MARIAM ROYAL MIX — 0° FRONT HERO (3000 × 3000 PX)
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="zoomIn()" class="p-2 rounded-full bg-brand-forest-card border border-brand-gold/30 text-brand-gold hover:bg-brand-gold hover:text-brand-obsidian transition-all" title="Zoom In">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </button>
+        <button onclick="zoomOut()" class="p-2 rounded-full bg-brand-forest-card border border-brand-gold/30 text-brand-gold hover:bg-brand-gold hover:text-brand-obsidian transition-all" title="Zoom Out">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4"/></svg>
+        </button>
+        <button onclick="zoomReset()" class="p-2 rounded-full bg-brand-forest-card border border-brand-gold/30 text-brand-gold hover:bg-brand-gold hover:text-brand-obsidian transition-all text-xs font-mono font-bold px-3" title="Reset Zoom">
+          100%
+        </button>
+        <button onclick="closeLightbox()" class="p-2 rounded-full bg-brand-forest-card border border-brand-gold/50 text-brand-gold hover:bg-brand-gold hover:text-brand-obsidian transition-all ms-2" title="Close Lightbox (Esc)">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Central Image Stage -->
+    <div class="flex-1 flex items-center justify-center overflow-hidden my-4 relative" id="lightbox-stage-container">
+      <img id="lightbox-image" src="output/imagery/mariam_honey_royal_mix_500g_white_studio_hero_4k.jpg" alt="High Resolution Inspection" class="zoom-image max-h-[80vh] max-w-[85vw] object-contain rounded-xl shadow-2xl transition-transform duration-200">
+    </div>
+
+    <!-- Bottom Helper Bar -->
+    <div class="text-center text-xs font-mono text-brand-cream/60 z-20">
+      <span data-i18n="lightbox_hint">Click image to toggle 180% zoom • Drag or use zoom controls • Press Esc to close</span>
+    </div>
+
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 8. B2B WHOLESALE SAMPLE REQUEST MODAL -->
+  <!-- ========================================================================= -->
+  <div id="sample-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto" onclick="closeSampleModalOnBackdrop(event)">
+    <div class="relative w-full max-w-2xl rounded-3xl glass-card p-6 sm:p-8 border border-brand-gold/40 shadow-2xl space-y-6 my-8">
+      
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between border-b border-brand-gold/20 pb-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-brand-gold" data-i18n="modal_badge">B2B COMMERCIAL EXPORT SAMPLE SHIPPER</span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-serif font-bold text-brand-ivory" data-i18n="modal_title">
+            Request Wholesale Sample Kit
+          </h3>
+          <p class="text-xs text-brand-cream/70 mt-1" data-i18n="modal_subtitle">
+            Dispatched via DHL Express within 48 business hours to qualified commercial food importers, distributors, and buyers.
+          </p>
+        </div>
+        <button onclick="closeSampleModal()" class="w-8 h-8 rounded-full bg-brand-forest/60 border border-brand-gold/30 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-obsidian transition-all">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Sample Form -->
+      <form id="wholesale-sample-form" onsubmit="handleSampleSubmit(event)" class="space-y-4">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-brand-cream/80 mb-1" data-i18n="form_name">Full Name *</label>
+            <input type="text" required placeholder="e.g. Alexander Sterling" class="w-full px-3.5 py-2 rounded-xl bg-brand-obsidian/70 border border-brand-gold/30 text-brand-ivory text-xs focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-brand-cream/80 mb-1" data-i18n="form_company">Company / Importer Name *</label>
+            <input type="text" required placeholder="e.g. Mediterranean Gourmet Ltd" class="w-full px-3.5 py-2 rounded-xl bg-brand-obsidian/70 border border-brand-gold/30 text-brand-ivory text-xs focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-brand-cream/80 mb-1" data-i18n="form_email">Corporate Email *</label>
+            <input type="email" required placeholder="buyer@company.com" class="w-full px-3.5 py-2 rounded-xl bg-brand-obsidian/70 border border-brand-gold/30 text-brand-ivory text-xs focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-brand-cream/80 mb-1" data-i18n="form_phone">Mobile / WhatsApp (with Country Code) *</label>
+            <input type="tel" required placeholder="+966 50 123 4567 / +44 20 7946 0912" class="w-full px-3.5 py-2 rounded-xl bg-brand-obsidian/70 border border-brand-gold/30 text-brand-ivory text-xs focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-brand-cream/80 mb-1" data-i18n="form_country">Destination Country & Port *</label>
+            <input type="text" required placeholder="e.g. Saudi Arabia (Jeddah Port) / UK (London)" class="w-full px-3.5 py-2 rounded-xl bg-brand-obsidian/70 border border-brand-gold/30 text-brand-ivory text-xs focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-brand-cream/80 mb-1" data-i18n="form_volume">Expected Annual Volume</label>
+            <select class="w-full px-3.5 py-2 rounded-xl bg-brand-obsidian/70 border border-brand-gold/30 text-brand-ivory text-xs focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold">
+              <option value="1-5_fcl">1 - 5 FCL (Full Container Loads)</option>
+              <option value="6-20_fcl">6 - 20 FCL Containers</option>
+              <option value="20+_fcl">20+ FCL Annual Contract</option>
+              <option value="pallet_trial">Trial Pallet (LCL)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- SKU Selection Checkboxes -->
+        <div>
+          <label class="block text-xs font-semibold text-brand-cream/80 mb-2" data-i18n="form_skus_label">Select Sample SKUs to Include in Dispatch Shipper:</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-brand-obsidian/50 border border-brand-gold/20 cursor-pointer hover:border-brand-gold/60">
+              <input type="checkbox" id="sku-cb-SKU-SF01" value="SKU-SF01" class="rounded text-brand-gold focus:ring-brand-gold" checked>
+              <span class="font-mono text-brand-gold font-bold">SKU-SF01:</span>
+              <span class="text-brand-cream">Mariam Royal Mix (500g)</span>
+            </label>
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-brand-obsidian/50 border border-brand-gold/20 cursor-pointer hover:border-brand-gold/60">
+              <input type="checkbox" id="sku-cb-SKU-H01" value="SKU-H01" class="rounded text-brand-gold focus:ring-brand-gold" checked>
+              <span class="font-mono text-brand-gold font-bold">SKU-H01:</span>
+              <span class="text-brand-cream">Mountain Sidr Honey (500g)</span>
+            </label>
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-brand-obsidian/50 border border-brand-gold/20 cursor-pointer hover:border-brand-gold/60">
+              <input type="checkbox" id="sku-cb-SKU-H03" value="SKU-H03" class="rounded text-brand-gold focus:ring-brand-gold">
+              <span class="font-mono text-brand-gold font-bold">SKU-H03:</span>
+              <span class="text-brand-cream">Raw Honeycomb Hex (500g)</span>
+            </label>
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-brand-obsidian/50 border border-brand-gold/20 cursor-pointer hover:border-brand-gold/60">
+              <input type="checkbox" id="sku-cb-SKU-H04" value="SKU-H04" class="rounded text-brand-gold focus:ring-brand-gold">
+              <span class="font-mono text-brand-gold font-bold">SKU-H04:</span>
+              <span class="text-brand-cream">Clover Blossom Family (1kg)</span>
+            </label>
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-brand-obsidian/50 border border-brand-gold/20 cursor-pointer hover:border-brand-gold/60">
+              <input type="checkbox" id="sku-cb-SKU-H05" value="SKU-H05" class="rounded text-brand-gold focus:ring-brand-gold">
+              <span class="font-mono text-brand-gold font-bold">SKU-H05:</span>
+              <span class="text-brand-cream">Black Seed Honey (500g)</span>
+            </label>
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-brand-obsidian/50 border border-brand-gold/20 cursor-pointer hover:border-brand-gold/60">
+              <input type="checkbox" id="sku-cb-SKU-H02" value="SKU-H02" class="rounded text-brand-gold focus:ring-brand-gold">
+              <span class="font-mono text-brand-gold font-bold">SKU-H02:</span>
+              <span class="text-brand-cream">Citrus Blossom Honey (500g)</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-brand-cream/80 mb-1" data-i18n="form_notes">Additional Specifications or Notes</label>
+          <textarea rows="2" placeholder="e.g. Please include private label options, lab COA analysis, and FOB Alexandria quotation." class="w-full px-3.5 py-2 rounded-xl bg-brand-obsidian/70 border border-brand-gold/30 text-brand-ivory text-xs focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold"></textarea>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full py-3 rounded-full bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold text-brand-obsidian font-bold text-sm hover:brightness-110 active:scale-98 transition-all shadow-xl gold-glow">
+            <span data-i18n="form_submit_btn">Confirm & Dispatch Commercial Sample Request</span>
+          </button>
+        </div>
+
+      </form>
+
+      <!-- Confirmation Feedback Toast (hidden initially) -->
+      <div id="sample-success-toast" class="hidden p-4 rounded-2xl bg-brand-forest/90 border border-brand-gold text-center space-y-2">
+        <div class="w-10 h-10 rounded-full bg-brand-gold/20 text-brand-gold mx-auto flex items-center justify-center">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h4 class="text-base font-serif font-bold text-brand-ivory" data-i18n="toast_title">Sample Request Confirmed</h4>
+        <p class="text-xs text-brand-cream/80" data-i18n="toast_desc">
+          Reference: <span id="toast-ref-id" class="font-mono font-bold text-brand-gold">MRM-SAMPLE-2026-8812</span>. Your sample kit will be prepared and dispatched via DHL Express Priority.
+        </p>
+        <button onclick="closeSampleModal()" class="px-5 py-1.5 rounded-full bg-brand-gold text-brand-obsidian text-xs font-bold mt-2">
+          Close Window
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 9. BILINGUAL CONTROLLER & INTERACTIVE STOREFRONT JAVASCRIPT -->
+  <!-- ========================================================================= -->
+  <script>
+    // Product Database & Multilingual Metadata
+    const HONEY_PRODUCTS = {
+      royal_mix: {
+        sku: 'SKU-SF01',
+        tier_en: 'HERO SUPERFOOD FLAGSHIP',
+        tier_ar: 'المنتج البطولي الأول',
+        name_en: 'Mariam Royal Mix',
+        name_ar: 'خلطة مريم الملكية الفاخرة',
+        subtitle_en: 'Natural Mountain Honey with Selected Tree Nuts, Super Seeds & Fresh Royal Jelly',
+        subtitle_ar: 'عسل جبلي طبيعي مع مكسرات شجرية فاخرة وبذور السوبرفود وغذاء الملكات',
+        triad_en: 'Crunchy • Opulent • Energizing',
+        triad_ar: 'مقرمش • فاخر • مفعم بالطاقة',
+        peanut_policy_en: '100% Tree Nuts (raw cashews, California almonds, Turkish hazelnuts, pistachios, pumpkin seeds). Strictly zero peanuts or peanut oils.',
+        peanut_policy_ar: '100% مكسرات شجرية (كاجو نيء، لوز كاليفورنيا، بندق، فستق حلبي، بذور يقطين). خالٍ تماماً من الفول السوداني.',
+        ingredients_en: 'Pure Mountain Honey (55%), Fresh Pure Royal Jelly (5%), Raw Pistachios (8%), Jumbo Cashews (7%), Crisp Local Almonds (5%), Walnuts (5%), Pumpkin Seeds (4%), Chia Seeds (3%), Golden Flaxseeds (3%), Sesame Seeds (3%), Nigella Seeds (2%).',
+        ingredients_ar: 'عسل جبلي نقي (55%)، غذاء ملكات طازج (5%)، فستق حلبي نيء (8%)، كاجو جامبو (7%)، لوز محلي مقرمش (5%)، عين جمل (5%)، بذور يقطين (4%)، بذور شيا (3%)، بذور كتان (3%)، سمسم (3%)، حبة البركة (2%).',
+        size_en: '500g Heavy Glass (12mm Solid Base)',
+        size_ar: 'برطمان زجاجي فاخر 500 جم (قاعدة سميكة 12 ملم)',
+        angles: [
+          'output/imagery/mariam_honey_royal_mix_500g_white_studio_hero_4k.jpg',
+          'output/imagery/mariam_honey_royal_mix_500g_open_jar_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_royal_mix_macro_spoon_drizzle_4k.jpg',
+          'output/imagery/mariam_honey_royal_mix_500g_back_label_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_cap_seal_and_ribbon_macro_white_studio_4k.jpg'
+        ]
+      },
+      mountain_sidr: {
+        sku: 'SKU-H01',
+        tier_en: 'ROYAL RESERVE',
+        tier_ar: 'المحمية الملكية الخاصة',
+        name_en: 'Mountain Sidr Honey',
+        name_ar: 'عسل السدر الجبلي الفاخر',
+        subtitle_en: 'Royal Reserve Wild Monofloral Mountain Sidr (Ziziphus)',
+        subtitle_ar: 'عسل سدر جبلي ملكي أحادي المصدر من الوديان البرية العذراء',
+        triad_en: 'Rich • Velvety • Raw',
+        triad_ar: 'غني • مخملي • خام',
+        peanut_policy_en: 'Pure Monofloral Raw Nectar — 0% Additives, 0% Peanuts.',
+        peanut_policy_ar: 'رحيق نقي أحادي الزهرة — 0% إضافات، 0% فول سوداني.',
+        ingredients_en: '100% Pure Raw Wild Mountain Sidr (Ziziphus spina-christi) Monofloral Honey. Cold-extracted and unpasteurized.',
+        ingredients_ar: 'عسل نحل سدر جبلي بري طبيعي صافي 100% غير مبستر ومعصور على البارد.',
+        size_en: '500g & 1kg Nordic Glass',
+        size_ar: '500 جم و 1 كجم زجاج نورديك',
+        angles: [
+          'output/imagery/mariam_honey_mountain_sidr_500g_white_studio_hero_4k.jpg',
+          'output/imagery/mariam_honey_sidr_500g_open_jar_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_sidr_500g_45deg_angle_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_sidr_macro_dipper_drizzle_4k.jpg',
+          'output/imagery/mariam_honey_cap_seal_and_ribbon_macro_white_studio_4k.jpg'
+        ]
+      },
+      honeycomb_hex: {
+        sku: 'SKU-H03',
+        tier_en: 'ARTISAN SHOWPIECE',
+        tier_ar: 'تحفة الحرفة العسلية',
+        name_en: 'Raw Cut Honeycomb in Honey',
+        name_ar: 'عسل الشمع الطبيعي في برطمان سداسي',
+        subtitle_en: 'Fresh Natural Hexagonal Comb immersed in Pure Raw Acacia Nectar',
+        subtitle_ar: 'قرص شمع عسل طبيعي سداسي الخلايا مغمور برحيق الأكاسيا الصافي',
+        triad_en: 'Raw • Hexagonal • Unfiltered',
+        triad_ar: 'خام • سداسي نقي • غير مصفى',
+        peanut_policy_en: '100% Virgin Hive Product — Dedicated Peanut-Free Facility.',
+        peanut_policy_ar: 'منتج خلية بكر 100% — خالٍ تماماً من الفول السوداني.',
+        ingredients_en: '100% Pure Raw Natural Honey with 100% Virgin Natural Edible Beeswax Honeycomb Section.',
+        ingredients_ar: 'عسل نحل طبيعي خام 100% مع قطعة شمع نحل طبيعية عذراء صالحة للأكل.',
+        size_en: '500g Hexagonal Faceted Glass',
+        size_ar: 'برطمان زجاجي سداسي فاخر 500 جم',
+        angles: [
+          'output/imagery/mariam_honey_raw_honeycomb_hex_500g_white_studio_hero_4k.jpg',
+          'output/imagery/mariam_honey_raw_honeycomb_hex_500g_open_jar_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_honeycomb_hex_artisan_lifestyle_4k.jpg',
+          'output/imagery/mariam_honey_golden_nectars_duo_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_cap_seal_and_ribbon_macro_white_studio_4k.jpg'
+        ]
+      },
+      clover_blossom: {
+        sku: 'SKU-H04',
+        tier_en: 'EVERYDAY LUXURY',
+        tier_ar: 'فخامة الاستخدام اليومي',
+        name_en: 'Clover Blossom Honey',
+        name_ar: 'عسل زهور البرسيم النقي',
+        subtitle_en: 'Pure Monofloral Clover Blossom Honey (1kg Family Size & 500g)',
+        subtitle_ar: 'عسل نحل صافي من رحيق أزهار البرسيم الربيعية (متوفر بحجم 1 كجم و 500 جم)',
+        triad_en: 'Delicate • Floral • Pure',
+        triad_ar: 'رقيق • زهري • نقي',
+        peanut_policy_en: '100% Pure Honey — 0% Peanuts Guaranteed.',
+        peanut_policy_ar: 'عسل نحل صافي 100% — خالٍ من الفول السوداني.',
+        ingredients_en: '100% Pure Natural Clover Blossom Honey. Cold-extracted, light crystalline body.',
+        ingredients_ar: 'عسل نحل طبيعي 100% مستخلص من رحيق أزهار البرسيم.',
+        size_en: '1kg Family & 500g Nordic Glass',
+        size_ar: '1 كجم عبوة عائلية و 500 جم زجاج',
+        angles: [
+          'output/imagery/mariam_honey_clover_blossom_1kg_white_studio_hero_4k.jpg',
+          'output/imagery/mariam_honey_size_comparison_500g_vs_1kg_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_golden_nectars_duo_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_wellness_breakfast_lifestyle_4k.jpg',
+          'output/imagery/mariam_honey_cap_seal_and_ribbon_macro_white_studio_4k.jpg'
+        ]
+      },
+      black_seed: {
+        sku: 'SKU-H05',
+        tier_en: 'TRADITIONAL HERITAGE',
+        tier_ar: 'التراث الأصيل',
+        name_en: 'Black Seed Blossom Honey',
+        name_ar: 'عسل أزهار حبة البركة',
+        subtitle_en: 'Pure Nigella Sativa Nectar Honey with Warm Balsamic Notes',
+        subtitle_ar: 'عسل مستخلص من رحيق أزهار الحبة السوداء الطبيعية بنكهة بلسمية دافئة',
+        triad_en: 'Warm • Balsamic • Grounding',
+        triad_ar: 'دافئ • بلسمي • أصيل',
+        peanut_policy_en: 'Pure Monofloral Nectar — 0% Peanuts.',
+        peanut_policy_ar: 'رحيق نباتي أحادي — 0% فول سوداني.',
+        ingredients_en: '100% Pure Monofloral Black Seed (Nigella sativa) Blossom Honey.',
+        ingredients_ar: 'عسل أزهار حبة البركة الصافي 100% غير مصفى حرارياً.',
+        size_en: '500g Cylindrical Nordic Glass',
+        size_ar: 'برطمان زجاجي نورديك 500 جم',
+        angles: [
+          'output/imagery/mariam_honey_black_seed_500g_white_studio_hero_4k.jpg',
+          'output/imagery/mariam_honey_sidr_500g_open_jar_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_connoisseur_duo_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_functional_wellness_trio_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_cap_seal_and_ribbon_macro_white_studio_4k.jpg'
+        ]
+      },
+      citrus_blossom: {
+        sku: 'SKU-H02',
+        tier_en: 'MEDITERRANEAN VITALITY',
+        tier_ar: 'حيوية البحر المتوسط',
+        name_en: 'Citrus Blossom Honey',
+        name_ar: 'عسل أزهار الموالح والبرتقال',
+        subtitle_en: 'Spring Orange & Lemon Blossom Honey with Uplifting Citrus Aroma',
+        subtitle_ar: 'عسل أزهار الحمضيات والبرتقال الربيعي بعبير الموالح المنعش',
+        triad_en: 'Vibrant • Citrusy • Uplifting',
+        triad_ar: 'حيوي • حمضي • منعش',
+        peanut_policy_en: '100% Monofloral Honey — 0% Peanuts.',
+        peanut_policy_ar: 'عسل أزهار الحمضيات 100% — خالٍ من الفول السوداني.',
+        ingredients_en: '100% Pure Natural Citrus & Orange Blossom Honey.',
+        ingredients_ar: 'عسل طبيعي صافي 100% من رحيق أزهار أشجار الليمون والبرتقال الربيعية.',
+        size_en: '500g Cylindrical Nordic Glass',
+        size_ar: 'برطمان زجاجي نورديك 500 جم',
+        angles: [
+          'output/imagery/mariam_honey_citrus_blossom_500g_white_studio_hero_4k.jpg',
+          'output/imagery/mariam_honey_sidr_macro_dipper_drizzle_4k.jpg',
+          'output/imagery/mariam_honey_flagship_quartet_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_pure_reserves_trio_white_studio_4k.jpg',
+          'output/imagery/mariam_honey_cap_seal_and_ribbon_macro_white_studio_4k.jpg'
+        ]
+      }
+    };
+
+    // Bilingual Dictionary for Direct UI Elements
+    const TRANSLATIONS = {
+      en: {
+        nav_boutique_badge: 'HONEY & SUPERFOODS',
+        nav_producer_label: 'Khaeer Alwadi',
+        nav_pdp_studio: '4K PDP Studio',
+        nav_collection: 'Harvest Collection',
+        nav_standards: 'Purity & 0% Peanuts',
+        nav_olives: 'Olives',
+        nav_pickles: 'Pickles',
+        nav_evoo: 'EVOO',
+        nav_story: 'Brand Story',
+        nav_b2b_sample_btn: 'Wholesale Samples',
+        nav_b2b_sample_btn_mob: 'Samples',
+        hero_kicker: 'SINGLE-ESTATE APIARIES • MEDITERRANEAN HARVEST RESERVE',
+        hero_title: 'NATURAL HONEY & ARTISANAL SUPERFOODS',
+        hero_subtitle: '"Pure Goodness, Naturally. Made with Love."',
+        hero_desc: 'Unpasteurized, cold-extracted monofloral honeys, pure honeycomb, and high-potency superfood nut blends. Packaged in ultra-clear Nordic flint glass with royal crown tamper-evident security seals. Strictly 0% peanuts.',
+        hero_cta_explore: 'Explore 4K Studio Collection',
+        hero_cta_sample: 'Request B2B Sample Kit',
+        banner_lineup_tag: 'CINEMA 4K MASTER LINEUP • PURE WHITE STUDIO',
+        banner_inspect_btn: 'Inspect in 4K Studio Stage',
+        trust_codex_title: 'Codex Stan 12-1981',
+        trust_codex_sub: 'Export Certified Pure Honey',
+        trust_peanut_title: '0% Peanuts Guarantee',
+        trust_peanut_sub: '100% Tree Nuts Formula',
+        trust_cold_title: 'Cold-Extracted Raw',
+        trust_cold_sub: 'Active Hive Enzymes',
+        trust_nordic_title: 'Nordic Flint Glass',
+        trust_nordic_sub: 'Gold Lid & Crown Ribbon',
+        studio_kicker: '4K ULTRA-SHARP STUDIO PDP STAGE',
+        studio_title: 'Interactive Product Inspection Stage',
+        studio_subtitle: 'Inspect 3000 × 3000 px ultra-sharp packshots rendered with the authentic Luxor Gold cursive logo across 5 standardized commercial angles.',
+        studio_zoom_btn: 'Inspect in Full-Screen Lightbox (3000x3000px)',
+        prod_name_royal_mix: 'Mariam Royal Mix',
+        prod_name_sidr: 'Mountain Sidr Honey',
+        prod_name_comb: 'Raw Honeycomb Hex',
+        prod_name_clover: 'Clover Blossom (1kg)',
+        prod_name_black_seed: 'Black Seed Honey',
+        prod_name_citrus: 'Citrus Blossom Honey',
+        angle_0: 'Front Hero',
+        angle_1: 'Jar Texture',
+        angle_2: 'Perspective',
+        angle_3: 'Regulatory',
+        angle_4: 'Crown Ribbon',
+        spec_triad_label: 'SENSORY FLAVOR PROFILE',
+        spec_peanut_title: 'CERTIFIED 0% PEANUTS FACILITY',
+        spec_ingredients_label: 'INGREDIENTS & COMPOSITION',
+        spec_weight_label: 'Standard Sizes',
+        spec_case_label: 'Case Packaging',
+        spec_pallet_label: 'Pallet Configuration',
+        spec_shelf_label: 'Shelf Life & Storage',
+        spec_add_sample_btn: 'Request Commercial Sample for this SKU',
+        bento_kicker: 'COMPLETE MARIAM HARVEST',
+        bento_title: 'The 6 Core Honey & Superfoods Offerings',
+        bento_subtitle: 'Curated across Pure Monofloral Reserves, Superfood Nut Blends, and Artisan Heritage Showpieces.',
+        card_btn_inspect: 'Inspect 4K',
+        card_btn_sample: 'Sample',
+        standards_kicker: 'VERIFIED COMMERCIAL EXPORT STANDARDS',
+        standards_title: 'Purity Protocols & Laboratory Integrity',
+        standards_subtitle: 'Every batch of Mariam Honey & Superfoods is verified by independent accredited testing laboratories to satisfy both regional and global food standards.',
+        pillar1_title: 'Codex Stan 12-1981',
+        pillar1_desc: 'Full compliance with Codex Alimentarius Stan 12-1981. Hydroxymethylfurfural (HMF) strictly under 15 mg/kg, Diastase activity above 10 Schade units, and moisture capped below 18.0%.',
+        pillar2_title: 'Strict 0% Peanuts Guarantee',
+        pillar2_desc: 'Mariam Royal Mix and nut blends are processed in a certified peanut-free facility. Formulated strictly with premium whole tree nuts (cashews, almonds, walnuts, pistachios) and power seeds.',
+        pillar3_title: 'Nordic Flint Glass',
+        pillar3_desc: 'Ultra-clear, heavy 12mm solid base cylindrical jars. Fitted with tinplate gold lug caps and Petal Blush (#F5B7C2) tamper-evident ribbon seals embossed with the royal gold crown crest.',
+        pillar4_title: 'Cold-Extracted Bio-Potency',
+        pillar4_desc: 'Extracted below 38°C without heat pasteurization. Retains native bee pollen, royal jelly bio-peptides, propolis flavonoids, and live digestive honey enzymes in their natural state.',
+        footer_brand_desc: 'Mariam is the pinnacle of artisanal Mediterranean harvest gastronomy. Produced by Khaeer Alwadi, offering certified single-estate natural honey, table olives, handpicked pickles, and extra virgin olive oil.',
+        footer_col_honey: 'Honey Portfolio',
+        footer_col_harvest: 'Mediterranean Harvest',
+        footer_col_b2b: 'Commercial Services',
+        modal_badge: 'B2B COMMERCIAL EXPORT SAMPLE SHIPPER',
+        modal_title: 'Request Wholesale Sample Kit',
+        modal_subtitle: 'Dispatched via DHL Express within 48 business hours to qualified commercial food importers, distributors, and buyers.',
+        form_name: 'Full Name *',
+        form_company: 'Company / Importer Name *',
+        form_email: 'Corporate Email *',
+        form_phone: 'Mobile / WhatsApp (with Country Code) *',
+        form_country: 'Destination Country & Port *',
+        form_volume: 'Expected Annual Volume',
+        form_skus_label: 'Select Sample SKUs to Include in Dispatch Shipper:',
+        form_notes: 'Additional Specifications or Notes',
+        form_submit_btn: 'Confirm & Dispatch Commercial Sample Request',
+        toast_title: 'Sample Request Confirmed',
+        toast_desc: 'Your sample kit will be prepared and dispatched via DHL Express Priority.',
+        lightbox_hint: 'Click image to toggle 180% zoom • Drag or use zoom controls • Press Esc to close'
+      },
+      ar: {
+        nav_boutique_badge: 'عسل طبيعي وسوبرفود',
+        nav_producer_label: 'خير الوادي',
+        nav_pdp_studio: 'منصة العرض 4K',
+        nav_collection: 'تشكيلة المحصول',
+        nav_standards: 'النقاء و0% فول سوداني',
+        nav_olives: 'الزيتون',
+        nav_pickles: 'المخللات',
+        nav_evoo: 'زيت الزيتون',
+        nav_story: 'قصة العلامة',
+        nav_b2b_sample_btn: 'طلب عينات تجارية',
+        nav_b2b_sample_btn_mob: 'العينات',
+        hero_kicker: 'مناحل ملكية أحادية المصدر • محصول البحر الأبيض المتوسط',
+        hero_title: 'عسل نحل طبيعي وسوبرفود حرفي فاخر',
+        hero_subtitle: '"نقاء الطبيعة... بكل بساطة. صُنع بكل حب."',
+        hero_desc: 'عسل أحادي المصدر غير مبستر ومستخلص على البارد، أقراص شمع العسل العذراء، وخلطات السوبرفود بالمكسرات الشجرية الفاخرة. معبأة في زجاج نورديك فائق النقاء مع شريط أمان التاج الملكي. خالية تماماً من الفول السوداني 0%.',
+        hero_cta_explore: 'استكشف منصة الفحص 4K',
+        hero_cta_sample: 'طلب حقيبة عينات للمستوردين',
+        banner_lineup_tag: 'بانوراما استوديو 4K سينمائية • خلفية بيضاء نقية',
+        banner_inspect_btn: 'افحص في استوديو 4K',
+        trust_codex_title: 'المواصفة الدولية كودكس 12-1981',
+        trust_codex_sub: 'عسل نقي معتمد للتصدير العالمي',
+        trust_peanut_title: 'خالٍ من الفول السوداني 0%',
+        trust_peanut_sub: 'مكسرات شجرية كاملة 100%',
+        trust_cold_title: 'معصور على البارد خام',
+        trust_cold_sub: 'إنزيمات حية كاملة الفعالية',
+        trust_nordic_title: 'زجاج نورديك فاخر',
+        trust_nordic_sub: 'غطاء ذهبي وشريط أمان ملكي',
+        studio_kicker: 'منصة استوديو 4K التفاعلية فائقة الدقة',
+        studio_title: 'منصة فحص المنتجات بزوايا 360°',
+        studio_subtitle: 'افحص صور الاستوديو بدقة 3000 × 3000 بكسل التي تحمل حصرياً الشعار الذهبي الأصيل (Kurz Luxor Gold) عبر 5 زوايا فحص تجارية معتمدة.',
+        studio_zoom_btn: 'تكبير الصورة بدقة 4K كاملة (3000x3000px)',
+        prod_name_royal_mix: 'خلطة مريم الملكية',
+        prod_name_sidr: 'عسل السدر الجبلي',
+        prod_name_comb: 'قرص شمع العسل السداسي',
+        prod_name_clover: 'عسل زهور البرسيم (1 كجم)',
+        prod_name_black_seed: 'عسل حبة البركة',
+        prod_name_citrus: 'عسل أزهار الموالح',
+        angle_0: 'الواجهة الرئيسية 0°',
+        angle_1: 'قوام البرطمان المفتوح',
+        angle_2: 'زاوية العمق 45°',
+        angle_3: 'البطاقة الخلفية 180°',
+        angle_4: 'شريط التاج الملكي',
+        spec_triad_label: 'البصمة الحسية والنكهات',
+        spec_peanut_title: 'منشأة معتمدة خالية تماماً من الفول السوداني 0%',
+        spec_ingredients_label: 'المكونات والتركيبة الغذائية',
+        spec_weight_label: 'الأحجام القياسية',
+        spec_case_label: 'تعبئة الكرتون',
+        spec_pallet_label: 'تهيئة البالتة الأوروبية',
+        spec_shelf_label: 'الصلاحية وظروف التخزين',
+        spec_add_sample_btn: 'طلب عينة تجارية لهذا المنتج',
+        bento_kicker: 'محصول مريم المتكامل',
+        bento_title: 'المنتجات الستة الأساسية للعسل والسوبرفود',
+        bento_subtitle: 'تشكيلة مختارة بعناية تغطي العسل الأحادي الملكي، خلطات السوبرفود بالمكسرات، والتحف العسلية الأصيلة.',
+        card_btn_inspect: 'فحص 4K',
+        card_btn_sample: 'طلب عينة',
+        standards_kicker: 'معايير التصدير الدولية المعتمدة',
+        standards_title: 'بروتوكولات النقاء والرقابة المخبرية',
+        standards_subtitle: 'تخضع كل دفعة إنتاج من عسل وسوبرفود مريم لفحوصات مخبرية مستقلة ومعتمدة لضمان مطابقتها لأعلى المعايير العالمية والإقليمية.',
+        pillar1_title: 'مواصفة كودكس 12-1981',
+        pillar1_desc: 'مطابقة تامة للمواصفة القياسية الدولية. مركب HMF أقل من 15 مجم/كجم، نشاط الدياستيز أعلى من 10 وحدات شيد، ونسبة الرطوبة لا تتجاوز 18.0%.',
+        pillar2_title: 'ضمان 0% فول سوداني',
+        pillar2_desc: 'تتم تعبئة خلطة مريم الملكية في خطوط إنتاج معزولة وخالية تماماً من الفول السوداني، معتمدة حصرياً على أجود المكسرات الشجرية الكاملة وبذور السوبرفود.',
+        pillar3_title: 'زجاج نورديك فائق الشفافية',
+        pillar3_desc: 'برطمانات اسطوانية فاخرة بقاعدة زجاجية سميكة 12 ملم، محكمة الإغلاق بغطاء ذهبي وشريط أمان بلون بتلات الورد الوردي مختوم بتاج الذهب.',
+        pillar4_title: 'استخلاص على البارد دون حرارة',
+        pillar4_desc: 'يتم فرز العسل على البارد تحت 38 درجة مئوية للحفاظ على الإنزيمات الحية، حبوب اللقاح، ببتيدات غذاء الملكات، ومركبات العكبر الطبيعية.',
+        footer_brand_desc: 'مريم هي قمة فنون الحصاد المتوسطي الفاخر. إنتاج خير الوادي، نقدم عسل النحل الطبيعي، زيتون المائدة، المخللات الملكية، وزيت الزيتون البكر الممتاز.',
+        footer_col_honey: 'منتجات العسل والسوبرفود',
+        footer_col_harvest: 'حصاد المتوسط',
+        footer_col_b2b: 'الخدمات التجارية والتصدير',
+        modal_badge: 'شاحنة العينات التجارية المعتمدة للتصدير B2B',
+        modal_title: 'طلب حقيبة العينات للمستوردين',
+        modal_subtitle: 'يتم الشحن السريع عبر DHL Express خلال 48 ساعة عمل للشركات وتجار المواد الغذائية وسلاسل السوبرماركت.',
+        form_name: 'الاسم الكامل *',
+        form_company: 'اسم الشركة / جهة الاستيراد *',
+        form_email: 'البريد الإلكتروني للعمل *',
+        form_phone: 'رقم الجوال / واتساب مع رمز الدولة *',
+        form_country: 'دولة الوجهة والميناء المقصود *',
+        form_volume: 'الحجم السنوي المتوقع',
+        form_skus_label: 'حدد المنتجات المرغوبة في صندوق العينات:',
+        form_notes: 'ملاحظات أو مواصفات خاصة مطلوبة',
+        form_submit_btn: 'تأكيد وإرسال طلب العينات التجارية',
+        toast_title: 'تم تأكيد طلب العينات بنجاح',
+        toast_desc: 'الرقم المرجعي للشحنة: سيتم تجهيز وإرسال العينات عبر DHL Express ذات الأولوية.',
+        lightbox_hint: 'انقر على الصورة للتبديل بين وضع التكبير 180% • استخدم أزرار التحكم • اضغط Esc للإغلاق'
+      }
+    };
+
+    // State Variables
+    let currentLang = 'en';
+    let currentProductKey = 'royal_mix';
+    let currentAngleIndex = 0;
+    let sampleCartCount = 0;
+    let isLightboxZoomed = false;
+
+    // 1. Language Toggle Controller
+    function toggleLanguage() {
+      currentLang = (currentLang === 'en' ? 'ar' : 'en');
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = (currentLang === 'ar' ? 'rtl' : 'ltr');
+      
+      const langBtnLabel = document.getElementById('lang-label');
+      if (langBtnLabel) {
+        langBtnLabel.textContent = (currentLang === 'en' ? 'العربية' : 'English');
+      }
+
+      // Update All Static Data-i18n Nodes
+      const dict = TRANSLATIONS[currentLang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict && dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+
+      // Update Dynamic Spec Board for active product
+      updateSpecBoard();
+
+      try {
+        localStorage.setItem('mariam_honey_lang', currentLang);
+      } catch (e) {}
+    }
+
+    // 2. Select Honey Product
+    function selectHoneyProduct(productKey) {
+      if (!HONEY_PRODUCTS[productKey]) return;
+      currentProductKey = productKey;
+      currentAngleIndex = 0; // Reset to 0° Front Hero
+
+      // Update Tab Styles
+      document.querySelectorAll('.product-tab').forEach(tab => {
+        tab.classList.remove('bg-brand-gold', 'text-brand-obsidian', 'border-brand-gold');
+        tab.classList.add('bg-brand-forest-card/80', 'text-brand-cream', 'border-brand-gold/30');
+      });
+      const activeTab = document.getElementById('tab-prod-' + productKey);
+      if (activeTab) {
+        activeTab.classList.remove('bg-brand-forest-card/80', 'text-brand-cream', 'border-brand-gold/30');
+        activeTab.classList.add('bg-brand-gold', 'text-brand-obsidian', 'border-brand-gold');
+      }
+
+      // Update Angles & Spec Board
+      updateStageImage();
+      updateAnglePills();
+      updateSpecBoard();
+    }
+
+    // 3. Select Honey View Angle
+    function selectHoneyAngle(angleIndex) {
+      currentAngleIndex = angleIndex;
+      updateStageImage();
+      updateAnglePills();
+    }
+
+    // Internal: Update Stage Image
+    function updateStageImage() {
+      const prod = HONEY_PRODUCTS[currentProductKey];
+      const imgSrc = prod.angles[currentAngleIndex] || prod.angles[0];
+      
+      const mainImg = document.getElementById('studio-active-image');
+      if (mainImg) {
+        mainImg.style.opacity = '0.3';
+        setTimeout(() => {
+          mainImg.src = imgSrc;
+          mainImg.style.opacity = '1';
+        }, 120);
+      }
+
+      const lightboxImg = document.getElementById('lightbox-image');
+      if (lightboxImg) {
+        lightboxImg.src = imgSrc;
+      }
+
+      const angleNames = ['Front Hero 0°', 'Open Jar Texture', '45° Depth Perspective', '180° Regulatory Back', 'Crown Ribbon Macro'];
+      const angleBadge = document.getElementById('lightbox-title-badge');
+      if (angleBadge) {
+        angleBadge.textContent = `${prod.sku} — ${prod.name_en.toUpperCase()} • ${angleNames[currentAngleIndex]} (3000 × 3000 PX)`;
+      }
+    }
+
+    // Internal: Update Angle Pills Styling
+    function updateAnglePills() {
+      document.querySelectorAll('.angle-pill').forEach((pill, idx) => {
+        if (idx === currentAngleIndex) {
+          pill.classList.remove('bg-brand-forest/60', 'text-brand-cream');
+          pill.classList.add('bg-brand-gold', 'text-brand-obsidian', 'shadow-md');
+        } else {
+          pill.classList.remove('bg-brand-gold', 'text-brand-obsidian', 'shadow-md');
+          pill.classList.add('bg-brand-forest/60', 'text-brand-cream');
+        }
+      });
+    }
+
+    // Internal: Update Dynamic Spec Board
+    function updateSpecBoard() {
+      const prod = HONEY_PRODUCTS[currentProductKey];
+      if (!prod) return;
+
+      const skuBadge = document.getElementById('spec-sku-badge');
+      const tierBadge = document.getElementById('spec-tier-badge');
+      const nameEl = document.getElementById('spec-product-name');
+      const subtitleEl = document.getElementById('spec-product-subtitle');
+      const triadEl = document.getElementById('spec-sensory-triad');
+      const peanutDescEl = document.getElementById('spec-peanut-desc');
+      const ingredientsEl = document.getElementById('spec-ingredients-text');
+      const weightEl = document.getElementById('spec-weight-val');
+
+      if (skuBadge) skuBadge.textContent = prod.sku;
+      if (tierBadge) tierBadge.textContent = (currentLang === 'ar' ? prod.tier_ar : prod.tier_en);
+      if (nameEl) nameEl.textContent = (currentLang === 'ar' ? prod.name_ar : prod.name_en);
+      if (subtitleEl) subtitleEl.textContent = (currentLang === 'ar' ? prod.subtitle_ar : prod.subtitle_en);
+      if (triadEl) triadEl.textContent = (currentLang === 'ar' ? prod.triad_ar : prod.triad_en);
+      if (peanutDescEl) peanutDescEl.textContent = (currentLang === 'ar' ? prod.peanut_policy_ar : prod.peanut_policy_en);
+      if (ingredientsEl) ingredientsEl.textContent = (currentLang === 'ar' ? prod.ingredients_ar : prod.ingredients_en);
+      if (weightEl) weightEl.textContent = (currentLang === 'ar' ? prod.size_ar : prod.size_en);
+    }
+
+    // 4. Sample Request Modal Controller
+    function openSampleModal(targetSku) {
+      const modal = document.getElementById('sample-modal');
+      const toast = document.getElementById('sample-success-toast');
+      const form = document.getElementById('wholesale-sample-form');
+      
+      if (modal) modal.classList.remove('hidden');
+      if (toast) toast.classList.add('hidden');
+      if (form) form.classList.remove('hidden');
+
+      // Pre-select target SKU if supplied
+      if (targetSku) {
+        const cb = document.getElementById('sku-cb-' + targetSku);
+        if (cb) cb.checked = true;
+      }
+    }
+
+    function closeSampleModal() {
+      const modal = document.getElementById('sample-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function closeSampleModalOnBackdrop(e) {
+      if (e.target.id === 'sample-modal') {
+        closeSampleModal();
+      }
+    }
+
+    function requestCurrentSample() {
+      const prod = HONEY_PRODUCTS[currentProductKey];
+      openSampleModal(prod ? prod.sku : 'SKU-SF01');
+    }
+
+    function handleSampleSubmit(e) {
+      e.preventDefault();
+      const toast = document.getElementById('sample-success-toast');
+      const form = document.getElementById('wholesale-sample-form');
+      const refIdEl = document.getElementById('toast-ref-id');
+
+      sampleCartCount += 1;
+      const countBadge = document.getElementById('sample-count-badge');
+      if (countBadge) countBadge.textContent = sampleCartCount;
+
+      const randomRef = 'MRM-SAMPLE-2026-' + Math.floor(1000 + Math.random() * 9000);
+      if (refIdEl) refIdEl.textContent = randomRef;
+
+      if (form) form.classList.add('hidden');
+      if (toast) toast.classList.remove('hidden');
+    }
+
+    // 5. Lightbox Modal Controller (Zoom & Pan)
+    function openLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      if (modal) modal.classList.remove('hidden');
+      zoomReset();
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      if (modal) modal.classList.add('hidden');
+      zoomReset();
+    }
+
+    function closeLightboxOnBackdrop(e) {
+      if (e.target.id === 'lightbox-modal' || e.target.id === 'lightbox-stage-container') {
+        closeLightbox();
+      }
+    }
+
+    function zoomIn() {
+      const img = document.getElementById('lightbox-image');
+      if (img) {
+        img.style.transform = 'scale(1.8)';
+        img.classList.add('is-zoomed');
+      }
+    }
+
+    function zoomOut() {
+      const img = document.getElementById('lightbox-image');
+      if (img) {
+        img.style.transform = 'scale(1.0)';
+        img.classList.remove('is-zoomed');
+      }
+    }
+
+    function zoomReset() {
+      const img = document.getElementById('lightbox-image');
+      if (img) {
+        img.style.transform = 'scale(1.0)';
+        img.classList.remove('is-zoomed');
+      }
+    }
+
+    // Toggle zoom on lightbox image click
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightboxImg = document.getElementById('lightbox-image');
+      if (lightboxImg) {
+        lightboxImg.addEventListener('click', () => {
+          if (lightboxImg.classList.contains('is-zoomed')) {
+            zoomReset();
+          } else {
+            zoomIn();
+          }
+        });
+      }
+
+      // Keyboard Esc to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeLightbox();
+          closeSampleModal();
+        }
+      });
+    });
+
+    // Mobile Navigation Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      if (menu) menu.classList.toggle('hidden');
+    }
+
+    // Expose Global Interactive Functions
+    window.selectHoneyProduct = selectHoneyProduct;
+    window.selectHoneyAngle = selectHoneyAngle;
+    window.toggleLanguage = toggleLanguage;
+    window.openSampleModal = openSampleModal;
+    window.closeSampleModal = closeSampleModal;
+    window.openLightbox = openLightbox;
+    window.closeLightbox = closeLightbox;
+  </script>
+
+</body>
+</html>
