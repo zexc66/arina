@@ -1357,6 +1357,24 @@
         bento_subtitle: 'Curated across Pure Monofloral Reserves, Superfood Nut Blends, and Artisan Heritage Showpieces.',
         card_btn_inspect: 'Inspect 4K',
         card_btn_sample: 'Sample',
+        card1_cat: 'SUPERFOODS HERO',
+        card1_title: 'Mariam Royal Mix',
+        card1_desc: 'Mountain honey infused with 5% fresh royal jelly, whole California almonds, raw cashews, Turkish hazelnuts, and super seeds.',
+        card2_cat: 'PURE MONOFLORAL',
+        card2_title: 'Mountain Sidr Honey',
+        card2_desc: 'Raw, unpasteurized monofloral Sidr honey harvested from highland wild Ziziphus groves. Deep butterscotch and resinous finish.',
+        card3_cat: 'ARTISAN SHOWPIECE',
+        card3_title: 'Raw Honeycomb in Hex Glass',
+        card3_desc: '100% natural virgin beeswax comb steeped in pure raw honey. Distinctive hexagonal faceted jar for luxury retail displays.',
+        card4_cat: 'EVERYDAY LUXURY',
+        card4_title: 'Clover Blossom Honey',
+        card4_desc: 'Silky, light golden crystalline clover nectar with delicate floral aroma. Ideal high-rotation staple for family tables.',
+        card5_cat: 'TRADITIONAL HERITAGE',
+        card5_title: 'Black Seed Blossom Honey',
+        card5_desc: 'Monofloral honey from Nigella Sativa blossoms. Dense copper-amber tone with warm herbal spices and balsamic undertones.',
+        card6_cat: 'MEDITERRANEAN GROVES',
+        card6_title: 'Citrus Blossom Honey',
+        card6_desc: 'Harvested from spring orange and lemon orchards. Luminous golden tone with refreshing floral citrus zest and natural vitamin C.',
         standards_kicker: 'VERIFIED COMMERCIAL EXPORT STANDARDS',
         standards_title: 'Purity Protocols & Laboratory Integrity',
         standards_subtitle: 'Every batch of Mariam Honey & Superfoods is verified by independent accredited testing laboratories to satisfy both regional and global food standards.',
@@ -1444,6 +1462,24 @@
         bento_subtitle: 'تشكيلة مختارة بعناية تغطي العسل الأحادي الملكي، خلطات السوبرفود بالمكسرات، والتحف العسلية الأصيلة.',
         card_btn_inspect: 'فحص 4K',
         card_btn_sample: 'طلب عينة',
+        card1_cat: 'باقة السوبرفود الملكية',
+        card1_title: 'خلطة مريم الملكية',
+        card1_desc: 'عسل جبلي نقي معزز بنسبة 5% غذاء ملكات طازج، لوز كاليفورنيا كامل، كاجو نيء، بندق تركي وبذور فائقة القيمة الغذائية.',
+        card2_cat: 'عسل أحادي نقي',
+        card2_title: 'عسل السدر الجبلي',
+        card2_desc: 'عسل سدر جبلي أحادي الزهرة خام غير مبستر، يُجنى من براري أشجار السدر الجبلية. نكهة توفي كراميل دافئة ولمسة صمغية عطرية.',
+        card3_cat: 'تحفة حرفية أصيلة',
+        card3_title: 'قرص شمع عسل طبيعي في برطمان سداسي',
+        card3_desc: 'قرص شمع عسل طبيعي 100% مغمور في عسل خام نقي، في برطمان سداسي الأضلاع مصمم للعرض الفاخر في المتاجر الراقية.',
+        card4_cat: 'فخامة المائدة اليومية',
+        card4_title: 'عسل زهور البرسيم',
+        card4_desc: 'رحيق ناعم حريري بلون ذهبي فاتح ورائحة زهرية رقيقة، مثالي للاستهلاك العائلي اليومي ولأفخم موائد الإفطار.',
+        card5_cat: 'أصالة التراث الحيوي',
+        card5_title: 'عسل زهور حبة البركة',
+        card5_desc: 'عسل أحادي المصدر من أزهار حبة البركة، بلون كهرماني نحاسي غني ونفحات عشبية دافئة ونكهة بلسمية عميقة.',
+        card6_cat: 'بساتين البحر المتوسط',
+        card6_title: 'عسل أزهار الموالح والليمون',
+        card6_desc: 'يُجنى من بساتين البرتقال والليمون الربيعية، بلون ذهبي وهاج ونفحات حمضية منعشة غنية بفيتامين ج الطبيعي.',
         standards_kicker: 'معايير التصدير الدولية المعتمدة',
         standards_title: 'بروتوكولات النقاء والرقابة المخبرية',
         standards_subtitle: 'تخضع كل دفعة إنتاج من عسل وسوبرفود مريم لفحوصات مخبرية مستقلة ومعتمدة لضمان مطابقتها لأعلى المعايير العالمية والإقليمية.',
@@ -1484,9 +1520,9 @@
     let sampleCartCount = 0;
     let isLightboxZoomed = false;
 
-    // 1. Language Toggle Controller
-    function toggleLanguage() {
-      currentLang = (currentLang === 'en' ? 'ar' : 'en');
+    // 1. Language Controller (Toggle & Explicit Set)
+    function setLanguage(lang) {
+      currentLang = (lang === 'ar' || lang === 'en') ? lang : 'en';
       document.documentElement.lang = currentLang;
       document.documentElement.dir = (currentLang === 'ar' ? 'rtl' : 'ltr');
       
@@ -1510,6 +1546,10 @@
       try {
         localStorage.setItem('mariam_honey_lang', currentLang);
       } catch (e) {}
+    }
+
+    function toggleLanguage() {
+      setLanguage(currentLang === 'en' ? 'ar' : 'en');
     }
 
     // 2. Select Honey Product
@@ -1698,8 +1738,16 @@
       }
     }
 
-    // Toggle zoom on lightbox image click
+    // DOM Initialization & Event Bindings
     document.addEventListener('DOMContentLoaded', () => {
+      // Restore persisted language preference
+      try {
+        const savedLang = localStorage.getItem('mariam_honey_lang');
+        if (savedLang && (savedLang === 'ar' || savedLang === 'en')) {
+          setLanguage(savedLang);
+        }
+      } catch (e) {}
+
       const lightboxImg = document.getElementById('lightbox-image');
       if (lightboxImg) {
         lightboxImg.addEventListener('click', () => {
@@ -1729,6 +1777,7 @@
     // Expose Global Interactive Functions
     window.selectHoneyProduct = selectHoneyProduct;
     window.selectHoneyAngle = selectHoneyAngle;
+    window.setLanguage = setLanguage;
     window.toggleLanguage = toggleLanguage;
     window.openSampleModal = openSampleModal;
     window.closeSampleModal = closeSampleModal;
