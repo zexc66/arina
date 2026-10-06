@@ -4396,9 +4396,9 @@
       <div class="w-px h-5 bg-brand-gold/20"></div>
 
       <!-- Quick Theme Switcher Pill -->
-      <button onclick="toggleTheme()" class="p-1.5 rounded-full hover:bg-brand-gold/15 text-brand-gold transition-all" title="Toggle Lighting Mode" aria-label="Toggle Lighting Mode">
-        <svg id="dock-theme-icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        <svg id="dock-theme-icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      <button id="dock-theme-btn" onclick="toggleTheme()" class="p-1.5 rounded-full hover:bg-brand-gold/15 text-brand-gold transition-all active:scale-90" title="Toggle Lighting Mode" aria-label="Toggle Lighting Mode">
+        <svg id="dock-theme-icon-sun" class="w-4 h-4 hidden pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg id="dock-theme-icon-moon" class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
       </button>
 
       <!-- Quick Language Switcher Pill -->
@@ -6684,10 +6684,56 @@
     function toggleTheme() {
       const isDaylight = document.documentElement.classList.contains('theme-daylight');
       const newTheme = isDaylight ? 'obsidian' : 'daylight';
-      try {
-        localStorage.setItem('arina_theme', newTheme);
-      } catch (e) {}
-      applyTheme(newTheme, true);
+
+      // 1. Instant optimistic visual feedback on icons & buttons (< 0.2ms, zero blocking)
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+      const mobSunIcon = document.getElementById('mob-theme-icon-sun');
+      const mobMoonIcon = document.getElementById('mob-theme-icon-moon');
+      const dockSunIcon = document.getElementById('dock-theme-icon-sun');
+      const dockMoonIcon = document.getElementById('dock-theme-icon-moon');
+      const dockThemeBtn = document.getElementById('dock-theme-btn');
+      const navThemeBtn = document.getElementById('theme-toggle-btn');
+      const mobThemeBtn = document.getElementById('mob-theme-toggle-btn');
+
+      if (newTheme === 'daylight') {
+        if (sunIcon) sunIcon.classList.remove('hidden');
+        if (moonIcon) moonIcon.classList.add('hidden');
+        if (mobSunIcon) mobSunIcon.classList.remove('hidden');
+        if (mobMoonIcon) mobMoonIcon.classList.add('hidden');
+        if (dockSunIcon) dockSunIcon.classList.remove('hidden');
+        if (dockMoonIcon) dockMoonIcon.classList.add('hidden');
+      } else {
+        if (sunIcon) sunIcon.classList.add('hidden');
+        if (moonIcon) moonIcon.classList.remove('hidden');
+        if (mobSunIcon) mobSunIcon.classList.add('hidden');
+        if (mobMoonIcon) mobMoonIcon.classList.remove('hidden');
+        if (dockSunIcon) dockSunIcon.classList.add('hidden');
+        if (dockMoonIcon) dockMoonIcon.classList.remove('hidden');
+      }
+
+      [dockThemeBtn, navThemeBtn, mobThemeBtn].forEach(b => {
+        if (b) {
+          b.classList.add('scale-95');
+          setTimeout(() => b.classList.remove('scale-95'), 120);
+        }
+      });
+
+      // 2. Yield immediately to browser render pipeline so click handler returns in < 1ms (INP < 16ms)
+      const executeThemeTransition = () => {
+        try {
+          localStorage.setItem('arina_theme', newTheme);
+        } catch (e) {}
+        applyTheme(newTheme, true);
+      };
+
+      if (typeof requestAnimationFrame === 'function') {
+        requestAnimationFrame(() => {
+          setTimeout(executeThemeTransition, 0);
+        });
+      } else {
+        setTimeout(executeThemeTransition, 0);
+      }
     }
 
     // -------------------------------------------------------------------------
@@ -7030,11 +7076,14 @@
 
     function showToast(msg) {
       const toast = document.getElementById('toast');
-      document.getElementById('toast-msg').innerText = msg;
-      toast.classList.remove('translate-y-24', 'opacity-0');
-      setTimeout(() => {
-        toast.classList.add('translate-y-24', 'opacity-0');
-      }, 3000);
+      const toastMsg = document.getElementById('toast-msg');
+      if (toastMsg) toastMsg.textContent = msg;
+      if (toast) {
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0');
+        }, 3000);
+      }
     }
 
     // -------------------------------------------------------------------------
