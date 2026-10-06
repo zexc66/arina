@@ -6788,6 +6788,12 @@
                 <span class="absolute top-3 right-3 text-[10px] font-bold uppercase font-display tracking-wider px-2.5 py-1 rounded-full bg-brand-forest-obsidian/90 border border-brand-gold/40 text-brand-gold shadow-sm">
                   ${format}
                 </span>
+                ${product.id === 'bulk-olives-230kg' ? `
+                  <button onclick="event.stopPropagation(); openTurntableModal('bulk-olives-230kg'); setTurntableAngle(270);" title="${currentLang === 'ar' ? 'معاينة رص البراميل في الحاوية' : 'View Container Loading Photo'}" class="absolute top-3 left-3 text-[10px] font-bold px-2.5 py-1 rounded-full bg-brand-forest-obsidian/90 text-brand-gold border border-brand-gold/50 hover:bg-brand-gold hover:text-brand-forest-obsidian transition-all flex items-center gap-1.5 shadow-md">
+                    <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span>${currentLang === 'ar' ? 'صورة الحاوية' : 'Container Photo'}</span>
+                  </button>
+                ` : ''}
               </div>
 
               <!-- Card Body Content -->
