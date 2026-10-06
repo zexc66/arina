@@ -11,7 +11,7 @@ Process and composite all newly generated 4K photography for Mariam Natural Hone
 import os
 from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
-BASE_DIR = "/home/zexc/Desktop/New Folder"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_DIR = os.path.join(BASE_DIR, "output", "imagery")
 BRAIN_DIR = "/home/zexc/.gemini/antigravity/brain/3d8927e4-3c48-4f4b-b899-e68bfea55e7d"
 

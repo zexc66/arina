@@ -749,7 +749,7 @@ def generate_all_dielines(output_dir="output/dielines"):
             print(f"Notice: Could not load catalog data ({e})")
             
     # Load authentic cursive gold logo
-    logo_path = "mariam-logo-gold.png"
+    logo_path = "arina-logo-gold.png" if os.path.exists("arina-logo-gold.png") else "mariam-logo-gold.png"
     logo_img = None
     if os.path.exists(logo_path):
         try:

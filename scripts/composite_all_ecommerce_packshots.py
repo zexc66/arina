@@ -10,9 +10,9 @@ guaranteeing ZERO ghost text or hallucinated artifacts.
 import os
 from PIL import Image, ImageDraw, ImageFilter
 
-OUTPUT_DIR = '/home/zexc/Desktop/New Folder/output/imagery'
+OUTPUT_DIR = '/home/zexc/Desktop/Arina/New Folder/output/imagery'
 BRAIN_DIR = '/home/zexc/.gemini/antigravity/brain/3d8927e4-3c48-4f4b-b899-e68bfea55e7d'
-LOGO_GOLD = '/home/zexc/Desktop/New Folder/mariam-logo-gold.png'
+LOGO_GOLD = '/home/zexc/Desktop/Arina/New Folder/mariam-logo-gold.png'
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(BRAIN_DIR, exist_ok=True)
@@ -53,13 +53,21 @@ def make_pure_white_bg(img, thresh=232):
                 out.putpixel((x, y), p)
     return out.convert('RGBA')
 
+def clamp_to_pure_white(img, thresh=220, clamp_thresh=245):
+    """Ensures background outside the product is strictly RGB(255, 255, 255)."""
+    rgb = img.convert('RGB')
+    gray = rgb.convert('L')
+    mask = gray.point(lambda p: 0 if p < thresh else (255 if p >= clamp_thresh else int((p - thresh) / (clamp_thresh - thresh) * 255)))
+    white = Image.new('RGB', rgb.size, (255, 255, 255))
+    return Image.composite(white, rgb, mask)
+
 def save_pdp(img_rgba, filename):
     out_p = os.path.join(OUTPUT_DIR, filename)
     brain_p = os.path.join(BRAIN_DIR, filename)
-    rgb = img_rgba.convert('RGB')
-    rgb.save(out_p, 'JPEG', quality=98)
-    rgb.save(brain_p, 'JPEG', quality=98)
-    print(f'[SAVED PDP 4K] {filename} ({rgb.size})')
+    clamped = clamp_to_pure_white(img_rgba)
+    clamped.save(out_p, 'JPEG', quality=98)
+    clamped.save(brain_p, 'JPEG', quality=98)
+    print(f'[SAVED PDP 4K] {filename} ({clamped.size})')
     return out_p
 
 # ==============================================================================
@@ -89,17 +97,17 @@ def render_royal_mix_pdp():
     scale = 3000 / orig_w
     im_3k = src.resize((3000, 3000), Image.Resampling.LANCZOS)
 
-    # Composite authentic cursive logo in Deep Wine Burgundy with gold rim
+    # Composite authentic cursive logo strictly in Luxor Gold (#DAAC36)
     target_w = 980
-    logo_burg = get_tinted_logo(target_w, BURGUNDY_WINE)
-    logo_gold = get_tinted_logo(target_w, GOLD_LUXOR, 140)
-    logo_gold_blur = logo_gold.filter(ImageFilter.GaussianBlur(radius=1.5))
+    logo_gold = get_tinted_logo(target_w, GOLD_LUXOR, 255)
+    logo_shadow = get_tinted_logo(target_w, (75, 18, 30), 140)
+    logo_shadow_blur = logo_shadow.filter(ImageFilter.GaussianBlur(radius=2.0))
 
     lx = int(500 * scale - target_w // 2)
-    ly = int(615 * scale - logo_burg.height // 2)
+    ly = int(615 * scale - logo_gold.height // 2)
 
-    im_3k.alpha_composite(logo_gold_blur, (lx + 2, ly + 2))
-    im_3k.alpha_composite(logo_burg, (lx, ly))
+    im_3k.alpha_composite(logo_shadow_blur, (lx + 2, ly + 3))
+    im_3k.alpha_composite(logo_gold, (lx, ly))
 
     save_pdp(im_3k, 'mariam_honey_royal_mix_500g_white_studio_hero_4k.jpg')
 

@@ -1,0 +1,14 @@
+*.pdf
+WhatsApp Image*
+scripts/
+tests/
+docs/
+.agents/
+AGENTS.md
+GEMINI.md
+mariam.html
+*.py
+*.pyc
+__pycache__/
+skills-lock.json
+khaeer-alwadi-source.jpg

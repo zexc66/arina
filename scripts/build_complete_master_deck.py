@@ -1,0 +1,502 @@
+import os
+import sys
+from PIL import Image, ImageDraw, ImageFont
+
+W, H = 1920, 1080
+FOREST_GREEN = (22, 38, 28)
+DARK_CARD = (15, 27, 20)
+GOLD_FOIL = (212, 175, 55)
+WARM_IVORY = (234, 230, 223)
+MUTED_TEXT = (165, 180, 170)
+WHITE = (255, 255, 255)
+ACCENT_GREEN = (46, 125, 50)
+
+# Fonts setup
+FONT_BOLD = "fonts/Tajawal-Bold.ttf" if os.path.exists("fonts/Tajawal-Bold.ttf") else "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+FONT_REG = "fonts/Tajawal-Regular.ttf" if os.path.exists("fonts/Tajawal-Regular.ttf") else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+
+f_title = ImageFont.truetype(FONT_BOLD, 42)
+f_h2 = ImageFont.truetype(FONT_BOLD, 28)
+f_h3 = ImageFont.truetype(FONT_BOLD, 22)
+f_body = ImageFont.truetype(FONT_REG, 17)
+f_body_bold = ImageFont.truetype(FONT_BOLD, 17)
+f_small = ImageFont.truetype(FONT_REG, 14)
+f_badge = ImageFont.truetype(FONT_BOLD, 14)
+
+def draw_slide_base(title, category):
+    im = Image.new("RGB", (W, H), FOREST_GREEN)
+    draw = ImageDraw.Draw(im)
+    
+    # Outer luxury frame
+    draw.rectangle([25, 25, W - 25, H - 25], outline=GOLD_FOIL, width=2)
+    draw.rectangle([35, 35, W - 35, H - 35], outline=(40, 70, 50), width=1)
+    
+    # Header zone
+    draw.text((70, 50), "MARIAM", font=ImageFont.truetype(FONT_BOLD, 26), fill=GOLD_FOIL)
+    draw.text((185, 54), "made with love", font=ImageFont.truetype(FONT_REG, 20), fill=WARM_IVORY)
+    
+    draw.text((W - 70, 52), title.upper(), font=f_h2, fill=WHITE, anchor="rt")
+    draw.text((W - 70, 88), category.upper(), font=f_small, fill=GOLD_FOIL, anchor="rt")
+    
+    draw.line([(70, 120), (W - 70, 120)], fill=(50, 85, 60), width=1)
+    
+    # Footer zone
+    y_foot = H - 55
+    draw.line([(70, y_foot - 15), (W - 70, y_foot - 15)], fill=(50, 85, 60), width=1)
+    draw.text((70, y_foot), "Mariam Mediterranean Gourmet Foods | International Export Division", font=f_small, fill=MUTED_TEXT)
+    draw.text((W / 2, y_foot), "ISO 22000 • FSSC 22000 • FDA Registered • EU Organic • Halal • Kosher", font=f_badge, fill=GOLD_FOIL, anchor="mt")
+    draw.text((W - 70, y_foot), "USA & Europe Expansion Deck 2026", font=f_small, fill=MUTED_TEXT, anchor="rt")
+    
+    return im, draw
+
+def add_image_card(im, draw, img_path, box, corner_radius=16):
+    x, y, w, h = box
+    draw.rounded_rectangle([x, y, x + w, y + h], radius=corner_radius, fill=DARK_CARD, outline=GOLD_FOIL, width=2)
+    if os.path.exists(img_path):
+        sub_im = Image.open(img_path).convert("RGB")
+        sub_ratio = sub_im.width / sub_im.height
+        box_ratio = (w - 12) / (h - 12)
+        if sub_ratio > box_ratio:
+            new_h = h - 12
+            new_w = int(new_h * sub_ratio)
+        else:
+            new_w = w - 12
+            new_h = int(new_w / sub_ratio)
+        
+        resized = sub_im.resize((new_w, new_h), Image.Resampling.LANCZOS)
+        cx = (new_w - (w - 12)) // 2
+        cy = (new_h - (h - 12)) // 2
+        cropped = resized.crop((cx, cy, cx + w - 12, cy + h - 12))
+        im.paste(cropped, (x + 6, y + 6))
+
+slides = []
+
+# ==================== SLIDE 1: COVER ====================
+s1 = Image.new("RGB", (W, H), FOREST_GREEN)
+d1 = ImageDraw.Draw(s1)
+d1.rectangle([30, 30, W - 30, H - 30], outline=GOLD_FOIL, width=3)
+d1.rectangle([45, 45, W - 45, H - 45], outline=(50, 90, 65), width=1)
+
+add_image_card(s1, d1, "output/imagery/mariam_packaging_mockup_4k.jpg", (80, 160, 950, 750), 20)
+
+rx = 1080
+d1.text((rx, 220), "INTERNATIONAL B2B SALES DECK", font=f_small, fill=GOLD_FOIL)
+d1.text((rx, 260), "MARIAM", font=ImageFont.truetype(FONT_BOLD, 64), fill=GOLD_FOIL)
+d1.text((rx + 290, 292), "made with love", font=ImageFont.truetype(FONT_REG, 32), fill=WARM_IVORY)
+d1.line([(rx, 355), (W - 80, 355)], fill=GOLD_FOIL, width=2)
+
+d1.text((rx, 385), "Disrupting the $22B Olive Category", font=ImageFont.truetype(FONT_BOLD, 32), fill=WHITE)
+d1.text((rx, 430), "in the USA & Europe", font=ImageFont.truetype(FONT_BOLD, 32), fill=GOLD_FOIL)
+
+pitch_bullets = [
+    "• Super-Premium Mediterranean Gourmet House with Mass Scalability",
+    "• Clean Label: 100% Natural Sea Salt Brine, Zero Chemical Additives",
+    "• High-Velocity Shelf Magnetism: 3D Gold Foil on Forest Green",
+    "• Category-Leading Retailer Gross Margins: 46% to 55%",
+    "• Full Regulatory Compliance: FDA Registered, FSMA, EU 1169/2011",
+    "• Turnkey Logistics: 24–36 Mo Ambient Shelf Life, DDP / CIF Shipping",
+]
+y_cur = 490
+for b in pitch_bullets:
+    d1.text((rx, y_cur), b, font=f_body, fill=WARM_IVORY)
+    y_cur += 42
+
+d1.rounded_rectangle([rx, y_cur + 20, W - 80, y_cur + 110], radius=12, fill=DARK_CARD, outline=GOLD_FOIL, width=1)
+d1.text((rx + 20, y_cur + 35), "READY FOR IMMEDIATE RETAIL ONBOARDING & SAMPLING", font=f_badge, fill=GOLD_FOIL)
+d1.text((rx + 20, y_cur + 65), "Targets: Whole Foods, Wegmans, Eataly, Harrods, Marks & Spencer", font=f_small, fill=MUTED_TEXT)
+slides.append(s1)
+
+# ==================== SLIDE 2: THE MARKET OPPORTUNITY ====================
+s2, d2 = draw_slide_base("The Market Opportunity", "Why Olive Aisles Are Ripe for Disruption")
+d2.rounded_rectangle([70, 150, 850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d2.text((100, 180), "THE RETAIL DILEMMA", font=f_h2, fill=GOLD_FOIL)
+
+problems = [
+    ("Commoditized Shelf Space", "Dominated by legacy industrial canned brands designed in the 1980s with zero emotional connection."),
+    ("Artificial Color & Firming", "Conventional black olives are chemically blackened with ferrous gluconate and soaked in synthetic preservatives."),
+    ("The Missing Middle Ground", "Consumers are forced to choose between boring $2.50 supermarket cans or $18 boutique imports.")
+]
+y_p = 230
+for title, desc in problems:
+    d2.text((100, y_p), f"❌  {title}", font=f_body_bold, fill=WHITE)
+    d2.text((100, y_p + 28), desc, font=f_small, fill=MUTED_TEXT)
+    y_p += 75
+
+d2.line([(100, y_p + 10), (820, y_p + 10)], fill=(50, 85, 60), width=1)
+y_p += 30
+
+d2.text((100, y_p), "THE MARIAM SOLUTION: ACCESSIBLE LUXURY", font=f_h2, fill=GOLD_FOIL)
+solutions = [
+    ("Michelin Quality at $4.99–$6.99 SRP", "Delivers luxury aesthetics, fresh natural crunch, and estate-cured terroir at accessible price points."),
+    ("100% Clean Label Transparency", "Only 4 natural ingredients: hand-picked olives, spring water, sea salt, extra virgin olive oil. Non-GMO, Vegan, Keto."),
+    ("Charcuterie & Tapas Ready", "Engineered to sit directly on holiday grazing tables, pizza counters, and home cocktail bars.")
+]
+y_p += 50
+for title, desc in solutions:
+    d2.text((100, y_p), f"✅  {title}", font=f_body_bold, fill=GOLD_FOIL)
+    d2.text((100, y_p + 28), desc, font=f_small, fill=WARM_IVORY)
+    y_p += 75
+
+add_image_card(s2, d2, "output/imagery/mariam_collection_campaign_4k.jpg", (880, 150, 970, 820), 16)
+slides.append(s2)
+
+# ==================== SLIDE 3: MEDITERRANEAN GRAZING FEAST LIFESTYLE ====================
+s3, d3 = draw_slide_base("Entertaining Occasions", "Capturing High-Basket Charcuterie & Grazing Trends")
+add_image_card(s3, d3, "output/imagery/mariam_grazing_feast_lifestyle_4k.jpg", (70, 150, 980, 820), 16)
+
+d3.rounded_rectangle([1080, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d3.text((1110, 180), "THE CHARCUTERIE BASKET MULTIPLIER", font=f_h2, fill=GOLD_FOIL)
+
+grazing_bullets = [
+    ("Cross-Department Placement", "Merchandised adjacent to specialty artisan cheeses (Parmigiano, Manchego), cured meats (Prosciutto), and fine wines to drive premium impulse add-on sales."),
+    ("Entertaining & Holiday Magnet", "High-aesthetic glass jars designed to be served directly from table to board without re-plating."),
+    ("Elevated Basket Value", "Shoppers purchasing olives alongside cheese and charcuterie generate +42% higher basket checkout size compared to center-aisle shoppers."),
+    ("Multi-Generational Appeal", "Appeals directly to Millennial and Gen-Z consumers hosting tapas nights, wine pairings, and holiday celebrations.")
+]
+y_g = 250
+for title, desc in grazing_bullets:
+    d3.text((1110, y_g), f"★ {title}", font=f_body_bold, fill=WHITE)
+    d3.text((1130, y_g + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_g += 85
+
+slides.append(s3)
+
+# ==================== SLIDE 4: MODERN CULINARY KITCHEN LIFESTYLE ====================
+s4, d4 = draw_slide_base("Culinary Excellence", "From Pantry to Pan | The Modern Kitchen Staple")
+add_image_card(s4, d4, "output/imagery/mariam_modern_kitchen_culinary_4k.jpg", (70, 150, 750, 820), 16)
+
+d4.rounded_rectangle([850, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d4.text((880, 180), "PANTRY GOALS: EVERYDAY GOURMET COOKING", font=f_h2, fill=GOLD_FOIL)
+
+kitchen_bullets = [
+    ("Home Chef Inspiration", "Elevates everyday meals: sizzling skillet focaccias, roasted garlic dips, artisan pizza toppings, and pasta finishes."),
+    ("High Smoke Point & Purity", "First cold-harvest extra virgin olive oil delivers unmatched aromatic richness and stable cooking performance."),
+    ("Modern Health Conscious", "Keto-certified, Paleo-friendly, 100% natural healthy fats for conscious health-driven consumers."),
+    ("Pantry Aesthetics", "Packaging designed to look prestigious on luxury kitchen counters and marble islands.")
+]
+y_k = 250
+for title, desc in kitchen_bullets:
+    d4.text((880, y_k), f"✔ {title}", font=f_body_bold, fill=GOLD_FOIL)
+    d4.text((905, y_k + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_k += 80
+
+slides.append(s4)
+
+# ==================== SLIDE 5: CORE TABLE OLIVES ====================
+s5, d5 = draw_slide_base("Core Table Olives", "High-Velocity Staples | Whole, Sliced Rings & Pitted")
+add_image_card(s5, d5, "output/imagery/mariam_green_olives_4k.jpg", (70, 150, 750, 820), 16)
+
+d5.rounded_rectangle([850, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d5.text((880, 180), "CORE TABLE OLIVE LINE SPECIFICATIONS", font=f_h2, fill=GOLD_FOIL)
+
+skus = [
+    ("Whole Green Olives (370g & 700g)", "Crisp Mediterranean table olives in sea-salt spring brine. Case pack: 12 / 6 units. 36 Mo shelf life."),
+    ("Sliced Green Olive Rings (370g)", "Perfect uniform circular rings with clean pitted centers for pizzas, salads, and focaccias. Case pack: 12."),
+    ("Pitted Green Olives (370g)", "Convenient, whole unblemished pitted olives for warm culinary dishes and dirty martinis. Case pack: 12."),
+    ("Natural Black Olives (370g)", "Naturally aged on the bough, zero ferrous gluconate artificial dye. Rich, mellow, tender texture. Case: 12.")
+]
+y_s = 240
+for title, desc in skus:
+    d5.text((880, y_s), f"• {title}", font=f_body_bold, fill=WHITE)
+    d5.text((895, y_s + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_s += 72
+
+d5.line([(880, y_s + 10), (1820, y_s + 10)], fill=(50, 85, 60), width=1)
+y_s += 35
+
+d5.text((880, y_s), "RETAILER COMMERCIAL ADVANTAGES:", font=f_h3, fill=GOLD_FOIL)
+y_s += 38
+d5.text((880, y_s), "1. Landed Cost: $2.60–$2.75  |  SRP: $4.99–$5.29  |  Gross Margin: 47%–48%", font=f_body_bold, fill=WHITE)
+y_s += 32
+d5.text((880, y_s), "2. Low Shrink: Long 36-month ambient shelf life with hermetic vacuum seals.", font=f_body, fill=MUTED_TEXT)
+slides.append(s5)
+
+# ==================== SLIDE 6: ROYAL KALAMATA OLIVES ====================
+s6, d6 = draw_slide_base("Royal Kalamata Reserve", "Naturally Tree-Ripened Purple Kalamata in EVOO Brine")
+add_image_card(s6, d6, "output/imagery/mariam_kalamata_solo_4k.jpg", (70, 150, 750, 820), 16)
+
+d6.rounded_rectangle([850, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d6.text((880, 180), "ROYAL KALAMATA: THE GREEK VARIETY BENCHMARK", font=f_h2, fill=GOLD_FOIL)
+
+kalamata_bullets = [
+    ("Authentic Tree-Ripening", "Hand-harvested only when deep aubergine-purple. Cured in red wine vinegar and extra virgin olive oil."),
+    ("Distinctive Matte-Black & Gold Closure", "Differentiates instantly on-shelf from ordinary green olives."),
+    ("Unmatched Flavor Profile", "Fruity, rich, wine-infused acidity with a tender, meaty bite."),
+    ("Retail Economics", "Landed: $3.10  |  US SRP: $5.99  |  EU SRP: €5.49  |  Retailer Margin: 48.2%")
+]
+y_kal = 250
+for title, desc in kalamata_bullets:
+    d6.text((880, y_kal), f"★ {title}", font=f_body_bold, fill=WHITE)
+    d6.text((905, y_kal + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_kal += 80
+
+slides.append(s6)
+
+# ==================== SLIDE 7: HAND-STUFFED GOURMET OLIVES ====================
+s7, d7 = draw_slide_base("Artisan Hand-Stuffed Line", "Toasted Spanish Almond & Slow-Roasted Garlic")
+add_image_card(s7, d7, "output/imagery/mariam_almond_stuffed_solo_4k.jpg", (70, 150, 750, 820), 16)
+
+d7.rounded_rectangle([850, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d7.text((880, 180), "HAND-STUFFED ARTISAN PORTFOLIO", font=f_h2, fill=GOLD_FOIL)
+
+stuffed_items = [
+    ("Toasted Spanish Almond Stuffed", "Large green olives stuffed by hand with crunchy, golden toasted whole almonds. The undisputed #1 charcuterie board bestseller. SRP: $6.99 | Margin: 48.5%"),
+    ("Slow-Roasted Garlic Clove Stuffed", "Stuffed with sweet, mellow caramelized garlic cloves and wild oregano. Pairs exceptionally with antipasto platters and dry red wines. SRP: $6.49 | Margin: 46.1%"),
+    ("Piquillo Chili & Sweet Pepper Stuffed", "Tangy, mildly smoky roasted sweet peppers hand-stuffed for vibrant color and zesty flavor contrast. SRP: $6.49 | Margin: 46.1%")
+]
+y_st = 240
+for title, desc in stuffed_items:
+    d7.text((880, y_st), f"★ {title}", font=f_body_bold, fill=WHITE)
+    d7.text((895, y_st + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_st += 85
+
+slides.append(s7)
+
+# ==================== SLIDE 8: FIRST HARVEST GRAND RESERVE EVOO ====================
+s8, d8 = draw_slide_base("Grand Reserve EVOO", "First Cold-Harvest Single-Estate Extra Virgin Olive Oil (500ml)")
+add_image_card(s8, d8, "output/imagery/mariam_evoo_solo_4k.jpg", (70, 150, 750, 820), 16)
+
+d8.rounded_rectangle([850, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d8.text((880, 180), "LIQUID GOLD: GRAND RESERVE EXTRA VIRGIN OLIVE OIL", font=f_h2, fill=GOLD_FOIL)
+
+evoo_bullets = [
+    ("Milled Within 4 Hours", "Ultra-low acidity (< 0.25%) and polyphenol count (> 450 mg/kg) certified by independent laboratory analysis."),
+    ("Dark UV-Barrier Heavy Glass", "Cylindrical heavy flint bottle finished with hand-dipped metallic gold wax seal."),
+    ("Culinary Versatility", "Exquisite peppery finish with notes of fresh-cut grass, green artichoke, and wild herbs."),
+    ("Commercial Terms", "Landed: $8.90  |  US SRP: $16.99  |  EU SRP: €14.99  |  Margin: 47.6%")
+]
+y_ev = 250
+for title, desc in evoo_bullets:
+    d8.text((880, y_ev), f"◆ {title}", font=f_body_bold, fill=GOLD_FOIL)
+    d8.text((905, y_ev + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_ev += 80
+
+slides.append(s8)
+
+# ==================== SLIDE 9: EVOO CULINARY AIR-SPRAY ====================
+s9, d9 = draw_slide_base("Culinary Air-Spray Innovation", "100% Pure Oil | Bag-on-Valve Aerosol System (200ml)")
+add_image_card(s9, d9, "output/imagery/mariam_spray_solo_4k.jpg", (70, 150, 750, 820), 16)
+
+d9.rounded_rectangle([850, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d9.text((880, 180), "THE FUTURE OF OIL DISPENSING: ZERO PROPELLANTS", font=f_h2, fill=GOLD_FOIL)
+
+spray_bullets = [
+    ("Bag-on-Valve Technology", "Oil is held in an internal multi-layer sterile pouch completely separated from the eco-friendly pressurized air. Zero gas propellants, zero thinning chemicals."),
+    ("Tri-Action Spray Actuator", "Allows drip, stream, or fine fan mist with light finger pressure."),
+    ("High Growth Market", "Exploding demand across Air-Fryer cooking, barbecue grilling, and portion-controlled salad dressings."),
+    ("Commercial Terms", "Landed: $4.20  |  US SRP: $7.99  |  EU SRP: €7.29  |  Margin: 47.4%")
+]
+y_sp = 250
+for title, desc in spray_bullets:
+    d9.text((880, y_sp), f"✦ {title}", font=f_body_bold, fill=WHITE)
+    d9.text((905, y_sp + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_sp += 80
+
+slides.append(s9)
+
+# ==================== SLIDE 10: TAPENADES & CONDIMENTS ====================
+s10, d10 = draw_slide_base("Artisan Tapenades & Condiments", "Rustic Green Tapenade, Kalamata Pâté & Modena Balsamic")
+add_image_card(s10, d10, "output/imagery/mariam_tapenade_solo_4k.jpg", (70, 150, 750, 820), 16)
+
+d10.rounded_rectangle([850, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d10.text((880, 180), "MEDITERRANEAN PANTRY SUITE", font=f_h2, fill=GOLD_FOIL)
+
+cond_items = [
+    ("Rustic Green Olive Tapenade (190g)", "Coarsely crushed green olives with capers, garlic, and cold-pressed extra virgin olive oil. Landed: $2.80 | SRP: $5.49 | Margin: 49.0%"),
+    ("Black Kalamata Olive Pâté (190g)", "Deep, velvety spread of Kalamata olives, balsamic glaze, and fresh wild thyme. Landed: $2.85 | SRP: $5.49 | Margin: 48.1%"),
+    ("Aged Modena Balsamic Vinegar Glaze (250ml)", "Slender glass bottle with gold foil neck. Dense, syrupy IGP Modena reduction. Landed: $4.50 | SRP: $8.99 | Margin: 49.9%"),
+    ("Smoked Olive Leaf Finishing Sea Salt (120g)", "Crystalline flaked sea salt cold-smoked over olive wood cuttings. Landed: $2.60 | SRP: $5.29 | Margin: 50.9%")
+]
+y_cn = 240
+for title, desc in cond_items:
+    d10.text((880, y_cn), f"▪ {title}", font=f_body_bold, fill=WHITE)
+    d10.text((895, y_cn + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_cn += 75
+
+slides.append(s10)
+
+# ==================== SLIDE 11: ARTISAN MEDITERRANEAN PICKLES ====================
+s11, d11 = draw_slide_base("Artisan Pickles & Preserves", "Royal Mediterranean Mixed Pickles & Crisp Baby Cornichons")
+add_image_card(s11, d11, "output/imagery/mariam_pickles_mediterranean_lifestyle_4k.jpg", (70, 150, 950, 820), 16)
+
+d11.rounded_rectangle([1050, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d11.text((1080, 180), "MEDITERRANEAN PICKLE HARVEST", font=f_h2, fill=GOLD_FOIL)
+
+pickle_items = [
+    ("Royal Mixed Pickles / Giardiniera (500g)", "Hand-packed multi-layer garden vegetables: cauliflower florets, baby carrots, bell peppers, celery, and whole mustard seeds in sea-salt brine. Landed: $2.70 | SRP: $5.49 | Margin: 50.8%"),
+    ("Artisan Crisp Baby Cucumbers / Cornichons (500g)", "Selected firm baby gherkins cured with wild dill heads, peeled garlic cloves, and coriander seeds. Landed: $2.80 | SRP: $5.49 | Margin: 49.0%"),
+    ("Wild Baby Turnips with Natural Beetroot (500g)", "Naturally colored with organic beetroot slices. Zero artificial food dye. Crisp, zesty, tangy bite. Landed: $2.60 | SRP: $4.99 | Margin: 47.9%"),
+    ("100% Clean Label & High Crunch Retention", "Natural mountain spring brine and sea salt without chemical firming agents (calcium chloride) or synthetic preservatives.")
+]
+y_pi = 240
+for title, desc in pickle_items:
+    d11.text((1080, y_pi), f"★ {title}", font=f_body_bold, fill=WHITE)
+    d11.text((1100, y_pi + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_pi += 80
+
+slides.append(s11)
+
+# ==================== SLIDE 12: ON-THE-GO SNACK POUCHES ====================
+s12, d12 = draw_slide_base("Grab-and-Go Pouches", "Liquid-Free Marinated Olives (50g Doypack)")
+add_image_card(s12, d12, "output/imagery/mariam_snack_pouch_solo_4k.jpg", (70, 150, 750, 820), 16)
+
+d12.rounded_rectangle([850, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d12.text((880, 180), "IMPULSE SNACKING INNOVATION: NO MESS, ZERO BRINE", font=f_h2, fill=GOLD_FOIL)
+
+pouch_bullets = [
+    ("Liquid-Free Technology", "Moist-marinated in cold-pressed oil with zero messy brine spills. Easy-open tear notch and resealable zip."),
+    ("Two Bestselling Flavors", "• Pitted Green Olives with Wild Thyme & Sun-Dried Lemon\n• Pitted Kalamata Olives with Chili Flakes & Mediterranean Herbs"),
+    ("High-Footfall Retail Channels", "Checkout front-end coolers, airport grab-and-go kiosks, airline premium cabins, and gym nutrition bars."),
+    ("Commercial Terms", "Landed: $1.10  |  US SRP: $2.49  |  EU SRP: €2.19  |  Retailer Margin: 55.8%")
+]
+y_po = 240
+for title, desc in pouch_bullets:
+    d12.text((880, y_po), f"★ {title}", font=f_body_bold, fill=GOLD_FOIL)
+    d12.text((905, y_po + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_po += 80
+
+slides.append(s12)
+
+# ==================== SLIDE 13: THE CONNOISSEUR GIFT VAULT ====================
+s13, d13 = draw_slide_base("Luxury Gift Chest", "Solid Olive-Wood Heirloom Presentation Chest")
+add_image_card(s13, d13, "output/imagery/mariam_gift_vault_solo_4k.jpg", (70, 150, 750, 820), 16)
+
+d13.rounded_rectangle([850, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d13.text((880, 180), "THE ULTRA-PREMIUM CORPORATE & HOLIDAY GIFT", font=f_h2, fill=GOLD_FOIL)
+
+vault_bullets = [
+    ("Heirloom Craftsmanship", "Hand-crafted from solid Mediterranean olive wood with natural swirling grain and polished brass hardware."),
+    ("Curated Connoisseur Trio", "Emerald green velvet interior holds 500ml Grand Reserve EVOO, 370g Royal Kalamata jar, and 370g Almond-Stuffed jar."),
+    ("Includes Brass Tasting Picks", "Three gold-plated solid brass olive picks housed in custom velvet slots."),
+    ("Commercial Terms", "Landed: $38.00  |  US SRP: $85.00  |  EU SRP: €79.00  |  Retailer Margin: 55.3%")
+]
+y_va = 240
+for title, desc in vault_bullets:
+    d13.text((880, y_va), f"◆ {title}", font=f_body_bold, fill=GOLD_FOIL)
+    d13.text((905, y_va + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_va += 80
+
+slides.append(s13)
+
+# ==================== SLIDE 14: ECONOMICS & GLOBAL SUPPLY CHAIN ====================
+s14, d14 = draw_slide_base("Economics & Global Supply Chain", "Frictionless Import Logistics & High-Margin Unit Economics")
+
+# Left Column: Table of Economics
+d14.rounded_rectangle([70, 150, 950, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d14.text((100, 180), "UNIT ECONOMICS & MARGIN ARCHITECTURE", font=f_h2, fill=GOLD_FOIL)
+
+headers = ["Product Line", "Case", "Landed", "US SRP", "EU SRP", "Margin"]
+d14.text((100, 225), f"{headers[0]:<28} {headers[1]:<5} {headers[2]:<8} {headers[3]:<9} {headers[4]:<9} {headers[5]}", font=f_body_bold, fill=GOLD_FOIL)
+d14.line([(100, 252), (920, 252)], fill=(50, 85, 60), width=1)
+
+rows = [
+    ("Whole Green Olives (370g)", "12", "$2.60", "$4.99", "€4.49", "47.9%"),
+    ("Sliced Green Olive Rings (370g)", "12", "$2.65", "$4.99", "€4.49", "46.9%"),
+    ("Pitted Green Olives (370g)", "12", "$2.75", "$5.29", "€4.79", "48.0%"),
+    ("Royal Kalamata Olives (370g)", "12", "$3.10", "$5.99", "€5.49", "48.2%"),
+    ("Almond Stuffed Olives (370g)", "12", "$3.60", "$6.99", "€6.29", "48.5%"),
+    ("Royal Mixed Pickles (500g)", "12", "$2.70", "$5.49", "€4.99", "50.8%"),
+    ("Crisp Baby Cucumbers (500g)", "12", "$2.80", "$5.49", "€4.99", "49.0%"),
+    ("First Harvest EVOO (500ml)", "6", "$8.90", "$16.99", "€14.99", "47.6%"),
+    ("Everyday Gourmet EVOO (750ml)", "6", "$6.80", "$12.99", "€11.49", "47.7%"),
+    ("EVOO Culinary Air-Spray (200ml)", "12", "$4.20", "$7.99", "€7.29", "47.4%"),
+    ("Rustic Green Tapenade (190g)", "12", "$2.80", "$5.49", "€4.99", "49.0%"),
+    ("To-Go Snack Pouch (50g)", "24", "$1.10", "$2.49", "€2.19", "55.8%"),
+    ("Connoisseur Gift Chest", "1", "$38.00", "$85.00", "€79.00", "55.3%")
+]
+y_r = 265
+for r in rows:
+    d14.text((100, y_r), f"{r[0]:<28} {r[1]:<5} {r[2]:<8} {r[3]:<9} {r[4]:<9} {r[5]}", font=f_small, fill=WHITE)
+    y_r += 28
+
+# Right Column: Supply Chain & Certifications
+d14.rounded_rectangle([980, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d14.text((1010, 180), "WESTERN COMPLIANCE & LOGISTICS", font=f_h2, fill=GOLD_FOIL)
+
+logistics_points = [
+    ("FDA & FSMA Registered", "Full compliance with US Food Safety Modernization Act and Foreign Supplier Verification Program (FSVP)."),
+    ("EU FIC 1169/2011 Standard", "All nutrition panels, net weights, allergens, and multi-lingual ingredient decks calibrated for European borders."),
+    ("Container Efficiency", "20ft FCL: 11 EUR/US Pallets (18,000 jars / 1,500 cases).\n40ft High Cube: 25 Pallets (38,000 jars / 3,200 cases)."),
+    ("Shipping Terms Available", "FOB Mediterranean Port, DDP / CIF to US East/West Coast (NY/Newark, Long Beach), CIF Rotterdam/Hamburg/Genoa."),
+    ("GFSI Certifications", "FSSC 22000, ISO 22000, HACCP, Halal, Kosher, Non-GMO Verified, USDA/EU Organic certified batches."),
+    ("Lead Times", "14 to 21 business days from PO confirmation to port loading.")
+]
+y_l = 230
+for title, desc in logistics_points:
+    d14.text((1010, y_l), f"✔ {title}", font=f_body_bold, fill=GOLD_FOIL)
+    d14.text((1030, y_l + 24), desc, font=f_small, fill=WARM_IVORY)
+    y_l += 68
+
+slides.append(s14)
+
+# ==================== SLIDE 15: LUXURY RETAIL SHELF PRESENCE ====================
+s15, d15 = draw_slide_base("Retail Merchandising & Shelf Presence", "Flagship Boutique Presentation | Harrods & Eataly Standards")
+add_image_card(s15, d15, "output/imagery/mariam_luxury_retail_shelf_display_4k.jpg", (70, 150, 950, 820), 16)
+
+d15.rounded_rectangle([1050, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d15.text((1080, 180), "THE SHELF MAGNETISM ADVANTAGE", font=f_h2, fill=GOLD_FOIL)
+
+merch_bullets = [
+    ("Unified Architectural Presence", "Every product format—from slender EVOO bottles and spray cans to wide olive and pickle jars—shares an identical 3D gold calligraphy logo and deep forest-green color code (Pantone 5605 C)."),
+    ("High-Contrast Category Magnet", "Disrupts monotonous canned olive aisles with crystalline heavy flint glass, warm ivory accents, and 3D Kurz Luxor gold foil."),
+    ("Turnkey Planogram Support", "Includes modular shelf-talker brass plaques, header displays, and pre-configured 3-tier endcap planograms for effortless store execution."),
+    ("Proven Shelf Turn Velocity", "Designed to deliver 3.5x higher turn velocity than legacy commodity canned brands in high-end specialty grocery environments.")
+]
+y_me = 240
+for title, desc in merch_bullets:
+    d15.text((1080, y_me), f"★ {title}", font=f_body_bold, fill=WHITE)
+    d15.text((1100, y_me + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_me += 85
+
+slides.append(s15)
+
+# ==================== SLIDE 16: RETAIL PARTNERSHIP PROGRAM ====================
+s16, d16 = draw_slide_base("Retail Partnership Program", "Frictionless Onboarding & Sell-Through Velocity Guarantee")
+
+# Left Column: Sell-Through Support
+d16.rounded_rectangle([70, 150, 950, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d16.text((100, 180), "HOW WE DRIVE SELL-THROUGH VELOCITY", font=f_h2, fill=GOLD_FOIL)
+
+support_items = [
+    ("Co-Op Advertising Allowance", "Up to 5% of net invoice credited toward retailer circulars, end-cap feature displays, and loyalty app promotions."),
+    ("Turnkey Merchandising Shippers", "Pre-packed 96-unit corrugated floor displays featuring the Top 3 best-sellers ready for instant retail deployment."),
+    ("Geo-Targeted Social Advertising", "Meta & TikTok digital campaigns geotargeted within 5 miles of stocking retail locations driving verified shopper traffic."),
+    ("Smart QR Farm-to-Table Engagement", "Every jar connects consumers to live grove maps, polyphenol lab tests, and Michelin-star chef recipe pairings.")
+]
+y_sp = 240
+for title, desc in support_items:
+    d16.text((100, y_sp), f"★ {title}", font=f_body_bold, fill=WHITE)
+    d16.text((115, y_sp + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_sp += 75
+
+# Right Column: Pilot Offer
+d16.rounded_rectangle([980, 150, 1850, 970], radius=16, fill=DARK_CARD, outline=(50, 85, 60), width=1)
+d16.text((1010, 180), "THE LOW-RISK PILOT TRIAL PROGRAM", font=f_h2, fill=GOLD_FOIL)
+
+pilot_steps = [
+    ("1. Low Barrier Pilot Order", "Test Mariam in a 3-Pallet regional store cluster or mixed test container before committing to chain-wide rollout."),
+    ("2. Proven Bestseller Starter SKU Mix", "30% Whole Green Olives (370g)\n25% Royal Kalamata Olives (370g)\n20% Royal Mediterranean Mixed Pickles (500g)\n15% Crisp Baby Cucumbers (500g)\n10% Toasted Almond Stuffed Olives (370g)"),
+    ("3. Zero-Risk Breakage Guarantee", "100% instant credit replacement policy for any transit handling damage."),
+    ("4. Free Weekend Tasting Kits", "2 free demo cases included per store for weekend sampling and staff tasting education.")
+]
+y_pi = 240
+for title, desc in pilot_steps:
+    d16.text((1010, y_pi), title, font=f_body_bold, fill=GOLD_FOIL)
+    d16.text((1025, y_pi + 26), desc, font=f_small, fill=WARM_IVORY)
+    y_pi += 72
+
+d16.line([(1010, y_pi + 10), (1820, y_pi + 10)], fill=GOLD_FOIL, width=2)
+y_pi += 30
+
+d16.text((1010, y_pi), "READY TO ALLOCATE TEST CONTAINERS & TASTING KITS", font=f_h3, fill=WHITE)
+y_pi += 32
+d16.text((1010, y_pi), "Contact US & European Export Desk | Inquire for Immediate Container Slot Allocation", font=f_small, fill=MUTED_TEXT)
+
+slides.append(s16)
+
+# Save Master PDF
+pdf_path = "/home/zexc/Desktop/New Folder/Mariam-Luxury-Sales-Pitch-USA-EU.pdf"
+slides[0].save(pdf_path, "PDF", resolution=150.0, save_all=True, append_images=slides[1:])
+print(f"Master B2B Sales Pitch Deck PDF successfully compiled: {pdf_path} ({len(slides)} slides)")
+
+

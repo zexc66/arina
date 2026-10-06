@@ -12,10 +12,21 @@ import subprocess
 import tempfile
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-WORKSPACE_DIR = '/home/zexc/Desktop/New Folder'
+WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(WORKSPACE_DIR, 'output/imagery')
-LOGO_GOLD = os.path.join(WORKSPACE_DIR, 'mariam-logo-gold.png')
+LOGO_GOLD = os.path.join(WORKSPACE_DIR, 'arina-logo-gold.png')
 LOGO_KHAER = os.path.join(WORKSPACE_DIR, 'khaeer-alwadi-logo-gold.png')
+
+def save_dual_dpi(canvas, filename, dpi=(300, 300)):
+    out_file = os.path.join(OUTPUT_DIR, filename)
+    canvas.save(out_file, dpi=dpi)
+    if filename.startswith('mariam_'):
+        arina_name = filename.replace('mariam_', 'arina_')
+        out_arina = os.path.join(OUTPUT_DIR, arina_name)
+        canvas.save(out_arina, dpi=dpi)
+        print(f'[SAVED WHOLESALE] {out_file} & {out_arina}')
+    else:
+        print(f'[SAVED WHOLESALE] {out_file}')
 
 # Fonts
 FONT_SERIF_BOLD = '/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf'
@@ -180,7 +191,7 @@ def render_wholesale_trade_sell_sheet():
         {
             'code': 'SKU-SF01',
             'name': 'MARIAM ROYAL MIX',
-            'name_ar': 'خلطة مريم الملكية (500 جم)',
+            'name_ar': 'خلطة أرينا الملكية (500 جم)',
             'format': '500g Nordic Flint Glass',
             'nuts': 'Cashews, Almonds, Hazelnuts & Royal Jelly',
             'case': '12 Jars/Case • 144 Cases/Pallet',
@@ -402,14 +413,12 @@ def render_wholesale_trade_sell_sheet():
     font_foot_head = ImageFont.truetype(FONT_SERIF_BOLD, 22)
     font_foot_sub = ImageFont.truetype(FONT_SANS_REG, 17)
 
-    draw.text((w // 2, 2305), "MARIAM FOOD INDUSTRIES • EXPORT ALLOCATION & COMMERCIAL WHOLESALE DESK", font=font_foot_head, fill=GOLD, anchor="mm")
+    draw.text((w // 2, 2305), "ARINA FOOD INDUSTRIES • EXPORT ALLOCATION & COMMERCIAL WHOLESALE DESK", font=font_foot_head, fill=GOLD, anchor="mm")
     draw.text((w // 2, 2345), "Factory & Packing Stations: Khaeer Alwadi Agribusiness Terroir • River Valley Agro-Industrial Zone", font=font_foot_sub, fill=IVORY, anchor="mm")
-    draw.text((w // 2, 2380), "Direct Procurement & RFQ Inquiries: export@mariamfoods.com • Tel/WhatsApp: +20 10 08716714 • www.mariamfoods.com", font=font_foot_sub, fill=GOLD_LIGHT, anchor="mm")
+    draw.text((w // 2, 2380), "Direct Procurement & RFQ Inquiries: export@arinafoods.com • Tel/WhatsApp: +20 10 08716714 • www.arinafoods.com", font=font_foot_sub, fill=GOLD_LIGHT, anchor="mm")
     paste_pango(canvas, "مزارع ومحطات تعبئة خير الوادي للصناعات الغذائية • قسم التصدير والتبادل التجاري الدولي", f"{FONT_ARABIC_BOLD} 18", "#DAAC36", w // 2, 2420, "center")
 
-    out_file = os.path.join(OUTPUT_DIR, 'mariam_honey_b2b_trade_sell_sheet_300dpi.png')
-    canvas.save(out_file, dpi=(300, 300))
-    print(f'[SAVED] {out_file}')
+    save_dual_dpi(canvas, 'mariam_honey_b2b_trade_sell_sheet_300dpi.png', dpi=(300, 300))
 
 # ==============================================================================
 # 2. HYPERMARKET GONDOLA SHELF-TALKER PRICE STRIPS (2480 x 448 px @ 300 DPI)
@@ -430,7 +439,7 @@ def render_shelf_talker_strip(filename, sku_title, sku_title_ar, sku_sub, packsh
 
     font_brand_sub = ImageFont.truetype(FONT_SANS_BOLD, 17)
     draw.text((225, 230), "NATURAL HONEY", font=font_brand_sub, fill=GOLD_LIGHT, anchor="mm")
-    paste_pango(canvas, "عسل مريم الحرفي", f"{FONT_ARABIC_BOLD} 16", "#DAAC36", 225, 280, "center")
+    paste_pango(canvas, "عسل أرينا الحرفي", f"{FONT_ARABIC_BOLD} 16", "#DAAC36", 225, 280, "center")
     
     # 0% Peanuts or Premium badge
     font_badge = ImageFont.truetype(FONT_SANS_BOLD, 14)
@@ -481,9 +490,7 @@ def render_shelf_talker_strip(filename, sku_title, sku_title_ar, sku_sub, packsh
     draw.text((2100, 305), "CASE PACK: 12 JARS • 144 CASES/PALLET", font=font_btm_tag, fill=GOLD, anchor="mm")
     draw.text((2100, 350), "CODEX STAN 12-1981 • GAFTA 0% DUTY", font=font_btm_tag, fill=IVORY, anchor="mm")
 
-    out_file = os.path.join(OUTPUT_DIR, filename)
-    canvas.save(out_file, dpi=(300, 300))
-    print(f'[SAVED] {out_file}')
+    save_dual_dpi(canvas, filename, dpi=(300, 300))
     return canvas
 
 # ==============================================================================
@@ -502,7 +509,7 @@ def render_master_press_sheet(talker_images):
     font_job_m = ImageFont.truetype(FONT_SANS_REG, 15)
 
     draw.text((w // 2, 185), "COMMERCIAL PRESS PROOF: RETAIL GONDOLA SHELF STRIPS", font=font_job_t, fill=CHARCOAL, anchor="mm")
-    draw.text((w // 2, 225), "JOB: MARIAM NATURAL HONEY & SUPERFOODS • 300 DPI 1:1 SCALE", font=font_job_s, fill=BURGUNDY, anchor="mm")
+    draw.text((w // 2, 225), "JOB: ARINA NATURAL HONEY & SUPERFOODS • 300 DPI 1:1 SCALE", font=font_job_s, fill=BURGUNDY, anchor="mm")
     draw.text((w // 2, 260), "SPECIFICATION: 350 GSM ART CARD + MATTE LAMINATION + LUXOR GOLD FOIL (PANTONE 871 C)", font=font_job_m, fill=(90, 90, 90), anchor="mm")
 
     # Center registration crosshair at top
@@ -556,11 +563,9 @@ def render_master_press_sheet(talker_images):
     # Bottom Footer
     draw.line([(100, h - 120), (w - 100, h - 120)], fill=GRAY_BORDER, width=2)
     font_foot = ImageFont.truetype(FONT_SANS_REG, 15)
-    draw.text((w // 2, h - 80), "MARIAM FOOD INDUSTRIES PACKAGING QA • APPROVED FOR OFFSET PRESS RUN • ZERO PDF PROHIBITION RESPECTED", font=font_foot, fill=(100, 100, 100), anchor="mm")
+    draw.text((w // 2, h - 80), "ARINA FOOD INDUSTRIES PACKAGING QA • APPROVED FOR OFFSET PRESS RUN • ZERO PDF PROHIBITION RESPECTED", font=font_foot, fill=(100, 100, 100), anchor="mm")
 
-    out_file = os.path.join(OUTPUT_DIR, 'mariam_shelf_talkers_master_press_sheet_300dpi.png')
-    canvas.save(out_file, dpi=(300, 300))
-    print(f'[SAVED] {out_file}')
+    save_dual_dpi(canvas, 'mariam_shelf_talkers_master_press_sheet_300dpi.png', dpi=(300, 300))
 
 if __name__ == '__main__':
     print('Generating Wholesale Export Sell-Sheets & Shelf-Talkers @ 300 DPI...')
@@ -571,8 +576,8 @@ if __name__ == '__main__':
     # 2. Four Individual Shelf Talker Strips
     t1 = render_shelf_talker_strip(
         'mariam_shelf_talker_royal_mix_300dpi.png',
-        'MARIAM ROYAL MIX (500g)',
-        'خلطة مريم الملكية الفاخرة',
+        'ARINA ROYAL MIX (500g)',
+        'خلطة أرينا الملكية الفاخرة',
         'Raw Amber Honey with Roasted Cashews, Almonds, Hazelnuts & Royal Jelly',
         'mariam_honey_royal_mix_500g_white_studio_hero_4k.jpg',
         '6281001205010',

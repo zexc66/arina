@@ -2,7 +2,7 @@ import os
 import re
 
 def integrate():
-    workspace = '/home/zexc/Desktop/New Folder'
+    workspace = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     index_path = os.path.join(workspace, 'index.html')
     mariam_path = os.path.join(workspace, 'mariam.html')
 

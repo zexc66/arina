@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """
 Mariam Luxury Brand - 4K Compositing Engine for Honey & Superfoods
-Composites the authentic cursive logo (mariam-logo-gold.png) onto 4K commercial photography
-with 2x supersampling, shadow embossing, and zero artifacts.
+Composites the authentic cursive logo (mariam-logo-gold.png) strictly in Luxor Gold (#DAAC36)
+onto 4K commercial photography with 2x supersampling, shadow embossing, and zero artifacts.
 """
 
 import os
 from PIL import Image, ImageDraw, ImageFilter
 
-def composite_hero(src_path, logo_path='mariam-logo-gold.png', out_path='output/imagery/mariam_honey_royal_mix_hero_commercial_4k.jpg'):
+OUTPUT_DIR = '/home/zexc/Desktop/New Folder/output/imagery'
+BRAIN_DIR = '/home/zexc/.gemini/antigravity/brain/3d8927e4-3c48-4f4b-b899-e68bfea55e7d'
+
+def composite_hero(src_path, logo_path=('arina-logo-gold.png' if os.path.exists('arina-logo-gold.png') else 'mariam-logo-gold.png'), out_path='output/imagery/mariam_honey_royal_mix_hero_commercial_4k.jpg'):
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     
     # 1. Load source image (1024x1024)
@@ -56,45 +59,46 @@ def composite_hero(src_path, logo_path='mariam-logo-gold.png', out_path='output/
     mask_blurred = mask.filter(ImageFilter.GaussianBlur(radius=4))
     src.paste(patch, (bx0, by0), mask_blurred)
 
-    # 4. Upscale cleanly to Cinema/Square 4K: 3840 x 3840 using LANCZOS
-    scale_factor = 3840 / 1024
-    im_4k = src.resize((3840, 3840), Image.Resampling.LANCZOS)
+    # 4. Upscale cleanly to Square 4K (3000 x 3000) using LANCZOS
+    scale_factor = 3000 / 1024
+    im_4k = src.resize((3000, 3000), Image.Resampling.LANCZOS)
 
-    # 5. Composite authentic cursive Mariam logo at 4K resolution
+    # 5. Composite authentic cursive Mariam logo in Luxor Gold (#DAAC36)
     logo_master = Image.open(logo_path).convert('RGBA')
 
-    # Target logo dimensions at 4K: width ~ 935 px, height ~ 350 px
-    target_w = 935
+    # Target logo dimensions: width ~ 730 px
+    target_w = 730
     logo_scale = target_w / logo_master.width
     target_h = int(logo_master.height * logo_scale)
 
     scaled_logo = logo_master.resize((target_w, target_h), Image.Resampling.LANCZOS)
+    _, _, _, a = scaled_logo.split()
 
-    # Create Deep Wine Burgundy version (#76122E)
-    burgundy = (118, 18, 46)
-    r, g, b, a = scaled_logo.split()
-    burg_logo = Image.new('RGBA', (target_w, target_h), (*burgundy, 255))
-    burg_logo.putalpha(a)
+    # Authentic Luxor Gold (#DAAC36)
+    gold_luxor = (218, 172, 54)
+    gold_logo = Image.new('RGBA', (target_w, target_h), (*gold_luxor, 255))
+    gold_logo.putalpha(a)
 
-    # Create subtle gold foil specular highlight under the letters for metallic depth
-    gold_foil = (218, 172, 54)
-    gold_accent = Image.new('RGBA', (target_w, target_h), (*gold_foil, 120))
-    gold_accent.putalpha(a)
-    gold_accent_blur = gold_accent.filter(ImageFilter.GaussianBlur(radius=1.5))
+    # Subtle soft contact shadow
+    shadow = Image.new('RGBA', (target_w, target_h), (75, 18, 30, 140))
+    shadow.putalpha(a)
+    shadow_blur = shadow.filter(ImageFilter.GaussianBlur(radius=1.8))
 
-    # Coordinates at 4K:
+    # Coordinates at 3000x3000:
     logo_4k_x = int(510 * scale_factor - target_w // 2)
     logo_4k_y = int(464 * scale_factor - target_h // 2)
 
-    # Composite gold edge highlight with microscopic 2px offset for embossed hot-foil look
-    im_4k.alpha_composite(gold_accent_blur, (logo_4k_x + 2, logo_4k_y + 2))
-    # Composite authentic cursive logo in Deep Wine Burgundy
-    im_4k.alpha_composite(burg_logo, (logo_4k_x, logo_4k_y))
+    im_4k.alpha_composite(shadow_blur, (logo_4k_x + 2, logo_4k_y + 3))
+    im_4k.alpha_composite(gold_logo, (logo_4k_x, logo_4k_y))
 
     # Convert to RGB and save at JPEG Quality 98
     final_rgb = im_4k.convert('RGB')
     final_rgb.save(out_path, 'JPEG', quality=98)
-    print(f'Successfully saved 4K product photograph to: {out_path}')
+    
+    # Also save to brain dir
+    brain_dst = os.path.join(BRAIN_DIR, os.path.basename(out_path))
+    final_rgb.save(brain_dst, 'JPEG', quality=98)
+    print(f'Successfully saved 4K product photograph to: {out_path} and {brain_dst}')
     return out_path
 
 if __name__ == '__main__':

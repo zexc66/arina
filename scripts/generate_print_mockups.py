@@ -15,7 +15,7 @@ import sys
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 # Root Paths
-BASE_DIR = "/home/zexc/Desktop/New Folder"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_MOCKUPS = os.path.join(BASE_DIR, "output", "mockups")
 OUTPUT_IMAGERY = os.path.join(BASE_DIR, "output", "imagery")
 OUTPUT_DIELINES = os.path.join(BASE_DIR, "output", "dielines")

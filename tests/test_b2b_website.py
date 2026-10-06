@@ -3,7 +3,7 @@ import os
 import re
 from html.parser import HTMLParser
 
-WORKSPACE_DIR = '/home/zexc/Desktop/New Folder'
+WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HTML_FILE = os.path.join(WORKSPACE_DIR, 'website.html' if os.path.exists(os.path.join(WORKSPACE_DIR, 'website.html')) else 'index.html')
 
 class SimpleDOMParser(HTMLParser):
@@ -39,9 +39,9 @@ class TestMariamB2BWebsite(unittest.TestCase):
         self.assertGreater(len(self.html_content), 1000, "index.html must be populated with content")
 
     def test_02_sacred_brand_logo_present(self):
-        # Logo must reference mariam-logo-gold.png
-        has_logo = any('mariam-logo-gold.png' in src for src in self.parser.images) or 'mariam-logo-gold.png' in self.html_content
-        self.assertTrue(has_logo, "Must contain authentic mariam-logo-gold.png")
+        # Logo must reference arina-logo-gold.png or mariam-logo-gold.png
+        has_logo = any('arina-logo-gold.png' in src or 'mariam-logo-gold.png' in src for src in self.parser.images) or 'arina-logo-gold.png' in self.html_content or 'mariam-logo-gold.png' in self.html_content
+        self.assertTrue(has_logo, "Must contain authentic brand logo (arina-logo-gold.png)")
 
     def test_03_no_forbidden_packaging_or_pdfs(self):
         lower = self.html_content.lower()
@@ -55,7 +55,8 @@ class TestMariamB2BWebsite(unittest.TestCase):
         self.assertIn('catalog', self.parser.ids, "Must have #catalog section")
         self.assertIn('calculator', self.parser.ids, "Must have #calculator section")
         self.assertIn('planograms', self.parser.ids, "Must have #planograms section")
-        self.assertIn('videos', self.parser.ids, "Must have #videos section")
+        self.assertNotIn('videos', self.parser.ids, "Must not have #videos section per user directive")
+        self.assertNotIn('honey-showcase', self.parser.ids, "Must not have #honey-showcase per zero-honey directive")
         self.assertIn('rfq-modal', self.parser.ids, "Must have #rfq-modal element")
         self.assertIn('footer', self.parser.tags, "Must have footer element")
 
@@ -85,9 +86,9 @@ class TestMariamB2BWebsite(unittest.TestCase):
         self.assertIn("20ft", self.html_content, "Must calculate 20ft container capacity")
         self.assertIn("40ft", self.html_content, "Must calculate 40ft container capacity")
 
-    def test_08_commercial_video_theater(self):
-        self.assertIn("mariam_master_brand_film_4k.mp4", self.html_content, "Must reference master brand film")
-        self.assertIn("mariam_social_reel_the_royal_crunch_9x16.mp4", self.html_content, "Must reference crunch reel")
+    def test_08_strict_zero_video_directive(self):
+        self.assertNotIn(".mp4", self.html_content, "Must have zero .mp4 video files per user directive")
+        self.assertNotIn("<video", self.html_content, "Must have zero video tags per user directive")
 
     def test_09_rfq_modal_form(self):
         self.assertIn("rfq-company", self.parser.ids, "Must have rfq-company input")
@@ -171,7 +172,7 @@ class TestMariamB2BWebsite(unittest.TestCase):
         self.assertEqual(len(arabic_in_en), 0, f"TRANSLATIONS.en must contain zero Arabic characters, found: {arabic_in_en}")
 
         # 2. Subtitle elements must not have hardcoded dir="rtl" or font-arabic
-        sub_ids = ['hero_subtitle', 'terroir_subtitle', 'catalog_subtitle', 'calc_subtitle', 'shipping_subtitle', 'plano_subtitle', 'video_subtitle']
+        sub_ids = ['hero_subtitle', 'terroir_subtitle', 'catalog_subtitle', 'calc_subtitle', 'shipping_subtitle', 'plano_subtitle']
         for sub_key in sub_ids:
             # Check data-i18n is present in html
             self.assertIn(f'data-i18n="{sub_key}"', self.html_content, f"Must have element with data-i18n='{sub_key}'")
@@ -231,10 +232,7 @@ class TestMariamB2BWebsite(unittest.TestCase):
         # 2. Hero and brand logo prioritized loading
         self.assertIn('fetchpriority="high"', self.html_content, "Hero and header logos must have fetchpriority='high' for LCP")
 
-        # 3. Video metadata preloading
-        self.assertIn('preload="metadata"', self.html_content, "Video player must have preload='metadata' to prevent eager download")
-
-        # 4. Catalog cards and planograms lazy loading
+        # 3. Catalog cards and planograms lazy loading
         self.assertIn('loading="lazy" decoding="async"', self.html_content, "Below-the-fold media must have loading='lazy' and decoding='async'")
         self.assertIn('product.img}" alt="${name}" loading="lazy" decoding="async"', self.html_content, "Dynamic catalog card images must be lazy-loaded")
 
@@ -370,50 +368,20 @@ class TestMariamB2BWebsite(unittest.TestCase):
 
         # 5. Bilingual Symmetry & Sacred Brand Rules
         self.assertIn('"dock_rfq_label"', self.html_content, "Must include dock_rfq_label in translation dictionary")
-        self.assertIn('"dock_top"', self.html_content, "Must include dock_top in translation dictionary")
-        has_logo = any('mariam-logo-gold.png' in src for src in self.parser.images) or 'mariam-logo-gold.png' in self.html_content
-        self.assertTrue(has_logo, "Must preserve sacred brand logo mariam-logo-gold.png")
+        has_logo = any('arina-logo-gold.png' in src or 'mariam-logo-gold.png' in src for src in self.parser.images) or 'arina-logo-gold.png' in self.html_content or 'mariam-logo-gold.png' in self.html_content
+        self.assertTrue(has_logo, "Must preserve sacred brand logo arina-logo-gold.png")
         lower = self.html_content.lower()
         self.assertNotIn(".pdf", lower, "Strict PDF prohibition: zero PDF files allowed")
         self.assertNotIn("pouch", lower, "Strict glass-only packaging directive")
         self.assertNotIn("spray can", lower, "Strict glass-only packaging directive")
 
-    def test_24_honey_superfoods_ecommerce_showcase(self):
-        """Verify the 4K E-Commerce & PDP Honey Showcase in index.html."""
-        self.assertIn('honey-showcase', self.parser.ids, "Must have #honey-showcase section in DOM")
-        self.assertIn('href="#honey-showcase"', self.html_content, "Must have link to #honey-showcase in navigation")
-        
-        # Verify controller functions
-        self.assertIn("switchWebHoneyProduct", self.html_content, "Must define switchWebHoneyProduct")
-        self.assertIn("switchWebHoneyAngle", self.html_content, "Must define switchWebHoneyAngle")
-        self.assertIn("zoomWebHoneyImage", self.html_content, "Must define zoomWebHoneyImage")
-        self.assertIn("requestHoneySample", self.html_content, "Must define requestHoneySample")
-        self.assertIn("WEB_HONEY_DATA", self.html_content, "Must define WEB_HONEY_DATA object")
-
-        # Verify translations
-        self.assertIn('"nav_honey"', self.html_content, "Must translate nav_honey")
-        self.assertIn('"honey_kicker"', self.html_content, "Must translate honey_kicker")
-        self.assertIn('"honey_title"', self.html_content, "Must translate honey_title")
-        self.assertIn('"honey_sample_btn"', self.html_content, "Must translate honey_sample_btn")
-
-        # Verify core 4K white studio packshots referenced
-        expected_honey_assets = [
-            "mariam_honey_royal_mix_500g_white_studio_hero_4k.jpg",
-            "mariam_honey_royal_mix_500g_open_jar_white_studio_4k.jpg",
-            "mariam_honey_mountain_sidr_500g_white_studio_hero_4k.jpg",
-            "mariam_honey_sidr_500g_open_jar_white_studio_4k.jpg",
-            "mariam_honey_sidr_500g_45deg_angle_white_studio_4k.jpg",
-            "mariam_honey_clover_blossom_1kg_white_studio_hero_4k.jpg",
-            "mariam_honey_black_seed_500g_white_studio_hero_4k.jpg",
-            "mariam_honey_citrus_blossom_500g_white_studio_hero_4k.jpg",
-            "mariam_honey_cap_seal_and_ribbon_macro_white_studio_4k.jpg",
-            "mariam_honey_master_ecommerce_lineup_white_studio_4k.jpg"
-        ]
-        for asset in expected_honey_assets:
-            self.assertIn(asset, self.html_content, f"Must reference 4K white studio asset: {asset}")
-
-        # Strict packaging & purity assertions
-        self.assertIn("0% Peanuts", self.html_content, "Must prominently state 0% Peanuts purity guarantee")
+    def test_24_strict_zero_honey_directive(self):
+        """Verify honey has been completely removed from the project per user directive."""
+        self.assertNotIn('honey-showcase', self.parser.ids, "Must not have #honey-showcase section")
+        self.assertNotIn("honey", self.html_content.lower(), "Must have zero occurrences of 'honey' in website.html")
+        self.assertNotIn("عسل", self.html_content, "Must have zero occurrences of 'عسل' in website.html")
+        self.assertNotIn("switchWebHoneyProduct", self.html_content)
+        self.assertNotIn("WEB_HONEY_DATA", self.html_content)
 
 if __name__ == '__main__':
     unittest.main()

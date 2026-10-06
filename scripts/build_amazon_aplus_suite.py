@@ -15,10 +15,21 @@ import subprocess
 import tempfile
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-WORKSPACE_DIR = '/home/zexc/Desktop/New Folder'
+WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(WORKSPACE_DIR, 'output/imagery')
-LOGO_GOLD = os.path.join(WORKSPACE_DIR, 'mariam-logo-gold.png')
+LOGO_GOLD = os.path.join(WORKSPACE_DIR, 'arina-logo-gold.png')
 LOGO_KHAER = os.path.join(WORKSPACE_DIR, 'khaeer-alwadi-logo-gold.png')
+
+def save_dual(canvas, out_filename):
+    out_file = os.path.join(OUTPUT_DIR, out_filename)
+    canvas.save(out_file, quality=98)
+    if out_filename.startswith('mariam_'):
+        arina_name = out_filename.replace('mariam_', 'arina_')
+        out_arina = os.path.join(OUTPUT_DIR, arina_name)
+        canvas.save(out_arina, quality=98)
+        print(f'[SAVED] {out_file} & {out_arina}')
+    else:
+        print(f'[SAVED] {out_file}')
 
 # Fonts
 FONT_SERIF_BOLD = '/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf'
@@ -167,7 +178,7 @@ def render_amazon_brand_story_hero():
     draw.text((1920, 330), "Artisanal Monofloral Mountain Nectars & Tree Nut Power Blends in Heavy Nordic Glass Jars", font=font_sub, fill=GOLD_LIGHT, anchor="mm")
 
     # Arabic Heritage Subtitle
-    paste_pango(canvas, "عسل مريم الطبيعي والخلطات الملكية الفائقة • من أخصب المحميات الجبلية إلى موائد النخبة العالمية", f"{FONT_ARABIC_BOLD} 26", "#DAAC36", 1920, 380, "center")
+    paste_pango(canvas, "عسل أرينا الطبيعي والخلطات الملكية الفائقة • من أخصب المحميات الجبلية إلى موائد النخبة العالمية", f"{FONT_ARABIC_BOLD} 26", "#DAAC36", 1920, 380, "center")
 
     # Jars Showcase Row
     y_ground = 1120
@@ -197,9 +208,7 @@ def render_amazon_brand_story_hero():
         draw.text((px, 1140), p_title.upper(), font=font_p_title, fill=GOLD, anchor="mm")
         draw.text((px, 1168), p_desc, font=font_p_sub, fill=IVORY, anchor="mm")
 
-    out_file = os.path.join(OUTPUT_DIR, 'mariam_amazon_aplus_01_brand_story_hero_4k.jpg')
-    canvas.save(out_file, quality=98)
-    print(f'[SAVED] {out_file}')
+    save_dual(canvas, 'mariam_amazon_aplus_01_brand_story_hero_4k.jpg')
 
 # ==============================================================================
 # 2. QUALITY PILLAR CARD 1: 0% PEANUTS & WHOLE TREE NUTS (1200 x 1200)
@@ -252,9 +261,7 @@ def render_pillar_card_01_tree_nuts():
     font_spec = ImageFont.truetype(FONT_SANS_REG, 15)
     draw.text((600, 1120), "Processed in an exclusively certified peanut-free facility • CODEX STAN 12-1981", font=font_spec, fill=(160, 160, 160), anchor="mm")
 
-    out_file = os.path.join(OUTPUT_DIR, 'mariam_amazon_aplus_02_card_tree_nuts_purity_4k.jpg')
-    canvas.save(out_file, quality=98)
-    print(f'[SAVED] {out_file}')
+    save_dual(canvas, 'mariam_amazon_aplus_02_card_tree_nuts_purity_4k.jpg')
 
 # ==============================================================================
 # 3. QUALITY PILLAR CARD 2: 100% HEAVY INERT FLINT GLASS (1200 x 1200)
@@ -305,9 +312,7 @@ def render_pillar_card_02_nordic_glass():
     font_spec = ImageFont.truetype(FONT_SANS_REG, 15)
     draw.text((600, 1120), "USP Type III Soda-Lime Flint Glass • Fully Recyclable • Tamper-Evident Crown Ribbon", font=font_spec, fill=(160, 160, 160), anchor="mm")
 
-    out_file = os.path.join(OUTPUT_DIR, 'mariam_amazon_aplus_03_card_nordic_glass_4k.jpg')
-    canvas.save(out_file, quality=98)
-    print(f'[SAVED] {out_file}')
+    save_dual(canvas, 'mariam_amazon_aplus_03_card_nordic_glass_4k.jpg')
 
 # ==============================================================================
 # 4. QUALITY PILLAR CARD 3: COLD-EXTRACTED LIVING ENZYMES (1200 x 1200)
@@ -358,9 +363,7 @@ def render_pillar_card_03_raw_enzymes():
     font_spec = ImageFont.truetype(FONT_SANS_REG, 15)
     draw.text((600, 1120), "Lab-tested for active diastase enzymes • 100% Egyptian & Mediterranean Protected Flora", font=font_spec, fill=(160, 160, 160), anchor="mm")
 
-    out_file = os.path.join(OUTPUT_DIR, 'mariam_amazon_aplus_04_card_raw_enzymes_4k.jpg')
-    canvas.save(out_file, quality=98)
-    print(f'[SAVED] {out_file}')
+    save_dual(canvas, 'mariam_amazon_aplus_04_card_raw_enzymes_4k.jpg')
 
 # ==============================================================================
 # 5. FLAGSHIP COMPARISON MATRIX CHART (3840 x 2160)
@@ -381,9 +384,9 @@ def render_comparison_matrix_chart():
     draw.text((1920, 180), "CONNOISSEUR PRODUCT SELECTION & SPECIFICATION MATRIX", font=font_kicker, fill=BLUSH_PINK, anchor="mm")
 
     font_head = ImageFont.truetype(FONT_SERIF_BOLD, 46)
-    draw.text((1920, 240), "Compare Mariam Natural Honey & Superfood Blends", font=font_head, fill=IVORY, anchor="mm")
+    draw.text((1920, 240), "Compare Arina Natural Honey & Superfood Blends", font=font_head, fill=IVORY, anchor="mm")
 
-    paste_pango(canvas, "دليل المقارنة والمواصفات الفنية المعتمدة لتشكيلة عسل مريم الطبيعي والخلطات الملكية", f"{FONT_ARABIC_BOLD} 24", "#DAAC36", 1920, 305, "center")
+    paste_pango(canvas, "دليل المقارنة والمواصفات الفنية المعتمدة لتشكيلة عسل أرينا الطبيعي والخلطات الملكية", f"{FONT_ARABIC_BOLD} 24", "#DAAC36", 1920, 305, "center")
 
     # Table Layout
     x_start = 120
@@ -527,11 +530,9 @@ def render_comparison_matrix_chart():
     draw.rectangle([(0, 2060), (w, 2160)], fill=(8, 16, 12))
     draw.line([(0, 2060), (w, 2060)], fill=GOLD, width=2)
     font_foot = ImageFont.truetype(FONT_SANS_REG, 18)
-    draw.text((1920, 2110), "ALL PRODUCTS GUARANTEED 100% RAW & UNPASTEURIZED • PRODUCED & PACKED BY MARIAM FOOD INDUSTRIES • CODEX STAN 12-1981 COMPLIANT", font=font_foot, fill=GOLD_LIGHT, anchor="mm")
+    draw.text((1920, 2110), "ALL PRODUCTS GUARANTEED 100% RAW & UNPASTEURIZED • PRODUCED & PACKED BY ARINA FOOD INDUSTRIES • CODEX STAN 12-1981 COMPLIANT", font=font_foot, fill=GOLD_LIGHT, anchor="mm")
 
-    out_file = os.path.join(OUTPUT_DIR, 'mariam_amazon_aplus_05_comparison_matrix_chart_4k.jpg')
-    canvas.save(out_file, quality=98)
-    print(f'[SAVED] {out_file}')
+    save_dual(canvas, 'mariam_amazon_aplus_05_comparison_matrix_chart_4k.jpg')
 
 # ==============================================================================
 # 6. DAILY FUNCTIONAL WELLNESS RITUAL INFOGRAPHIC BANNER (3840 x 1800)
@@ -558,7 +559,7 @@ def render_functional_wellness_infographic():
     font_head = ImageFont.truetype(FONT_SERIF_BOLD, 54)
     draw.text((1920, 310), "Four Daily Rituals of Vitality & Gourmet Pleasure", font=font_head, fill=IVORY, anchor="mm")
 
-    paste_pango(canvas, "بروتوكول الطاقة الحيوية اليومي مع عسل مريم — من الصباح الباكر حتى النوم الهادئ", f"{FONT_ARABIC_BOLD} 26", "#DAAC36", 1920, 375, "center")
+    paste_pango(canvas, "بروتوكول الطاقة الحيوية اليومي مع عسل أرينا — من الصباح الباكر حتى النوم الهادئ", f"{FONT_ARABIC_BOLD} 26", "#DAAC36", 1920, 375, "center")
 
     # 4 Chrono-Nutrition Pillars
     rituals = [
@@ -574,7 +575,7 @@ def render_functional_wellness_infographic():
         {
             'time': '01:00 PM',
             'title': 'COGNITIVE POWER BOOST',
-            'product': 'Mariam Royal Mix 500g (Nuts & Honey)',
+            'product': 'Arina Royal Mix 500g (Nuts & Honey)',
             'desc': 'Raw amber honey packed with whole roasted almonds, cashews, and hazelnuts. Sustained brain food that beats afternoon brain fog without blood sugar spikes.',
             'img': 'mariam_honey_royal_mix_500g_open_jar_white_studio_4k.jpg',
             'color': (25, 45, 35),
@@ -656,9 +657,7 @@ def render_functional_wellness_infographic():
         draw.line([(card_x1 + 40, card_y2 - 60), (card_x2 - 40, card_y2 - 60)], fill=GOLD_DARK, width=1)
         draw.text((cx, card_y2 - 30), "100% NATURAL • NO PRESERVATIVES • ZERO REFINED SUGAR", font=font_tag, fill=GOLD_LIGHT, anchor="mm")
 
-    out_file = os.path.join(OUTPUT_DIR, 'mariam_amazon_aplus_06_functional_wellness_infographic_4k.jpg')
-    canvas.save(out_file, quality=98)
-    print(f'[SAVED] {out_file}')
+    save_dual(canvas, 'mariam_amazon_aplus_06_functional_wellness_infographic_4k.jpg')
 
 if __name__ == '__main__':
     print('Generating Amazon A+ Content & Infographic Suite in Cinema 4K...')

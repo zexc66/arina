@@ -19,7 +19,7 @@ import os
 import sys
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
-BASE_DIR = "/home/zexc/Desktop/New Folder"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_MOCKUPS = os.path.join(BASE_DIR, "output", "mockups")
 OUTPUT_IMAGERY = os.path.join(BASE_DIR, "output", "imagery")
 BRAIN_DIR = "/home/zexc/.gemini/antigravity/brain/3d8927e4-3c48-4f4b-b899-e68bfea55e7d"
@@ -57,7 +57,7 @@ def load_font(size, bold=False):
     return ImageFont.load_default()
 
 # Logo
-LOGO_GOLD_PATH = os.path.join(BASE_DIR, "mariam-logo-gold.png")
+LOGO_GOLD_PATH = os.path.join(BASE_DIR, ("arina-logo-gold.png" if os.path.exists("arina-logo-gold.png") else "mariam-logo-gold.png"))
 logo_master = Image.open(LOGO_GOLD_PATH).convert("RGBA") if os.path.exists(LOGO_GOLD_PATH) else None
 
 def get_tinted_logo(target_w, color=LUXOR_GOLD):

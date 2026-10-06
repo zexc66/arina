@@ -13,10 +13,12 @@ import cv2
 import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
-BASE_DIR = '/home/zexc/Desktop/New Folder'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(BASE_DIR, 'output', 'imagery')
 BRAIN_DIR = '/home/zexc/.gemini/antigravity/brain/3d8927e4-3c48-4f4b-b899-e68bfea55e7d'
-LOGO_GOLD = os.path.join(BASE_DIR, 'mariam-logo-gold.png')
+LOGO_GOLD = os.path.join(BASE_DIR, 'arina-logo-gold.png')
+if not os.path.exists(LOGO_GOLD):
+    LOGO_GOLD = os.path.join(BASE_DIR, 'mariam-logo-gold.png')
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(BRAIN_DIR, exist_ok=True)
@@ -70,15 +72,18 @@ def save_image(img, filename):
     """
     Applies high-frequency unsharp masking, clamps background to pure white,
     and saves to both output/imagery and brain directory at JPEG Quality 98+.
+    Also generates canonical arina_ counterpart.
     """
     sharp = apply_unsharp_mask(img, radius=1.2, percent=135, threshold=3)
     final_rgb = clamp_to_pure_white(sharp)
     out_p = os.path.join(OUTPUT_DIR, filename)
-    brain_p = os.path.join(BRAIN_DIR, filename)
     final_rgb.save(out_p, 'JPEG', quality=98)
-    final_rgb.save(brain_p, 'JPEG', quality=98)
+    if filename.startswith('mariam_'):
+        arina_name = filename.replace('mariam_', 'arina_')
+        out_arina = os.path.join(OUTPUT_DIR, arina_name)
+        final_rgb.save(out_arina, 'JPEG', quality=98)
     fsize = os.path.getsize(out_p)
-    print(f'[SAVED ULTRA-SHARP 4K] {filename} ({final_rgb.size[0]}x{final_rgb.size[1]}, {fsize // 1024} KB)')
+    print(f'[SAVED ULTRA-SHARP 4K] {filename} & {filename.replace("mariam_", "arina_")} ({final_rgb.size[0]}x{final_rgb.size[1]}, {fsize // 1024} KB)')
     return out_p
 
 # ==============================================================================

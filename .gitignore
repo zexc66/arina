@@ -4,3 +4,6 @@ __pycache__/
 .vercel
 node_modules/
 .env*
+scratch/
+output/imagery_backup_mariam/
+*.pdf

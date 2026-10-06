@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFilter
 
 def composite_trio_photo(
     src_path,
-    logo_path='mariam-logo-gold.png',
+    logo_path=('arina-logo-gold.png' if os.path.exists('arina-logo-gold.png') else 'mariam-logo-gold.png'),
     out_path='output/imagery/mariam_honey_master_trio_commercial_4k.jpg'
 ):
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
@@ -97,15 +97,15 @@ def composite_trio_photo(
     im_4k.alpha_composite(logo_left_shadow, (lx_4k + 2, ly_4k + 2))
     im_4k.alpha_composite(logo_left_gold, (lx_4k, ly_4k))
 
-    # B) Middle Jar (Mariam Royal Mix 500g): Burgundy logo on Blush Pink with Gold Foil Rim
+    # B) Middle Jar (Mariam Royal Mix 500g): Strictly authentic Luxor Gold logo (#DAAC36)
     mid_logo_w = int(145 * scale_x)
-    logo_mid_burg = get_tinted_logo(mid_logo_w, burgundy_wine)
-    logo_mid_gold = get_tinted_logo(mid_logo_w, gold_luxor, 120)
-    logo_mid_gold = logo_mid_gold.filter(ImageFilter.GaussianBlur(radius=1.5))
+    logo_mid_gold = get_tinted_logo(mid_logo_w, gold_luxor)
+    logo_mid_shadow = get_tinted_logo(mid_logo_w, (75, 18, 30), 140)
+    logo_mid_shadow = logo_mid_shadow.filter(ImageFilter.GaussianBlur(radius=1.8))
     mx_4k = int(682 * scale_x - mid_logo_w // 2)
-    my_4k = int(357 * scale_y - logo_mid_burg.height // 2)
-    im_4k.alpha_composite(logo_mid_gold, (mx_4k + 2, my_4k + 2))
-    im_4k.alpha_composite(logo_mid_burg, (mx_4k, my_4k))
+    my_4k = int(357 * scale_y - logo_mid_gold.height // 2)
+    im_4k.alpha_composite(logo_mid_shadow, (mx_4k + 2, my_4k + 3))
+    im_4k.alpha_composite(logo_mid_gold, (mx_4k, my_4k))
 
     # C) Right Jar (Raw Honeycomb 500g): Luxor Gold logo on Warm Ivory
     right_logo_w = int(115 * scale_x)
@@ -120,13 +120,15 @@ def composite_trio_photo(
     # Save final 4K Cinema
     final_rgb = im_4k.convert('RGB')
     final_rgb.save(out_path, 'JPEG', quality=98)
-    print(f'Successfully saved Trio 4K photograph to: {out_path}')
+    brain_dst = os.path.join('/home/zexc/.gemini/antigravity/brain/3d8927e4-3c48-4f4b-b899-e68bfea55e7d', os.path.basename(out_path))
+    final_rgb.save(brain_dst, 'JPEG', quality=98)
+    print(f'Successfully saved Trio 4K photograph to: {out_path} and {brain_dst}')
     return out_path
 
 
 def composite_comparison_photo(
     src_path,
-    logo_path='mariam-logo-gold.png',
+    logo_path=('arina-logo-gold.png' if os.path.exists('arina-logo-gold.png') else 'mariam-logo-gold.png'),
     out_path='output/imagery/mariam_honey_sizes_comparison_500g_vs_1kg_4k.jpg'
 ):
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
@@ -169,15 +171,15 @@ def composite_comparison_photo(
         tinted.putalpha(a)
         return tinted
 
-    # A) Left Jar (500g Royal Mix): Deep Wine Burgundy on Petal Blush Pink
+    # A) Left Jar (500g Royal Mix): Strictly authentic Luxor Gold logo (#DAAC36)
     left_logo_w = int(140 * scale_x)
-    logo_left_burg = get_tinted_logo(left_logo_w, burgundy_wine)
-    logo_left_gold = get_tinted_logo(left_logo_w, gold_luxor, 120)
-    logo_left_gold = logo_left_gold.filter(ImageFilter.GaussianBlur(radius=1.5))
+    logo_left_gold = get_tinted_logo(left_logo_w, gold_luxor)
+    logo_left_shadow = get_tinted_logo(left_logo_w, (75, 18, 30), 140)
+    logo_left_shadow = logo_left_shadow.filter(ImageFilter.GaussianBlur(radius=1.8))
     lx_4k = int(370 * scale_x - left_logo_w // 2)
-    ly_4k = int(472 * scale_y - logo_left_burg.height // 2)
-    im_4k.alpha_composite(logo_left_gold, (lx_4k + 2, ly_4k + 2))
-    im_4k.alpha_composite(logo_left_burg, (lx_4k, ly_4k))
+    ly_4k = int(472 * scale_y - logo_left_gold.height // 2)
+    im_4k.alpha_composite(logo_left_shadow, (lx_4k + 2, ly_4k + 3))
+    im_4k.alpha_composite(logo_left_gold, (lx_4k, ly_4k))
 
     # B) Right Jar (1kg Family Reserve Pure Clover Blossom Honey): Luxor Gold on Burgundy
     right_logo_w = int(180 * scale_x)
@@ -192,7 +194,9 @@ def composite_comparison_photo(
     # Save final 4K Portrait/Landscape
     final_rgb = im_4k.convert('RGB')
     final_rgb.save(out_path, 'JPEG', quality=98)
-    print(f'Successfully saved Sizing Comparison 4K photograph to: {out_path}')
+    brain_dst = os.path.join('/home/zexc/.gemini/antigravity/brain/3d8927e4-3c48-4f4b-b899-e68bfea55e7d', os.path.basename(out_path))
+    final_rgb.save(brain_dst, 'JPEG', quality=98)
+    print(f'Successfully saved Sizing Comparison 4K photograph to: {out_path} and {brain_dst}')
     return out_path
 
 
