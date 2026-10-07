@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="arina-logo-gold.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARINA — B2B & Export Wholesale Web Portal | Artisanal Mediterranean Harvest</title>
   <meta name="description" content="Official B2B & Wholesale Export Portal for Arina. Premium artisanal glass-packaged pickles, olives, garlic pastes, and tapenades for supermarket buyers and FMCG distributors.">
@@ -1617,7 +1618,8 @@
           
           <!-- Instant Search Box -->
           <div class="relative w-full sm:w-80">
-            <input type="text" id="catalog-search" oninput="handleSearch(this.value)" placeholder="Search product or EAN-13..." class="w-full px-4 py-2.5 pl-10 rounded-full bg-brand-forest-card/80 border border-brand-gold/30 text-brand-ivory text-base sm:text-xs focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="search_placeholder">
+            <label for="catalog-search" class="sr-only" data-i18n="search_label">Search product catalog</label>
+            <input type="text" id="catalog-search" aria-label="Search product catalog" oninput="handleSearch(this.value)" placeholder="Search product or EAN-13..." class="w-full px-4 py-2.5 pl-10 rounded-full bg-brand-forest-card/80 border border-brand-gold/30 text-brand-ivory text-base sm:text-xs focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="search_placeholder">
             <svg class="w-4 h-4 text-brand-gold/60 absolute left-3.5 top-3.5 sm:top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
@@ -1752,24 +1754,24 @@
 
             <!-- Target Freight Configuration Radios -->
             <div class="space-y-2">
-              <label class="text-xs uppercase font-bold text-brand-ivory/80 tracking-wider" data-i18n="calc_container_type">Target Freight Configuration</label>
+              <span class="block text-xs uppercase font-bold text-brand-ivory/80 tracking-wider" data-i18n="calc_container_type">Target Freight Configuration</span>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <label class="flex items-center p-3 rounded-xl border border-brand-gold/40 bg-brand-forest/60 cursor-pointer hover:border-brand-gold transition-all">
-                  <input type="radio" name="containerType" value="20ft" checked onchange="calculateLogistics()" class="accent-brand-gold">
+                  <input type="radio" name="containerType" value="20ft" checked aria-label="20 foot Full Container Load" onchange="calculateLogistics()" class="accent-brand-gold">
                   <div class="ml-3 rtl:ml-0 rtl:mr-3 text-xs">
                     <div class="font-bold text-brand-ivory" data-i18n="radio_20ft_title">20ft Dry FCL</div>
                     <div class="text-brand-gold/80" data-i18n="radio_20ft_sub">1,200 Cases Standard (5.9m × 2.35m • 21-28T)</div>
                   </div>
                 </label>
                 <label class="flex items-center p-3 rounded-xl border border-brand-gold/40 bg-brand-forest/60 cursor-pointer hover:border-brand-gold transition-all">
-                  <input type="radio" name="containerType" value="40ft" onchange="calculateLogistics()" class="accent-brand-gold">
+                  <input type="radio" name="containerType" value="40ft" aria-label="40 foot High Cube Container Load" onchange="calculateLogistics()" class="accent-brand-gold">
                   <div class="ml-3 rtl:ml-0 rtl:mr-3 text-xs">
                     <div class="font-bold text-brand-ivory" data-i18n="radio_40ft_title">40ft High Cube</div>
                     <div class="text-brand-gold/80" data-i18n="radio_40ft_sub">2,400 Cases Standard (12.0m × 2.35m • 26.5T)</div>
                   </div>
                 </label>
                 <label class="flex items-center p-3 rounded-xl border border-brand-gold/40 bg-brand-forest/60 cursor-pointer hover:border-brand-gold transition-all">
-                  <input type="radio" name="containerType" value="lcl" onchange="calculateLogistics()" class="accent-brand-gold">
+                  <input type="radio" name="containerType" value="lcl" aria-label="Less than Container Load Pallet Dispatch" onchange="calculateLogistics()" class="accent-brand-gold">
                   <div class="ml-3 rtl:ml-0 rtl:mr-3 text-xs">
                     <div class="font-bold text-brand-ivory" data-i18n="radio_lcl_title">LCL Consolidated</div>
                     <div class="text-brand-gold/80" data-i18n="radio_lcl_sub">Custom Pallets</div>
@@ -1789,7 +1791,8 @@
                 </div>
                 <div class="flex items-center space-x-2 self-end sm:self-auto">
                   <button onclick="adjustQty('cucumbers', -50)" class="w-10 h-10 sm:w-8 sm:h-8 rounded-lg bg-brand-forest-obsidian border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-forest-obsidian font-bold text-lg sm:text-base transition-colors flex items-center justify-center active:scale-95">-</button>
-                  <input type="number" id="qty-cucumbers" value="400" min="0" step="50" onchange="calculateLogistics()" class="w-20 px-2 py-2 sm:py-1.5 text-center bg-brand-forest-obsidian border border-brand-gold/40 rounded-lg text-brand-ivory font-bold text-base sm:text-sm">
+                  <label for="qty-cucumbers" class="sr-only">Quantity of pickled baby cucumbers cartons</label>
+                  <input type="number" id="qty-cucumbers" aria-label="Quantity of pickled baby cucumbers cartons" value="400" min="0" step="50" onchange="calculateLogistics()" class="w-20 px-2 py-2 sm:py-1.5 text-center bg-brand-forest-obsidian border border-brand-gold/40 rounded-lg text-brand-ivory font-bold text-base sm:text-sm">
                   <button onclick="adjustQty('cucumbers', 50)" class="w-10 h-10 sm:w-8 sm:h-8 rounded-lg bg-brand-forest-obsidian border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-forest-obsidian font-bold text-lg sm:text-base transition-colors flex items-center justify-center active:scale-95">+</button>
                 </div>
               </div>
@@ -1802,7 +1805,8 @@
                 </div>
                 <div class="flex items-center space-x-2 self-end sm:self-auto">
                   <button onclick="adjustQty('turnips', -50)" class="w-10 h-10 sm:w-8 sm:h-8 rounded-lg bg-brand-forest-obsidian border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-forest-obsidian font-bold text-lg sm:text-base transition-colors flex items-center justify-center active:scale-95">-</button>
-                  <input type="number" id="qty-turnips" value="300" min="0" step="50" onchange="calculateLogistics()" class="w-20 px-2 py-2 sm:py-1.5 text-center bg-brand-forest-obsidian border border-brand-gold/40 rounded-lg text-brand-ivory font-bold text-base sm:text-sm">
+                  <label for="qty-turnips" class="sr-only">Quantity of pickled turnips cartons</label>
+                  <input type="number" id="qty-turnips" aria-label="Quantity of pickled turnips cartons" value="300" min="0" step="50" onchange="calculateLogistics()" class="w-20 px-2 py-2 sm:py-1.5 text-center bg-brand-forest-obsidian border border-brand-gold/40 rounded-lg text-brand-ivory font-bold text-base sm:text-sm">
                   <button onclick="adjustQty('turnips', 50)" class="w-10 h-10 sm:w-8 sm:h-8 rounded-lg bg-brand-forest-obsidian border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-forest-obsidian font-bold text-lg sm:text-base transition-colors flex items-center justify-center active:scale-95">+</button>
                 </div>
               </div>
@@ -1815,7 +1819,8 @@
                 </div>
                 <div class="flex items-center space-x-2 self-end sm:self-auto">
                   <button onclick="adjustQty('kalamata', -50)" class="w-10 h-10 sm:w-8 sm:h-8 rounded-lg bg-brand-forest-obsidian border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-forest-obsidian font-bold text-lg sm:text-base transition-colors flex items-center justify-center active:scale-95">-</button>
-                  <input type="number" id="qty-kalamata" value="300" min="0" step="50" onchange="calculateLogistics()" class="w-20 px-2 py-2 sm:py-1.5 text-center bg-brand-forest-obsidian border border-brand-gold/40 rounded-lg text-brand-ivory font-bold text-base sm:text-sm">
+                  <label for="qty-kalamata" class="sr-only">Quantity of Kalamata olives cartons</label>
+                  <input type="number" id="qty-kalamata" aria-label="Quantity of Kalamata olives cartons" value="300" min="0" step="50" onchange="calculateLogistics()" class="w-20 px-2 py-2 sm:py-1.5 text-center bg-brand-forest-obsidian border border-brand-gold/40 rounded-lg text-brand-ivory font-bold text-base sm:text-sm">
                   <button onclick="adjustQty('kalamata', 50)" class="w-10 h-10 sm:w-8 sm:h-8 rounded-lg bg-brand-forest-obsidian border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-forest-obsidian font-bold text-lg sm:text-base transition-colors flex items-center justify-center active:scale-95">+</button>
                 </div>
               </div>
@@ -1828,7 +1833,8 @@
                 </div>
                 <div class="flex items-center space-x-2 self-end sm:self-auto">
                   <button onclick="adjustQty('toum', -50)" class="w-10 h-10 sm:w-8 sm:h-8 rounded-lg bg-brand-forest-obsidian border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-forest-obsidian font-bold text-lg sm:text-base transition-colors flex items-center justify-center active:scale-95">-</button>
-                  <input type="number" id="qty-toum" value="200" min="0" step="50" onchange="calculateLogistics()" class="w-20 px-2 py-2 sm:py-1.5 text-center bg-brand-forest-obsidian border border-brand-gold/40 rounded-lg text-brand-ivory font-bold text-base sm:text-sm">
+                  <label for="qty-toum" class="sr-only">Quantity of whipped toum garlic cream cartons</label>
+                  <input type="number" id="qty-toum" aria-label="Quantity of whipped toum garlic cream cartons" value="200" min="0" step="50" onchange="calculateLogistics()" class="w-20 px-2 py-2 sm:py-1.5 text-center bg-brand-forest-obsidian border border-brand-gold/40 rounded-lg text-brand-ivory font-bold text-base sm:text-sm">
                   <button onclick="adjustQty('toum', 50)" class="w-10 h-10 sm:w-8 sm:h-8 rounded-lg bg-brand-forest-obsidian border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-forest-obsidian font-bold text-lg sm:text-base transition-colors flex items-center justify-center active:scale-95">+</button>
                 </div>
               </div>
@@ -2335,7 +2341,8 @@
                     <input type="number" id="roi-srp" value="17.50" step="0.25" min="2.0" max="60.0" oninput="onRoiSrpInput(this.value)" class="w-24 px-2.5 py-1 text-end font-mono font-bold text-brand-gold bg-brand-forest-obsidian border border-brand-gold/40 rounded-lg focus:border-brand-gold focus:outline-none text-sm">
                   </div>
                 </div>
-                <input type="range" id="roi-srp-range" min="5.0" max="40.0" step="0.25" value="17.50" oninput="onRoiSrpRange(this.value)" class="w-full accent-brand-gold h-1.5 bg-brand-forest rounded-lg cursor-pointer">
+                <label for="roi-srp-range" class="sr-only">Estimated retail selling price per jar slider</label>
+                <input type="range" id="roi-srp-range" aria-label="Estimated retail selling price per jar slider" min="5.0" max="40.0" step="0.25" value="17.50" oninput="onRoiSrpRange(this.value)" class="w-full accent-brand-gold h-1.5 bg-brand-forest rounded-lg cursor-pointer">
                 <div class="flex justify-between items-center text-[10px] text-brand-ivory/50">
                   <span data-i18n="roi_srp_sub">Recommended retail price on supermarket shelves (incl. local VAT)</span>
                   <span id="roi-srp-range-labels" class="font-mono">5.00 - 40.00</span>
@@ -2354,7 +2361,8 @@
                     <span class="text-xs text-brand-ivory/60 font-medium">stores</span>
                   </div>
                 </div>
-                <input type="range" id="roi-stores-range" min="5" max="150" step="1" value="25" oninput="onRoiStoresRange(this.value)" class="w-full accent-brand-gold h-1.5 bg-brand-forest rounded-lg cursor-pointer">
+                <label for="roi-stores-range" class="sr-only">Number of retail store locations slider</label>
+                <input type="range" id="roi-stores-range" aria-label="Number of retail store locations slider" min="5" max="150" step="1" value="25" oninput="onRoiStoresRange(this.value)" class="w-full accent-brand-gold h-1.5 bg-brand-forest rounded-lg cursor-pointer">
                 
                 <!-- Quick Store Presets -->
                 <div class="flex flex-wrap items-center gap-2 pt-1">
@@ -2377,7 +2385,8 @@
                     <span class="text-xs text-brand-ivory/60 font-medium">facings</span>
                   </div>
                 </div>
-                <input type="range" id="roi-facings-range" min="1" max="8" step="1" value="3" oninput="onRoiFacingsRange(this.value)" class="w-full accent-brand-gold h-1.5 bg-brand-forest rounded-lg cursor-pointer">
+                <label for="roi-facings-range" class="sr-only">Shelf facings per store slider</label>
+                <input type="range" id="roi-facings-range" aria-label="Shelf facings per store slider" min="1" max="8" step="1" value="3" oninput="onRoiFacingsRange(this.value)" class="w-full accent-brand-gold h-1.5 bg-brand-forest rounded-lg cursor-pointer">
                 <div class="flex justify-between items-center text-[10px] text-brand-ivory/50">
                   <span data-i18n="roi_facings_sub">Eye-level shelf placement • 16 units turn velocity / facing / week</span>
                   <span class="font-mono">1 - 8 Facings</span>
@@ -3715,7 +3724,8 @@
 
         <!-- Search Input -->
         <div class="relative w-full md:w-80">
-          <input type="text" id="guide-search-input" oninput="searchVarieties(this.value)" placeholder="ابحث عن الصنف، المذاق، أو الاستخدام..." data-i18n-placeholder="guide_search_placeholder" class="w-full ps-10 pe-4 py-2.5 rounded-full bg-brand-forest-dark/90 border border-brand-gold/30 text-xs text-brand-ivory focus:border-brand-gold focus:outline-none placeholder-brand-ivory/45 transition-colors">
+          <label for="guide-search-input" class="sr-only" data-i18n="guide_search_label">Search varieties guide</label>
+          <input type="text" id="guide-search-input" aria-label="Search varieties guide" oninput="searchVarieties(this.value)" placeholder="ابحث عن الصنف، المذاق، أو الاستخدام..." data-i18n-placeholder="guide_search_placeholder" class="w-full ps-10 pe-4 py-2.5 rounded-full bg-brand-forest-dark/90 border border-brand-gold/30 text-xs text-brand-ivory focus:border-brand-gold focus:outline-none placeholder-brand-ivory/45 transition-colors">
           <svg class="w-4 h-4 text-brand-gold absolute start-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
@@ -4919,25 +4929,25 @@
             <form id="rfq-form" onsubmit="handleRFQSubmit(event)" class="space-y-5">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_name">Contact Person *</label>
-                  <input type="text" id="rfq-name" required placeholder="e.g. Tariq Al-Mansoor" data-i18n-placeholder="rfq_name_placeholder" oninput="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
+                  <label for="rfq-name" class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_name">Contact Person *</label>
+                  <input type="text" id="rfq-name" aria-label="Full commercial buyer name" required placeholder="e.g. Tariq Al-Mansoor" data-i18n-placeholder="rfq_name_placeholder" oninput="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
                 </div>
 
                 <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_email">Corporate Email *</label>
-                  <input type="email" id="rfq-email" required placeholder="buyer@hypermarket.com" data-i18n-placeholder="rfq_email_placeholder" oninput="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
+                  <label for="rfq-email" class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_email">Corporate Email *</label>
+                  <input type="email" id="rfq-email" aria-label="Corporate buyer email address" required placeholder="buyer@hypermarket.com" data-i18n-placeholder="rfq_email_placeholder" oninput="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
                 </div>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_company">Company / Organization *</label>
-                  <input type="text" id="rfq-company" required placeholder="e.g. Gulf Retail Group" data-i18n-placeholder="rfq_company_placeholder" oninput="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
+                  <label for="rfq-company" class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_company">Company / Organization *</label>
+                  <input type="text" id="rfq-company" aria-label="Company or supermarket chain name" required placeholder="e.g. Gulf Retail Group" data-i18n-placeholder="rfq_company_placeholder" oninput="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
                 </div>
 
                 <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_type">Business Classification *</label>
-                  <select id="rfq-type" onchange="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
+                  <label for="rfq-type" class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_type">Business Classification *</label>
+                  <select id="rfq-type" aria-label="Buyer organization business type" onchange="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
                     <option value="Hypermarket Chain" data-i18n="opt_hypermarket">Supermarket / Hypermarket Chain</option>
                     <option value="FMCG Distributor" data-i18n="opt_fmcg">FMCG Import & Distribution Agency</option>
                     <option value="Gourmet Delicatessen" data-i18n="opt_gourmet">Specialty Gourmet & Delicatessen Store</option>
@@ -4949,13 +4959,13 @@
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_country">Destination Country & Port *</label>
-                  <input type="text" id="rfq-port" required placeholder="e.g. Saudi Arabia — Jeddah Islamic Port" data-i18n-placeholder="rfq_port_placeholder" oninput="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
+                  <label for="rfq-port" class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_country">Destination Country & Port *</label>
+                  <input type="text" id="rfq-port" aria-label="Destination ocean or dry port" required placeholder="e.g. Saudi Arabia — Jeddah Islamic Port" data-i18n-placeholder="rfq_port_placeholder" oninput="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
                 </div>
 
                 <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_incoterm">Preferred Delivery Term</label>
-                  <select id="rfq-incoterm" onchange="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
+                  <label for="rfq-incoterm" class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_incoterm">Preferred Delivery Term</label>
+                  <select id="rfq-incoterm" aria-label="Preferred Incoterm delivery basis" onchange="updateProforma()" class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory">
                     <option value="CIF" data-i18n="incoterm_cif">CIF — Cost, Insurance & Freight</option>
                     <option value="FOB" data-i18n="incoterm_fob">FOB — Free on Board</option>
                     <option value="CFR" data-i18n="incoterm_cfr">CFR — Cost and Freight</option>
@@ -4966,7 +4976,7 @@
 
               <!-- Selected Sample SKUs Summary -->
               <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_basket_label">Requested Sample Items</label>
+                <span class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_basket_label">Requested Sample Items</span>
                 <div id="rfq-basket-items" class="p-3 rounded-xl bg-brand-forest-obsidian border border-brand-gold/25 text-xs text-brand-ivory/80 space-y-1 max-h-36 overflow-y-auto">
                   No sample items added yet. Click "Add to Sample Request" on any product in the catalog.
                 </div>
@@ -4974,8 +4984,8 @@
 
               <!-- Inquiries / Logistics Notes -->
               <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_notes">Estimated Order Volume / Specific Inquiries</label>
-                <textarea id="rfq-notes" rows="3" placeholder="Specify any custom pallet requirements, private label questions, or shelf life certifications..." class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory" data-i18n-placeholder="notes_placeholder"></textarea>
+                <label for="rfq-notes" class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-1.5" data-i18n="rfq_notes">Estimated Order Volume / Specific Inquiries</label>
+                <textarea id="rfq-notes" aria-label="Additional container packing specifications or notes" rows="3" placeholder="Specify any custom pallet requirements, private label questions, or shelf life certifications..." class="w-full px-4 py-2.5 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/30 focus:border-brand-gold focus:outline-none text-base sm:text-xs text-brand-ivory" data-i18n-placeholder="notes_placeholder"></textarea>
               </div>
 
               <!-- Submit Button -->
@@ -4998,7 +5008,7 @@
                 <a id="whatsapp-form-btn" href="https://wa.me/201008716714?text=Hello%20Arina%20Commercial%20Export%20Division" target="_blank" rel="noopener noreferrer" class="group w-full py-3.5 px-6 rounded-full border border-emerald-500/40 bg-emerald-950/40 hover:bg-emerald-600 text-emerald-300 hover:text-white font-bold text-xs inline-flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-emerald-900/40 active:scale-[0.98]">
                   <span class="w-2 h-2 rounded-full bg-emerald-400 group-hover:bg-white animate-pulse"></span>
                   <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.814 3.181 0 5.767-2.587 5.768-5.768 0-3.18-2.586-5.768-5.768-5.768zm3.385 8.163c-.145.408-.853.766-1.182.814-.328.049-.661.094-1.928-.432-1.62-.673-2.66-2.316-2.74-2.424-.08-.107-.648-.864-.648-1.648 0-.784.408-1.17.553-1.328.145-.159.317-.199.424-.199.106 0 .212.002.304.007.098.005.228-.037.356.27.13.308.444 1.082.484 1.162.04.08.067.173.013.28-.053.107-.08.173-.16.266-.08.093-.168.207-.24.278-.08.08-.163.167-.07.327.093.16.413.682.887 1.103.61.543 1.124.71 1.284.79.16.08.253.067.347-.04.093-.107.4-466.507-.626.107-.16.213-.133.36-.08.147.053.933.44 1.093.52.16.08.267.12.307.187.04.067.04.387-.105.795z"/>
+                    <path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.16 8.16 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.1 0 1.23.9 2.43 1.03 2.6.12.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3z"/>
                   </svg>
                   <span data-i18n="rfq_form_whatsapp_btn">Direct WhatsApp Export Desk (+20 10 08716714)</span>
                 </a>
@@ -5050,7 +5060,7 @@
               <div class="pt-2">
                 <a id="whatsapp-rfq-link" href="https://wa.me/201008716714?text=Hello%20Arina%20Commercial%20Export%20Division" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs inline-flex items-center justify-center gap-2.5 transition-all shadow-lg active:scale-95">
                   <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.814 3.181 0 5.767-2.587 5.768-5.766 0-3.18-2.586-5.768-5.768-5.768zm3.385 8.163c-.145.408-.853.766-1.182.814-.328.049-.661.094-1.928-.432-1.62-.673-2.66-2.316-2.74-2.424-.08-.107-.648-.864-.648-1.648 0-.784.408-1.17.553-1.328.145-.159.317-.199.424-.199.106 0 .212.002.304.007.098.005.228-.037.356.27.13.308.444 1.082.484 1.162.04.08.067.173.013.28-.053.107-.08.173-.16.266-.08.093-.168.207-.24.278-.08.08-.163.167-.07.327.093.16.413.682.887 1.103.61.543 1.124.71 1.284.79.16.08.253.067.347-.04.093-.107.4-466.507-.626.107-.16.213-.133.36-.08.147.053.933.44 1.093.52.16.08.267.12.307.187.04.067.04.387-.105.795z"/>
+                    <path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.16 8.16 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.1 0 1.23.9 2.43 1.03 2.6.12.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3z"/>
                   </svg>
                   <span data-i18n="btn_whatsapp">Direct WhatsApp Export Desk (+20 10 08716714)</span>
                 </a>
@@ -5304,7 +5314,7 @@
           <a id="whatsapp-modal-btn" href="https://wa.me/201008716714?text=Hello%20Arina%20Commercial%20Export%20Division" target="_blank" rel="noopener noreferrer" class="group w-full py-3.5 px-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs inline-flex items-center justify-center gap-2.5 transition-all shadow-lg active:scale-95">
             <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
             <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 24 24">
-              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.814 3.181 0 5.767-2.587 5.768-5.768 0-3.18-2.586-5.768-5.768-5.768zm3.385 8.163c-.145.408-.853.766-1.182.814-.328.049-.661.094-1.928-.432-1.62-.673-2.66-2.316-2.74-2.424-.08-.107-.648-.864-.648-1.648 0-.784.408-1.17.553-1.328.145-.159.317-.199.424-.199.106 0 .212.002.304.007.098.005.228-.037.356.27.13.308.444 1.082.484 1.162.04.08.067.173.013.28-.053.107-.08.173-.16.266-.08.093-.168.207-.24.278-.08.08-.163.167-.07.327.093.16.413.682.887 1.103.61.543 1.124.71 1.284.79.16.08.253.067.347-.04.093-.107.4-466.507-.626.107-.16.213-.133.36-.08.147.053.933.44 1.093.52.16.08.267.12.307.187.04.067.04.387-.105.795z"/>
+              <path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.16 8.16 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.1 0 1.23.9 2.43 1.03 2.6.12.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3z"/>
             </svg>
             <span data-i18n="modal_whatsapp_btn">Direct WhatsApp Export Desk (+20 10 08716714)</span>
           </a>
@@ -5397,10 +5407,10 @@
           <!-- Continuous 360 Scrub Slider -->
           <div class="space-y-2">
             <div class="flex justify-between items-center text-xs font-bold text-brand-ivory/70">
-              <span data-i18n="turntable_scrub_label">Continuous 360° Scrub & Drag:</span>
+              <label for="turntable-scrub-slider" data-i18n="turntable_scrub_label">Continuous 360° Scrub & Drag:</label>
               <span class="text-brand-gold font-mono" id="turntable-angle-deg">Angle: 0°</span>
             </div>
-            <input type="range" id="turntable-scrub-slider" min="0" max="360" value="0" step="1" oninput="scrubTurntable(parseInt(this.value))" class="w-full h-2 bg-brand-forest-dark rounded-lg appearance-none cursor-pointer accent-brand-gold border border-brand-gold/30">
+            <input type="range" id="turntable-scrub-slider" aria-label="3D turntable jar rotation scrub slider" min="0" max="360" value="0" step="1" oninput="scrubTurntable(parseInt(this.value))" class="w-full h-2 bg-brand-forest-dark rounded-lg appearance-none cursor-pointer accent-brand-gold border border-brand-gold/30">
           </div>
 
           <!-- Discrete Quick-Snap Buttons -->
@@ -6250,6 +6260,8 @@
         "catalog_subtitle": "Wholesale Export Catalog • Net & Drained Weights, Master Shippers, and Pallet Ti/Hi Engineering",
         "catalog_subtitle_ar": "Wholesale Export Catalog • Net & Drained Weights, Master Shippers, and Pallet Ti/Hi Engineering",
         "search_placeholder": "Search by product name, category, or EAN-13 barcode...",
+        "search_label": "Search product catalog",
+        "guide_search_label": "Search varieties guide",
         "view_cards": "Cards View",
         "view_matrix": "Technical Specification Matrix",
         "cat_all": "All Products (14)",
@@ -7028,6 +7040,8 @@
         "catalog_subtitle": "كتالوج التوريد بالجملة • مواصفات الأوزان الصافية والمصفاة، كراتين الشحن، وتراص الطبالي المعتمد",
         "catalog_subtitle_ar": "كتالوج التوريد بالجملة • مواصفات الأوزان الصافية والمصفاة، كراتين الشحن، وتراص الطبالي المعتمد",
         "search_placeholder": "ابحث عن منتج، تصنيف، أو باركود EAN-13...",
+        "search_label": "البحث في كتالوج المنتجات",
+        "guide_search_label": "البحث في دليل الأصناف",
         "view_cards": "عرض البطاقات",
         "view_matrix": "جدول المواصفات الفنية",
         "cat_all": "كافة الأصناف (14)",
