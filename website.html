@@ -730,6 +730,62 @@
     html.theme-daylight .hero-about-badge [class*="text-brand-ivory"] {
       color: #102016 !important;
     }
+
+    /* Executive Logo Preloader & Pulse */
+    #site-preloader {
+      background-color: #0A150F !important;
+      color: #F8F5EE !important;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease;
+    }
+    #site-preloader.preloader-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #site-preloader .preloader-pill {
+      background-color: rgba(20, 37, 27, 0.95) !important;
+      border: 1px solid rgba(218, 172, 54, 0.35) !important;
+    }
+    #site-preloader .preloader-skip-btn {
+      background-color: rgba(20, 37, 27, 0.85) !important;
+      border: 1px solid rgba(218, 172, 54, 0.35) !important;
+      color: #EED48E !important;
+    }
+    #site-preloader .preloader-skip-btn:hover {
+      border-color: #DAAC36 !important;
+      color: #DAAC36 !important;
+      background-color: rgba(218, 172, 54, 0.15) !important;
+    }
+    #site-preloader .preloader-text-ivory {
+      color: rgba(248, 245, 238, 0.75) !important;
+    }
+    #site-preloader .preloader-text-gold {
+      color: #DAAC36 !important;
+    }
+    @keyframes preloaderLogoPulse {
+      0%, 100% {
+        transform: scale(0.98);
+        filter: drop-shadow(0 0 25px rgba(218, 172, 54, 0.25));
+      }
+      50% {
+        transform: scale(1.03);
+        filter: drop-shadow(0 0 45px rgba(218, 172, 54, 0.55));
+      }
+    }
+    @keyframes preloaderRingSpin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .animate-preloader-pulse {
+      animation: preloaderLogoPulse 1.8s ease-in-out infinite;
+    }
+    .animate-preloader-ring {
+      animation: preloaderRingSpin 1.6s linear infinite;
+    }
   </style>
 </head>
 
@@ -737,6 +793,96 @@
 
   <!-- Ambient Chiaroscuro Cursor Spotlight (Desktop Luxury Illumination) -->
   <div id="ambient-cursor-spotlight" class="hidden md:block"></div>
+
+  <!-- ========================================================================= -->
+  <!-- 0. EXECUTIVE BRAND LOGO PRELOADER (Ultra-Fast B2B Splash) -->
+  <!-- ========================================================================= -->
+  <div id="site-preloader" class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-forest-obsidian select-none">
+    
+    <!-- Background Ambient Chiaroscuro Glow -->
+    <div class="absolute w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(218,172,54,0.18)_0%,rgba(30,51,38,0.3)_45%,transparent_75%)] blur-[90px] pointer-events-none"></div>
+
+    <!-- Discrete Skip Intro Button -->
+    <button onclick="dismissPreloader()" aria-label="Skip intro" class="preloader-skip-btn absolute top-5 end-5 sm:top-7 sm:end-8 z-10 px-3.5 py-1.5 rounded-full font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest transition-all duration-200 active:scale-95 cursor-pointer flex items-center gap-1.5 shadow-lg">
+      <span data-i18n="preloader_skip">SKIP →</span>
+    </button>
+
+    <!-- Centered Luxury Capsule & Logo Chamber -->
+    <div class="relative z-10 flex flex-col items-center text-center px-4 max-w-sm">
+      
+      <!-- Logo Chamber with Subtle Rotating Gold Ring & Pulse Emblem -->
+      <div class="relative w-44 sm:w-52 aspect-[2.67/1] flex items-center justify-center p-3 mb-5">
+        
+        <!-- Rotating Micro Gold Halo Ring -->
+        <div class="absolute inset-0 rounded-full border border-dashed border-brand-gold/30 animate-preloader-ring pointer-events-none"></div>
+        <div class="absolute inset-2 rounded-full border-t-2 border-brand-gold/60 animate-preloader-ring pointer-events-none"></div>
+        
+        <!-- Authentic Gold Arina Logo with Pulse Animation -->
+        <img src="arina-logo-gold.png" alt="Arina Luxury Logo" fetchpriority="high" decoding="sync" class="w-full h-auto object-contain animate-preloader-pulse drop-shadow-[0_0_35px_rgba(218,172,54,0.45)]">
+      </div>
+
+      <!-- Live Micro-Pulse Beacon & Category Tag -->
+      <div class="preloader-pill inline-flex items-center gap-2 px-3 py-1 rounded-full shadow-lg backdrop-blur-md mb-2">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-gold"></span>
+        </span>
+        <span class="preloader-text-gold text-[9.5px] sm:text-[10px] font-bold uppercase tracking-[0.2em] font-display" data-i18n="preloader_tag">
+          B2B EXPORT &amp; WHOLESALE HARVEST
+        </span>
+      </div>
+
+      <!-- Subtitle Terroir Line -->
+      <p class="preloader-text-ivory text-[11px] sm:text-xs font-sans tracking-wider" data-i18n="preloader_origin">
+        Single-Estate Egyptian Terroir
+      </p>
+
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      window.dismissPreloader = function() {
+        var p = document.getElementById('site-preloader');
+        if (!p || p.classList.contains('preloader-hidden')) return;
+        p.classList.add('preloader-hidden');
+        try {
+          sessionStorage.setItem('arina_intro_seen', 'true');
+        } catch (e) {}
+        setTimeout(function() {
+          p.style.display = 'none';
+          p.classList.add('hidden');
+        }, 400);
+      };
+
+      try {
+        if (sessionStorage.getItem('arina_intro_seen') === 'true') {
+          var p = document.getElementById('site-preloader');
+          if (p) {
+            p.style.display = 'none';
+            p.classList.add('hidden');
+          }
+          return;
+        }
+      } catch (e) {}
+
+      var dismissed = false;
+      function autoDismiss() {
+        if (dismissed) return;
+        dismissed = true;
+        window.dismissPreloader();
+      }
+
+      if (document.readyState === 'complete') {
+        setTimeout(autoDismiss, 650);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(autoDismiss, 400);
+        });
+        setTimeout(autoDismiss, 950);
+      }
+    })();
+  </script>
 
   <!-- ========================================================================= -->
   <!-- 1. FLOATING ISLAND NAVIGATION BAR -->
@@ -6366,6 +6512,9 @@
         "hero_about_badge3_sub": "Zero Plastics & Leaching",
         "hero_about_badge4_title": "24M Ambient Shelf",
         "hero_about_badge4_sub": "Automated FMCG Packs",
+        "preloader_tag": "B2B EXPORT & WHOLESALE HARVEST",
+        "preloader_skip": "SKIP →",
+        "preloader_origin": "Single-Estate Egyptian Terroir",
         "terroir_kicker": "ESTATE TERROIR & HARVEST CALENDAR",
         "terroir_title": "Single-Estate Terroir & Seasonal Harvest Cycle",
         "terroir_subtitle": "The fertile microclimate of Arina Agricultural Estates • Complete annual crop calendar and artisanal preservation schedule",
@@ -7157,6 +7306,9 @@
         "hero_about_badge3_sub": "خالٍ تماماً من البلاستيك",
         "hero_about_badge4_title": "صلاحية 24 شهراً",
         "hero_about_badge4_sub": "كراتين معيارية لرفوف FMCG",
+        "preloader_tag": "بوابة التصدير المباشر والتوريد التجاري",
+        "preloader_skip": "تخطي ←",
+        "preloader_origin": "حصاد المزارع المصرية المعتمدة",
         "terroir_kicker": "المناخ الزراعي ومصدر المحاصيل",
         "terroir_title": "البيئة الزراعية وسجل مواسم الحصاد السنوية",
         "terroir_subtitle": "دورة الحصاد الزراعي بمزارع أرينا • التزام حرفي بأصالة المنشأ، الحصاد اليدوي، وخلو تام من المواد الحافظة",
