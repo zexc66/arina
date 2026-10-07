@@ -584,6 +584,11 @@
       color: #1E2B20 !important;
       border-color: rgba(184, 142, 40, 0.2) !important;
     }
+    html.theme-daylight .gallery-filter-btn:not(.bg-brand-gold) {
+      background-color: rgba(255, 255, 255, 0.85) !important;
+      color: #1E2B20 !important;
+      border-color: rgba(184, 142, 40, 0.3) !important;
+    }
 
     /* =========================================================================
        LUXURY 3D GYRO-TILT, SPECULAR SHEEN & AMBIENT CHIAROSCURO SYSTEM
@@ -717,6 +722,7 @@
         <a href="#calculator" class="whitespace-nowrap text-brand-ivory/80 hover:text-brand-gold transition-colors py-1" data-i18n="nav_calculator">Calculator</a>
         <a href="#shipping" class="whitespace-nowrap text-brand-ivory/80 hover:text-brand-gold transition-colors py-1" data-i18n="nav_shipping">Shipping</a>
         <a href="#planograms" class="whitespace-nowrap text-brand-ivory/80 hover:text-brand-gold transition-colors py-1" data-i18n="nav_planograms">Planograms</a>
+        <a href="#gallery" class="whitespace-nowrap text-brand-ivory/80 hover:text-brand-gold transition-colors py-1" data-i18n="nav_gallery">Media Gallery</a>
         <a href="#varieties-guide" class="whitespace-nowrap text-brand-ivory/80 hover:text-brand-gold transition-colors py-1" data-i18n="nav_varieties_guide">Varieties Guide</a>
         <a href="#rfq" class="whitespace-nowrap text-brand-ivory/80 hover:text-brand-gold transition-colors py-1" data-i18n="nav_rfq">Wholesale RFQ</a>
       </nav>
@@ -926,6 +932,23 @@
                 </svg>
               </div>
               <span data-i18n="nav_planograms" class="font-semibold text-xs sm:text-sm tracking-wide">Retail Planograms</span>
+            </div>
+            <div class="w-6 h-6 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold/70 group-hover:text-brand-gold group-hover:bg-brand-gold/20 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-all duration-200">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 5B. Visual Gallery -->
+          <a href="#gallery" onclick="toggleMobileMenu()" class="group flex items-center justify-between p-2.5 rounded-2xl bg-brand-forest-obsidian/70 border border-brand-gold/20 text-brand-ivory hover:text-brand-gold hover:border-brand-gold/60 hover:bg-brand-forest/60 active:scale-[0.98] transition-all duration-200">
+            <div class="flex items-center space-x-3 rtl:space-x-reverse">
+              <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-gold/20 to-brand-gold/5 border border-brand-gold/30 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-forest-obsidian group-hover:scale-105 transition-all duration-200 shadow-sm">
+                <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <span data-i18n="nav_gallery" class="font-semibold text-xs sm:text-sm tracking-wide">Media Gallery</span>
             </div>
             <div class="w-6 h-6 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold/70 group-hover:text-brand-gold group-hover:bg-brand-gold/20 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-all duration-200">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
@@ -2986,6 +3009,281 @@
   </section>
 
   <!-- ========================================================================= -->
+  <!-- 5B. BRAND & CULINARY 4K MASTER GALLERY (معرض الصور الفاخر والتوثيق البصري) -->
+  <!-- ========================================================================= -->
+  <section id="gallery" class="py-28 relative border-t border-brand-gold/25 bg-gradient-to-b from-brand-forest-obsidian via-brand-forest-dark to-brand-forest-obsidian overflow-hidden">
+    <!-- Ambient Atmospheric Glow -->
+    <div class="absolute -top-32 right-1/4 w-[600px] h-[350px] bg-brand-gold/10 blur-[130px] pointer-events-none"></div>
+    <div class="absolute -bottom-32 left-1/4 w-[600px] h-[350px] bg-brand-forest/25 blur-[130px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-14">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-brand-gold font-display">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
+          <span data-i18n="gallery_kicker">4K Visual Suite & Brand Merchandising Gallery</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-brand-ivory" data-i18n="gallery_title">
+          Master Brand & Culinary Visual Gallery
+        </h2>
+        <p class="text-brand-gold/90 text-base sm:text-lg font-medium leading-relaxed" data-i18n="gallery_subtitle">
+          Ultra-high-definition 4K photography documenting estate terroir, artisan glass packaging, fine dining pairings, and global export shipping.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills Bar -->
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+        <button type="button" onclick="filterGallery('all')" data-filter="all" class="gallery-filter-btn px-4 sm:px-5 py-2 rounded-full border border-brand-gold bg-brand-gold text-brand-forest-obsidian text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer">
+          <span data-i18n="gallery_filter_all">All 4K Assets</span>
+        </button>
+        <button type="button" onclick="filterGallery('terroir')" data-filter="terroir" class="gallery-filter-btn px-4 sm:px-5 py-2 rounded-full border border-brand-gold/30 bg-brand-forest-obsidian/70 text-brand-ivory/80 hover:text-brand-gold hover:border-brand-gold text-xs font-bold transition-all active:scale-95 cursor-pointer">
+          <span data-i18n="gallery_filter_terroir">Estate Terroir</span>
+        </button>
+        <button type="button" onclick="filterGallery('products')" data-filter="products" class="gallery-filter-btn px-4 sm:px-5 py-2 rounded-full border border-brand-gold/30 bg-brand-forest-obsidian/70 text-brand-ivory/80 hover:text-brand-gold hover:border-brand-gold text-xs font-bold transition-all active:scale-95 cursor-pointer">
+          <span data-i18n="gallery_filter_products">Product Jars</span>
+        </button>
+        <button type="button" onclick="filterGallery('culinary')" data-filter="culinary" class="gallery-filter-btn px-4 sm:px-5 py-2 rounded-full border border-brand-gold/30 bg-brand-forest-obsidian/70 text-brand-ivory/80 hover:text-brand-gold hover:border-brand-gold text-xs font-bold transition-all active:scale-95 cursor-pointer">
+          <span data-i18n="gallery_filter_culinary">Gastronomy & Mezze</span>
+        </button>
+        <button type="button" onclick="filterGallery('logistics')" data-filter="logistics" class="gallery-filter-btn px-4 sm:px-5 py-2 rounded-full border border-brand-gold/30 bg-brand-forest-obsidian/70 text-brand-ivory/80 hover:text-brand-gold hover:border-brand-gold text-xs font-bold transition-all active:scale-95 cursor-pointer">
+          <span data-i18n="gallery_filter_logistics">Export Logistics</span>
+        </button>
+      </div>
+
+      <!-- Gallery Showcase Grid (Double-Bezel Architecture) -->
+      <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+        
+        <!-- Gallery Item 1: Mezze Feast Board -->
+        <div class="gallery-card tilt-card rounded-[1.75rem] p-1.5 glass-card-shell group cursor-pointer transition-all duration-300" data-category="culinary" onclick="openLightbox('output/imagery/arina_gallery_mezze_board_4k.jpg', 'Artisan Mediterranean Mezze Board', 'مائدة المقبلات المتوسطية الفاخرة', 'Opulent charcuterie and mezze styling featuring Arina glass jars, fresh olives, tapenades, and whipped toum.', 'تنسيق طعام فاخر يبرز برطمانات أرينا الفاخرة مع زيتون كالاماتا والمخللات والتغميسات المتوسطية.')">
+          <div class="rounded-[calc(1.75rem-0.375rem)] glass-card-core overflow-hidden flex flex-col justify-between h-full">
+            <div class="relative overflow-hidden aspect-[16/9]">
+              <img src="output/imagery/arina_gallery_mezze_board_4k.jpg" alt="Artisan Mediterranean Mezze Board 4K" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-brand-forest-obsidian/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-brand-gold font-bold text-xs">
+                <span class="px-4 py-2 rounded-full bg-brand-forest-obsidian/90 border border-brand-gold/60 shadow-lg inline-flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span data-i18n="gallery_inspect_btn">Inspect 4K Asset</span>
+                </span>
+              </div>
+              <div class="absolute top-2.5 start-2.5 px-2 py-0.5 rounded-full bg-brand-forest-obsidian/85 border border-brand-gold/40 text-[9px] font-mono font-bold text-brand-gold">
+                4K UHD • 16:9
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card1_tag">GASTRONOMY & MEZZE</div>
+              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card1_title">Artisan Mediterranean Mezze Board</h4>
+              <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card1_desc">Opulent charcuterie and mezze styling featuring Arina glass jars, fresh olives, tapenades, and whipped toum.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 2: Siwa Terroir -->
+        <div class="gallery-card tilt-card rounded-[1.75rem] p-1.5 glass-card-shell group cursor-pointer transition-all duration-300" data-category="terroir" onclick="openLightbox('output/imagery/arina_gallery_siwa_terroir_4k.jpg', 'Siwa Oasis Golden-Hour Harvest', 'حصاد واحة سيوة الذهبي في دلتا النيل', 'Centuries-old olive groves and artisanal harvest heritage bathed in Mediterranean sunlight.', 'بساتين الزيتون المعمرة وتراث الحصاد الزراعي العريق تحت شمس البحر الأبيض المتوسط.')">
+          <div class="rounded-[calc(1.75rem-0.375rem)] glass-card-core overflow-hidden flex flex-col justify-between h-full">
+            <div class="relative overflow-hidden aspect-[16/9]">
+              <img src="output/imagery/arina_gallery_siwa_terroir_4k.jpg" alt="Siwa Oasis Golden-Hour Harvest 4K" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-brand-forest-obsidian/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-brand-gold font-bold text-xs">
+                <span class="px-4 py-2 rounded-full bg-brand-forest-obsidian/90 border border-brand-gold/60 shadow-lg inline-flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span data-i18n="gallery_inspect_btn">Inspect 4K Asset</span>
+                </span>
+              </div>
+              <div class="absolute top-2.5 start-2.5 px-2 py-0.5 rounded-full bg-brand-forest-obsidian/85 border border-brand-gold/40 text-[9px] font-mono font-bold text-brand-gold">
+                4K UHD • 16:9
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card2_tag">ESTATE TERROIR</div>
+              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card2_title">Siwa Oasis Golden-Hour Harvest</h4>
+              <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card2_desc">Centuries-old olive groves and artisanal harvest heritage bathed in Mediterranean sunlight.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 3: 15-Jar Pyramid -->
+        <div class="gallery-card tilt-card rounded-[1.75rem] p-1.5 glass-card-shell group cursor-pointer transition-all duration-300" data-category="products" onclick="openLightbox('output/imagery/arina_gallery_master_lineup_4k.jpg', '15-Jar Grand Exhibition Pyramid', 'هرم العرض الشامل لخمسة عشر صنفاً معتمداً', 'Complete flagship export collection in premium flint glass jars with hermetic tamper-evident gold caps.', 'التشكيلة التصديرية الكاملة في برطمانات زجاجية نقية مع أغطية ذهبية محكمة الإغلاق.')">
+          <div class="rounded-[calc(1.75rem-0.375rem)] glass-card-core overflow-hidden flex flex-col justify-between h-full">
+            <div class="relative overflow-hidden aspect-[16/9]">
+              <img src="output/imagery/arina_gallery_master_lineup_4k.jpg" alt="15-Jar Grand Exhibition Pyramid 4K" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-brand-forest-obsidian/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-brand-gold font-bold text-xs">
+                <span class="px-4 py-2 rounded-full bg-brand-forest-obsidian/90 border border-brand-gold/60 shadow-lg inline-flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span data-i18n="gallery_inspect_btn">Inspect 4K Asset</span>
+                </span>
+              </div>
+              <div class="absolute top-2.5 start-2.5 px-2 py-0.5 rounded-full bg-brand-forest-obsidian/85 border border-brand-gold/40 text-[9px] font-mono font-bold text-brand-gold">
+                4K UHD • 16:9
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card3_tag">PRODUCT PORTFOLIO</div>
+              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card3_title">15-Jar Grand Exhibition Pyramid</h4>
+              <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card3_desc">Complete flagship export collection in premium flint glass jars with hermetic tamper-evident gold caps.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 4: Chef Tasting -->
+        <div class="gallery-card tilt-card rounded-[1.75rem] p-1.5 glass-card-shell group cursor-pointer transition-all duration-300" data-category="culinary" onclick="openLightbox('output/imagery/arina_gallery_chef_plating_4k.jpg', 'Executive Chef Tasting & Plating', 'إبداعات الطهاة العالميين والتذوق الراقي', 'Michelin-star dark luxury food photography highlighting tapenades, garlic creams, and garnishes.', 'توثيق فوتوغرافي لتطبيقات كبار الطهاة وتزيين الأطباق العالمية بتغميسات وزيتون أرينا.')">
+          <div class="rounded-[calc(1.75rem-0.375rem)] glass-card-core overflow-hidden flex flex-col justify-between h-full">
+            <div class="relative overflow-hidden aspect-[16/9]">
+              <img src="output/imagery/arina_gallery_chef_plating_4k.jpg" alt="Executive Chef Tasting & Plating 4K" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-brand-forest-obsidian/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-brand-gold font-bold text-xs">
+                <span class="px-4 py-2 rounded-full bg-brand-forest-obsidian/90 border border-brand-gold/60 shadow-lg inline-flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span data-i18n="gallery_inspect_btn">Inspect 4K Asset</span>
+                </span>
+              </div>
+              <div class="absolute top-2.5 start-2.5 px-2 py-0.5 rounded-full bg-brand-forest-obsidian/85 border border-brand-gold/40 text-[9px] font-mono font-bold text-brand-gold">
+                4K UHD • 16:9
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card4_tag">GASTRONOMY & MEZZE</div>
+              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card4_title">Executive Chef Tasting & Plating</h4>
+              <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card4_desc">Michelin-star dark luxury food photography highlighting tapenades, garlic creams, and garnishes.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 5: Oak Cellar -->
+        <div class="gallery-card tilt-card rounded-[1.75rem] p-1.5 glass-card-shell group cursor-pointer transition-all duration-300" data-category="terroir" onclick="openLightbox('output/imagery/arina_gallery_oak_cellar_4k.jpg', 'Heritage Oak Curing Cellar', 'أقبية التخمير والمعالجة في براميل البلوط', 'Slow natural fermentation in cold subterranean cellars preserving fruit firmness and authentic flavor.', 'مرحلة التخليل والتخمير البطيء في براميل خشبية تقليدية للحفاظ على قرمشة الثمار الطبيعية.')">
+          <div class="rounded-[calc(1.75rem-0.375rem)] glass-card-core overflow-hidden flex flex-col justify-between h-full">
+            <div class="relative overflow-hidden aspect-[16/9]">
+              <img src="output/imagery/arina_gallery_oak_cellar_4k.jpg" alt="Heritage Oak Curing Cellar 4K" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-brand-forest-obsidian/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-brand-gold font-bold text-xs">
+                <span class="px-4 py-2 rounded-full bg-brand-forest-obsidian/90 border border-brand-gold/60 shadow-lg inline-flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span data-i18n="gallery_inspect_btn">Inspect 4K Asset</span>
+                </span>
+              </div>
+              <div class="absolute top-2.5 start-2.5 px-2 py-0.5 rounded-full bg-brand-forest-obsidian/85 border border-brand-gold/40 text-[9px] font-mono font-bold text-brand-gold">
+                4K UHD • 16:9
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card5_tag">ESTATE TERROIR</div>
+              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card5_title">Heritage Oak Curing Cellar</h4>
+              <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card5_desc">Slow natural fermentation in cold subterranean cellars preserving fruit firmness and authentic flavor.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 6: Gastronomy Trinity -->
+        <div class="gallery-card tilt-card rounded-[1.75rem] p-1.5 glass-card-shell group cursor-pointer transition-all duration-300" data-category="products" onclick="openLightbox('output/imagery/arina_gallery_gastronomy_trinity_4k.jpg', 'Flagship Export Glass Trinity', 'ثلاثية التصدير الأساسية بالزجاج النقي', 'Baby Cucumbers & Dill, Royal Kalamata Olives, and Wild Turnips in crystal clear flint glass.', 'خيار مقرمش بالحرمل، زيتون كالاماتا ملكي، ولفت بري في زجاج نقي يعكس فخامة المحتوى.')">
+          <div class="rounded-[calc(1.75rem-0.375rem)] glass-card-core overflow-hidden flex flex-col justify-between h-full">
+            <div class="relative overflow-hidden aspect-[16/9]">
+              <img src="output/imagery/arina_gallery_gastronomy_trinity_4k.jpg" alt="Flagship Export Glass Trinity 4K" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-brand-forest-obsidian/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-brand-gold font-bold text-xs">
+                <span class="px-4 py-2 rounded-full bg-brand-forest-obsidian/90 border border-brand-gold/60 shadow-lg inline-flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span data-i18n="gallery_inspect_btn">Inspect 4K Asset</span>
+                </span>
+              </div>
+              <div class="absolute top-2.5 start-2.5 px-2 py-0.5 rounded-full bg-brand-forest-obsidian/85 border border-brand-gold/40 text-[9px] font-mono font-bold text-brand-gold">
+                4K UHD • 16:9
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card6_tag">PRODUCT PORTFOLIO</div>
+              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card6_title">Flagship Export Glass Trinity</h4>
+              <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card6_desc">Baby Cucumbers & Dill, Royal Kalamata Olives, and Wild Turnips in crystal clear flint glass.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 7: Export Shipper Cartons -->
+        <div class="gallery-card tilt-card rounded-[1.75rem] p-1.5 glass-card-shell group cursor-pointer transition-all duration-300" data-category="logistics" onclick="openLightbox('output/imagery/arina_gallery_export_cartons_4k.jpg', 'Heavy-Duty Export Case Packs', 'كراتين الشحن البحري التصديرية المقواة', '5-ply corrugated export master cartons optimized for Euro-pallet Ti/Hi ratios and cold-chain safety.', 'كراتين خماسية الطبقات مصممة لمعايير الشحن الدولي ورص البالتات الأوربية بكفاءة قصوى.')">
+          <div class="rounded-[calc(1.75rem-0.375rem)] glass-card-core overflow-hidden flex flex-col justify-between h-full">
+            <div class="relative overflow-hidden aspect-[16/9]">
+              <img src="output/imagery/arina_gallery_export_cartons_4k.jpg" alt="Heavy-Duty Export Case Packs 4K" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-brand-forest-obsidian/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-brand-gold font-bold text-xs">
+                <span class="px-4 py-2 rounded-full bg-brand-forest-obsidian/90 border border-brand-gold/60 shadow-lg inline-flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span data-i18n="gallery_inspect_btn">Inspect 4K Asset</span>
+                </span>
+              </div>
+              <div class="absolute top-2.5 start-2.5 px-2 py-0.5 rounded-full bg-brand-forest-obsidian/85 border border-brand-gold/40 text-[9px] font-mono font-bold text-brand-gold">
+                4K UHD • 16:9
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card7_tag">EXPORT LOGISTICS</div>
+              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card7_title">Heavy-Duty Export Case Packs</h4>
+              <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card7_desc">5-ply corrugated export master cartons optimized for Euro-pallet Ti/Hi ratios and cold-chain safety.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 8: Supermarket Shelf Facings -->
+        <div class="gallery-card tilt-card rounded-[1.75rem] p-1.5 glass-card-shell group cursor-pointer transition-all duration-300" data-category="logistics" onclick="openLightbox('output/imagery/arina_gallery_supermarket_shelf_4k.jpg', 'Tier-1 Supermarket Shelf Facings', 'واجهات العرض القياسية في الهايبرماركت', 'Standard category management planograms engineered for high retail rotation and shopper impulse.', 'مخططات التوزيع التجاري على رفوف المتاجر الكبرى لتعظيم جاذبية المتسوقين وسرعة البيع.')">
+          <div class="rounded-[calc(1.75rem-0.375rem)] glass-card-core overflow-hidden flex flex-col justify-between h-full">
+            <div class="relative overflow-hidden aspect-[16/9]">
+              <img src="output/imagery/arina_gallery_supermarket_shelf_4k.jpg" alt="Tier-1 Supermarket Shelf Facings 4K" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <div class="absolute inset-0 bg-brand-forest-obsidian/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-brand-gold font-bold text-xs">
+                <span class="px-4 py-2 rounded-full bg-brand-forest-obsidian/90 border border-brand-gold/60 shadow-lg inline-flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span data-i18n="gallery_inspect_btn">Inspect 4K Asset</span>
+                </span>
+              </div>
+              <div class="absolute top-2.5 start-2.5 px-2 py-0.5 rounded-full bg-brand-forest-obsidian/85 border border-brand-gold/40 text-[9px] font-mono font-bold text-brand-gold">
+                4K UHD • 16:9
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card8_tag">EXPORT LOGISTICS</div>
+              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card8_title">Tier-1 Supermarket Shelf Facings</h4>
+              <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card8_desc">Standard category management planograms engineered for high retail rotation and shopper impulse.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
   <!-- 6. LUXURY OLIVE & PICKLE VARIETIES COMPENDIUM (دليل أصناف الزيتون والمخللات الشامل والفاخر) -->
   <!-- ========================================================================= -->
   <section id="varieties-guide" class="py-28 bg-brand-forest-obsidian border-t border-brand-gold/30 relative overflow-hidden">
@@ -4524,6 +4822,7 @@
             <li><a href="#planograms" class="hover:text-brand-gold transition-colors" data-i18n="footer_l6">Supermarket Planograms</a></li>
             <li><a href="#planograms" class="hover:text-brand-gold transition-colors" data-i18n="footer_l7">12-Jar Master Shippers</a></li>
             <li><a href="#planograms" class="hover:text-brand-gold transition-colors" data-i18n="footer_l8">FSDU Retail Displays</a></li>
+            <li><a href="#gallery" class="hover:text-brand-gold transition-colors" data-i18n="footer_l_gallery">4K Media Gallery</a></li>
           </ul>
         </div>
 
@@ -5446,6 +5745,7 @@
         "nav_catalog": "Catalog",
         "nav_calculator": "Calculator",
         "nav_planograms": "Planograms",
+        "nav_gallery": "Gallery",
         "nav_videos": "Theater",
         "nav_varieties_guide": "Varieties Guide",
         "guide_kicker": "ESTATE VARIETIES & QUALITY SPECIFICATIONS • TIER-1 MASTER REFERENCE",
@@ -5868,6 +6168,40 @@
         "plano_card6_tag": "PROCUREMENT COMPLIANCE",
         "plano_card6_title": "FMCG Buyer Sell-Sheet & Spec Blueprint",
         "plano_card6_desc": "Comprehensive technical summary detailing official EAN-13 barcodes, net and drained weights, and container packing configurations.",
+        "gallery_kicker": "4K Visual Suite & Brand Merchandising Gallery",
+        "gallery_title": "Master Brand & Culinary Visual Gallery",
+        "gallery_subtitle": "Ultra-high-definition 4K photography documenting estate terroir, artisan glass packaging, fine dining pairings, and global export shipping.",
+        "gallery_filter_all": "All 4K Assets",
+        "gallery_filter_terroir": "Estate Terroir",
+        "gallery_filter_products": "Product Jars",
+        "gallery_filter_culinary": "Gastronomy & Mezze",
+        "gallery_filter_logistics": "Export Logistics",
+        "gallery_inspect_btn": "Inspect 4K Asset",
+        "gallery_card1_tag": "GASTRONOMY & MEZZE",
+        "gallery_card1_title": "Artisan Mediterranean Mezze Board",
+        "gallery_card1_desc": "Opulent charcuterie and mezze styling featuring Arina glass jars, fresh olives, tapenades, and whipped toum.",
+        "gallery_card2_tag": "ESTATE TERROIR",
+        "gallery_card2_title": "Siwa Oasis Golden-Hour Harvest",
+        "gallery_card2_desc": "Centuries-old olive groves and artisanal harvest heritage bathed in Mediterranean sunlight.",
+        "gallery_card3_tag": "PRODUCT PORTFOLIO",
+        "gallery_card3_title": "15-Jar Grand Exhibition Pyramid",
+        "gallery_card3_desc": "Complete flagship export collection in premium flint glass jars with hermetic tamper-evident gold caps.",
+        "gallery_card4_tag": "GASTRONOMY & MEZZE",
+        "gallery_card4_title": "Executive Chef Tasting & Plating",
+        "gallery_card4_desc": "Michelin-star dark luxury food photography highlighting tapenades, garlic creams, and garnishes.",
+        "gallery_card5_tag": "ESTATE TERROIR",
+        "gallery_card5_title": "Heritage Oak Curing Cellar",
+        "gallery_card5_desc": "Slow natural fermentation in cold subterranean cellars preserving fruit firmness and authentic flavor.",
+        "gallery_card6_tag": "PRODUCT PORTFOLIO",
+        "gallery_card6_title": "Flagship Export Glass Trinity",
+        "gallery_card6_desc": "Baby Cucumbers & Dill, Royal Kalamata Olives, and Wild Turnips in crystal clear flint glass.",
+        "gallery_card7_tag": "EXPORT LOGISTICS",
+        "gallery_card7_title": "Heavy-Duty Export Case Packs",
+        "gallery_card7_desc": "5-ply corrugated export master cartons optimized for Euro-pallet Ti/Hi ratios and cold-chain safety.",
+        "gallery_card8_tag": "EXPORT LOGISTICS",
+        "gallery_card8_title": "Tier-1 Supermarket Shelf Facings",
+        "gallery_card8_desc": "Standard category management planograms engineered for high retail rotation and shopper impulse.",
+        "footer_l_gallery": "4K Media Gallery",
         "video_kicker": "COMMERCIAL BROADCAST & ADVERTISING ASSETS",
         "video_title": "Commercial Video Cinema Theater",
         "video_subtitle": "Review cinematic master films and vertical 9:16 social commercial spots produced for prime-time broadcast and digital marketing",
@@ -6148,6 +6482,7 @@
         "nav_catalog": "الكتالوج",
         "nav_calculator": "الحاسبة",
         "nav_planograms": "الرفوف",
+        "nav_gallery": "معرض الصور",
         "nav_videos": "السينما",
         "nav_varieties_guide": "دليل الأصناف الفاخر",
         "guide_kicker": "دليل الجودة والأصناف المعتمدة • TIER-1 MASTER REFERENCE",
@@ -6570,6 +6905,40 @@
         "plano_card6_tag": "مواصفات مسؤولي المشتريات",
         "plano_card6_title": "لوحة المواصفات الفنية المعتمدة للمشترين",
         "plano_card6_desc": "بيان فني مفصل يتضمن الباركود الدولي EAN-13، الأوزان الصافية والمصفاة، ومعدلات تراص الطبالي وشحن الحاويات.",
+        "gallery_kicker": "معارض الصور والتوثيق البصري الفاخر بدقة 4K",
+        "gallery_title": "معرض العلامة البصري وفنون الطهي والتصدير",
+        "gallery_subtitle": "توثيق فوتوغرافي فائق الدقة 4K يبرز أرض المحصول، برطمانات الزجاج النقي، تطبيقات الطهاة العالميين، واللوجستيات التصديرية.",
+        "gallery_filter_all": "كافة المعروضات 4K",
+        "gallery_filter_terroir": "أرض ومحصول الواحات",
+        "gallery_filter_products": "برطمانات المنتجات",
+        "gallery_filter_culinary": "المائدة وفنون الطهي",
+        "gallery_filter_logistics": "اللوجستيات والتصدير",
+        "gallery_inspect_btn": "معاينة الصورة بدقة 4K",
+        "gallery_card1_tag": "فن المائدة والمقبلات",
+        "gallery_card1_title": "مائدة المقبلات المتوسطية الفاخرة",
+        "gallery_card1_desc": "تنسيق طعام فاخر يبرز برطمانات أرينا الفاخرة مع زيتون كالاماتا والمخللات والتغميسات المتوسطية.",
+        "gallery_card2_tag": "أرض ومحصول الواحات",
+        "gallery_card2_title": "حصاد واحة سيوة الذهبي في دلتا النيل",
+        "gallery_card2_desc": "بساتين الزيتون المعمرة وتراث الحصاد الزراعي العريق تحت شمس البحر الأبيض المتوسط.",
+        "gallery_card3_tag": "تشكيلة المنتجات الكاملة",
+        "gallery_card3_title": "هرم العرض الشامل لخمسة عشر صنفاً معتمداً",
+        "gallery_card3_desc": "التشكيلة التصديرية الكاملة في برطمانات زجاجية نقية مع أغطية ذهبية محكمة الإغلاق.",
+        "gallery_card4_tag": "فن المائدة والمقبلات",
+        "gallery_card4_title": "إبداعات الطهاة العالميين والتذوق الراقي",
+        "gallery_card4_desc": "توثيق فوتوغرافي لتطبيقات كبار الطهاة وتزيين الأطباق العالمية بتغميسات وزيتون أرينا.",
+        "gallery_card5_tag": "أرض ومحصول الواحات",
+        "gallery_card5_title": "أقبية التخمير والمعالجة في براميل البلوط",
+        "gallery_card5_desc": "مرحلة التخليل والتخمير البطيء في براميل خشبية تقليدية للحفاظ على قرمشة الثمار الطبيعية.",
+        "gallery_card6_tag": "تشكيلة المنتجات الكاملة",
+        "gallery_card6_title": "ثلاثية التصدير الأساسية بالزجاج النقي",
+        "gallery_card6_desc": "خيار مقرمش بالحرمل، زيتون كالاماتا ملكي، ولفت بري في زجاج نقي يعكس فخامة المحتوى.",
+        "gallery_card7_tag": "اللوجستيات والشحن الدولي",
+        "gallery_card7_title": "كراتين الشحن البحري التصديرية المقواة",
+        "gallery_card7_desc": "كراتين خماسية الطبقات مصممة لمعايير الشحن الدولي ورص البالتات الأوربية بكفاءة قصوى.",
+        "gallery_card8_tag": "اللوجستيات والشحن الدولي",
+        "gallery_card8_title": "واجهات العرض القياسية في الهايبرماركت",
+        "gallery_card8_desc": "مخططات التوزيع التجاري على رفوف المتاجر الكبرى لتعظيم جاذبية المتسوقين وسرعة البيع.",
+        "footer_l_gallery": "معرض الصور 4K",
         "video_kicker": "أصول الحملات الإعلانية والتسويقية المتلفزة",
         "video_title": "صالة العرض السينمائي والإعلانات بدقة 4K",
         "video_subtitle": "استعراض الأفلام الدعائية السينمائية ومقاطع الفيديو العمودية المخصصة لمنصات التواصل الاجتماعي",
@@ -8457,6 +8826,41 @@
 
     function closeLightbox() {
       document.getElementById('lightbox-modal').classList.add('hidden');
+    }
+
+    // -------------------------------------------------------------------------
+    // 7B. MASTER BRAND & CULINARY 4K GALLERY ENGINE
+    // -------------------------------------------------------------------------
+    function filterGallery(category) {
+      const cards = document.querySelectorAll('.gallery-card');
+      const buttons = document.querySelectorAll('.gallery-filter-btn');
+      
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.classList.add('bg-brand-gold', 'text-brand-forest-obsidian', 'border-brand-gold');
+          btn.classList.remove('bg-brand-forest-obsidian/70', 'text-brand-ivory/80', 'border-brand-gold/30');
+        } else {
+          btn.classList.remove('bg-brand-gold', 'text-brand-forest-obsidian', 'border-brand-gold');
+          btn.classList.add('bg-brand-forest-obsidian/70', 'text-brand-ivory/80', 'border-brand-gold/30');
+        }
+      });
+
+      cards.forEach(card => {
+        const itemCat = card.getAttribute('data-category');
+        if (category === 'all' || itemCat === category) {
+          card.classList.remove('hidden');
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, 10);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.96)';
+          setTimeout(() => {
+            card.classList.add('hidden');
+          }, 200);
+        }
+      });
     }
 
     function fallbackCopyText(text) {
