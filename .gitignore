@@ -7,3 +7,4 @@ node_modules/
 scratch/
 output/imagery_backup_mariam/
 *.pdf
+.gemini/
