@@ -786,6 +786,17 @@
     .animate-preloader-ring {
       animation: preloaderRingSpin 1.6s linear infinite;
     }
+    @keyframes preloaderProgressFill {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+    .animate-preloader-progress {
+      animation: preloaderProgressFill 3s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+    }
   </style>
 </head>
 
@@ -795,9 +806,9 @@
   <div id="ambient-cursor-spotlight" class="hidden md:block"></div>
 
   <!-- ========================================================================= -->
-  <!-- 0. EXECUTIVE BRAND LOGO PRELOADER (Ultra-Fast B2B Splash) -->
+  <!-- 0. EXECUTIVE BRAND LOGO PRELOADER (3-Second Cinematic B2B Splash) -->
   <!-- ========================================================================= -->
-  <div id="site-preloader" class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-forest-obsidian select-none">
+  <div id="site-preloader" onclick="dismissPreloader()" class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-forest-obsidian select-none cursor-pointer">
     
     <!-- Background Ambient Chiaroscuro Glow -->
     <div class="absolute w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(218,172,54,0.18)_0%,rgba(30,51,38,0.3)_45%,transparent_75%)] blur-[90px] pointer-events-none"></div>
@@ -808,10 +819,10 @@
     </button>
 
     <!-- Centered Luxury Capsule & Logo Chamber -->
-    <div class="relative z-10 flex flex-col items-center text-center px-4 max-w-sm">
+    <div class="relative z-10 flex flex-col items-center text-center px-4 max-w-sm pointer-events-auto">
       
       <!-- Logo Chamber with Subtle Rotating Gold Ring & Pulse Emblem -->
-      <div class="relative w-44 sm:w-52 aspect-[2.67/1] flex items-center justify-center p-3 mb-5">
+      <div class="relative w-44 sm:w-52 aspect-[2.67/1] flex items-center justify-center p-3 mb-2">
         
         <!-- Rotating Micro Gold Halo Ring -->
         <div class="absolute inset-0 rounded-full border border-dashed border-brand-gold/30 animate-preloader-ring pointer-events-none"></div>
@@ -819,6 +830,11 @@
         
         <!-- Authentic Gold Arina Logo with Pulse Animation -->
         <img src="arina-logo-gold.png" alt="Arina Luxury Logo" fetchpriority="high" decoding="sync" class="w-full h-auto object-contain animate-preloader-pulse drop-shadow-[0_0_35px_rgba(218,172,54,0.45)]">
+      </div>
+
+      <!-- 3-Second Golden Progress Hairline -->
+      <div class="w-36 sm:w-44 h-[2px] rounded-full bg-brand-gold/20 overflow-hidden my-3 shadow-inner">
+        <div class="h-full bg-gradient-to-r from-brand-gold/40 via-brand-gold to-brand-gold-light animate-preloader-progress"></div>
       </div>
 
       <!-- Live Micro-Pulse Beacon & Category Tag -->
@@ -846,26 +862,13 @@
         var p = document.getElementById('site-preloader');
         if (!p || p.classList.contains('preloader-hidden')) return;
         p.classList.add('preloader-hidden');
-        try {
-          sessionStorage.setItem('arina_intro_seen', 'true');
-        } catch (e) {}
         setTimeout(function() {
           p.style.display = 'none';
           p.classList.add('hidden');
-        }, 400);
+        }, 450);
       };
 
-      try {
-        if (sessionStorage.getItem('arina_intro_seen') === 'true') {
-          var p = document.getElementById('site-preloader');
-          if (p) {
-            p.style.display = 'none';
-            p.classList.add('hidden');
-          }
-          return;
-        }
-      } catch (e) {}
-
+      // 3.0 Seconds Cinematic Showcase
       var dismissed = false;
       function autoDismiss() {
         if (dismissed) return;
@@ -873,14 +876,8 @@
         window.dismissPreloader();
       }
 
-      if (document.readyState === 'complete') {
-        setTimeout(autoDismiss, 650);
-      } else {
-        window.addEventListener('load', function() {
-          setTimeout(autoDismiss, 400);
-        });
-        setTimeout(autoDismiss, 950);
-      }
+      // Display for 3.0 seconds (3000ms) with graceful auto-dismiss
+      setTimeout(autoDismiss, 3000);
     })();
   </script>
 
