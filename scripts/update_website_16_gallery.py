@@ -2,7 +2,7 @@
 """
 Updates website.html to feature all 16 definitive master 4K UHD gallery cards:
 - Exact 4 cards per category: products, terroir, culinary, logistics.
-- Cache busting query ?v=20261007 on all image URLs.
+- Cache busting query ?v=20261007_v2 on all image URLs.
 - Complete TRANSLATIONS.en and TRANSLATIONS.ar for gallery_card1 through gallery_card16.
 - Strict verification of 0 Arabic characters in TRANSLATIONS.en.
 """
@@ -17,7 +17,7 @@ CARDS = [
     {
         "id": 1,
         "category": "products",
-        "file": "output/imagery/arina_gallery_gastronomy_trinity_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_gastronomy_trinity_4k.jpg?v=20261007_v2",
         "tag_en": "FLAGSHIP EXPORT TRIO",
         "tag_ar": "ثلاثية المنتجات الأساسية",
         "title_en": "ARINA Foundational Gastronomy Master Trinity",
@@ -28,7 +28,7 @@ CARDS = [
     {
         "id": 2,
         "category": "products",
-        "file": "output/imagery/arina_gallery_stuffed_queen_olives_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_stuffed_queen_olives_4k.jpg?v=20261007_v2",
         "tag_en": "ESTATE TABLE OLIVES",
         "tag_ar": "زيتون المائدة الفاخر",
         "title_en": "ARINA Connoisseur Table & Stuffed Olives Showcase",
@@ -39,7 +39,7 @@ CARDS = [
     {
         "id": 3,
         "category": "products",
-        "file": "output/imagery/arina_gallery_heritage_pickles_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_heritage_pickles_4k.jpg?v=20261007_v2",
         "tag_en": "HERITAGE PICKLING TERROIR",
         "tag_ar": "مخللات بلدية ومحصول النيل",
         "title_en": "ARINA Heritage Pickles & Nile Delta Terroir",
@@ -50,7 +50,7 @@ CARDS = [
     {
         "id": 4,
         "category": "products",
-        "file": "output/imagery/arina_gallery_garlic_toum_suite_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_garlic_toum_suite_4k.jpg?v=20261007_v2",
         "tag_en": "CHEF CONDIMENTS & EMULSIONS",
         "tag_ar": "مقبلات وتغميسات الثوم الفاخرة",
         "title_en": "ARINA Cloud-Whipped Toum & Pure Crushed Garlic Suite",
@@ -64,7 +64,7 @@ CARDS = [
     {
         "id": 5,
         "category": "terroir",
-        "file": "output/imagery/arina_gallery_siwa_terroir_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_siwa_terroir_4k.jpg?v=20261007_v2",
         "tag_en": "OASIS OLIVE HARVEST",
         "tag_ar": "حصاد زيتون واحة سيوة",
         "title_en": "Siwa Oasis Golden-Hour Olive Harvest",
@@ -75,7 +75,7 @@ CARDS = [
     {
         "id": 6,
         "category": "terroir",
-        "file": "output/imagery/arina_gallery_oak_cellar_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_oak_cellar_4k.jpg?v=20261007_v2",
         "tag_en": "HERITAGE CURING CELLARS",
         "tag_ar": "أقبية التعتيم والتخليل التراثية",
         "title_en": "Subterranean Heritage Oak Curing & Maturation Vaults",
@@ -86,7 +86,7 @@ CARDS = [
     {
         "id": 7,
         "category": "terroir",
-        "file": "output/imagery/arina_gallery_farm_harvest_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_farm_harvest_4k.jpg?v=20261007_v2",
         "tag_en": "NILE DELTA HARVEST",
         "tag_ar": "محاصيل دلتا النيل الطازجة",
         "title_en": "Nile Delta Fertile Farm Harvest & Heirloom Produce",
@@ -97,7 +97,7 @@ CARDS = [
     {
         "id": 8,
         "category": "terroir",
-        "file": "output/imagery/arina_gallery_stone_pantry_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_stone_pantry_4k.jpg?v=20261007_v2",
         "tag_en": "OASIS SPRING WATERWAYS",
         "tag_ar": "ينابيع وقنوات واحة سيوة الطبيعية",
         "title_en": "Siwa Oasis Natural Spring Canals & Ancient Groves",
@@ -111,7 +111,7 @@ CARDS = [
     {
         "id": 9,
         "category": "culinary",
-        "file": "output/imagery/arina_gallery_mezze_board_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_mezze_board_4k.jpg?v=20261007_v2",
         "tag_en": "HAUTE GASTRONOMY BOARD",
         "tag_ar": "مائدة المازة الفاخرة",
         "title_en": "Grand Mediterranean Mezze & Charcuterie Banquet Board",
@@ -122,7 +122,7 @@ CARDS = [
     {
         "id": 10,
         "category": "culinary",
-        "file": "output/imagery/arina_gallery_chef_plating_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_chef_plating_4k.jpg?v=20261007_v2",
         "tag_en": "EXECUTIVE CHEF PLATING",
         "tag_ar": "فن الطهي والتقديم الاحترافي",
         "title_en": "Executive Chef Haute Cuisine Antipasti Plating",
@@ -133,7 +133,7 @@ CARDS = [
     {
         "id": 11,
         "category": "culinary",
-        "file": "output/imagery/arina_gallery_tapenades_spreads_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_tapenades_spreads_4k.jpg?v=20261007_v2",
         "tag_en": "ARTISAN CONDIMENTS & MORTAR",
         "tag_ar": "صلصات التابيناد والهاون الحجري",
         "title_en": "Artisan Olive Tapenade & Mortar-Crushed Condiments",
@@ -144,7 +144,7 @@ CARDS = [
     {
         "id": 12,
         "category": "culinary",
-        "file": "output/imagery/arina_gallery_pergola_feast_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_pergola_feast_4k.jpg?v=20261007_v2",
         "tag_en": "AL FRESCO ESTATE BANQUET",
         "tag_ar": "مأدبة الهواء الطلق المتوسطية",
         "title_en": "Sun-Drenched Pergola Vineyard Al Fresco Banquet",
@@ -158,7 +158,7 @@ CARDS = [
     {
         "id": 13,
         "category": "logistics",
-        "file": "output/imagery/arina_gallery_bulk_barrel_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_bulk_barrel_4k.jpg?v=20261007_v2",
         "tag_en": "INDUSTRIAL FOODSERVICE EXPORT",
         "tag_ar": "التصدير الصناعي لقطاع الفنادق",
         "title_en": "ARINA 230kg High-Density Food-Grade Export Drum",
@@ -169,7 +169,7 @@ CARDS = [
     {
         "id": 14,
         "category": "logistics",
-        "file": "output/imagery/arina_gallery_container_freight_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_container_freight_4k.jpg?v=20261007_v2",
         "tag_en": "MARITIME FREIGHT LOGISTICS",
         "tag_ar": "الشحن البحري والخدمات اللوجستية",
         "title_en": "Alexandria Port Ocean Freight & Container Logistics",
@@ -180,7 +180,7 @@ CARDS = [
     {
         "id": 15,
         "category": "logistics",
-        "file": "output/imagery/arina_gallery_supermarket_shelf_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_supermarket_shelf_4k.jpg?v=20261007_v2",
         "tag_en": "MODERN B2B WAREHOUSE",
         "tag_ar": "المستودعات الذكية والخدمات اللوجستية",
         "title_en": "Modern B2B Export Warehouse & Bulk Drum Palletizing",
@@ -191,7 +191,7 @@ CARDS = [
     {
         "id": 16,
         "category": "logistics",
-        "file": "output/imagery/arina_gallery_export_cartons_4k.jpg?v=20261007",
+        "file": "output/imagery/arina_gallery_export_cartons_4k.jpg?v=20261007_v2",
         "tag_en": "PRECISION AUTOMATED PACKAGING",
         "tag_ar": "خطوط التعبئة والتغليف الآلية الدقيقة",
         "title_en": "Automated Precision Packaging & Hermetic Sealing Facility",

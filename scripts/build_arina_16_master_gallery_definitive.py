@@ -176,7 +176,7 @@ def main():
     
     # Card 10: Executive Chef Haute Cuisine Antipasti Plating
     copy_and_scale(
-        os.path.join(ARTIFACTS_DIR, 'chef_plating_antipasti_1791340584979.jpg'),
+        os.path.join(ARTIFACTS_DIR, 'chef_plating_clean_1791370293011.jpg'),
         'arina_gallery_chef_plating_4k.jpg'
     )
     
@@ -188,7 +188,7 @@ def main():
     
     # Card 12: Sun-Drenched Pergola Vineyard Al Fresco Banquet
     copy_and_scale(
-        os.path.join(ARTIFACTS_DIR, 'pergola_alfresco_feast_1791340676645.jpg'),
+        os.path.join(ARTIFACTS_DIR, 'pergola_feast_clean_1791370363716.jpg'),
         'arina_gallery_pergola_feast_4k.jpg'
     )
 
@@ -214,7 +214,7 @@ def main():
     
     # Card 16: Automated Precision Packaging & Hermetic Sealing Facility
     copy_and_scale(
-        os.path.join(ARTIFACTS_DIR, 'packaging_line_facility_1791340850178.jpg'),
+        os.path.join(ARTIFACTS_DIR, 'packaging_clean_jars_1791370167581.jpg'),
         'arina_gallery_export_cartons_4k.jpg'
     )
     
