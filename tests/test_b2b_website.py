@@ -383,8 +383,30 @@ class TestMariamB2BWebsite(unittest.TestCase):
         self.assertNotIn("switchWebHoneyProduct", self.html_content)
         self.assertNotIn("WEB_HONEY_DATA", self.html_content)
 
+    def test_25_spain_madrid_office_whatsapp_integration(self):
+        """Verify Spain Madrid Office WhatsApp desk (+34 641 648 681) integration across the portal."""
+        # 1. Phone number & wa.me link presence
+        self.assertIn("+34 641 648 681", self.html_content, "Must display Spain Madrid WhatsApp number +34 641 648 681")
+        self.assertIn("wa.me/34641648681", self.html_content, "Must link to official Spain WhatsApp wa.me/34641648681")
+        
+        # 2. Key Interactive IDs for Spain Madrid desk
+        self.assertIn("whatsapp-rfq-spain-link", self.html_content, "Must have #whatsapp-rfq-spain-link")
+        self.assertIn("whatsapp-form-spain-btn", self.html_content, "Must have #whatsapp-form-spain-btn")
+        self.assertIn("whatsapp-modal-spain-btn", self.html_content, "Must have #whatsapp-modal-spain-btn")
+        
+        # 3. Dynamic JS updater for Spain desk
+        self.assertIn("waSpainIds", self.html_content, "Must have waSpainIds array in updateProforma")
+        
+        # 4. Translation keys
+        self.assertIn('"btn_whatsapp_spain"', self.html_content, "Must have btn_whatsapp_spain translation key")
+        self.assertIn('"rfq_form_whatsapp_spain_btn"', self.html_content, "Must have rfq_form_whatsapp_spain_btn translation key")
+        self.assertIn('"modal_whatsapp_spain_btn"', self.html_content, "Must have modal_whatsapp_spain_btn translation key")
+        self.assertIn('"footer_wa_madrid"', self.html_content, "Must have footer_wa_madrid translation key")
+        self.assertIn('"mob_menu_whatsapp_spain"', self.html_content, "Must have mob_menu_whatsapp_spain translation key")
+
 if __name__ == '__main__':
     unittest.main()
+
 
 
 
