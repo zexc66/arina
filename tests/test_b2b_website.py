@@ -429,6 +429,10 @@ class TestMariamB2BWebsite(unittest.TestCase):
         self.assertIn('html.theme-daylight #whatsapp-header-dropdown', self.html_content, "Must have daylight theme style for whatsapp dropdown")
         self.assertIn('html.theme-daylight .hero-wa-chip', self.html_content, "Must have daylight theme style for hero chips")
 
+        # 6. BiDi isolation for phone numbers across RTL contexts
+        self.assertIn('<bdi dir="ltr">+20 10 08716714</bdi>', self.html_content, "Egypt phone number must be wrapped in bdi dir=ltr")
+        self.assertIn('<bdi dir="ltr">+34 641 648 681</bdi>', self.html_content, "Spain phone number must be wrapped in bdi dir=ltr")
+
 if __name__ == '__main__':
     unittest.main()
 
