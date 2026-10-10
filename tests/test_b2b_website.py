@@ -404,6 +404,31 @@ class TestMariamB2BWebsite(unittest.TestCase):
         self.assertIn('"footer_wa_madrid"', self.html_content, "Must have footer_wa_madrid translation key")
         self.assertIn('"mob_menu_whatsapp_spain"', self.html_content, "Must have mob_menu_whatsapp_spain translation key")
 
+    def test_26_upper_page_whatsapp_desks_integration(self):
+        """Verify upper page (Header & Hero) dual WhatsApp desks integration."""
+        # 1. Header WhatsApp Pill and Popover Dropdown
+        self.assertIn('id="whatsapp-header-btn"', self.html_content, "Must have #whatsapp-header-btn in header")
+        self.assertIn('id="whatsapp-header-dropdown"', self.html_content, "Must have #whatsapp-header-dropdown in header")
+        self.assertIn('toggleWhatsAppHeaderDropdown', self.html_content, "Must define toggleWhatsAppHeaderDropdown function")
+        
+        # 2. Both Egypt and Spain desks in Header dropdown
+        self.assertIn('wa.me/201008716714', self.html_content, "Must link to Egypt WhatsApp wa.me/201008716714")
+        self.assertIn('wa.me/34641648681', self.html_content, "Must link to Spain WhatsApp wa.me/34641648681")
+        
+        # 3. Hero Section Fast-Connect Chips
+        self.assertIn('hero-wa-chip', self.html_content, "Must have .hero-wa-chip in Hero section")
+        self.assertIn('data-i18n="hero_wa_direct"', self.html_content, "Must have hero_wa_direct translation anchor")
+        self.assertIn('data-i18n="hero_wa_cairo"', self.html_content, "Must have hero_wa_cairo translation anchor")
+        self.assertIn('data-i18n="hero_wa_madrid"', self.html_content, "Must have hero_wa_madrid translation anchor")
+        
+        # 4. Translation keys in English and Arabic dictionaries
+        for key in ['nav_wa_desks', 'nav_wa_dropdown_title', 'nav_wa_cairo_title', 'nav_wa_madrid_title', 'hero_wa_direct', 'hero_wa_cairo', 'hero_wa_madrid']:
+            self.assertIn(f'"{key}"', self.html_content, f"Must define translation key {key}")
+            
+        # 5. Daylight Theme calibration
+        self.assertIn('html.theme-daylight #whatsapp-header-dropdown', self.html_content, "Must have daylight theme style for whatsapp dropdown")
+        self.assertIn('html.theme-daylight .hero-wa-chip', self.html_content, "Must have daylight theme style for hero chips")
+
 if __name__ == '__main__':
     unittest.main()
 
