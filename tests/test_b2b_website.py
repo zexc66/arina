@@ -433,6 +433,11 @@ class TestMariamB2BWebsite(unittest.TestCase):
         self.assertIn('<bdi dir="ltr">+20 10 08716714</bdi>', self.html_content, "Egypt phone number must be wrapped in bdi dir=ltr")
         self.assertIn('<bdi dir="ltr">+34 641 648 681</bdi>', self.html_content, "Spain phone number must be wrapped in bdi dir=ltr")
 
+        # 7. Layout and anti-clipping responsiveness
+        self.assertIn('class="relative flex-shrink-0">', self.html_content, "WhatsApp button container must have flex-shrink-0 to prevent flex compression")
+        self.assertIn('id="whatsapp-header-btn" onclick="toggleWhatsAppHeaderDropdown(event)" class="flex-shrink-0', self.html_content, "WhatsApp header button must have flex-shrink-0")
+        self.assertIn('2xl:max-w-[1480px]', self.html_content, "Header glass-island must support wide display layout (1480px)")
+
 if __name__ == '__main__':
     unittest.main()
 
