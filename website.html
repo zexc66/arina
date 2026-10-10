@@ -1060,7 +1060,7 @@
         </div>
 
         <!-- Ambience Theme Switcher Pill -->
-        <button id="theme-toggle-btn" onclick="toggleTheme()" class="px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-brand-gold/40 text-[10px] sm:text-xs font-bold text-brand-gold hover:bg-brand-gold hover:text-brand-forest-obsidian transition-all duration-200 flex items-center gap-1.5 shadow-sm whitespace-nowrap" aria-label="Toggle visual ambience theme" title="Toggle Ambience Mode">
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-brand-gold/40 text-[10px] sm:text-xs font-bold text-brand-gold hover:bg-brand-gold hover:text-brand-forest-obsidian transition-all duration-200 flex items-center gap-1.5 shadow-sm whitespace-nowrap" title="Toggle Ambience Mode">
           <svg id="theme-icon-sun" class="w-3.5 h-3.5 text-brand-gold hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -1371,6 +1371,7 @@
   <!-- ========================================================================= -->
   <!-- 2. EXECUTIVE B2B HERO SECTION -->
   <!-- ========================================================================= -->
+  <main id="main-content">
   <section id="hero" class="relative pt-36 pb-24 lg:pt-48 lg:pb-36 overflow-hidden min-h-[92dvh] flex items-center">
     <!-- Atmospheric Chiaroscuro Lighting Orbs & Radial Glows -->
     <div class="absolute -top-32 -left-32 w-[550px] h-[550px] bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -2650,7 +2651,7 @@
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
               </svg>
             </div>
-            <h4 class="font-bold text-brand-ivory text-sm" data-i18n="adv1_title">Container Capacity: 10-11 Pallets (20ft) / 20-22 Pallets (40ft)</h4>
+            <h3 class="font-bold text-brand-ivory text-sm" data-i18n="adv1_title">Container Capacity: 10-11 Pallets (20ft) / 20-22 Pallets (40ft)</h3>
             <p class="text-xs text-brand-ivory/75 leading-relaxed" data-i18n="adv1_desc">20ft FCL fits 10 to 11 Pallets (5.90m (L) × 2.35m (W) × 2.39m (H), Max Payload: 21.0 - 28.0 MT) with axle weight safety. 40ft HC fits 20 to 22 Pallets (12.00m (L) × 2.35m (W) × 2.39m (H), Max Payload: ~26.5 MT) secured with Dunnage Air Bags.</p>
           </div>
 
@@ -2663,7 +2664,7 @@
                 <line x1="12" y1="22.08" x2="12" y2="12"></line>
               </svg>
             </div>
-            <h4 class="font-bold text-brand-ivory text-sm" data-i18n="adv2_title">Euro Pallet Tare Weight (25-30 kg) & Stretch Wrap</h4>
+            <h3 class="font-bold text-brand-ivory text-sm" data-i18n="adv2_title">Euro Pallet Tare Weight (25-30 kg) & Stretch Wrap</h3>
             <p class="text-xs text-brand-ivory/75 leading-relaxed" data-i18n="adv2_desc">Factory certified: Standard wooden pallets add 25 to 30 kg tare per pallet plus shrink film wrap. Must be factored into gross manifest weight to avoid port axle limit fines.</p>
           </div>
 
@@ -2676,7 +2677,7 @@
                 <path d="M12 8v8"></path>
               </svg>
             </div>
-            <h4 class="font-bold text-brand-ivory text-sm" data-i18n="adv3_title">Direct Floor-Loading for Bulk Drums</h4>
+            <h3 class="font-bold text-brand-ivory text-sm" data-i18n="adv3_title">Direct Floor-Loading for Bulk Drums</h3>
             <p class="text-xs text-brand-ivory/75 leading-relaxed" data-i18n="adv3_desc">Loading 200kg drums directly on container flooring without pallets achieves 80 drums in 20ft FCL (~16.6 MT), maximizing both cube and road weight limits.</p>
           </div>
 
@@ -2687,7 +2688,7 @@
                 <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
               </svg>
             </div>
-            <h4 class="font-bold text-brand-ivory text-sm" data-i18n="adv4_title">Climate-Controlled Reefer Dispatch Option</h4>
+            <h3 class="font-bold text-brand-ivory text-sm" data-i18n="adv4_title">Climate-Controlled Reefer Dispatch Option</h3>
             <p class="text-xs text-brand-ivory/75 leading-relaxed" data-i18n="adv4_desc">For high-ambient summer maritime routes (e.g., Arabian Gulf), temperature-controlled reefer containers (18°-20°C) preserve natural crunch, cell turgor, and color.</p>
           </div>
 
@@ -2958,7 +2959,7 @@
                 <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
               </svg>
             </div>
-            <h4 class="font-bold text-brand-ivory text-sm" data-i18n="roi_adv1_title">Category Velocity & Shelf Productivity</h4>
+            <h3 class="font-bold text-brand-ivory text-sm" data-i18n="roi_adv1_title">Category Velocity & Shelf Productivity</h3>
             <p class="text-xs text-brand-ivory/75 leading-relaxed" data-i18n="roi_adv1_desc">Proven 14 to 18 units weekly turnover per facing in Mediterranean deli aisles. Strong impulse purchase velocity driven by authentic 100% flint glass transparency.</p>
           </div>
 
@@ -2969,7 +2970,7 @@
                 <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
               </svg>
             </div>
-            <h4 class="font-bold text-brand-ivory text-sm" data-i18n="roi_adv2_title">GAFTA & EUR.1 Duty-Free Exemption</h4>
+            <h3 class="font-bold text-brand-ivory text-sm" data-i18n="roi_adv2_title">GAFTA & EUR.1 Duty-Free Exemption</h3>
             <p class="text-xs text-brand-ivory/75 leading-relaxed" data-i18n="roi_adv2_desc">Full preferential tariff status under GAFTA (0% customs in GCC / Saudi Arabia) and EUR.1 trade agreements, saving 5% to 12% landed costs versus non-exempt imports.</p>
           </div>
 
@@ -2981,7 +2982,7 @@
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
             </div>
-            <h4 class="font-bold text-brand-ivory text-sm" data-i18n="roi_adv3_title">Zero Spoilage & 24-Month Ambient Stability</h4>
+            <h3 class="font-bold text-brand-ivory text-sm" data-i18n="roi_adv3_title">Zero Spoilage & 24-Month Ambient Stability</h3>
             <p class="text-xs text-brand-ivory/75 leading-relaxed" data-i18n="roi_adv3_desc">Vacuum thermal induction sealing in recyclable glass delivers full 24-month ambient shelf life, eliminating cold-chain shrinkage, breakage, or return losses.</p>
           </div>
 
@@ -2993,7 +2994,7 @@
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
               </svg>
             </div>
-            <h4 class="font-bold text-brand-ivory text-sm" data-i18n="roi_adv4_title">Custom Master Shipper & Private Label Options</h4>
+            <h3 class="font-bold text-brand-ivory text-sm" data-i18n="roi_adv4_title">Custom Master Shipper & Private Label Options</h3>
             <p class="text-xs text-brand-ivory/75 leading-relaxed" data-i18n="roi_adv4_desc">Flexible private label branding, custom barcode pre-labeling, and modular display cartons optimized for rapid shelf replenishment and end-cap displays.</p>
           </div>
 
@@ -3276,7 +3277,7 @@
             <!-- Product Category HS Code & Tariff Breakdown Table -->
             <div class="space-y-4 pt-2">
               <div class="flex items-center justify-between">
-                <h4 class="text-xs font-bold text-brand-gold uppercase tracking-wider" data-i18n="customs_table_title">Harmonized Tariff Schedule (HS Codes) & Preferential Duty Rates</h4>
+                <h3 class="text-xs font-bold text-brand-gold uppercase tracking-wider" data-i18n="customs_table_title">Harmonized Tariff Schedule (HS Codes) & Preferential Duty Rates</h3>
                 <span class="text-[11px] font-mono text-brand-ivory/60" data-i18n="customs_glass_rule">Strict 100% Recyclable Glass Jars</span>
               </div>
 
@@ -3385,7 +3386,7 @@
             </div>
             <div class="p-6 space-y-2">
               <div class="text-[11px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="plano_card1_tag">SHELF ARCHITECTURE</div>
-              <h4 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card1_title">Supermarket 3-Tier Gondola Planogram</h4>
+              <h3 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card1_title">Supermarket 3-Tier Gondola Planogram</h3>
               <p class="text-xs text-brand-ivory/70" data-i18n="plano_card1_desc">Categorized into Eye-level Pickles, Reach-level Olives, and Base-level Pastes.</p>
             </div>
           </div>
@@ -3410,7 +3411,7 @@
             </div>
             <div class="p-6 space-y-2">
               <div class="text-[11px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="plano_card2_tag">REVENUE OPTIMIZATION</div>
-              <h4 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card2_title">2-Facing Shelf Dominance Matrix</h4>
+              <h3 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card2_title">2-Facing Shelf Dominance Matrix</h3>
               <p class="text-xs text-brand-ivory/70" data-i18n="plano_card2_desc">Dual-facing layout with price channels proven to generate +38% sales velocity.</p>
             </div>
           </div>
@@ -3435,7 +3436,7 @@
             </div>
             <div class="p-6 space-y-2">
               <div class="text-[11px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="plano_card3_tag">SECONDARY PACKAGING</div>
-              <h4 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card3_title">12-Jar Corrugated Master Shipper</h4>
+              <h3 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card3_title">12-Jar Corrugated Master Shipper</h3>
               <p class="text-xs text-brand-ivory/70" data-i18n="plano_card3_desc">Heavy-duty B-flute carton with internal cell dividers ensuring zero transit breakage.</p>
             </div>
           </div>
@@ -3460,7 +3461,7 @@
             </div>
             <div class="p-6 space-y-2">
               <div class="text-[11px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="plano_card4_tag">PROMOTIONAL MERCHANDISING</div>
-              <h4 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card4_title">Retail FSDU Stand-Alone Display</h4>
+              <h3 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card4_title">Retail FSDU Stand-Alone Display</h3>
               <p class="text-xs text-brand-ivory/70" data-i18n="plano_card4_desc">Luxury green & gold endcap stand with arched brand crown for high-traffic supermarket aisles.</p>
             </div>
           </div>
@@ -3485,7 +3486,7 @@
             </div>
             <div class="p-6 space-y-2">
               <div class="text-[11px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="plano_card5_tag">IMPULSE MERCHANDISING</div>
-              <h4 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card5_title">Delicatessen Countertop POS Tray</h4>
+              <h3 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card5_title">Delicatessen Countertop POS Tray</h3>
               <p class="text-xs text-brand-ivory/70" data-i18n="plano_card5_desc">Solid natural oak impulse display engineered for gourmet cheese counters and checkout lanes.</p>
             </div>
           </div>
@@ -3510,7 +3511,7 @@
             </div>
             <div class="p-6 space-y-2">
               <div class="text-[11px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="plano_card6_tag">BUYER SPECIFICATIONS</div>
-              <h4 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card6_title">B2B Trade Buyer Technical Lineup</h4>
+              <h3 class="font-serif font-bold text-lg text-brand-ivory" data-i18n="plano_card6_title">B2B Trade Buyer Technical Lineup</h3>
               <p class="text-xs text-brand-ivory/70" data-i18n="plano_card6_desc">Technical spec lineup with EAN barcodes, net/drained weights, and pallet Ti/Hi ratios.</p>
             </div>
           </div>
@@ -3589,7 +3590,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card1_tag">FLAGSHIP EXPORT TRIO</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card1_title">ARINA Foundational Gastronomy Master Trinity</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card1_title">ARINA Foundational Gastronomy Master Trinity</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card1_desc">Acoustic Crisp Baby Cucumbers, Royal Kalamata Olives &amp; Pure Unroasted Crushed Garlic.</p>
             </div>
           </div>
@@ -3617,7 +3618,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card2_tag">ESTATE TABLE OLIVES</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card2_title">ARINA Connoisseur Table &amp; Stuffed Olives Showcase</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card2_title">ARINA Connoisseur Table &amp; Stuffed Olives Showcase</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card2_desc">Hand-Stuffed Almond Queen Olives, Egyptian Azizi Olives &amp; Spanish Black Manzanilla.</p>
             </div>
           </div>
@@ -3645,7 +3646,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card3_tag">HERITAGE PICKLING TERROIR</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card3_title">ARINA Heritage Pickles &amp; Nile Delta Terroir</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card3_title">ARINA Heritage Pickles &amp; Nile Delta Terroir</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card3_desc">Acoustic Baby Cucumbers, Wild Turnips in Natural Beetroot &amp; Pickled Carrot-Chili Medley.</p>
             </div>
           </div>
@@ -3673,7 +3674,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card4_tag">CHEF CONDIMENTS &amp; EMULSIONS</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card4_title">ARINA Cloud-Whipped Toum &amp; Pure Crushed Garlic Suite</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card4_title">ARINA Cloud-Whipped Toum &amp; Pure Crushed Garlic Suite</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card4_desc">Artisanal Emulsified Toum Garlic Cream &amp; 100% Unroasted Crushed Garlic in Squat Glass.</p>
             </div>
           </div>
@@ -3701,7 +3702,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card5_tag">OASIS OLIVE HARVEST</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card5_title">Siwa Oasis Golden-Hour Olive Harvest</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card5_title">Siwa Oasis Golden-Hour Olive Harvest</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card5_desc">Ancient gnarled olive trees harvested by hand in the golden mineral-rich soils of the Western Desert.</p>
             </div>
           </div>
@@ -3729,7 +3730,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card6_tag">HERITAGE CURING CELLARS</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card6_title">Subterranean Heritage Oak Curing &amp; Maturation Vaults</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card6_title">Subterranean Heritage Oak Curing &amp; Maturation Vaults</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card6_desc">Climate-controlled subterranean stone cellars where olives mature naturally in aromatic brine and oak barrels.</p>
             </div>
           </div>
@@ -3757,7 +3758,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card7_tag">NILE DELTA HARVEST</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card7_title">Nile Delta Fertile Farm Harvest &amp; Heirloom Produce</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card7_title">Nile Delta Fertile Farm Harvest &amp; Heirloom Produce</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card7_desc">Field-fresh baby cucumbers, purple wild turnips, and crisp aromatics picked at dawn from fertile alluvial soil.</p>
             </div>
           </div>
@@ -3785,7 +3786,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card8_tag">OASIS SPRING WATERWAYS</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card8_title">Siwa Oasis Natural Spring Canals &amp; Ancient Groves</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card8_title">Siwa Oasis Natural Spring Canals &amp; Ancient Groves</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card8_desc">Pristine subterranean spring waters flowing through stone aqueducts to nourish thousand-year-old olive groves.</p>
             </div>
           </div>
@@ -3813,7 +3814,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card9_tag">HAUTE GASTRONOMY BOARD</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card9_title">Grand Mediterranean Mezze &amp; Charcuterie Banquet Board</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card9_title">Grand Mediterranean Mezze &amp; Charcuterie Banquet Board</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card9_desc">Live-edge olive wood presentation of Kalamata olives, stuffed queen olives, acoustic pickles, and whipped toum.</p>
             </div>
           </div>
@@ -3841,7 +3842,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card10_tag">EXECUTIVE CHEF PLATING</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card10_title">Executive Chef Haute Cuisine Antipasti Plating</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card10_title">Executive Chef Haute Cuisine Antipasti Plating</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card10_desc">Precision tweezers and culinary craft showcasing tapenade quenelles, crisp baby cucumbers, and virgin olive oil.</p>
             </div>
           </div>
@@ -3869,7 +3870,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card11_tag">ARTISAN CONDIMENTS &amp; MORTAR</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card11_title">Artisan Olive Tapenade &amp; Mortar-Crushed Condiments</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card11_title">Artisan Olive Tapenade &amp; Mortar-Crushed Condiments</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card11_desc">Hand-ground Kalamata tapenade, green herb spread, and artisanal toum served with warm rustic crostini.</p>
             </div>
           </div>
@@ -3897,7 +3898,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card12_tag">AL FRESCO ESTATE BANQUET</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card12_title">Sun-Drenched Pergola Vineyard Al Fresco Banquet</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card12_title">Sun-Drenched Pergola Vineyard Al Fresco Banquet</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card12_desc">A golden Mediterranean outdoor feast laden with estate olives, acoustic pickles, rustic flatbreads, and citrus.</p>
             </div>
           </div>
@@ -3925,7 +3926,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card13_tag">INDUSTRIAL FOODSERVICE EXPORT</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card13_title">ARINA 230kg High-Density Food-Grade Export Drum</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card13_title">ARINA 230kg High-Density Food-Grade Export Drum</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card13_desc">Heavy-Duty Blue HDPE Airtight Drums Engineered for Ocean Transit &amp; Global Foodservice.</p>
             </div>
           </div>
@@ -3953,7 +3954,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card14_tag">MARITIME FREIGHT LOGISTICS</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card14_title">Alexandria Port Ocean Freight &amp; Container Logistics</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card14_title">Alexandria Port Ocean Freight &amp; Container Logistics</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card14_desc">Direct ocean container dispatch from Alexandria &amp; Port Said to GCC, Europe, and North American ports.</p>
             </div>
           </div>
@@ -3981,7 +3982,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card15_tag">MODERN B2B WAREHOUSE</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card15_title">Modern B2B Export Warehouse &amp; Bulk Drum Palletizing</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card15_title">Modern B2B Export Warehouse &amp; Bulk Drum Palletizing</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card15_desc">Climate-controlled logistics facility with certified palletizing, shrink-wrapping, and barcode tracking.</p>
             </div>
           </div>
@@ -4009,7 +4010,7 @@
             </div>
             <div class="p-5 space-y-2">
               <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider" data-i18n="gallery_card16_tag">PRECISION AUTOMATED PACKAGING</div>
-              <h4 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card16_title">Automated Precision Packaging &amp; Hermetic Sealing Facility</h4>
+              <h3 class="font-serif font-bold text-base text-brand-ivory" data-i18n="gallery_card16_title">Automated Precision Packaging &amp; Hermetic Sealing Facility</h3>
               <p class="text-xs text-brand-ivory/70 line-clamp-2" data-i18n="gallery_card16_desc">ISO 22000 and HACCP certified automated glass packaging line with nitrogen flushing and robotic carton packing.</p>
             </div>
           </div>
@@ -5532,6 +5533,7 @@
 
     </div>
   </section>
+  </main>
 
   <!-- ========================================================================= -->
   <!-- 8. LUXURY FOOTER & CORPORATE CREDENTIALS -->
@@ -5540,6 +5542,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
       
       <!-- Top Grid -->
+      <h2 class="sr-only">Footer Directory & Corporate Information</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
         
         <!-- Brand Bio (Col 1-2) -->
@@ -5566,7 +5569,7 @@
 
         <!-- Col 3: Collections -->
         <div class="space-y-3">
-          <h4 class="text-xs font-bold text-brand-gold uppercase tracking-wider" data-i18n="footer_col_1">Collections</h4>
+          <h3 class="text-xs font-bold text-brand-gold uppercase tracking-wider" data-i18n="footer_col_1">Collections</h3>
           <ul class="space-y-2 text-xs text-brand-ivory/70">
             <li><a href="#catalog" class="hover:text-brand-gold transition-colors" data-i18n="footer_l1">Royal Pickles Suite</a></li>
             <li><a href="#catalog" class="hover:text-brand-gold transition-colors" data-i18n="footer_l2">Table & Stuffed Olives</a></li>
@@ -5577,7 +5580,7 @@
 
         <!-- Col 4: Logistics -->
         <div class="space-y-3">
-          <h4 class="text-xs font-bold text-brand-gold uppercase tracking-wider" data-i18n="footer_col_2">B2B Logistics</h4>
+          <h3 class="text-xs font-bold text-brand-gold uppercase tracking-wider" data-i18n="footer_col_2">B2B Logistics</h3>
           <ul class="space-y-2 text-xs text-brand-ivory/70">
             <li><a href="#calculator" class="hover:text-brand-gold transition-colors" data-i18n="footer_l5">Container Load Planner</a></li>
             <li><a href="#planograms" class="hover:text-brand-gold transition-colors" data-i18n="footer_l6">Supermarket Planograms</a></li>
@@ -5589,7 +5592,7 @@
 
         <!-- Col 5: Compliance -->
         <div class="space-y-3">
-          <h4 class="text-xs font-bold text-brand-gold uppercase tracking-wider" data-i18n="footer_col_3">Compliance</h4>
+          <h3 class="text-xs font-bold text-brand-gold uppercase tracking-wider" data-i18n="footer_col_3">Compliance</h3>
           <ul class="space-y-2 text-xs text-brand-ivory/70">
             <li><span data-i18n="footer_c1">ISO 22000:2018 Certified</span></li>
             <li><span data-i18n="footer_c2">HACCP Food Safety Audit</span></li>
@@ -5720,7 +5723,7 @@
       <div class="rounded-[calc(2rem-0.375rem)] glass-card-core p-5 sm:p-8 space-y-5 sm:space-y-6 overflow-y-auto">
         <div class="flex items-center justify-between border-b border-brand-gold/20 pb-4">
           <h3 class="text-lg font-serif font-bold text-brand-gold" data-i18n="modal_rfq_title">Sample Request & RFQ</h3>
-          <button onclick="closeRFQModal()" class="w-8 h-8 rounded-full border border-brand-gold/30 hover:border-brand-gold text-brand-ivory/70 hover:text-brand-gold transition-colors flex items-center justify-center">
+          <button onclick="closeRFQModal()" aria-label="Close Sample Request Modal" class="w-8 h-8 rounded-full border border-brand-gold/30 hover:border-brand-gold text-brand-ivory/70 hover:text-brand-gold transition-colors flex items-center justify-center">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -5796,12 +5799,12 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-      <img id="lightbox-img" src="" alt="4K Full Planogram Asset" class="max-h-[75vh] w-auto object-contain rounded-xl shadow-2xl border border-brand-gold/30">
+      <img id="lightbox-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="4K Full Planogram Asset" class="max-h-[75vh] w-auto object-contain rounded-xl shadow-2xl border border-brand-gold/30">
       <div class="mt-4 text-center space-y-1">
-        <h4 id="lightbox-title" class="font-serif font-bold text-lg text-brand-ivory"></h4>
+        <h3 id=\"lightbox-title\" class=\"font-serif font-bold text-lg text-brand-ivory\"></h3>
         <p id="lightbox-desc" class="text-xs text-brand-gold"></p>
         <div class="pt-2">
-          <a id="lightbox-download" href="" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-gold text-brand-forest-obsidian font-bold text-xs hover:bg-brand-gold-light transition-all shadow-md">
+          <a id="lightbox-download" href="#" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-gold text-brand-forest-obsidian font-bold text-xs hover:bg-brand-gold-light transition-all shadow-md">
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
               <polyline points="15 3 21 3 21 9"></polyline>
@@ -5835,7 +5838,7 @@
             </div>
           </div>
 
-          <button onclick="closeTurntableModal()" class="w-8 h-8 rounded-full border border-brand-gold/30 hover:border-brand-gold text-brand-ivory/70 hover:text-brand-gold transition-colors flex items-center justify-center">
+          <button onclick="closeTurntableModal()" aria-label="Close 360 Viewer Modal" class="w-8 h-8 rounded-full border border-brand-gold/30 hover:border-brand-gold text-brand-ivory/70 hover:text-brand-gold transition-colors flex items-center justify-center">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -5927,7 +5930,7 @@
               </svg>
               <span data-i18n="proforma_btn_print">Print Document</span>
             </button>
-            <button onclick="closeProformaModal()" class="w-8 h-8 rounded-full border border-brand-gold/30 hover:border-brand-gold text-brand-ivory/70 hover:text-brand-gold transition-colors flex items-center justify-center">
+            <button onclick="closeProformaModal()" aria-label="Close Proforma Modal" class="w-8 h-8 rounded-full border border-brand-gold/30 hover:border-brand-gold text-brand-ivory/70 hover:text-brand-gold transition-colors flex items-center justify-center">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -6052,7 +6055,7 @@
             <h3 class="text-xl sm:text-2xl font-serif font-bold text-brand-gold" data-i18n="spec_modal_title">13-Point Factory Technical Specification Sheet</h3>
             <p class="text-xs text-brand-ivory/70" data-i18n="spec_modal_sub">Certified production line engineering matrix for glass jar packaging, Ti/Hi palletization, and container payload planning.</p>
           </div>
-          <button onclick="closeSpecSheetModal()" class="w-8 h-8 rounded-full border border-brand-gold/30 hover:border-brand-gold text-brand-ivory/70 hover:text-brand-gold transition-colors flex items-center justify-center flex-shrink-0">
+          <button onclick="closeSpecSheetModal()" aria-label="Close Specification Sheet Modal" class="w-8 h-8 rounded-full border border-brand-gold/30 hover:border-brand-gold text-brand-ivory/70 hover:text-brand-gold transition-colors flex items-center justify-center flex-shrink-0">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
