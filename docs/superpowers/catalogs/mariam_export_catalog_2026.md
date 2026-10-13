@@ -13,19 +13,60 @@
 
 **Mariam — Made with Love** is an internationally positioned Mediterranean gourmet export house. Grounded in multi-generational grove cultivation, Mariam balances artisanal integrity with modern luxury packaging. Every package is engineered for international shelf presence across leading luxury grocers (*Eataly, Whole Foods Market, Harrods Food Hall, Spinneys, Le Bon Marché*), 5-star hospitality, and first-class travel.
 
+Our master olive harvest is anchored by two single-varietal crown jewels of the Mediterranean:
+* **Single-Varietal Green Manzanilla**: Known globally as the "Queen of Table Olives", selected for spherical symmetry, high meat-to-pit ratio, crisp crunch, and flawless machine pitting.
+* **Reserve Andalusian Picual**: Revered for its distinctive pointed apex (*pico*), exceptionally high natural polyphenol levels (>350 mg/kg) ensuring enduring firmness, and remarkable affinity for whole-fruit maritime brining and rustic lemon-herb marination.
+
 ---
 
 ## 2. Master Product SKU Matrix & Export Specifications
 
-### Line A: Classic Table Olives (Glass Jars)
-| SKU Code | Product Description | Format / Closure | Net / Drained Weight | Case Pack | Shelf Life | HS Code |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **MAR-OLV-001** | **Whole Green Olives** in Sea Salt Brine | Flint Glass Jar / Green & Gold Lid | 370g / 200g | 12 units/case | 36 Months | 2005.70 |
-| **MAR-OLV-002** | **Whole Green Olives (Family Reserve)** | Flint Glass Jar / Green & Gold Lid | 700g / 400g | 6 units/case | 36 Months | 2005.70 |
-| **MAR-OLV-003** | **Sliced Green Olive Rings** | Flint Glass Jar / Green & Gold Lid | 370g / 180g | 12 units/case | 36 Months | 2005.70 |
-| **MAR-OLV-004** | **Pitted Green Olives** | Flint Glass Jar / Green & Gold Lid | 370g / 170g | 12 units/case | 36 Months | 2005.70 |
-| **MAR-OLV-005** | **Royal Kalamata Olives** in EVOO Brine | Glass Jar / Matte-Black & Gold Lid | 370g / 210g | 12 units/case | 36 Months | 2005.70 |
-| **MAR-OLV-006** | **Natural Black Olives** (Tree Ripened) | Flint Glass Jar / Green & Gold Lid | 370g / 200g | 12 units/case | 36 Months | 2005.70 |
+### Line A1: Single-Varietal Green Manzanilla Collection (Glass Jars)
+*Harvested from premium Mediterranean groves; calibrated for uniform caliber, delicate buttery finish, and crisp bite. Packed in 100% natural sea-salt brine with extra virgin olive oil capping.*
+
+| SKU Code | Product Description | Format / Closure | Caliber / Sizing | Net / Drained Weight | Case Pack | Shelf Life | HS Code |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **ARN-OLV-007** | **Green Manzanilla Whole Olives** in Natural Sea Salt Brine | 370ml (360g) Flint Glass Jar / Deep TO-63mm Lug Cap | 200 / 220 caliber | 370g / 200g drained | 24 units/case | 36 Months | 2005.70 |
+| **ARN-OLV-008** | **Green Manzanilla Whole (Family Reserve)** in Pure Sea Salt Brine | 720ml (700g) Flint Glass Jar / Royal TO-82mm Lug Cap | 200 / 220 caliber | 700g / 420g drained | 12 units/case | 36 Months | 2005.70 |
+| **ARN-OLV-009** | **Green Manzanilla Pitted Olives** (Precision Machine-Pitted) | 370ml (360g) Flint Glass Jar / Deep TO-63mm Lug Cap | 240 / 260 caliber | 370g / 170g drained | 24 units/case | 36 Months | 2005.70 |
+
+---
+
+### Line A2: Reserve Andalusian Picual & Herb Infusions (Glass Jars)
+*Single-varietal Spanish Andalusian Picual table olives characterized by their pointed conical apex (*pico*), natural high polyphenol concentration (>350 mg/kg), supreme firmness, and rich peppery finish.*
+
+| SKU Code | Product Description | Format / Closure | Caliber / Sizing | Net / Drained Weight | Case Pack | Shelf Life | HS Code |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **ARN-OLV-015** | **Picual Reserve Green Olives in Brine** | 370ml (360g) Flint Glass Jar / Deep TO-63mm Lug Cap | 180 / 200 jumbo | 370g / 210g drained | 24 units/case | 36 Months | 2005.70 |
+| **ARN-OLV-016** | **Picual Reserve Green Olives (Grand Format)** | 720ml (700g) Flint Glass Jar / Royal TO-82mm Lug Cap | 180 / 200 jumbo | 700g / 420g drained | 12 units/case | 36 Months | 2005.70 |
+| **ARN-OLV-017** | **Picual Rustic Herb & Lemon Marinated** (Aged Lemon, Wild Thyme & EVOO) | 370ml (360g) Flint Glass Jar / Deep TO-63mm Lug Cap | 180 / 200 jumbo | 370g / 210g drained | 24 units/case | 36 Months | 2005.70 |
+
+---
+
+### Line A3: Mediterranean Heritage Kalamata & Natural Black Olives (Glass Jars)
+*Authentic Greek-style royal Kalamata and Mediterranean tree-ripened black olives in natural maritime brine and EVOO.*
+
+| SKU Code | Product Description | Format / Closure | Caliber / Sizing | Net / Drained Weight | Case Pack | Shelf Life | HS Code |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **ARN-OLV-005** | **Royal Kalamata Olives** in EVOO & Vinegar Brine | 370ml Flint Glass Jar / Matte-Black & Gold TO-63mm | 200 / 220 caliber | 370g / 210g drained | 24 units/case | 36 Months | 2005.70 |
+| **ARN-OLV-006** | **Natural Black Olives** (Tree Ripened) | 370ml Flint Glass Jar / Deep TO-63mm Lug Cap | 200 / 220 caliber | 370g / 200g drained | 24 units/case | 36 Months | 2005.70 |
+| **ARN-OLV-003** | **Sliced Green Olive Rings** in Pure Brine | 370ml Flint Glass Jar / Deep TO-63mm Lug Cap | Uniform Cross-Cut | 370g / 180g drained | 24 units/case | 36 Months | 2005.70 |
+
+---
+
+### Bulk Industrial Matrix (HDPE Drums & Foodservice Buckets)
+*Heavy-duty bulk formats engineered for industrial re-packers, airline catering commissaries, pizza chains, and global institutional distributors requiring strict microbiological compliance, consistent sizing, and maximum drained weight yields.*
+
+| SKU Code | Product Description | Packaging / Format | Caliber / Count | Gross / Drained Weight | Units / Packaging | Shelf Life | HS Code |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **ARN-BLK-020** | **Bulk Green Manzanilla** (Whole or Pitted) in Sea Salt Brine | Food-Grade Blue HDPE Drum (220L) / Sealed Poly Liner | 200 / 220 caliber | 230kg gross / 155kg drained | 1 Drum (220L) | 24 Months | 2005.70 |
+| **ARN-BLK-021** | **Bulk Picual Green Olives** (Whole Firm Fruit) in Natural Brine | Food-Grade Blue HDPE Drum (220L) / Sealed Poly Liner | 180 / 200 jumbo | 230kg gross / 160kg drained | 1 Drum (220L) | 24 Months | 2005.70 |
+| **ARN-BLK-022** | **Foodservice Green Manzanilla Pitted / Sliced** in Pure Brine | Tamper-Evident White PP Square Pail with Handle | 240 / 260 caliber | 11.5kg gross / 10.0kg net (6.0kg drained) | 1 Foodservice Pail | 18 Months | 2005.70 |
+
+#### Bulk Pallet & FCL Container Loading Efficiency:
+* **20ft Container (FCL) Drum Payload**: **80 drums per 20ft container (18.4 MT)** gross payload. Drums floor-loaded in 20 clusters of 4 with heavy-duty interlocking poly-strapping and certified dunnage bags.
+* **40ft High Cube Container (FCL)**: Up to 110–120 drums (~25.3 to 27.6 MT subject to destination road weight regulations).
+* **Foodservice Pails (10kg)**: 72 pails per Euro-pallet (1200×800mm, 8 tiers × 9 pails), stretch-wrapped with corner-board reinforcement.
 
 ---
 
@@ -122,9 +163,12 @@
 * **Standard Pallet Dimensions (EUR 1)**: 1200 mm × 800 mm
 * **Carton Stacking**: Interlocking export cartons with heavy double-wall corrugated board (`B/C Flute`).
 * **Container Loading Efficiency**:
-  * 20ft FCL: 11 Standard Pallets (~1,400 to 1,600 master cartons).
-  * 40ft High Cube FCL: 25 Standard Pallets (~3,200 to 3,600 master cartons).
-* **Shipping Terms Available**: FOB Mediterranean Port, CIF Jebel Ali / Rotterdam / New York / Singapore.
+  * 20ft FCL (Retail Cases): 11 Standard Pallets (~1,400 to 1,600 master cartons).
+  * 40ft High Cube FCL (Retail Cases): 25 Standard Pallets (~3,200 to 3,600 master cartons).
+  * **20ft FCL (Bulk Industrial Drums)**: 80 HDPE Drums (230kg each) = **18.4 Metric Tons** gross payload.
+  * **40ft High Cube FCL (Bulk Industrial Drums)**: 110–120 HDPE Drums (~25.3 to 27.6 Metric Tons payload).
+* **Standard Shipping Terms (Incoterms 2020)**: FOB Alexandria Port, FOB Sokhna Port, CIF Rotterdam, CIF Hamburg, CIF Jebel Ali, CIF New York, CIF Singapore.
+* **International Certifications & Standards**: ISO 22000, HACCP, FDA Registered Facility, Halal Certified, Kosher Certified.
 * **Lead Times**: 14–21 business days from PO confirmation.
 
 ---
@@ -132,6 +176,12 @@
 ## 4. Visual Identity & Packaging Asset Gallery
 
 All high-resolution 4K commercial export assets are cataloged below and available in `output/imagery/`:
+- **Single-Varietal Green Manzanilla Black Studio Reference**: [`arina_manzanilla_green_olives_black_studio_reference.jpg`](file:///home/zexc/Desktop/Arina/New%20Folder/output/imagery/arina_manzanilla_green_olives_black_studio_reference.jpg)
+- **Reserve Andalusian Picual Olives Wooden Bowl Reference**: [`arina_picual_green_olives_wooden_bowl_reference.jpg`](file:///home/zexc/Desktop/Arina/New%20Folder/output/imagery/arina_picual_green_olives_wooden_bowl_reference.jpg)
+- **Heritage Green Mediterranean Table Olives Terroir Presentation**: [`arina_green_table_olives_terroir_dish_reference.jpg`](file:///home/zexc/Desktop/Arina/New%20Folder/output/imagery/arina_green_table_olives_terroir_dish_reference.jpg)
+- **Elongated Andalusian Picual Reserve Olives 4K Hero**: [`arina_elongated_picual_olives_white_studio_hero_4k.jpg`](file:///home/zexc/Desktop/Arina/New%20Folder/output/imagery/arina_elongated_picual_olives_white_studio_hero_4k.jpg)
+- **Machine-Pitted Green Manzanilla Olives 4K Hero**: [`arina_pitted_green_olives_white_studio_hero_4k.jpg`](file:///home/zexc/Desktop/Arina/New%20Folder/output/imagery/arina_pitted_green_olives_white_studio_hero_4k.jpg)
+- **The Grand Mediterranean Olive Harvest Quintet (4K Flagship)**: [`mariam_all_green_olive_harvest_quintet_4k.jpg`](file:///home/zexc/Desktop/Arina/New%20Folder/output/imagery/mariam_all_green_olive_harvest_quintet_4k.jpg)
 - **The Grand Reserve Complete Portfolio Panorama (16:9 4K Flagship)**: [`mariam_grand_reserve_complete_portfolio_panorama_4k.jpg`](file:///home/zexc/Desktop/New%20Folder/output/imagery/mariam_grand_reserve_complete_portfolio_panorama_4k.jpg)
 - **Sunlit Mediterranean Kitchen Gourmet Collection (4K Hero)**: [`mariam_all_products_sunlit_kitchen_4k.jpg`](file:///home/zexc/Desktop/New%20Folder/output/imagery/mariam_all_products_sunlit_kitchen_4k.jpg)
 - **The Master Olive Jars Architectural Trio (16:9 4K)**: [`mariam_master_olive_jars_trio_4k.jpg`](file:///home/zexc/Desktop/New%20Folder/output/imagery/mariam_master_olive_jars_trio_4k.jpg)
