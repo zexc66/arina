@@ -72,9 +72,9 @@ class TestMariamB2BWebsite(unittest.TestCase):
     def test_06_sku_catalog_database(self):
         for sku_ean in ['6281001201015', '6281001201022', '6281001202012', '6281001204016', '6281001203026', '6281001202067']:
             self.assertIn(sku_ean, self.html_content, f"EAN {sku_ean} must be present in catalog")
-        # Ensure 14 SKU objects are defined
+        # Ensure 20 SKU objects are defined
         id_matches = re.findall(r"id:\s*'([a-z0-9\-]+)'", self.html_content)
-        self.assertEqual(len(id_matches), 14, "Must contain exactly 14 SKUs in catalog")
+        self.assertEqual(len(id_matches), 20, "Must contain exactly 20 SKUs in catalog")
         # Ensure every media path referenced in the file exists on disk
         media_paths = re.findall(r'[\"\']([a-zA-Z0-9_\-\./]+\.(?:jpg|png|mp4))[\"\']', self.html_content)
         for path in set(media_paths):
