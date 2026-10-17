@@ -10,9 +10,10 @@ guaranteeing ZERO ghost text or hallucinated artifacts.
 import os
 from PIL import Image, ImageDraw, ImageFilter
 
-OUTPUT_DIR = '/home/zexc/Desktop/Arina/New Folder/output/imagery'
+WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUTPUT_DIR = os.path.join(WORKSPACE_DIR, 'output/imagery')
 BRAIN_DIR = '/home/zexc/.gemini/antigravity/brain/3d8927e4-3c48-4f4b-b899-e68bfea55e7d'
-LOGO_GOLD = '/home/zexc/Desktop/Arina/New Folder/mariam-logo-gold.png'
+LOGO_GOLD = os.path.join(WORKSPACE_DIR, 'mariam-logo-gold.png')
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(BRAIN_DIR, exist_ok=True)

@@ -438,8 +438,104 @@ class TestMariamB2BWebsite(unittest.TestCase):
         self.assertIn('id="whatsapp-header-btn" onclick="toggleWhatsAppHeaderDropdown(event)" class="flex-shrink-0', self.html_content, "WhatsApp header button must have flex-shrink-0")
         self.assertIn('2xl:max-w-[1480px]', self.html_content, "Header glass-island must support wide display layout (1480px)")
 
+    def test_27_bugfixes_and_data_parity(self):
+        """Verify fixes for all 10 audited runtime, logic, i18n, RTL, and accessibility bugs."""
+        # 1. loadDiscoveryFlight must call updateBasketUI(), not undefined updateSampleBasketUI()
+        self.assertNotIn("updateSampleBasketUI", self.html_content, "Must not call undefined updateSampleBasketUI()")
+        flight_match = re.search(r'function loadDiscoveryFlight\(\)\s*\{([\s\S]*?)\n    \}', self.html_content)
+        self.assertIsNotNone(flight_match, "loadDiscoveryFlight function must exist")
+        self.assertIn("updateBasketUI()", flight_match.group(1), "loadDiscoveryFlight must call updateBasketUI()")
+
+        # 2. All 20 SKUs (including 6 Manzanilla & Picual SKUs) must exist in TURNTABLE_PRODUCTS
+        turntable_match = re.search(r'const TURNTABLE_PRODUCTS\s*=\s*\{([\s\S]*?)\n    \};', self.html_content)
+        self.assertIsNotNone(turntable_match, "TURNTABLE_PRODUCTS object must exist")
+        turntable_block = turntable_match.group(1)
+        for sku_id in [
+            'manzanilla-whole-370', 'manzanilla-whole-720', 'manzanilla-pitted-370',
+            'picual-whole-370', 'picual-whole-720', 'picual-rustic-370'
+        ]:
+            self.assertIn(f"'{sku_id}':", turntable_block, f"SKU {sku_id} must be present in TURNTABLE_PRODUCTS")
+
+        # 3. calculateLogistics() must check unclamped rawFillPct > 100 and call updateProformaLineItems()
+        calc_match = re.search(r'function calculateLogistics\(\)\s*\{([\s\S]*?)\n    function ', self.html_content)
+        self.assertIsNotNone(calc_match, "calculateLogistics function must exist")
+        calc_block = calc_match.group(1)
+        self.assertIn("rawFillPct > 100", calc_block, "calculateLogistics must check unclamped rawFillPct > 100 for overload alert")
+        self.assertIn("updateProformaLineItems()", calc_block, "calculateLogistics must keep Proforma Invoice synchronized")
+
+        # 4. updateProformaLineItems() must respect explicit 0 quantities (no || 400 fallback)
+        proforma_match = re.search(r'function updateProformaLineItems\(\)\s*\{([\s\S]*?)\n    function ', self.html_content)
+        self.assertIsNotNone(proforma_match, "updateProformaLineItems function must exist")
+        proforma_block = proforma_match.group(1)
+        self.assertNotIn("|| 400", proforma_block, "updateProformaLineItems must not overwrite 0 with || 400")
+        self.assertNotIn("|| 300", proforma_block, "updateProformaLineItems must not overwrite 0 with || 300")
+        self.assertNotIn("|| 350", proforma_block, "updateProformaLineItems must not overwrite 0 with || 350")
+        self.assertNotIn("|| 250", proforma_block, "updateProformaLineItems must not overwrite 0 with || 250")
+        self.assertNotIn("text-right", proforma_block, "updateProformaLineItems must use logical text-end instead of text-right")
+
+        # 5. Varieties Guide: Manzanilla card present, zero static Arabic in visible HTML text, searchVarieties respects active tab
+        self.assertIn('data-i18n="variety_manzanilla_name"', self.html_content, "Must have Manzanilla card in #varieties-guide")
+        guide_match = re.search(r'<section id="varieties-guide"[\s\S]*?</section>', self.html_content)
+        self.assertIsNotNone(guide_match, "#varieties-guide section must exist")
+        guide_visible = re.sub(r'<!--[\s\S]*?-->', '', guide_match.group(0))
+        guide_visible = re.sub(r'(?:onclick|data-search)="[^"]*"', '', guide_visible)
+        arabic_in_guide = re.findall(r'[\u0600-\u06FF]+', guide_visible)
+        self.assertEqual(len(arabic_in_guide), 0, f"#varieties-guide visible static HTML must have zero Arabic characters to prevent flash of Arabic in English mode; found: {arabic_in_guide[:5]}")
+        search_var_match = re.search(r'function searchVarieties\([^\)]*\)\s*\{([\s\S]*?)\n    \}', self.html_content)
+        self.assertIsNotNone(search_var_match, "searchVarieties function must exist")
+        self.assertIn("activeVarietyCat", search_var_match.group(1), "searchVarieties must respect activeVarietyCat filter")
+
+        # 6. Brand integrity: zero occurrences of old Arabic brand name 'ماريم'
+        self.assertNotIn("ماريم", self.html_content, "Must have zero occurrences of legacy Arabic brand name 'ماريم'")
+
+        # 7. Escape key handler closes all modals and popovers
+        esc_match = re.search(r"e\.key\s*===\s*'Escape'[\s\S]*?\}\s*\}\);", self.html_content)
+        self.assertIsNotNone(esc_match, "Escape key listener must exist")
+        esc_block = esc_match.group(0)
+        for fn_or_id in ['closeTurntableModal', 'closeProformaModal', 'closeSpecSheetModal', 'currency-dropdown', 'whatsapp-header-dropdown']:
+            self.assertIn(fn_or_id, esc_block, f"Escape key handler must close {fn_or_id}")
+
+        # 8. RTL & Touch & Accessibility fixes
+        self.assertIn("setCurrency('GBP')", self.html_content.split('id="mobile-menu"')[1].split('</aside>')[0], "Mobile menu must include GBP currency button")
+        self.assertIn('onclick="showSimHud(', self.html_content, "Container simulator SVG slots must support touch onclick")
+        self.assertIn('src="${product.img}" alt="${name}" class="w-10 h-10', self.html_content, "renderMatrix images must have alt attribute")
+
+    def test_28_mobile_performance_optimizations(self):
+        """Verify mobile image payload optimization, CLS prevention, content-visibility, and mobile GPU rules."""
+        # 1. Responsive mobile thumbnails exist in output/imagery/mobile/ and are referenced via srcset
+        mobile_img_dir = os.path.join(WORKSPACE_DIR, 'output', 'imagery', 'mobile')
+        self.assertTrue(os.path.isdir(mobile_img_dir), "output/imagery/mobile directory must exist for responsive mobile thumbnails")
+        mobile_files = [f for f in os.listdir(mobile_img_dir) if f.endswith('.jpg')]
+        self.assertGreaterEqual(len(mobile_files), 35, "Must generate responsive mobile thumbnails for 4K JPEG assets")
+        for mf in mobile_files:
+            sz = os.path.getsize(os.path.join(mobile_img_dir, mf))
+            self.assertLessEqual(sz, 160_000, f"Mobile thumbnail {mf} must be <= 160KB, got {sz} bytes")
+        self.assertIn('srcset="output/imagery/mobile/', self.html_content, "website.html must use responsive srcset pointing to output/imagery/mobile/")
+
+        # 2. Hero LCP preload link in <head>
+        self.assertIn('<link rel="preload" as="image" href="output/imagery/arina_complete_gastronomy_trinity_hero_4k.jpg"', self.html_content, "Must preload Hero LCP image")
+
+        # 3. Every static <img> tag in website.html must have explicit width and height attributes to prevent CLS
+        for idx, img_attrs in enumerate(self.parser.tags.get('img', [])):
+            src = img_attrs.get('src', f'img#{idx}')
+            if '${' in src:
+                continue
+            self.assertIn('width', img_attrs, f"Static <img> ({src}) must have explicit width attribute for zero CLS")
+            self.assertIn('height', img_attrs, f"Static <img> ({src}) must have explicit height attribute for zero CLS")
+
+        # 4. CSS content-visibility: auto for below-the-fold sections and mobile compositor optimizations
+        self.assertIn('content-visibility: auto', self.html_content, "Must apply content-visibility: auto to offscreen sections")
+        self.assertIn('contain-intrinsic-size:', self.html_content, "Must pair content-visibility: auto with contain-intrinsic-size")
+        self.assertIn('@media (hover: none)', self.html_content, "Must disable 3D tilt and specular sheen layers on touch devices via @media (hover: none)")
+
+        # 5. Preloader animation must not animate software filter: drop-shadow
+        preloader_kf = re.search(r'@keyframes preloaderLogoPulse\s*\{([\s\S]*?)\n\s*\}', self.html_content)
+        self.assertIsNotNone(preloader_kf, "preloaderLogoPulse keyframes must exist")
+        self.assertNotIn('drop-shadow', preloader_kf.group(1), "preloaderLogoPulse must not animate software filter: drop-shadow")
+
 if __name__ == '__main__':
     unittest.main()
+
 
 
 

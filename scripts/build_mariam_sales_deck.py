@@ -393,6 +393,6 @@ d9.text((1010, y_pi), "Contact US & European Export Desk | Inquire for Immediate
 slides.append(s9)
 
 # Save Master PDF
-pdf_path = "/home/zexc/Desktop/New Folder/Mariam-Luxury-Sales-Pitch-USA-EU.pdf"
+pdf_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "Mariam-Luxury-Sales-Pitch-USA-EU.pdf")
 slides[0].save(pdf_path, "PDF", resolution=150.0, save_all=True, append_images=slides[1:])
 print(f"Master B2B Sales Pitch Deck PDF successfully compiled: {pdf_path} ({len(slides)} slides)")

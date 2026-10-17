@@ -2,7 +2,7 @@ import unittest
 import os
 from PIL import Image
 
-WORKSPACE_DIR = '/home/zexc/Desktop/New Folder'
+WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(WORKSPACE_DIR, 'output/imagery')
 
 class TestAmazonAPlusAndSellSheets(unittest.TestCase):

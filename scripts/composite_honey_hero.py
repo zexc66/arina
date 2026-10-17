@@ -8,7 +8,8 @@ onto 4K commercial photography with 2x supersampling, shadow embossing, and zero
 import os
 from PIL import Image, ImageDraw, ImageFilter
 
-OUTPUT_DIR = '/home/zexc/Desktop/New Folder/output/imagery'
+WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUTPUT_DIR = os.path.join(WORKSPACE_DIR, 'output/imagery')
 BRAIN_DIR = '/home/zexc/.gemini/antigravity/brain/3d8927e4-3c48-4f4b-b899-e68bfea55e7d'
 
 def composite_hero(src_path, logo_path=('arina-logo-gold.png' if os.path.exists('arina-logo-gold.png') else 'mariam-logo-gold.png'), out_path='output/imagery/mariam_honey_royal_mix_hero_commercial_4k.jpg'):
