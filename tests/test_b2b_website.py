@@ -533,6 +533,56 @@ class TestMariamB2BWebsite(unittest.TestCase):
         self.assertIsNotNone(preloader_kf, "preloaderLogoPulse keyframes must exist")
         self.assertNotIn('drop-shadow', preloader_kf.group(1), "preloaderLogoPulse must not animate software filter: drop-shadow")
 
+    def test_29_b2b_conversion_persistence_and_seo_enhancements(self):
+        """Verify Executive RFQ Dispatch Modal, localStorage/URL state persistence, SEO/JSON-LD, pre-compiled Tailwind CSS, and Vercel rewrites."""
+        # 1. Executive RFQ Dispatch Modal replacing blocking alert()
+        self.assertIn('id="rfq-dispatch-modal"', self.html_content, "Must have #rfq-dispatch-modal in DOM")
+        self.assertIn('id="rfq-dispatch-wa-egypt"', self.html_content, "Must have Egypt WhatsApp dispatch action in modal")
+        self.assertIn('id="rfq-dispatch-wa-spain"', self.html_content, "Must have Spain WhatsApp dispatch action in modal")
+        self.assertIn('id="rfq-dispatch-email"', self.html_content, "Must have Export Email dispatch action in modal")
+        self.assertIn('id="rfq-dispatch-proforma"', self.html_content, "Must have Proforma Invoice action in modal")
+        rfq_sub_match = re.search(r'function handleRFQSubmit\(e\)\s*\{([\s\S]*?)\n    \}', self.html_content)
+        self.assertIsNotNone(rfq_sub_match, "handleRFQSubmit function must exist")
+        self.assertNotIn('alert(', rfq_sub_match.group(1), "handleRFQSubmit must not use blocking browser alert()")
+        self.assertIn('openRFQDispatchModal', rfq_sub_match.group(1), "handleRFQSubmit must open executive RFQ dispatch modal")
+
+        # 2. LocalStorage state persistence for Sample Basket, Language, Currency, and Calculator
+        for key in ['arina_basket', 'arina_lang', 'arina_currency', 'arina_calc_state']:
+            self.assertIn(f"localStorage.setItem('{key}'", self.html_content, f"Must persist {key} to localStorage")
+            self.assertIn(f"localStorage.getItem('{key}'", self.html_content, f"Must restore {key} from localStorage")
+
+        # 3. Shareable Container & ROI Deep-Links
+        self.assertIn('id="btn-share-config"', self.html_content, "Must have Shareable Config Link button in calculator")
+        self.assertIn('function copyShareableConfigLink', self.html_content, "Must define copyShareableConfigLink function")
+        self.assertIn('function restoreStateFromUrlAndStorage', self.html_content, "Must define restoreStateFromUrlAndStorage function")
+
+        # 4. Zero-RTT Root Rewrite & Immutable Asset Caching in vercel.json
+        vercel_path = os.path.join(WORKSPACE_DIR, 'vercel.json')
+        with open(vercel_path, 'r', encoding='utf-8') as vf:
+            vercel_content = vf.read()
+        self.assertIn('"rewrites"', vercel_content, "vercel.json must use zero-RTT rewrites instead of redirects")
+        self.assertIn('tailwind-compiled.css', vercel_content, "vercel.json must cache tailwind-compiled.css")
+
+        # 5. Pre-compiled static Tailwind CSS replacing runtime Play CDN
+        compiled_css_path = os.path.join(WORKSPACE_DIR, 'styles', 'tailwind-compiled.css')
+        self.assertTrue(os.path.exists(compiled_css_path), "styles/tailwind-compiled.css must exist on disk")
+        self.assertGreater(os.path.getsize(compiled_css_path), 15_000, "styles/tailwind-compiled.css must be populated")
+        self.assertIn('href="styles/tailwind-compiled.css"', self.html_content, "website.html must link pre-compiled Tailwind stylesheet")
+        self.assertNotIn('cdn.tailwindcss.com', self.html_content, "website.html must not load runtime cdn.tailwindcss.com compiler")
+
+        # 6. OpenGraph, Twitter Cards, Canonical, and JSON-LD Structured Data
+        self.assertIn('property="og:title"', self.html_content, "Must include OpenGraph og:title")
+        self.assertIn('property="og:description"', self.html_content, "Must include OpenGraph og:description")
+        self.assertIn('property="og:image"', self.html_content, "Must include OpenGraph og:image for WhatsApp/LinkedIn previews")
+        self.assertIn('name="twitter:card"', self.html_content, "Must include Twitter Card metadata")
+        self.assertIn('rel="canonical"', self.html_content, "Must include canonical link tag")
+        self.assertIn('application/ld+json', self.html_content, "Must include Schema.org JSON-LD structured data")
+
+        # 7. Interactive Footer Compliance Triggers & Modal Body Scroll Lock
+        self.assertIn('function syncBodyScrollLock', self.html_content, "Must define syncBodyScrollLock for modal scroll locking")
+        self.assertIn('onclick="openProformaModal()" data-i18n="footer_terms"', self.html_content, "Footer B2B Terms must be interactive")
+        self.assertIn('onclick="openSpecSheetModal()" data-i18n="footer_charter"', self.html_content, "Footer QA Charter must be interactive")
+
 if __name__ == '__main__':
     unittest.main()
 

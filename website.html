@@ -6,6 +6,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARINA — B2B & Export Wholesale Web Portal | Artisanal Mediterranean Harvest</title>
   <meta name="description" content="Official B2B & Wholesale Export Portal for Arina. Premium artisanal glass-packaged pickles, olives, garlic pastes, and tapenades for supermarket buyers and FMCG distributors.">
+  <link rel="canonical" href="https://arina-ziads-projects-47c4c0c0.vercel.app/">
+
+  <!-- OpenGraph / Executive Social Preview Metadata (WhatsApp, LinkedIn, Slack) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARINA Export & Wholesale">
+  <meta property="og:title" content="ARINA — B2B & Export Wholesale Web Portal | Artisanal Mediterranean Harvest">
+  <meta property="og:description" content="Single-estate Mediterranean table olives, wild baby cornichons, whipped toum, and gourmet tapenades in 100% flint glass & 230kg bulk drums. Interactive FCL Container & Retail ROI Simulator.">
+  <meta property="og:url" content="https://arina-ziads-projects-47c4c0c0.vercel.app/">
+  <meta property="og:image" content="https://arina-ziads-projects-47c4c0c0.vercel.app/output/imagery/arina_complete_gastronomy_trinity_hero_4k.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter / X Executive Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ARINA — B2B & Export Wholesale Web Portal | Artisanal Mediterranean Harvest">
+  <meta name="twitter:description" content="Official B2B & Export Wholesale Portal for Arina. 100% Flint Glass & 230kg Bulk Export Drums with Interactive FCL Container & Retail ROI Simulator.">
+  <meta name="twitter:image" content="https://arina-ziads-projects-47c4c0c0.vercel.app/output/imagery/arina_complete_gastronomy_trinity_hero_4k.jpg">
+
+  <!-- JSON-LD B2B Organization & Wholesale Catalog Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "ARINA Agricultural & Food Industries",
+        "url": "https://arina-ziads-projects-47c4c0c0.vercel.app/",
+        "description": "Single-estate Mediterranean artisanal producer and global B2B exporter of premium flint-glass pickles, table olives, garlic pastes, and tapenades.",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+20-10-08716714",
+            "contactType": "sales",
+            "areaServed": ["MENA", "GCC", "Global"],
+            "availableLanguage": ["English", "Arabic"]
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+34-641-648-681",
+            "contactType": "sales",
+            "areaServed": ["EU", "UK", "North America"],
+            "availableLanguage": ["English", "Spanish", "Arabic"]
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "ARINA Commercial Export Wholesale Catalog",
+        "numberOfItems": 20,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Crisp Baby Cucumbers & Fresh Dill (720ml / 700g Flint Glass)" },
+          { "@type": "ListItem", "position": 2, "name": "Wild Baby Turnip & Natural Beetroot (720ml / 700g Flint Glass)" },
+          { "@type": "ListItem", "position": 3, "name": "Royal Kalamata Whole Olives in EVOO & Sea Brine (370ml / 360g Flint Glass)" },
+          { "@type": "ListItem", "position": 4, "name": "Cloud-Whipped Toum Garlic Paste (210g Flint Glass)" },
+          { "@type": "ListItem", "position": 5, "name": "Industrial Bulk Export Olives & Pickles (230kg Food-Grade HDPE Drum)" }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <script>
     (function() {
       try {
@@ -31,41 +92,8 @@
   <link rel="preload" as="image" href="output/imagery/arina_complete_gastronomy_trinity_hero_4k.jpg" imagesrcset="output/imagery/mobile/arina_complete_gastronomy_trinity_hero_4k.jpg 800w, output/imagery/arina_complete_gastronomy_trinity_hero_4k.jpg 3840w" imagesizes="(max-width: 768px) 100vw, 50vw">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              forest: '#1E3326',
-              'forest-dark': '#102016',
-              'forest-obsidian': '#0A150F',
-              'forest-card': '#14251B',
-              'forest-light': '#274232',
-              gold: '#DAAC36',
-              'gold-light': '#EED48E',
-              'gold-dark': '#B88E28',
-              ivory: '#F8F5EE',
-              cream: '#F4F1EA',
-              ruby: '#691630',
-              charcoal: '#1A1C1B'
-            }
-          },
-          fontFamily: {
-            serif: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
-            display: ['"Cinzel"', '"Playfair Display"', 'Georgia', 'serif'],
-            sans: ['"Outfit"', '"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-            garamond: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            arabic: ['"Tajawal"', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Pre-Compiled Production Tailwind CSS (Zero Runtime Blocking) -->
+  <link rel="stylesheet" href="styles/tailwind-compiled.css">
 
   <!-- GSAP for Smooth Choreography -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
@@ -2466,7 +2494,7 @@
                   </div>
                 </button>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <button onclick="openProformaModal()" class="w-full py-2.5 px-3 rounded-full border border-brand-gold/60 bg-brand-gold/10 hover:bg-brand-gold/20 text-brand-gold font-bold text-xs transition-colors inline-flex items-center justify-center gap-1.5 shadow-sm">
                     <svg class="w-4 h-4 text-brand-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -2483,6 +2511,17 @@
                       <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                     </svg>
                     <span data-i18n="calc_cta_copy">Copy Packing Manifest</span>
+                  </button>
+
+                  <button id="btn-share-config" type="button" onclick="copyShareableConfigLink()" class="w-full py-2.5 px-3 rounded-full border border-brand-gold/40 text-brand-gold hover:bg-brand-gold/10 font-semibold text-xs transition-colors inline-flex items-center justify-center gap-1.5">
+                    <svg class="w-4 h-4 text-brand-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="18" cy="5" r="3"></circle>
+                      <circle cx="6" cy="12" r="3"></circle>
+                      <circle cx="18" cy="19" r="3"></circle>
+                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                    <span data-i18n="calc_cta_share_link">Share Container Link</span>
                   </button>
                 </div>
               </div>
@@ -5729,9 +5768,9 @@
           © 2026 ARINA. All Rights Reserved.
         </div>
         <div class="flex items-center space-x-4 rtl:space-x-reverse">
-          <span class="hover:text-brand-gold cursor-pointer" data-i18n="footer_terms">B2B Terms & Conditions</span>
+          <button type="button" class="hover:text-brand-gold cursor-pointer transition-colors" onclick="openProformaModal()" data-i18n="footer_terms">B2B Terms & Conditions</button>
           <span>•</span>
-          <span class="hover:text-brand-gold cursor-pointer" data-i18n="footer_charter">Quality Assurance Charter</span>
+          <button type="button" class="hover:text-brand-gold cursor-pointer transition-colors" onclick="openSpecSheetModal()" data-i18n="footer_charter">Quality Assurance Charter</button>
           <span>•</span>
           <a href="#hero" class="text-brand-gold hover:underline" data-i18n="footer_top">Back to Top ↑</a>
         </div>
@@ -5905,6 +5944,65 @@
               Keep Browsing
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: EXECUTIVE RFQ MULTI-CHANNEL DISPATCH HUB -->
+  <!-- ========================================================================= -->
+  <div id="rfq-dispatch-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="rounded-[2rem] p-1.5 glass-card-shell max-w-xl w-full my-auto max-h-[92vh] flex flex-col">
+      <div class="rounded-[calc(2rem-0.375rem)] glass-card-core p-6 sm:p-8 space-y-6 overflow-y-auto">
+        <div class="flex items-start justify-between border-b border-brand-gold/20 pb-4">
+          <div class="space-y-1">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-[10px] font-bold uppercase tracking-widest text-emerald-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span data-i18n="rfq_dispatch_badge">COMMERCIAL DOSSIER READY</span>
+            </div>
+            <h3 class="text-xl font-serif font-bold text-brand-gold" data-i18n="rfq_dispatch_title">Select Your Direct Export Dispatch Channel</h3>
+            <p class="text-xs text-brand-ivory/75" data-i18n="rfq_dispatch_sub">Your trade inquiry, container specifications, and sample selection have been compiled. Transmit directly to our trade directorate or print your official proforma invoice:</p>
+          </div>
+          <button onclick="closeRFQDispatchModal()" aria-label="Close RFQ Dispatch Modal" class="w-8 h-8 rounded-full border border-brand-gold/30 hover:border-brand-gold text-brand-ivory/70 hover:text-brand-gold transition-colors flex items-center justify-center shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div id="rfq-dispatch-summary-text" class="p-4 rounded-xl bg-brand-forest-obsidian/90 border border-brand-gold/25 text-xs text-brand-ivory/90 font-mono whitespace-pre-wrap max-h-44 overflow-y-auto leading-relaxed"></div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a id="rfq-dispatch-wa-egypt" href="https://wa.me/201008716714" target="_blank" rel="noopener noreferrer" class="py-3.5 px-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs inline-flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 text-center">
+            <span class="w-2 h-2 rounded-full bg-white animate-pulse shrink-0"></span>
+            <span data-i18n="rfq_dispatch_wa_egypt_btn">Dispatch to Egypt HQ WhatsApp</span>
+          </a>
+
+          <a id="rfq-dispatch-wa-spain" href="https://wa.me/34641648681" target="_blank" rel="noopener noreferrer" class="py-3.5 px-4 rounded-full border border-emerald-500/40 bg-emerald-950/70 hover:bg-emerald-600 text-emerald-300 hover:text-white font-bold text-xs inline-flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 text-center">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+            <span data-i18n="rfq_dispatch_wa_spain_btn">Dispatch to Madrid Desk WhatsApp</span>
+          </a>
+
+          <a id="rfq-dispatch-email" href="mailto:export@arinaharvest.com" class="py-3.5 px-4 rounded-full bg-brand-gold hover:bg-brand-gold-light text-brand-forest-obsidian font-bold text-xs inline-flex items-center justify-center gap-2 transition-all shadow-md text-center">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span data-i18n="rfq_dispatch_email_btn">Transmit via Official Export Email</span>
+          </a>
+
+          <button id="rfq-dispatch-proforma" type="button" onclick="closeRFQDispatchModal(); openProformaModal();" class="py-3.5 px-4 rounded-full border border-brand-gold/50 bg-brand-gold/15 hover:bg-brand-gold hover:text-brand-forest-obsidian text-brand-gold font-bold text-xs inline-flex items-center justify-center gap-2 transition-all shadow-md text-center cursor-pointer">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <span data-i18n="rfq_dispatch_proforma_btn">Open & Print Proforma Invoice</span>
+          </button>
+        </div>
+
+        <div class="pt-2 border-t border-brand-gold/15 flex justify-end">
+          <button type="button" onclick="closeRFQDispatchModal()" class="py-2 px-5 rounded-full border border-brand-gold/30 text-brand-ivory/80 hover:text-brand-gold text-xs font-semibold transition-colors" data-i18n="rfq_dispatch_close_btn">
+            Close Window
+          </button>
         </div>
       </div>
     </div>
@@ -7570,7 +7668,16 @@
         "flight_btn_load": "Load 6-Jar Discovery Flight",
         "flight_courier_tag": "Priority Courier: DHL Express / FedEx Cold-Chain (Complimentary for Importers)",
         "dock_rfq_label": "Sample Caddy",
-        "dock_top": "Top"
+        "dock_top": "Top",
+        "calc_cta_share_link": "Share Container Link",
+        "rfq_dispatch_badge": "COMMERCIAL DOSSIER READY",
+        "rfq_dispatch_title": "Select Your Direct Export Dispatch Channel",
+        "rfq_dispatch_sub": "Your trade inquiry, container specifications, and sample selection have been compiled. Transmit directly to our trade directorate or print your official proforma invoice:",
+        "rfq_dispatch_wa_egypt_btn": "Dispatch to Egypt HQ WhatsApp",
+        "rfq_dispatch_wa_spain_btn": "Dispatch to Madrid Desk WhatsApp",
+        "rfq_dispatch_email_btn": "Transmit via Official Export Email",
+        "rfq_dispatch_proforma_btn": "Open & Print Proforma Invoice",
+        "rfq_dispatch_close_btn": "Close Window"
       },
       ar: {
         "nav_b2b_tag": "تصدير B2B",
@@ -8393,7 +8500,16 @@
         "flight_btn_load": "تحميل باقة عينات الاستكشاف (6 برطمانات)",
         "flight_courier_tag": "شحن عينات جوي سريع: DHL Express / FedEx مبرد (مجاناً للمستوردين المعتمدين)",
         "dock_rfq_label": "سلة العينات",
-        "dock_top": "الأعلى"
+        "dock_top": "الأعلى",
+        "calc_cta_share_link": "مشاركة رابط الشحنة",
+        "rfq_dispatch_badge": "ملف الطلب التجاري جاهز للإرسال",
+        "rfq_dispatch_title": "اختر قناة الإرسال المباشر لإدارة التصدير",
+        "rfq_dispatch_sub": "تم تجهيز بيانات طلب التسعير ومواصفات الحاوية وسلة العينات بنجاح. يمكنك الإرسال الفوري عبر مكاتبنا الإقليمية أو طباعة الفاتورة المبدئية الرسمية:",
+        "rfq_dispatch_wa_egypt_btn": "إرسال لمكتب تصدير مصر (واتساب)",
+        "rfq_dispatch_wa_spain_btn": "إرسال لمكتب مدريد إسبانيا (واتساب)",
+        "rfq_dispatch_email_btn": "إرسال عبر البريد الرسمي للتصدير",
+        "rfq_dispatch_proforma_btn": "فتح وطباعة الفاتورة المبدئية (Proforma)",
+        "rfq_dispatch_close_btn": "إغلاق النافذة"
       }
     };
 
@@ -8408,6 +8524,9 @@
     // -------------------------------------------------------------------------
     function switchLanguage(lang) {
       currentLang = lang;
+      try {
+        localStorage.setItem('arina_lang', lang);
+      } catch (e) {}
       const html = document.documentElement;
       
       const langEl = document.getElementById('lang-current');
@@ -8874,6 +8993,9 @@
         sampleBasket.push(id);
         showToast(currentLang === 'ar' ? `تمت إضافة ${pName} لسلة العينات!` : `Added ${prod.name_en} to sample basket!`);
       }
+      try {
+        localStorage.setItem('arina_basket', JSON.stringify(sampleBasket));
+      } catch (e) {}
       updateBasketUI();
       if (currentViewMode === 'matrix') renderMatrix();
       else renderProducts();
@@ -8905,6 +9027,7 @@
       } else {
         const itemsHTML = sampleBasket.map(id => {
           const p = PRODUCTS.find(x => x.id === id);
+          if (!p) return '';
           const pName = currentLang === 'ar' ? p.name_ar : p.name_en;
           const pFormat = currentLang === 'ar' ? (p.format_ar || p.format) : p.format;
           return `
@@ -8950,8 +9073,9 @@
       const separator = currentLang === 'ar' ? '، ' : ', ';
       const itemsSummary = sampleBasket.map(id => {
         const p = PRODUCTS.find(x => x.id === id);
+        if (!p) return '';
         return currentLang === 'ar' ? p.name_ar : p.name_en;
-      }).join(separator);
+      }).filter(Boolean).join(separator);
       const waText = currentLang === 'ar'
         ? encodeURIComponent(`السلام عليكم ورحمة الله، أنا من طرف [الشركة: ${company}، ميناء الوصول: ${port}، شرط التسليم: ${incoterm}]. أرغب في طلب عينات تجارية وعرض أسعار رسمي لتشكيلة: ${itemsSummary || 'كامل المنتجات'}.`)
         : encodeURIComponent(`Hello, I am reaching out on behalf of [Company: ${company}, Destination Port: ${port}, Incoterm: ${incoterm}]. I would like to request commercial export samples and an official trade quotation for: ${itemsSummary || 'Complete Product Portfolio'}.`);
@@ -8969,10 +9093,12 @@
     function openRFQModal() {
       updateBasketUI();
       document.getElementById('rfq-modal').classList.remove('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
     }
 
     function closeRFQModal() {
       document.getElementById('rfq-modal').classList.add('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
     }
 
     function showToast(msg) {
@@ -9489,6 +9615,9 @@
       if (typeof updateProformaLineItems === 'function') {
         updateProformaLineItems();
       }
+      if (typeof persistCalculatorState === 'function') {
+        persistCalculatorState();
+      }
     }
 
     function transferCalculatorToRFQ() {
@@ -9884,6 +10013,9 @@
           ? `${totalChainAnnualUnits.toLocaleString()} برطمان`
           : `${totalChainAnnualUnits.toLocaleString()} Jars`;
       }
+      if (typeof persistCalculatorState === 'function') {
+        persistCalculatorState();
+      }
     }
 
     function transferROIToRFQ() {
@@ -10013,10 +10145,12 @@
       document.getElementById('lightbox-desc').textContent = desc || '';
       document.getElementById('lightbox-download').href = imgSrc;
       document.getElementById('lightbox-modal').classList.remove('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
     }
 
     function closeLightbox() {
       document.getElementById('lightbox-modal').classList.add('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
     }
 
     // -------------------------------------------------------------------------
@@ -10120,25 +10254,79 @@
     }
 
     // -------------------------------------------------------------------------
-    // 9. RFQ FORM SUBMISSION
+    // 9. RFQ FORM SUBMISSION & MULTI-CHANNEL EXECUTIVE DISPATCH
     // -------------------------------------------------------------------------
+    function openRFQDispatchModal(payload) {
+      const modal = document.getElementById('rfq-dispatch-modal');
+      if (!modal) return;
+
+      const summaryEl = document.getElementById('rfq-dispatch-summary-text');
+      const waEgyptEl = document.getElementById('rfq-dispatch-wa-egypt');
+      const waSpainEl = document.getElementById('rfq-dispatch-wa-spain');
+      const emailEl = document.getElementById('rfq-dispatch-email');
+
+      const separator = currentLang === 'ar' ? '، ' : ', ';
+      const sampleNames = sampleBasket.map(itemId => {
+        const p = PRODUCTS.find(x => x.id === itemId);
+        if (!p) return '';
+        return currentLang === 'ar' ? p.name_ar : p.name_en;
+      }).filter(Boolean).join(separator) || (currentLang === 'ar' ? 'كامل تشكيلة التصدير' : 'Complete Export Portfolio');
+
+      const summaryText = currentLang === 'ar'
+        ? `مشتري الجملة: ${payload.name} (${payload.company})\n` +
+          `البريد / الهاتف: ${payload.email} | ${payload.phone}\n` +
+          `ميناء الوصول: ${payload.port} | شرط التسليم: ${payload.incoterm}\n` +
+          `حجم الشحنة: ${payload.volume}\n` +
+          `العينات المطلوبة: ${sampleNames}` +
+          (payload.notes ? `\nملاحظات: ${payload.notes}` : '')
+        : `Buyer Contact: ${payload.name} (${payload.company})\n` +
+          `Email / Phone: ${payload.email} | ${payload.phone}\n` +
+          `Destination Port: ${payload.port} | Incoterm: ${payload.incoterm}\n` +
+          `Target Volume: ${payload.volume}\n` +
+          `Selected Samples: ${sampleNames}` +
+          (payload.notes ? `\nNotes: ${payload.notes}` : '');
+
+      if (summaryEl) summaryEl.textContent = summaryText;
+
+      const encodedMsg = encodeURIComponent(summaryText);
+      if (waEgyptEl) waEgyptEl.href = `https://wa.me/201008716714?text=${encodedMsg}`;
+      if (waSpainEl) waSpainEl.href = `https://wa.me/34641648681?text=${encodedMsg}`;
+
+      const subject = encodeURIComponent(
+        currentLang === 'ar'
+          ? `طلب تسعير تصديري وعينات — ${payload.company} (${payload.port})`
+          : `Commercial Export RFQ & Sample Request — ${payload.company} (${payload.port})`
+      );
+      if (emailEl) emailEl.href = `mailto:export@arinaharvest.com?subject=${subject}&body=${encodedMsg}`;
+
+      modal.classList.remove('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
+    }
+
+    function closeRFQDispatchModal() {
+      const modal = document.getElementById('rfq-dispatch-modal');
+      if (modal) modal.classList.add('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
+    }
+
     function handleRFQSubmit(e) {
       e.preventDefault();
-      const name = document.getElementById('rfq-name').value;
-      const company = document.getElementById('rfq-company').value;
-      const port = document.getElementById('rfq-port').value;
-      
-      const successMsg = currentLang === 'ar'
-        ? `شكراً لك أستاذ ${name} ممثل شركة (${company})!\n\nتم استلام طلب التسعير والعينات للشحن إلى (${port}) بنجاح. سيقوم فريق التصدير بإرسال عرض الأسعار الرسمي (Proforma Invoice) وإعداد عينات كراتين الشحن المجانية خلال 24 ساعة عمل.`
-        : `Thank you, ${name} from ${company}!\n\nYour commercial wholesale inquiry for delivery to ${port} has been received. Our export division will send the formal proforma quotation and dispatch sample shipper cases within 24 business hours.`;
-      
-      alert(successMsg);
-      
-      document.getElementById('rfq-form').reset();
-      sampleBasket = [];
-      updateBasketUI();
-      renderProducts();
+      const name = document.getElementById('rfq-name')?.value || '';
+      const company = document.getElementById('rfq-company')?.value || '';
+      const email = document.getElementById('rfq-email')?.value || '';
+      const phone = document.getElementById('rfq-phone')?.value || '';
+      const port = document.getElementById('rfq-port')?.value || '';
+      const incoterm = document.getElementById('rfq-incoterm')?.value || 'CIF Destination';
+      const volume = document.getElementById('rfq-volume')?.value || '20ft FCL';
+      const notes = document.getElementById('rfq-notes')?.value || '';
+
       updateProforma();
+      if (typeof updateProformaLineItems === 'function') {
+        updateProformaLineItems();
+      }
+
+      openRFQDispatchModal({ name, company, email, phone, port, incoterm, volume, notes });
+      showToast(currentLang === 'ar' ? 'تم تجهيز ملف طلب التسعير للإرسال المباشر!' : 'Commercial RFQ Dossier prepared for direct dispatch!');
     }
 
     // Mobile Menu Toggle
@@ -10154,6 +10342,7 @@
       if (e.key === 'Escape') {
         closeLightbox();
         closeRFQModal();
+        if (typeof closeRFQDispatchModal === 'function') closeRFQDispatchModal();
         if (typeof closeTurntableModal === 'function') closeTurntableModal();
         if (typeof closeProformaModal === 'function') closeProformaModal();
         if (typeof closeSpecSheetModal === 'function') closeSpecSheetModal();
@@ -10178,9 +10367,12 @@
     };
     let currentCurrency = 'USD';
 
-    function setCurrency(currCode) {
+    function setCurrency(currCode, suppressToast = false) {
       if (!CURRENCIES[currCode]) return;
       currentCurrency = currCode;
+      try {
+        localStorage.setItem('arina_currency', currCode);
+      } catch (e) {}
       const curr = CURRENCIES[currCode];
       
       const labelEl = document.getElementById('currency-current-label');
@@ -10193,7 +10385,9 @@
       if (dropdown) dropdown.classList.add('hidden');
       
       updateProformaLineItems();
-      showToast(currentLang === 'ar' ? `تم تغيير العملة إلى ${curr.name_ar}` : `Pricing currency switched to ${curr.name_en}`);
+      if (!suppressToast) {
+        showToast(currentLang === 'ar' ? `تم تغيير العملة إلى ${curr.name_ar}` : `Pricing currency switched to ${curr.name_en}`);
+      }
     }
 
     function toggleCurrencyDropdown(e) {
@@ -10886,10 +11080,12 @@
       
       setTurntableAngle(0);
       document.getElementById('turntable-modal').classList.remove('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
     }
 
     function closeTurntableModal() {
       document.getElementById('turntable-modal').classList.add('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
     }
 
     function setTurntableAngle(angle) {
@@ -11014,6 +11210,9 @@
           sampleBasket.push(itemSku);
         }
       });
+      try {
+        localStorage.setItem('arina_basket', JSON.stringify(sampleBasket));
+      } catch (e) {}
       updateBasketUI();
       updateProforma();
       renderProducts();
@@ -11026,10 +11225,12 @@
     function openProformaModal() {
       updateProformaLineItems();
       document.getElementById('proforma-modal').classList.remove('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
     }
 
     function closeProformaModal() {
       document.getElementById('proforma-modal').classList.add('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
     }
 
     function printProforma() {
@@ -11174,11 +11375,13 @@
     function openSpecSheetModal() {
       const modal = document.getElementById('spec-sheet-modal');
       if (modal) modal.classList.remove('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
     }
 
     function closeSpecSheetModal() {
       const modal = document.getElementById('spec-sheet-modal');
       if (modal) modal.classList.add('hidden');
+      if (typeof syncBodyScrollLock === 'function') syncBodyScrollLock();
     }
 
     function copySpecSheetData() {
@@ -11415,16 +11618,157 @@ CONTAINER CAPACITY & AXLE GUIDANCE:
       el._odometerRaf = requestAnimationFrame(step);
     }
 
-    // Initialize on load in pristine English
-    window.addEventListener('DOMContentLoaded', () => {
-      initTheme();
+    // -------------------------------------------------------------------------
+    // 18. MODAL SCROLL LOCK, STATE PERSISTENCE & SHAREABLE DEEP-LINKS
+    // -------------------------------------------------------------------------
+    function syncBodyScrollLock() {
+      const modalIds = ['rfq-modal', 'rfq-dispatch-modal', 'lightbox-modal', 'turntable-modal', 'proforma-modal', 'spec-sheet-modal'];
+      const anyOpen = modalIds.some(modalId => {
+        const el = document.getElementById(modalId);
+        return el && !el.classList.contains('hidden');
+      });
+      if (anyOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+
+    let _isRestoringCalcState = false;
+
+    function persistCalculatorState() {
+      if (_isRestoringCalcState) return;
+      try {
+        const containerRadios = document.getElementsByName('containerType');
+        let containerType = '20ft';
+        for (const r of containerRadios) {
+          if (r.checked) containerType = r.value;
+        }
+        const stateObj = {
+          cuc: parseInt(document.getElementById('qty-cucumbers')?.value, 10) || 0,
+          trn: parseInt(document.getElementById('qty-turnips')?.value, 10) || 0,
+          kal: parseInt(document.getElementById('qty-kalamata')?.value, 10) || 0,
+          tou: parseInt(document.getElementById('qty-toum')?.value, 10) || 0,
+          container: containerType,
+          roiMarket: document.getElementById('roi-market')?.value || 'ksa',
+          roiSku: document.getElementById('roi-sku')?.value || 'cucumbers',
+          roiSrp: parseFloat(document.getElementById('roi-srp')?.value) || 17.5,
+          roiStores: parseInt(document.getElementById('roi-stores')?.value, 10) || 25,
+          roiFacings: parseInt(document.getElementById('roi-facings')?.value, 10) || 3
+        };
+        localStorage.setItem('arina_calc_state', JSON.stringify(stateObj));
+      } catch (e) {}
+    }
+
+    function copyShareableConfigLink() {
+      const containerRadios = document.getElementsByName('containerType');
+      let containerType = '20ft';
+      for (const r of containerRadios) {
+        if (r.checked) containerType = r.value;
+      }
+      const params = new URLSearchParams();
+      params.set('lang', currentLang);
+      params.set('curr', currentCurrency);
+      params.set('container', containerType);
+      params.set('cuc', document.getElementById('qty-cucumbers')?.value || '0');
+      params.set('trn', document.getElementById('qty-turnips')?.value || '0');
+      params.set('kal', document.getElementById('qty-kalamata')?.value || '0');
+      params.set('tou', document.getElementById('qty-toum')?.value || '0');
+      if (sampleBasket.length > 0) {
+        params.set('basket', sampleBasket.join(','));
+      }
+      const shareUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}#calculator`;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          showToast(currentLang === 'ar' ? 'تم نسخ رابط الشحنة التفاعلي للمشاركة بنجاح!' : 'Shareable container configuration link copied to clipboard!');
+        }).catch(() => {
+          fallbackCopyText(shareUrl);
+        });
+      } else {
+        fallbackCopyText(shareUrl);
+      }
+    }
+
+    function restoreStateFromUrlAndStorage() {
+      _isRestoringCalcState = true;
       const urlParams = new URLSearchParams(window.location.search);
-      const langParam = urlParams.get('lang');
-      if (langParam === 'ar') {
+
+      // 1. Restore Sample Basket (URL param > localStorage)
+      try {
+        const basketParam = urlParams.get('basket');
+        if (basketParam) {
+          const validIds = basketParam.split(',').filter(itemSku => PRODUCTS.some(p => p.id === itemSku));
+          if (validIds.length > 0) sampleBasket = validIds;
+        } else {
+          const savedBasket = localStorage.getItem('arina_basket');
+          if (savedBasket) {
+            const parsed = JSON.parse(savedBasket);
+            if (Array.isArray(parsed)) {
+              sampleBasket = parsed.filter(itemSku => PRODUCTS.some(p => p.id === itemSku));
+            }
+          }
+        }
+      } catch (e) {}
+
+      // 2. Restore Container & ROI Calculator State (URL params > localStorage)
+      try {
+        const savedCalcRaw = localStorage.getItem('arina_calc_state');
+        const savedCalc = savedCalcRaw ? JSON.parse(savedCalcRaw) : null;
+
+        const setInputVal = (elId, val) => {
+          const el = document.getElementById(elId);
+          if (el && val !== undefined && val !== null && !isNaN(val)) {
+            el.value = val;
+          }
+        };
+
+        if (urlParams.has('cuc') || urlParams.has('trn') || urlParams.has('kal') || urlParams.has('tou')) {
+          if (urlParams.has('cuc')) setInputVal('qty-cucumbers', Math.max(0, parseInt(urlParams.get('cuc'), 10) || 0));
+          if (urlParams.has('trn')) setInputVal('qty-turnips', Math.max(0, parseInt(urlParams.get('trn'), 10) || 0));
+          if (urlParams.has('kal')) setInputVal('qty-kalamata', Math.max(0, parseInt(urlParams.get('kal'), 10) || 0));
+          if (urlParams.has('tou')) setInputVal('qty-toum', Math.max(0, parseInt(urlParams.get('tou'), 10) || 0));
+        } else if (savedCalc) {
+          setInputVal('qty-cucumbers', savedCalc.cuc);
+          setInputVal('qty-turnips', savedCalc.trn);
+          setInputVal('qty-kalamata', savedCalc.kal);
+          setInputVal('qty-toum', savedCalc.tou);
+        }
+
+        const cType = urlParams.get('container') || (savedCalc && savedCalc.container);
+        if (cType && ['20ft', '40ft', 'lcl'].includes(cType)) {
+          const r = document.querySelector(`input[name="containerType"][value="${cType}"]`);
+          if (r) r.checked = true;
+        }
+      } catch (e) {}
+
+      // 3. Restore Currency (URL param > localStorage)
+      try {
+        const currParam = urlParams.get('curr') || localStorage.getItem('arina_currency');
+        if (currParam && CURRENCIES[currParam]) {
+          setCurrency(currParam, true);
+        }
+      } catch (e) {}
+
+      _isRestoringCalcState = false;
+
+      // 4. Restore Language (URL param > localStorage > default 'en')
+      let targetLang = urlParams.get('lang');
+      if (!targetLang) {
+        try {
+          targetLang = localStorage.getItem('arina_lang');
+        } catch (e) {}
+      }
+      if (targetLang === 'ar') {
         switchLanguage('ar');
       } else {
         switchLanguage('en');
       }
+    }
+
+    // Initialize on load in pristine English (or restored buyer session)
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      restoreStateFromUrlAndStorage();
       init3DTiltEngine();
       initAmbientCursorSpotlight();
       initDockScrollBehavior();

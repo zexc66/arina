@@ -2,8 +2,10 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/", "destination": "/website", "permanent": false }
+  "rewrites": [
+    { "source": "/", "destination": "/website.html" },
+    { "source": "/website", "destination": "/website.html" },
+    { "source": "/deck", "destination": "/index.html" }
   ],
   "headers": [
     {
@@ -25,6 +27,33 @@
     },
     {
       "source": "/(output/imagery/.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(output/dielines/.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/arina-logo-gold.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/styles/tailwind-compiled.css",
       "headers": [
         {
           "key": "Cache-Control",
