@@ -2,8 +2,10 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/website", "permanent": false }
+  ],
   "rewrites": [
-    { "source": "/", "destination": "/website.html" },
     { "source": "/website", "destination": "/website.html" },
     { "source": "/deck", "destination": "/index.html" }
   ],
